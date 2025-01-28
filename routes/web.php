@@ -11,7 +11,7 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
 
 Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/', function () {
-        return 'ADMIN';
+        return view('admin.pages.index');
     });
 });
 
