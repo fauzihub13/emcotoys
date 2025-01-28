@@ -1,4 +1,4 @@
-@extends('admin.pages.layouts.app')
+@extends('admin.layouts.app')
 
 @section('title', 'Dashboard')
 
@@ -16,9 +16,7 @@
         <section class="row">
 
             <div class="col-12 col-lg-9">
-
                 <div class="row">
-
                     <div class="col-6 col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body px-4 py-4-5">
@@ -330,7 +328,7 @@
 
         </section>
     </div>
-    
+
 @endsection
 
 @push('script')
