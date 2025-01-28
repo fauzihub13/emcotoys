@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
@@ -13,15 +15,20 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/', function () {
         return view('admin.pages.index');
     });
-    Route::get('/login', function () {
-        return view('admin.pages.auth.login');
+
+    // Dashboard
+    Route::controller(DashboardController::class)->group(function(){
+        Route::get('/', 'dashboardPage')->name('home');
     });
-    Route::get('/register', function () {
-        return view('admin.pages.auth.register');
+
+    // Auth
+    Route::controller(AuthController::class)->group(function(){
+        Route::get('/login', 'loginPage')->name('login');
+        Route::get('/register', 'registerPage')->name('register');
+        Route::get('/forgot-password', 'forgotPasswordPage')->name('forgot-password');
     });
-    Route::get('/forgot-password', function () {
-        return view('admin.pages.auth.forgot-password');
-    });
+
+
 });
 
 
