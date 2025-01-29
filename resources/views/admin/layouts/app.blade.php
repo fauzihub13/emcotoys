@@ -43,7 +43,7 @@
 
     <script src="{{ asset('assets/admin/compiled/js/app.js') }}"></script>
 
-    @yield('script')
+    @stack('script')
 
 </body>
 
