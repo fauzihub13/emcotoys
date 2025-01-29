@@ -52,17 +52,18 @@ class FortifyServiceProvider extends ServiceProvider
             return view('admin.pages.auth.register');
         });
 
-        // Fortify::requestPasswordResetLinkView(function () {
-        //     return view('admin.pages.auth.forgot-password');
-        // });
+        Fortify::requestPasswordResetLinkView(function () {
+            return view('admin.pages.auth.forgot-password');
+        });
 
-        // Fortify::verifyEmailView(function () {
-        //     return view('pages.auth.verify-email');
-        // });
+        Fortify::resetPasswordView(function (Request $request) {
+            return view('admin.pages.auth.reset-password', ['request' => $request]);
+        });
+
+        Fortify::verifyEmailView(function () {
+            return view('admin.pages.auth.verify-email');
+        });
 
 
-        // Fortify::resetPasswordView(function (Request $request) {
-        //     return view('pages.auth.reset-password', ['request' => $request]);
-        // });
     }
 }

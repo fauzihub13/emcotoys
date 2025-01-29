@@ -11,7 +11,7 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
 });
 
 
-Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth'])->group(function (){
+Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth', 'verified'])->group(function (){
     Route::get('/', function () {
         return view('admin.pages.index');
     });
