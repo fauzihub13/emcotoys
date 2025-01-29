@@ -26,6 +26,9 @@
         @include('admin.components.sidebar')
 
         <div id="main">
+            
+            {{-- Header --}}
+            @include('admin.components.header')
 
             <!-- Content -->
             @yield('main')
