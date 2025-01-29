@@ -5,7 +5,7 @@
     <div class="row h-100">
         <div class="col-lg-5 col-12">
             <div id="auth-left">
-                <h1 class="">Sign Up</h1>
+                <h1 class="">Register</h1>
                 <p class="mb-3">Input your data to register to our website.</p>
 
                 @if (session('status'))
@@ -91,7 +91,10 @@
                         @enderror
                     </div>
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="password" class="form-control form-control-xl @error('password_confirmation') is-invalid @enderror" placeholder="Confirm Password" name="password_confirmation">
+                        <input type="password"
+                            class="form-control form-control-xl @error('password_confirmation') is-invalid @enderror"
+                            placeholder="Confirm Password"
+                            name="password_confirmation">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
@@ -102,10 +105,10 @@
                             </div>
                         @enderror
                     </div>
-                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-4">Sign Up</button>
+                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-4">Register</button>
                 </form>
                 <div class="text-center mt-4 fs-5">
-                    <p class='text-gray-600'>Already have an account? <a href="{{ route('login') }}" class="font-bold">Log in</a>.</p>
+                    <p class='text-gray-600'>Already have an account? <a href="{{ route('login') }}" class="font-bold">Log in</a></p>
                 </div>
             </div>
         </div>
