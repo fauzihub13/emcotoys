@@ -48,10 +48,10 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
 
-                    @elseif (session('status'))
+                    @elseif (session('error'))
                         <div class="alert alert-danger alert-dismissible show fade">
                             Failed to update profile. Please try again.
-                            {{ session('status') }}
+                            {{ session('error') }}
 
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
@@ -113,6 +113,97 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <div class="page-title mt-3">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>Account Security</h3>
+                    <p class="text-subtitle text-muted">You can change account security settings</p>
+                </div>
+
+            </div>
+        </div>
+        <section class="section">
+            <div class="row">
+                <div class="col-12">
+                    @if (session('status') == 'password-updated')
+                            <div class="alert alert-success alert-dismissible show fade">
+                                Password updated successfully.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+
+                        @elseif (session('error'))
+                            <div class="alert alert-danger alert-dismissible show fade">
+                                Failed to change password. Please try again.
+                                {{ session('error') }}
+
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Change Password</h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="{{ route('user-password.update') }}" method="POST">
+                                @method('PUT')
+                                @csrf
+                                <div class="form-group my-2">
+                                    <label for="current_password" class="form-label">Current Password</label>
+                                    <input type="password"
+                                        name="current_password"
+                                        id="current_password"
+                                        class="form-control @error('current_password', 'updatePassword') is-invalid  @enderror"
+                                        placeholder="Enter your current password"
+                                        value="">
+                                    @error('current_password', 'updatePassword')
+                                        <div class="invalid-feedback">
+                                            <i class="bx bx-radio-circle"></i>
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group my-2">
+                                    <label for="password" class="form-label">New Password</label>
+                                    <input type="password"
+                                        name="password"
+                                        id="password"
+                                        class="form-control @error('password', 'updatePassword') is-invalid  @enderror"
+                                        placeholder="Enter new password"
+                                        value="">
+                                    @error('password', 'updatePassword')
+                                        <div class="invalid-feedback">
+                                            <i class="bx bx-radio-circle"></i>
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group my-2">
+                                    <label for="password_confirmation" class="form-label">Confirm Password</label>
+                                    <input type="password"
+                                        name="password_confirmation"
+                                        id="confirm_password"
+                                        class="form-control  @error('password_confirmation', 'updatePassword') is-invalid @enderror"
+                                        placeholder="Enter confirm password"
+                                        value="">
+                                    @error('password_confirmation', 'updatePassword')
+                                        <div class="invalid-feedback">
+                                            <i class="bx bx-radio-circle"></i>
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group mt-4 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     </div>
