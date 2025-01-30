@@ -43,15 +43,15 @@
                 <li class="sidebar-title">Menu</li>
 
                 <li
-                    class="sidebar-item active ">
+                    class="sidebar-item {{ isset($type_menu) ? '' : 'active' }} ">
                     <a href="/" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li
-                    class="sidebar-item ">
-                    <a href="#" class='sidebar-link'>
+                    class="sidebar-item {{ isset($type_menu) && $type_menu == 'profile' ? 'active' : ''  }}">
+                    <a href="{{ route('user.update-profile-page') }}" class='sidebar-link'>
                         <i class="bi bi-person-circle"></i>
                         <span>Account</span>
                     </a>

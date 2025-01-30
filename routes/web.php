@@ -23,6 +23,8 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
 
     // Auth
     Route::controller(AuthController::class)->group(function(){
+        Route::get('/profile', 'updateProfilePage')->name('user.update-profile-page');
+
     });
 
 
