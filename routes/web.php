@@ -23,9 +23,6 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
 
     // Auth
     Route::controller(AuthController::class)->group(function(){
-        // Route::get('/login', 'loginPage')->name('login');
-        // Route::get('/register', 'registerPage')->name('register');
-        Route::get('/forgot-password', 'forgotPasswordPage')->name('forgot-password');
     });
 
 

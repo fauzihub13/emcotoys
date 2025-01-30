@@ -44,15 +44,41 @@
 
                 <li
                     class="sidebar-item active ">
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="/" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
-
-
+                </li>
+                <li
+                    class="sidebar-item ">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-person-circle"></i>
+                        <span>Account</span>
+                    </a>
+                </li>
+                <li
+                    class="sidebar-item ">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <span>Article</span>
+                    </a>
+                </li>
+                <li
+                    class="sidebar-item ">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-handbag-fill"></i>
+                        <span>Product</span>
+                    </a>
+                </li>
+                <li
+                    class="sidebar-item ">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-shop-window"></i>
+                        <span>Marketplace</span>
+                    </a>
                 </li>
 
-                
+
                 {{-- LOGOUT --}}
                 <li
                     class="sidebar-item  ">
