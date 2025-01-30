@@ -30,6 +30,7 @@
                         <input type="text"
                             class="form-control form-control-xl @error('email') is-invalid @enderror"
                             name='email'
+                            autocomplete="email"
                             placeholder="Email">
                         <div class="form-control-icon">
                             <i class="bi bi-envelope"></i>
