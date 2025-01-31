@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
@@ -24,6 +25,11 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
     // Auth
     Route::controller(AuthController::class)->group(function(){
         Route::get('/profile', 'updateProfilePage')->name('user.update-profile-page');
+    });
+
+    // User
+    Route::controller(UserController::class)->group(function(){
+        Route::get('/users', 'userListPage')->name('user.list-page');
 
     });
 

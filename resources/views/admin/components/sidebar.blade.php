@@ -61,6 +61,16 @@
                         <span>Account</span>
                     </a>
                 </li>
+                @if (auth()->user()->role == 'super_admin')
+                    <li
+                        class="sidebar-item {{ isset($type_menu) && $type_menu == 'users' ? 'active' : ''  }}">
+                        <a href="{{ route('user.list-page') }}" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                            <span>Users</span>
+                        </a>
+                    </li>
+                @endif
+
                 <li
                     class="sidebar-item ">
                     <a href="#" class='sidebar-link'>
