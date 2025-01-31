@@ -32,6 +32,7 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
         Route::get('/users', 'userListPage')->name('user.list-page');
         Route::get('/users/edit/{user}', 'editUserPage')->name('user.edit-user');
         Route::put('/users/edit/{user}', 'updateUser')->name('user.update-user');
+        Route::delete('/users/delete/{user}', 'deleteUser')->name('user.delete-user');
 
     });
 

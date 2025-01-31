@@ -3,8 +3,11 @@
 @section('title', 'User')
 
 @push('style')
+    <link rel="stylesheet" href="{{ asset ("assets/admin/extensions/sweetalert2/sweetalert2.min.css") }}">
+    <link rel="stylesheet" href="{{ asset ('assets/admin/compiled/css/extra-component-sweetalert.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/compiled/css/table-datatable-jquery.css') }}">
+
 @endpush
 
 @section('main')
@@ -68,18 +71,25 @@
                                             <td>{{ ucwords(str_replace('_',' ', $user->role)) }}</td>
                                             <td>
                                                 <div class="d-flex gap-2 justify-content-center">
-                                                    <a href="#" class="btn icon btn-light"><i class="bi bi-eye"></i></a>
-                                                    <a href="{{ route('user.edit-user', $user) }}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
-                                                    <a href="#" class="btn icon btn-danger"><i class="bi bi-trash"></i></a>
+                                                    {{-- <a href="#" class="btn icon btn-light"><i class="bi bi-eye"></i></a> --}}
+                                                    <a href="{{ route('user.edit-user', $user) }}" class="btn icon btn-primary">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </a>
+                                                    <button class="btn icon btn-danger confirm-delete"
+                                                        data-id="{{ $user->id }}" >
+                                                            <i class="bi bi-trash"></i>
+                                                    </button>
+                                                    <form id="delete-user-form" action="" method="POST" style="display: none;">
+                                                        <input type="hidden" name="_method" value="DELETE" />
+                                                        <input type="hidden" name="_token"
+                                                            value="{{ csrf_token() }}" />
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
                                     @endforeach
 
-
                                 @endif
-
-
 
                             </tbody>
                         </table>
@@ -94,7 +104,9 @@
 
 @push('script')
     <script src="{{ asset ('assets/admin/extensions/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset ('assets/admin/extensions/sweetalert2/sweetalert2.min.js') }}"></script>>
     <script src="{{ asset ('assets/admin/extensions/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset ('assets/admin/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset ('assets/admin/static/js/pages/datatables.js') }}"></script>
+    <script src="{{ asset ('assets/admin/custom/js/list-user.js') }}"></script>
 @endpush

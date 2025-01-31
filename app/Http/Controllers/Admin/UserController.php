@@ -52,4 +52,16 @@ class UserController extends Controller
 
         }
     }
+    public function deleteUser(User $user) {
+        try {
+            $user = User::findOrFail($user->id);
+            $user->delete();
+
+            return redirect()->route('user.list-page')->with('status', 'User deleted successfully.');
+
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Failed to delete user. Please try again.' . $th->getMessage());
+
+        }
+    }
 }
