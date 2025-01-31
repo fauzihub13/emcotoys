@@ -8,7 +8,7 @@ class AuthController extends Controller
 {
     public function updateProfilePage(){
 
-        return view('admin.pages.user.edit', [
+        return view('admin.pages.user.edit-profile', [
             'type_menu' => 'profile'
         ]);
    }
