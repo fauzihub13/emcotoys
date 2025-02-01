@@ -6,7 +6,7 @@
                 <div class="logo">
                     <a href="{{ route('home') }}">
                         <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmSgLMJNJrGazi7iVwGkTZIWJtFaycTD96Lw&s"
+                            src="{{ asset ('assets/admin/static/images/logo/icon-emcotoys.png') }}" class="icon-sidebar"
                             alt="Logo"
                             srcset="">
                     </a>
