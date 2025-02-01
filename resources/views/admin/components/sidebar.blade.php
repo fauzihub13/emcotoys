@@ -75,7 +75,7 @@
                 @endif
 
                 <li
-                    class="sidebar-item {{ isset($type_menu) && $type_menu == 'article-category' ? 'active' : ''  }} has-sub">
+                    class="sidebar-item {{ isset($type_menu) && ($type_menu == 'article-category' || $type_menu == 'article') ? 'active' : '' }} has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-file-earmark-text-fill"></i>
                         <span>Article</span>
@@ -83,18 +83,13 @@
 
                     {{-- Sub Menu --}}
                     <ul class="submenu">
-
                         <li class="submenu-item {{ isset($type_menu) && $type_menu == 'article-category' ? 'active' : ''  }}">
                             <a href="{{ route('article.category.index') }}" class="submenu-link">Category</a>
                         </li>
 
-                        <li class="submenu-item  ">
-                            <a href="#" class="submenu-link">Articles</a>
-
+                        <li class="submenu-item  {{ isset($type_menu) && $type_menu == 'article' ? 'active' : ''  }}">
+                            <a href="{{ route('article.index') }}" class="submenu-link">Articles</a>
                         </li>
-
-
-
                     </ul>
                 </li>
                 <li

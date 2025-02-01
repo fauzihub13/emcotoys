@@ -6,19 +6,23 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ArticleCategory extends Model
+class Article extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $table = 'article_categories';
+    protected $table = 'articles';
     protected $fillable=[
+        'category_id',
         'slug',
-        'name',
+        'thumbnail',
+        'title',
+        'body',
         'created_at',
         'updated_at',
+        'deleted_at',
     ];
 
-    public function article(){
-        return $this->hasMany(Article::class);
+    public function category(){
+        return $this->belongsTo(ArticleCategory::class);
     }
 }

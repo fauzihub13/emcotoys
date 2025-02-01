@@ -47,6 +47,7 @@
 
     <script src="{{ asset('assets/admin/compiled/js/app.js') }}"></script>
 
+
     @stack('script')
 
 </body>

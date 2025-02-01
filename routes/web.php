@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ArticleCategoryController;
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
@@ -42,6 +43,11 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
             'category' => ArticleCategoryController::class,
         ], ['as' => 'article']);
     });
+
+    // Article
+    Route::resources([
+        'article' => ArticleController::class,
+    ]);
 
 });
 

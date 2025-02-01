@@ -27,8 +27,7 @@ class ArticleCategoryController extends Controller
     public function create()
     {
         return view('admin.pages.article-category.create', [
-            'type_menu' => 'article-category',
-            'categories' => ArticleCategory::all()
+            'type_menu' => 'article-category'
         ]);
     }
 
