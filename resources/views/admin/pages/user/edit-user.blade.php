@@ -94,12 +94,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="role" class="form-label">Phone Number</label>
-                                     <select
-                                        class="choices form-select  @error('role') is-invalid @enderror"
-                                        name="role">
-                                        <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
-                                        <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                                        <option value="super_admin" {{ $user->role == 'super_admin' ? 'selected' : '' }}>Super Admin</option>
+                                    
+                                    @php
+                                        $roles = ['user' => 'User', 'admin' => 'Admin', 'super_admin' => 'Super Admin'];
+                                    @endphp
+
+                                    <select class="choices form-select @error('role') is-invalid @enderror" name="role">
+                                        @foreach($roles as $value => $label)
+                                            <option value="{{ $value }}" {{ $user->role == $value ? 'selected' : '' }}>{{ $label }}</option>
+                                        @endforeach
                                     </select>
                                     @error('role')
                                         <div class="invalid-feedback">

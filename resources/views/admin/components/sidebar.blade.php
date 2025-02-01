@@ -98,9 +98,9 @@
                 <li
                     class="sidebar-item  ">
                     <a href="#"
-                        class='sidebar-link'
+                        class='sidebar-link custom-color-red'
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit()">
-                        <i class="bi bi-box-arrow-left"></i>
+                    <i class="bi bi-box-arrow-left custom-color-red"></i>
                         <span>Logout</span>
                     </a>
 

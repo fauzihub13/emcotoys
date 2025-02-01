@@ -1,0 +1,11 @@
+
+/* COLOR LIBRARY */
+:root {
+    --color-primary: #B8001F;
+    --color-primary-dark: darken(#3498db, 10%);
+    --color-primary-light: lighten(#3498db, 10%);
+}
+
+.custom-color-red {
+    color: var(--color-primary) !important
+}

@@ -28,7 +28,7 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
     });
 
     // User
-    Route::controller(UserController::class)->group(function(){
+    Route::controller(UserController::class)->middleware(['roleCheck:super_admin'])->group(function(){
         Route::get('/users', 'userListPage')->name('user.list-page');
         Route::get('/users/edit/{user}', 'editUserPage')->name('user.edit-user');
         Route::put('/users/edit/{user}', 'updateUser')->name('user.update-user');
