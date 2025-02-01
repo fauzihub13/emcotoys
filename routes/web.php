@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleCategoryController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
@@ -33,9 +34,14 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
         Route::get('/users/edit/{user}', 'editUserPage')->name('user.edit-user');
         Route::put('/users/edit/{user}', 'updateUser')->name('user.update-user');
         Route::delete('/users/delete/{user}', 'deleteUser')->name('user.delete-user');
-
     });
 
+    // Article Category
+    Route::prefix('article')->group(function () {
+        Route::resources([
+            'category' => ArticleCategoryController::class,
+        ], ['as' => 'article']);
+    });
 
 });
 

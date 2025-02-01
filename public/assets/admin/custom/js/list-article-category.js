@@ -8,9 +8,9 @@ $(".confirm-delete").click(function () {
         confirmButtonColor: "#d33",
     }).then((result) => {
         if (result.isConfirmed) {
-            document.getElementById("delete-user-form").action =
-                "/users/delete/" + id;
-            document.getElementById("delete-user-form").submit();
+            document.getElementById("delete-article-category-form").action =
+                "/article/category/" + id;
+            document.getElementById("delete-article-category-form").submit();
         } else {
             swal.fire("Your data is safe.");
         }

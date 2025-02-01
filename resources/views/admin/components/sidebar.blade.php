@@ -1,9 +1,10 @@
 <div id="sidebar">
     <div class="sidebar-wrapper active">
+
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="{{ route('home') }}">
                         <img
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmSgLMJNJrGazi7iVwGkTZIWJtFaycTD96Lw&s"
                             alt="Logo"
@@ -43,6 +44,7 @@
                 </div>
             </div>
         </div>
+
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
@@ -61,6 +63,7 @@
                         <span>Account</span>
                     </a>
                 </li>
+
                 @if (auth()->user()->role == 'super_admin')
                     <li
                         class="sidebar-item {{ isset($type_menu) && $type_menu == 'users' ? 'active' : ''  }}">
@@ -72,11 +75,27 @@
                 @endif
 
                 <li
-                    class="sidebar-item ">
+                    class="sidebar-item {{ isset($type_menu) && $type_menu == 'article-category' ? 'active' : ''  }} has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-file-earmark-text-fill"></i>
                         <span>Article</span>
                     </a>
+
+                    {{-- Sub Menu --}}
+                    <ul class="submenu">
+
+                        <li class="submenu-item {{ isset($type_menu) && $type_menu == 'article-category' ? 'active' : ''  }}">
+                            <a href="{{ route('article.category.index') }}" class="submenu-link">Category</a>
+                        </li>
+
+                        <li class="submenu-item  ">
+                            <a href="#" class="submenu-link">Articles</a>
+
+                        </li>
+
+
+
+                    </ul>
                 </li>
                 <li
                     class="sidebar-item ">

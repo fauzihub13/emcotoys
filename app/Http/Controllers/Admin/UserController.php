@@ -18,11 +18,16 @@ class UserController extends Controller
     }
 
     public function editUserPage(User $user) {
-        $data =  User::find($user->id);
-        return view('admin.pages.user.edit-user', [
-            'type_menu' => 'users',
-            'user' => $data,
-        ]);
+        try {
+            $data =  User::find($user->id);
+            return view('admin.pages.user.edit-user', [
+                'type_menu' => 'users',
+                'user' => $data,
+            ]);
+        } catch (\Throwable $th) {
+            return back();
+        }
+
     }
 
     public function updateUser(Request $request, User $user) {
@@ -49,7 +54,6 @@ class UserController extends Controller
 
         } catch (\Throwable $th) {
             return back()->with('error', 'Failed to update user. Please try again.' . $th->getMessage());
-
         }
     }
     public function deleteUser(User $user) {
