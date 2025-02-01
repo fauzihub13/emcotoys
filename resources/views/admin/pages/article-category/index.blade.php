@@ -23,15 +23,15 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('article.category.index') }}">Article</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('article.index') }}">Article</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Category</li>
                         </ol>
                     </nav>
                 </div>
             </div>
-            @if (session('status'))
+            @if (session('success'))
                 <div class="alert alert-success alert-dismissible show fade">
-                    {{ session('status') }}
+                    {{ session('success') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
 

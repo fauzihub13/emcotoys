@@ -90,7 +90,6 @@ class ArticleCategoryController extends Controller
         } catch (\Throwable $th) {
             return back();
         }
-
     }
 
     /**
