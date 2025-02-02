@@ -40,7 +40,7 @@ class MarketPlaceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name'=>'required|string|min:3|max:255',
-            'url'=>'required|string|min:3',
+            'url'=>['required', 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/'],
             'image'=>'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -109,7 +109,7 @@ class MarketPlaceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name'=>'required|string|min:3|max:255',
-            'url'=>'required|string|min:3',
+            'url'=>['required', 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/'],
             'image'=>'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
