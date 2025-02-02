@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Create Article')
+@section('title', 'Create Marketplace')
 
 @push('style')
     <link rel="stylesheet" href="{{ asset('assets/admin/extensions/choices.js/public/assets/styles/choices.css') }}">
@@ -12,14 +12,14 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Create Article</h3>
-                    <p class="text-subtitle text-muted">A page where users can create new article category</p>
+                    <h3>Create Marketplace</h3>
+                    <p class="text-subtitle text-muted">A page where users can create new marketplace</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('article.index') }}">Article</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('marketplace.index') }}">Marketplace</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Create</li>
                         </ol>
                     </nav>
@@ -44,16 +44,16 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('marketplace.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="imageInput" class="form-label">Thumbnail</label>
-                                    <input class="form-control @error('thumbnail') is-invalid @enderror"
+                                    <label for="imageInput" class="form-label">Icon</label>
+                                    <input class="form-control @error('image') is-invalid @enderror"
                                         type="file"
                                         accept=".jpeg, .png, .jpg"
                                         id="imageInput"
-                                        name='thumbnail'>
-                                    @error('thumbnail')
+                                        name='image'>
+                                    @error('image')
                                         <div class="invalid-feedback">
                                             <i class="bx bx-radio-circle"></i>
                                             {{ $message }}
@@ -67,13 +67,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="title" class="form-label">Title</label>
+                                    <label for="name" class="form-label">Name</label>
                                     <input type="text"
-                                        name="title" id="title"
-                                        class="form-control @error('title') is-invalid @enderror"
-                                        placeholder="Article title"
-                                        value="{{ old('title') }}">
-                                    @error('title')
+                                        name="name"
+                                        id="name"
+                                        class="form-control @error('name') is-invalid @enderror"
+                                        placeholder="Marketplace name"
+                                        value="{{ old('name') }}">
+                                    @error('name')
                                         <div class="invalid-feedback">
                                             <i class="bx bx-radio-circle"></i>
                                             {{ $message }}
@@ -82,26 +83,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="category_id" class="form-label">Category</label>
-                                    <select class="choices form-select @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
-                                        @foreach($categories as $category)
-                                            <option value="{{ $category->id }}" >{{ ucfirst($category->name) }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('category_id')
-                                        <div class="invalid-feedback">
-                                            <i class="bx bx-radio-circle"></i>
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="body" class="form-label">Body</label>
-                                    <textarea class="form-control @error('body') is-invalid @enderror"
-                                        id="body" name="body"
-                                        rows="6">{{ old('body') }}</textarea>
-                                    @error('body')
+                                    <label for="url" class="form-label">Url</label>
+                                    <input type="text"
+                                        name="url"
+                                        id="url"
+                                        class="form-control @error('url') is-invalid @enderror"
+                                        placeholder="Marketplace url"
+                                        value="{{ old('url') }}">
+                                    @error('url')
                                         <div class="invalid-feedback">
                                             <i class="bx bx-radio-circle"></i>
                                             {{ $message }}

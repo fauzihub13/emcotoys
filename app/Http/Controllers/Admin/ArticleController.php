@@ -55,14 +55,15 @@ class ArticleController extends Controller
                 $path = $request->file('thumbnail')->store("images/articles", 'public');
             }
 
-            // Create Slug
             $slug = Str::slug($request->title);
 
-            // Validate slug
-            $count = Article::where('title', $slug)->count();
-            if ($count) {
-                // Unique slug by adding number
-                $slug .= '-' . ($count + 1);
+            // Check for existing slugs
+            $originalSlug = $slug;
+            $counter = 1;
+
+            while (Article::where('slug', $slug)->exists()) {
+                $slug = $originalSlug . '-' . $counter;
+                $counter++;
             }
 
             $articleCategory = new Article();
@@ -73,7 +74,7 @@ class ArticleController extends Controller
             $articleCategory->body = $request->body;
             $articleCategory->save();
 
-            return redirect()->route('article.index')->with('status', 'Article created successfully.');
+            return redirect()->route('article.index')->with('success', 'Article created successfully.');
 
         } catch (\Throwable $th) {
             return back()->with('error', 'Failed to create article . Please try again.' . $th->getMessage());
@@ -123,11 +124,11 @@ class ArticleController extends Controller
         }
 
         try {
-            $articleCategory = Article::find($article->id);
+            $article = Article::find($article->id);
 
             if($request->hasFile('thumbnail')){
                 $path = $request->file('thumbnail')->store("images/articles", 'public');
-                $articleCategory->thumbnail = $path;
+                $article->thumbnail = $path;
             }
 
             // Create Slug
@@ -135,18 +136,26 @@ class ArticleController extends Controller
 
             // Validate slug
             if ($slug != $article->slug) {
-                $count = Article::where('title', $slug)->count();
-                if ($count) {
-                    // Unique slug by adding number
-                    $slug .= '-' . ($count + 1);
+               $slug = Str::slug($request->title);
+
+                // Check for existing slugs
+                $originalSlug = $slug;
+                $counter = 1;
+
+                while (Article::where('slug', $slug)->exists()) {
+                    $slug = $originalSlug . '-' . $counter;
+                    $counter++;
                 }
-                $articleCategory->slug = $slug;
+                $article->slug = $slug;
+
             }
 
-            $articleCategory->category_id = $request->category_id;
-            $articleCategory->title = $request->title;
-            $articleCategory->body = $request->body;
-            $articleCategory->save();
+            $article->category_id = $request->category_id;
+            $article->title = $request->title;
+            $article->body = $request->body;
+            $article->updated_at = Carbon::now();
+
+            $article->save();
 
             return redirect()->route('article.index')->with('success', 'Article updated successfully.');
 

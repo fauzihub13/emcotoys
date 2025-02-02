@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ArticleCategory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Str;
@@ -46,14 +47,15 @@ class ArticleCategoryController extends Controller
 
         try {
 
-            // Create Slug
             $slug = Str::slug($request->name);
 
-            // Validate slug
-            $count = ArticleCategory::where('slug', $slug)->count();
-            if ($count) {
-                // Unique slug by adding number
-                $slug .= '-' . ($count + 1);
+            // Check for existing slugs
+            $originalSlug = $slug;
+            $counter = 1;
+
+            while (ArticleCategory::where('slug', $slug)->exists()) {
+                $slug = $originalSlug . '-' . $counter;
+                $counter++;
             }
 
             $articleCategory = new ArticleCategory();
@@ -61,7 +63,7 @@ class ArticleCategoryController extends Controller
             $articleCategory->slug = $slug;
             $articleCategory->save();
 
-            return redirect()->route('article.category.index')->with('status', 'Article category created successfully.');
+            return redirect()->route('article.category.index')->with('success', 'Article category created successfully.');
 
         } catch (\Throwable $th) {
             return back()->with('error', 'Failed to create Article category. Please try again.' . $th->getMessage());
@@ -106,25 +108,32 @@ class ArticleCategoryController extends Controller
         }
 
         try {
+            $articleCategory = ArticleCategory::find($category->id);
 
             // Create Slug
             $slug = Str::slug($request->name);
 
             // Validate slug
             if ($slug != $category->slug) {
-                $count = ArticleCategory::where('slug', $slug)->count();
-                if ($count) {
-                    // Unique slug by adding number
-                    $slug .= '-' . ($count + 1);
+                $slug = Str::slug($request->name);
+
+                // Check for existing slugs
+                $originalSlug = $slug;
+                $counter = 1;
+
+                while (ArticleCategory::where('slug', $slug)->exists()) {
+                    $slug = $originalSlug . '-' . $counter;
+                    $counter++;
                 }
+                $articleCategory->slug = $slug;
+
             }
 
-            $articleCategory = ArticleCategory::find($category->id);
             $articleCategory->name = $request->name;
-            $articleCategory->slug = $slug;
+            $articleCategory->updated_at = Carbon::now();
             $articleCategory->save();
 
-            return redirect()->route('article.category.index')->with('status', 'Article category created successfully.');
+            return redirect()->route('article.category.index')->with('success', 'Article category created successfully.');
 
         } catch (\Throwable $th) {
             return back()->with('error', 'Failed to update article category. Please try again. ' . $th->getMessage());

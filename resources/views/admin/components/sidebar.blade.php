@@ -93,17 +93,35 @@
                     </ul>
                 </li>
                 <li
-                    class="sidebar-item ">
+                    class="sidebar-item {{ isset($type_menu) && ($type_menu == 'product-category' || $type_menu == 'product') ? 'active' : '' }} has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-handbag-fill"></i>
                         <span>Product</span>
+                    </a>
+
+                    {{-- Sub Menu --}}
+                    <ul class="submenu">
+                        <li class="submenu-item {{ isset($type_menu) && $type_menu == 'product-category' ? 'active' : ''  }}">
+                            <a href="#" class="submenu-link">Category</a>
+                        </li>
+
+                        <li class="submenu-item  {{ isset($type_menu) && $type_menu == 'product' ? 'active' : ''  }}">
+                            <a href="#" class="submenu-link">Products</a>
+                        </li>
+                    </ul>
+                </li>
+                <li
+                    class="sidebar-item  {{ isset($type_menu) && ($type_menu == 'marketplace') ? 'active' : '' }}">
+                    <a href="{{ route('marketplace.index') }}" class='sidebar-link'>
+                        <i class="bi bi-shop-window"></i>
+                        <span>Marketplace</span>
                     </a>
                 </li>
                 <li
                     class="sidebar-item ">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-shop-window"></i>
-                        <span>Marketplace</span>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Store</span>
                     </a>
                 </li>
 

@@ -30,9 +30,9 @@
         <section class="section">
             <div class="row">
                 <div class="col-12">
-                    @if (session('status'))
+                    @if (session('success'))
                         <div class="alert alert-success alert-dismissible show fade">
-                            {{ session('status') }}
+                            {{ session('success') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
 
