@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('name');
             $table->string('url');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
 

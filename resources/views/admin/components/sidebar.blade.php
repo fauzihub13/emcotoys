@@ -111,15 +111,15 @@
                     </ul>
                 </li>
                 <li
-                    class="sidebar-item  {{ isset($type_menu) && ($type_menu == 'marketplace') ? 'active' : '' }}">
+                    class="sidebar-item {{ isset($type_menu) && ($type_menu == 'marketplace') ? 'active' : '' }}">
                     <a href="{{ route('marketplace.index') }}" class='sidebar-link'>
                         <i class="bi bi-shop-window"></i>
                         <span>Marketplace</span>
                     </a>
                 </li>
                 <li
-                    class="sidebar-item ">
-                    <a href="#" class='sidebar-link'>
+                    class="sidebar-item {{ isset($type_menu) && ($type_menu == 'store') ? 'active' : '' }}">
+                    <a href="{{ route('store.index') }}" class='sidebar-link'>
                         <i class="bi bi-geo-alt-fill"></i>
                         <span>Store</span>
                     </a>

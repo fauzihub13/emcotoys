@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MarketPlaceController;
+use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +50,7 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
     Route::resources([
         'article' => ArticleController::class,
         'marketplace' => MarketPlaceController::class,
+        'store' => StoreController::class,
     ]);
 
 });
