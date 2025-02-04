@@ -148,7 +148,7 @@ class MarketPlaceController extends Controller
             $marketplace->updated_at = Carbon::now();
             $marketplace->save();
 
-            return redirect()->route('marketplace.index')->with('status', 'Marketplace created successfully.');
+            return redirect()->route('marketplace.index')->with('status', 'Marketplace updated successfully.');
 
         } catch (\Throwable $th) {
             return back()->with('error', 'Failed to update Marketplace. Please try again. ' . $th->getMessage());

@@ -53,6 +53,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Name</th>
+                                    <th>Maps</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -63,16 +64,17 @@
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
                                             <td>{{ $store->name }}</td>
+                                            <td><a href="{{ $store->url }}">Link Google Maps</a></td>
                                             <td>
                                                 <div class="d-flex gap-2 justify-content-center">
-                                                    <a href="{{ route('article.store.edit', $store) }}" class="btn icon btn-primary">
+                                                    <a href="{{ route('store.edit', $store) }}" class="btn icon btn-primary">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
                                                     <button class="btn icon btn-danger confirm-delete"
                                                         data-id="{{ $store->id }}" >
                                                             <i class="bi bi-trash"></i>
                                                     </button>
-                                                    <form id="delete-store-category-form" action="" method="POST" style="display: none;">
+                                                    <form id="delete-store-form" action="" method="POST" style="display: none;">
                                                         <input type="hidden" name="_method" value="DELETE" />
                                                         <input type="hidden" name="_token"
                                                             value="{{ csrf_token() }}" />
