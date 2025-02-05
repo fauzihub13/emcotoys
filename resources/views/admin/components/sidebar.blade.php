@@ -102,7 +102,7 @@
                     {{-- Sub Menu --}}
                     <ul class="submenu">
                         <li class="submenu-item {{ isset($type_menu) && $type_menu == 'product-category' ? 'active' : ''  }}">
-                            <a href="#" class="submenu-link">Category</a>
+                            <a href="{{ route('product.category.index') }}" class="submenu-link">Category</a>
                         </li>
 
                         <li class="submenu-item  {{ isset($type_menu) && $type_menu == 'product' ? 'active' : ''  }}">
