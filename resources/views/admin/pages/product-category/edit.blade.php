@@ -12,15 +12,15 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Edit Article Category</h3>
+                    <h3>Edit Product Category</h3>
                     <p class="text-subtitle text-muted">A page where users can edit article category</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('article.index') }}">Article</a></li>
-                            <li class="breadcrumb-item active"><a href="{{ route('article.category.index') }}">Category</a></li>
+                            <li class="breadcrumb-item"><a href="#">Product</a></li>
+                            <li class="breadcrumb-item active"><a href="{{ route('product.category.index') }}">Category</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Create</li>
                         </ol>
                     </nav>
@@ -45,7 +45,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('article.category.update', $category) }}" method="POST">
+                            <form action="{{ route('product.category.update', $category) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
@@ -53,7 +53,7 @@
                                     <input type="text"
                                         name="name" id="name"
                                         class="form-control @error('name') is-invalid @enderror"
-                                        placeholder="Your Name"
+                                        placeholder="Category Name"
                                         autocomplete="name"
                                         value="{{ $category->name }}">
                                     @error('name')

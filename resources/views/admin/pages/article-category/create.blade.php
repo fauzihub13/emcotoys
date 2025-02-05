@@ -52,7 +52,7 @@
                                     <input type="text"
                                         name="name" id="name"
                                         class="form-control @error('name') is-invalid @enderror"
-                                        placeholder="Your Name"
+                                        placeholder="Category Name"
                                         autocomplete="name"
                                         value="{{ old('name') }}">
                                     @error('name')

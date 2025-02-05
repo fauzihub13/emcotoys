@@ -133,7 +133,7 @@ class ArticleCategoryController extends Controller
             $articleCategory->updated_at = Carbon::now();
             $articleCategory->save();
 
-            return redirect()->route('article.category.index')->with('success', 'Article category created successfully.');
+            return redirect()->route('article.category.index')->with('success', 'Article category updated successfully.');
 
         } catch (\Throwable $th) {
             return back()->with('error', 'Failed to update article category. Please try again. ' . $th->getMessage());
