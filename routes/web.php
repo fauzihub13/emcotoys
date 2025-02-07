@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MarketPlaceController;
 use App\Http\Controllers\Admin\ProductCategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -46,20 +47,23 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
             'category' => ArticleCategoryController::class,
         ], ['as' => 'article']);
     });
-
-    // Article
-    Route::resources([
-        'article' => ArticleController::class,
-        'marketplace' => MarketPlaceController::class,
-        'store' => StoreController::class,
-    ]);
-
+    
     // Product Category
     Route::prefix('product')->group(function () {
         Route::resources([
             'category' => ProductCategoryController::class,
         ], ['as' => 'product']);
     });
+
+    // Article
+    Route::resources([
+        'article' => ArticleController::class,
+        'marketplace' => MarketPlaceController::class,
+        'store' => StoreController::class,
+        'product' => ProductController::class,
+    ]);
+
+
 
 });
 

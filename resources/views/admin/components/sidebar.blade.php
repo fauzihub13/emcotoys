@@ -106,7 +106,7 @@
                         </li>
 
                         <li class="submenu-item  {{ isset($type_menu) && $type_menu == 'product' ? 'active' : ''  }}">
-                            <a href="#" class="submenu-link">Products</a>
+                            <a href="{{ route('product.index') }}" class="submenu-link">Products</a>
                         </li>
                     </ul>
                 </li>
