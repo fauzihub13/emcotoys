@@ -128,21 +128,21 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="roundText">Weight</label>
-                                            <input type="text" id="roundText" class="form-control round"
+                                            <input type="text" name="weigth" id="roundText" class="form-control round"
                                                 placeholder="Rounded Input">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="squareText">Height</label>
-                                            <input type="text" id="squareText" class="form-control square"
+                                            <input type="text" name="weigth" id="squareText" class="form-control square"
                                                 placeholder="Square Input">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="squareText">Width</label>
-                                            <input type="text" id="squareText" class="form-control square"
+                                            <input type="text" id="squareText" name="width"  class="form-control square"
                                                 placeholder="Square Input">
                                         </div>
                                     </div>

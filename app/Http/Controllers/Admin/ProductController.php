@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Str;
 
 class ProductController extends Controller
 {
@@ -36,7 +38,43 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name'=>'required|string|min:3|max:255',
+            'category_id'=>'required|string|exists:article_categories,id',
+            'description'=>'required|text|min:3',
+            'price'=>'required|string|min:3|max:255',
+            'weigth'=>'required|string|min:3|max:255',
+            'height'=>'required|string|min:3|max:255',
+            'width'=>'required|string|min:3|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        try {
+
+            $slug = Str::slug($request->name);
+
+            // Check for existing slugs
+            $originalSlug = $slug;
+            $counter = 1;
+
+            while (Product::where('slug', $slug)->exists()) {
+                $slug = $originalSlug . '-' . $counter;
+                $counter++;
+            }
+
+            $productCategory = new Product();
+            $productCategory->name = $request->name;
+            $productCategory->slug = $slug;
+            $productCategory->save();
+
+            return redirect()->route('product.index')->with('success', 'Product created successfully.');
+
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Failed to create Product category. Please try again.' . $th->getMessage());
+        }
     }
 
     /**
