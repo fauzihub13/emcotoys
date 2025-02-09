@@ -66,7 +66,12 @@
                                             <td>{{ $loop->index + 1 }}</td>
                                             <td>
                                                 <div class="avatar avatar-md">
-                                                    {{-- <img src="{{ asset ('storage/'.$product->images->path[0])}}"> --}}
+                                                    @if ($product->images->isNotEmpty())
+                                                        <img src="{{ asset ('storage/'.$product->images[0]->path)}}">
+                                                    @else
+                                                        <img src="{{ asset ('assets/admin/static/images/placeholder/empty-image.png')}}">
+                                                    @endif
+
                                                 </div>
                                             </td>
                                             <td>{{ $product->name }}</td>
