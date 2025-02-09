@@ -71,7 +71,6 @@
                                                     @else
                                                         <img src="{{ asset ('assets/admin/static/images/placeholder/empty-image.png')}}">
                                                     @endif
-
                                                 </div>
                                             </td>
                                             <td>{{ $product->name }}</td>

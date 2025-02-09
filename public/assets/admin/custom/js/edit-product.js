@@ -1,24 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const imageInput = document.getElementById("imageInput");
-    if (imageInput) {
-        imageInput.addEventListener("change", function (event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const thumbnail = document.getElementById("thumbnail");
-                    if (thumbnail) {
-                        thumbnail.src = e.target.result;
-                    }
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    }
-
     const uploadContainer = document.getElementById("uploadContainer");
     const imageUploadInput = document.getElementById("imageUpload");
     const hiddenInputsContainer = document.getElementById("hiddenInputs");
+
+    let maxImages = 10;
 
     let selectedFiles = new DataTransfer();
 
@@ -28,9 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentImages =
                 uploadContainer.querySelectorAll(".image-preview").length;
 
-            if (currentImages + files.length > 10) {
-                return;
-            }
+            if (currentImages + files.length > maxImages) return;
 
             files.forEach((file) => {
                 if (!file.type.startsWith("image/")) return;
@@ -50,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Remove Image Button
         uploadContainer.addEventListener("click", function (event) {
-            if (event.target.classList.contains("remove-btn")) {
+            if (event.target.classList.contains("remove-btn-image")) {
                 event.preventDefault();
                 event.stopPropagation();
 
@@ -59,17 +42,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
                 if (colElement) {
-                    let imageName = colElement.getAttribute("data-filename"); // Get file name
-                    colElement.remove();
+                    let imageId = colElement.getAttribute("data-image-id");
 
-                    // Remove from DataTransfer
-                    let newDataTransfer = new DataTransfer();
-                    for (let i = 0; i < selectedFiles.files.length; i++) {
-                        if (selectedFiles.files[i].name !== imageName) {
-                            newDataTransfer.items.add(selectedFiles.files[i]);
+                    if (imageId) {
+                        let checkbox =
+                            colElement.querySelector(".delete-image-list");
+
+                        if (checkbox) {
+                            checkbox.checked = true;
+                            colElement.style.display = "none";
+                            maxImages++;
                         }
+                    } else {
+                        // Remove from DataTransfer (for newly uploaded images)
+                        let imageName =
+                            colElement.getAttribute("data-filename");
+                        let newDataTransfer = new DataTransfer();
+                        for (let i = 0; i < selectedFiles.files.length; i++) {
+                            if (selectedFiles.files[i].name !== imageName) {
+                                newDataTransfer.items.add(
+                                    selectedFiles.files[i]
+                                );
+                            }
+                        }
+                        selectedFiles = newDataTransfer;
+                        colElement.remove();
                     }
-                    selectedFiles = newDataTransfer; // Update selectedFiles
 
                     updateHiddenInputs();
                     checkUploadBox();
@@ -80,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function addImage(imageSrc, file) {
             let colDiv = document.createElement("div");
             colDiv.classList.add("col-6", "col-md-4", "col-lg-3");
-            colDiv.setAttribute("data-filename", file.name); // Store filename for removal
+            colDiv.setAttribute("data-filename", file.name); // Store filename
 
             let previewBox = document.createElement("div");
             previewBox.classList.add("image-preview");
@@ -88,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let removeBtn = document.createElement("button");
             removeBtn.innerHTML = "&times;";
-            removeBtn.classList.add("remove-btn");
+            removeBtn.classList.add("remove-btn-image");
             removeBtn.setAttribute("aria-label", "Remove image");
             removeBtn.type = "button";
 
@@ -106,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let uploadBoxWrapper =
                 document.querySelector(".upload-box")?.parentElement;
 
-            if (currentImages >= 10) {
+            if (currentImages >= maxImages) {
                 if (uploadBoxWrapper) uploadBoxWrapper.remove();
             } else {
                 if (!uploadBoxWrapper) restoreUploadBox();
@@ -134,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const currentImages =
                     uploadContainer.querySelectorAll(".image-preview").length;
 
-                if (currentImages + files.length > 10) return;
+                if (currentImages + files.length > maxImages) return;
 
                 files.forEach((file) => {
                     if (!file.type.startsWith("image/")) return;

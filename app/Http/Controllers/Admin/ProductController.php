@@ -8,6 +8,7 @@ use App\Models\ProductCategory;
 use App\Models\ProductImage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Str;
 
@@ -164,6 +165,9 @@ class ProductController extends Controller
             'age'=>'required|integer|min:0',
             'sku'=>'required|string|min:3|max:255',
             'status'=>'nullable|string|in:on',
+            'delete_images' => 'nullable|array|min:1',
+            'images' => 'nullable|array|min:1',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -171,7 +175,53 @@ class ProductController extends Controller
         }
 
         try {
-            $product = Product::find($product->id);
+
+            // dd($request->all());
+
+            $product = Product::with('images')->find($product->id);
+            $currentProductImages= $product->images->count();
+
+            $deletedImagesList = $request->has('delete_images') ? count($request->input('delete_images')) : 0;
+            $newImages = $request->hasFile('images') ? count($request->file('images')) : 0;
+
+            if ($deletedImagesList == $currentProductImages  && $newImages == 0) {
+                return back()->with('error', 'Atleast one product image.');
+            }
+
+            if ($deletedImagesList <= $currentProductImages) {
+                // Hitung gambar yang tersisa setelah penghapusan
+                $remainingImages = $currentProductImages - $deletedImagesList + $newImages;
+
+                // Pastikan minimal satu gambar tetap ada
+                if ($remainingImages > 0) {
+                    foreach ($request->delete_images as $imageId) {
+                        // Mengambil gambar produk
+                        $image = ProductImage::find($imageId);
+
+                        if ($image) {
+                            // Menghapus gambar dari penyimpanan
+                            Storage::disk('public')->delete($image->path);
+
+                            // Menghapus gambar dari database
+                            $image->delete();
+                        }
+                    }
+                }
+            }
+
+            // Menambahkan gambar baru jika ada
+            if ($newImages > 0) {
+                foreach ($request->file('images') as $image) {
+                    // Simpan gambar baru ke storage
+                    $path = $image->store('product', 'public');
+
+                    // Simpan path gambar ke database
+                    ProductImage::create([
+                        'product_id' => $product->id,
+                        'path' => $path
+                    ]);
+                }
+            }
 
             // Create Slug
             $slug = Str::slug($request->title);

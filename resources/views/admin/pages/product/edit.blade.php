@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Create Product')
+@section('title', 'Edit Product')
 
 @push('style')
     <link rel="stylesheet" href="{{ asset('assets/admin/extensions/choices.js/public/assets/styles/choices.css') }}">
@@ -12,7 +12,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Create Product</h3>
+                    <h3>Edit Product</h3>
                     <p class="text-subtitle text-muted">A page where users can create product</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -47,24 +47,30 @@
                             <form action="{{ route('product.update', $product) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-                                <div class="form-group">
-                                    <label for="imageInput" class="form-label">Thumbnail</label>
-                                    <input class="form-control @error('thumbnail') is-invalid @enderror"
-                                        type="file"
-                                        accept=".jpeg, .png, .jpg"
-                                        id="imageInput"
-                                        name='thumbnail'>
-                                    @error('thumbnail')
-                                        <div class="invalid-feedback">
-                                            <i class="bx bx-radio-circle"></i>
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
 
                                 <div class="form-group">
-                                    <img id="thumbnail" class="article-thumbnail"
-                                        src="{{ asset('assets/admin/static/images/placeholder/empty-image.png') }}">
+                                    <label class="form-label">Product Images (up to 10 image)</label>
+
+                                    <div class="row g-3" id="uploadContainer">
+                                        @foreach ($product->images as $image)
+                                            <div class="col-6 col-md-4 col-lg-3" data-image-id="{{ $image->id }}">
+                                                <div class="image-preview" style="background-image: url('/storage/{{ $image->path }}');">
+                                                    <button class="remove-btn-image" aria-label="Remove image" type="button">×</button>
+                                                    <input type="checkbox" class="delete-image-list" name="delete_images[]" value="{{ $image->id }}" style="position: absolute; top: 5px; left: 5px; z-index:-1" >
+                                                </div>
+                                            </div>
+                                        @endforeach
+
+                                        <div class="col-6 col-md-4 col-lg-3">
+                                            <label class="upload-box">
+                                                <i class="bi-plus-lg"></i>
+                                                <input type="file" accept=".jpg, .jpeg, .png" id="imageUpload" multiple>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div id="hiddenInputs" style="display: none"></div>
+
                                 </div>
 
                                 <div class="form-group">
@@ -291,5 +297,5 @@
 @push('script')
     <script src="{{ asset ('assets/admin/extensions/choices.js/public/assets/scripts/choices.js') }}"></script>
     <script src="{{ asset ('assets/admin/static/js/pages/form-element-select.js') }}"></script>
-    <script src="{{ asset ('assets/admin/custom/js/image-picker.js') }}"></script>
+    <script src="{{ asset ('assets/admin/custom/js/edit-product.js') }}"></script>
 @endpush
