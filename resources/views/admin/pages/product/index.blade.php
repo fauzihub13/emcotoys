@@ -52,6 +52,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Stock</th>
                                     <th>Action</th>
@@ -59,15 +60,20 @@
                             </thead>
                             <tbody>
 
-                                @if (isset($products) && $product != [])
+                                @if (isset($products) && $products != [])
                                     @foreach ($products as $product)
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
+                                            <td>
+                                                <div class="avatar avatar-md">
+                                                    {{-- <img src="{{ asset ('storage/'.$product->images->path[0])}}"> --}}
+                                                </div>
+                                            </td>
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->stock }}</td>
                                             <td>
                                                 <div class="d-flex gap-2 justify-content-center">
-                                                    <a href="{{ route('article.edit', $product) }}" class="btn icon btn-primary">
+                                                    <a href="{{ route('product.edit', $product) }}" class="btn icon btn-primary">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
                                                     <button class="btn icon btn-danger confirm-delete"

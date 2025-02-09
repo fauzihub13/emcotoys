@@ -20,7 +20,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Product</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Create</li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit</li>
                         </ol>
                     </nav>
                 </div>
@@ -44,15 +44,15 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('product.update', $product) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group">
                                     <label for="imageInput" class="form-label">Thumbnail</label>
                                     <input class="form-control @error('thumbnail') is-invalid @enderror"
                                         type="file"
                                         accept=".jpeg, .png, .jpg"
                                         id="imageInput"
-                                        value="{{ old('thumbnail') }}"
                                         name='thumbnail'>
                                     @error('thumbnail')
                                         <div class="invalid-feedback">
@@ -73,7 +73,7 @@
                                         name="name" id="name"
                                         class="form-control @error('name') is-invalid @enderror"
                                         placeholder="Product name"
-                                        value="{{ old('name') }}">
+                                        value="{{ $product->name }}">
                                     @error('name')
                                         <div class="invalid-feedback">
                                             <i class="bx bx-radio-circle"></i>
@@ -101,7 +101,7 @@
                                     <label for="description" class="form-label">Description</label>
                                     <textarea class="form-control @error('description') is-invalid @enderror"
                                         id="description" name="description"
-                                        rows="6">{{ old('description') }}</textarea>
+                                        rows="6">{{ $product->description }}</textarea>
                                     @error('description')
                                         <div class="invalid-feedback">
                                             <i class="bx bx-radio-circle"></i>
@@ -118,7 +118,7 @@
                                                 name="price"
                                                 id="price"
                                                 class="form-control round @error('price') is-invalid @enderror"
-                                                value="{{ old('price') }}"
+                                                value="{{ $product->price }}"
                                                 placeholder="Product price">
                                             @error('price')
                                                 <div class="invalid-feedback">
@@ -135,7 +135,7 @@
                                                 name="length"
                                                 id="length"
                                                 class="form-control square  @error('length') is-invalid @enderror"
-                                                value="{{ old('length') }}"
+                                                value="{{ $product->length }}"
                                                 placeholder="Product length">
                                             @error('length')
                                                 <div class="invalid-feedback">
@@ -156,7 +156,7 @@
                                                 name="weight"
                                                 id="weight"
                                                 class="form-control round @error('weight') is-invalid @enderror"
-                                                value="{{ old('weight') }}"
+                                                value="{{ $product->weight }}"
                                                 placeholder="Product weight">
                                             @error('weight')
                                                 <div class="invalid-feedback">
@@ -173,7 +173,7 @@
                                                 name="height"
                                                 id="height"
                                                 class="form-control square  @error('height') is-invalid @enderror"
-                                                value="{{ old('height') }}"
+                                                value="{{ $product->height }}"
                                                 placeholder="Product height">
                                             @error('height')
                                                 <div class="invalid-feedback">
@@ -190,7 +190,7 @@
                                                 id="width"
                                                 name="width"
                                                 class="form-control square @error('width') is-invalid @enderror"
-                                                value="{{ old('width') }}"
+                                                value="{{ $product->width }}"
                                                 placeholder="Product width">
                                             @error('width')
                                                 <div class="invalid-feedback">
@@ -210,7 +210,7 @@
                                                 id="stock"
                                                 name="stock"
                                                 class="form-control round @error('stock') is-invalid @enderror"
-                                                value="{{ old('stock') }}"
+                                                value="{{ $product->stock }}"
                                                 placeholder="Product stock">
                                             @error('stock')
                                                 <div class="invalid-feedback">
@@ -227,7 +227,7 @@
                                                 id="age"
                                                 name="age"
                                                 class="form-control square @error('age') is-invalid @enderror"
-                                                value="{{ old('age') }}"
+                                                value="{{ $product->age }}"
                                                 placeholder="Children age">
                                             @error('age')
                                                 <div class="invalid-feedback">
@@ -244,7 +244,7 @@
                                                 id="sku"
                                                 name="sku"
                                                 class="form-control square @error('sku') is-invalid @enderror"
-                                                value="{{ old('sku') }}"
+                                                value="{{ $product->sku }}"
                                                 placeholder="Product SKU">
                                             @error('sku')
                                                 <div class="invalid-feedback">
@@ -262,7 +262,7 @@
                                         <input class="form-check-input @error('status') is-invalid @enderror"
                                             name="status"
                                             type="checkbox"
-                                            id="status" checked>
+                                            id="status" {{ $product->status == 1 ? 'checked' : '' }}>
                                         @error('status')
                                             <div class="invalid-feedback">
                                                 <i class="bx bx-radio-circle"></i>

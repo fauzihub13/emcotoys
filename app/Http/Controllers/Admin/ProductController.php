@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Str;
@@ -18,7 +19,7 @@ class ProductController extends Controller
     {
         return view('admin.pages.product.index', [
             'type_menu' => 'product',
-            'stores' => Product::where('deleted_at', '=', null)->get()
+            'products' => Product::where('deleted_at', '=', null)->get()
         ]);
     }
 
@@ -40,12 +41,17 @@ class ProductController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name'=>'required|string|min:3|max:255',
-            'category_id'=>'required|string|exists:article_categories,id',
-            'description'=>'required|text|min:3',
-            'price'=>'required|string|min:3|max:255',
-            'weigth'=>'required|string|min:3|max:255',
-            'height'=>'required|string|min:3|max:255',
-            'width'=>'required|string|min:3|max:255',
+            'category_id'=>'required|string|exists:product_categories,id',
+            'description'=>'required|string|min:3',
+            'price'=>'required|integer|min:1',
+            'weight'=>'required|integer|min:1',
+            'length'=>'required|integer|min:1',
+            'height'=>'required|integer|min:1',
+            'width'=>'required|integer|min:1',
+            'stock'=>'required|integer|min:0',
+            'age'=>'required|integer|min:0',
+            'sku'=>'required|string|min:3|max:255',
+            'status'=>'nullable|string|in:on',
         ]);
 
         if ($validator->fails()) {
@@ -53,6 +59,8 @@ class ProductController extends Controller
         }
 
         try {
+
+             // dd($request->all());
 
             $slug = Str::slug($request->name);
 
@@ -65,15 +73,31 @@ class ProductController extends Controller
                 $counter++;
             }
 
-            $productCategory = new Product();
-            $productCategory->name = $request->name;
-            $productCategory->slug = $slug;
-            $productCategory->save();
+            $status = false ;
+            if($request->status) {
+                $status = true;
+            };
+
+            $product = new Product();
+            $product->category_id = $request->category_id;
+            $product->name = $request->name;
+            $product->slug = $slug;
+            $product->description = $request->description;
+            $product->price = $request->price;
+            $product->weight = $request->weight;
+            $product->length = $request->length;
+            $product->width = $request->width;
+            $product->height = $request->height;
+            $product->stock = $request->stock;
+            $product->age = $request->age;
+            $product->sku = $request->sku;
+            $product->status = $status;
+            $product->save();
 
             return redirect()->route('product.index')->with('success', 'Product created successfully.');
 
         } catch (\Throwable $th) {
-            return back()->with('error', 'Failed to create Product category. Please try again.' . $th->getMessage());
+            return back()->with('error', 'Failed to create product. Please try again.' . $th->getMessage());
         }
     }
 
@@ -90,7 +114,18 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        try {
+            return view('admin.pages.product.edit', [
+                'type_menu' => 'product',
+                'product' => Product::find($product->id),
+                'categories' => ProductCategory::all()
+
+            ]);
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Failed to find product. Please try again.' . $th->getMessage());
+
+        }
+
     }
 
     /**
@@ -98,7 +133,73 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name'=>'required|string|min:3|max:255',
+            'category_id'=>'required|string|exists:product_categories,id',
+            'description'=>'required|string|min:3',
+            'price'=>'required|integer|min:1',
+            'weight'=>'required|integer|min:1',
+            'length'=>'required|integer|min:1',
+            'height'=>'required|integer|min:1',
+            'width'=>'required|integer|min:1',
+            'stock'=>'required|integer|min:0',
+            'age'=>'required|integer|min:0',
+            'sku'=>'required|string|min:3|max:255',
+            'status'=>'nullable|string|in:on',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        try {
+            $product = Product::find($product->id);
+
+            // Create Slug
+            $slug = Str::slug($request->title);
+
+            // Validate slug
+            if ($slug != $product->slug) {
+               $slug = Str::slug($request->name);
+
+                // Check for existing slugs
+                $originalSlug = $slug;
+                $counter = 1;
+
+                while (Product::where('slug', $slug)->exists()) {
+                    $slug = $originalSlug . '-' . $counter;
+                    $counter++;
+                }
+                $product->slug = $slug;
+
+            }
+
+            $status = false ;
+            if($request->status) {
+                $status = true;
+            };
+
+            $product->category_id = $request->category_id;
+            $product->name = $request->name;
+            $product->slug = $slug;
+            $product->description = $request->description;
+            $product->price = $request->price;
+            $product->weight = $request->weight;
+            $product->length = $request->length;
+            $product->width = $request->width;
+            $product->height = $request->height;
+            $product->stock = $request->stock;
+            $product->age = $request->age;
+            $product->sku = $request->sku;
+            $product->status = $status;
+            $product->updated_at = Carbon::now();
+            $product->save();
+
+            return redirect()->route('product.index')->with('success', 'Product updated successfully.');
+
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Failed to update product . Please try again.' . $th->getMessage());
+        }
     }
 
     /**
@@ -106,6 +207,17 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        try {
+            $product = Product::find($product->id);
+            if($product){
+                $product->deleted_at = Carbon::now();
+                $product->save();
+                return redirect()->route('product.index')->with('success', 'Product deleted successfully.');
+            }
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Failed to delete product. Please try again. '. $th->getMessage());
+
+        }
+
     }
 }
