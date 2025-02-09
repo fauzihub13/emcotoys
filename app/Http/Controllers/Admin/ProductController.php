@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductImage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -39,6 +40,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'name'=>'required|string|min:3|max:255',
             'category_id'=>'required|string|exists:product_categories,id',
@@ -52,6 +54,8 @@ class ProductController extends Controller
             'age'=>'required|integer|min:0',
             'sku'=>'required|string|min:3|max:255',
             'status'=>'nullable|string|in:on',
+            'images' => 'required|array|min:1',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -60,7 +64,7 @@ class ProductController extends Controller
 
         try {
 
-             // dd($request->all());
+            // dd($request->all());
 
             $slug = Str::slug($request->name);
 
@@ -93,6 +97,20 @@ class ProductController extends Controller
             $product->sku = $request->sku;
             $product->status = $status;
             $product->save();
+
+            if ($request->hasFile('images')) {
+                // Looping
+                foreach ($request->file('images') as $image) {
+                    // Storage
+                    $path = $image->store('product', 'public');
+
+                    // Save image
+                    ProductImage::create([
+                        'product_id' => $product->id,
+                        'path' => $path
+                    ]);
+                }
+            }
 
             return redirect()->route('product.index')->with('success', 'Product created successfully.');
 

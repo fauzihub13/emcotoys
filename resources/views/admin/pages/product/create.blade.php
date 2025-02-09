@@ -46,31 +46,33 @@
                         <div class="card-body">
                             <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <div class="form-group">
-                                    <label for="imageInput" class="form-label">Thumbnail</label>
-                                    <input class="form-control @error('thumbnail') is-invalid @enderror"
-                                        type="file"
-                                        accept=".jpeg, .png, .jpg"
-                                        id="imageInput"
-                                        value="{{ old('thumbnail') }}"
-                                        name='thumbnail'>
-                                    @error('thumbnail')
-                                        <div class="invalid-feedback">
-                                            <i class="bx bx-radio-circle"></i>
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
 
                                 <div class="form-group">
-                                    <img id="thumbnail" class="article-thumbnail"
-                                        src="{{ asset('assets/admin/static/images/placeholder/empty-image.png') }}">
+                                    <label class="form-label">Product Images (up to 10 image)</label>
+
+                                    <div class="row g-3" id="uploadContainer">
+                                        <div class="col-6 col-md-4 col-lg-3">
+                                            <label class="upload-box">
+                                                <i class="bi-plus-lg"></i>
+                                                <input type="file" accept=".jpg, .jpeg, .png" id="imageUpload" multiple>
+                                            </label>
+                                        </div>
+                                    </div>
+
                                 </div>
+
+                                <!-- Hidden input container for submitting selected files -->
+                                <div id="hiddenInputs" style="display: none"></div>
+
+                                @error('images')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
 
                                 <div class="form-group">
                                     <label for="name" class="form-label">Name</label>
                                     <input type="text"
-                                        name="name" id="name"
+                                        name="name"
+                                        id="name"
                                         class="form-control @error('name') is-invalid @enderror"
                                         placeholder="Product name"
                                         value="{{ old('name') }}">
@@ -272,7 +274,6 @@
                                         <label class="form-check-label">Show product in catalog</label>
                                     </div>
                                 </div>
-
 
                                 <div class="form-group mt-4">
                                     <button type="submit" class="btn btn-primary">Save</button>
