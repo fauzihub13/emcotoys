@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Users</h6>
-                                        <h6 class="font-extrabold mb-0">12</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $users }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Articles</h6>
-                                        <h6 class="font-extrabold mb-0">19</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $articles }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Product</h6>
-                                        <h6 class="font-extrabold mb-0">27</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $products }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Saved Post</h6>
+                                        <h6 class="text-muted font-semibold">Transactions</h6>
                                         <h6 class="font-extrabold mb-0">112</h6>
                                     </div>
                                 </div>
