@@ -111,6 +111,13 @@
                     </ul>
                 </li>
                 <li
+                    class="sidebar-item {{ isset($type_menu) && ($type_menu == 'transaction') ? 'active' : '' }}">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-receipt"></i>
+                        <span>Transaction</span>
+                    </a>
+                </li>
+                <li
                     class="sidebar-item {{ isset($type_menu) && ($type_menu == 'marketplace') ? 'active' : '' }}">
                     <a href="{{ route('marketplace.index') }}" class='sidebar-link'>
                         <i class="bi bi-shop-window"></i>
