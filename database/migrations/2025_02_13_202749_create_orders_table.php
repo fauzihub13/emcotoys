@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('category_id')->nullable()->constrained('article_categories')->onDelete('set null');
-            $table->string('slug')->unique();
-            $table->string('thumbnail');
-            $table->string('title');
-            $table->text('body');
+            $table->foreignUuid('user_id');
+            $table->string('order_number')->unique();
+            $table->enum('status', ['pending', 'paid', 'shipped', 'arrived'])->default('pending');
+            $table->integer('shipping_cost')->nullable();
+            $table->string('courier')->nullable();
+            $table->string('tracking_number')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('orders');
     }
 };

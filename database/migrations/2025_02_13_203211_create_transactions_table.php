@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('category_id')->nullable()->constrained('article_categories')->onDelete('set null');
-            $table->string('slug')->unique();
-            $table->string('thumbnail');
-            $table->string('title');
-            $table->text('body');
+            $table->foreignUuid('order_id')->constrained('orders')->onDelete('cascade');
+            $table->string('transaction_status');
+            $table->string('payment_method');
+            $table->integer('gross_amount');
+            $table->timestamp('transaction_time');
+            $table->longText('midtrans_response');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('transactions');
     }
 };
