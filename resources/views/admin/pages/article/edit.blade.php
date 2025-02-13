@@ -85,6 +85,7 @@
                                 <div class="form-group">
                                     <label for="category_id" class="form-label">Category</label>
                                     <select class="choices form-select @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
+                                        <option value="" >Select option</option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}" {{ $category->id == $article->category->id ? 'selected' : '' }} >{{ ucfirst($category->name) }}</option>
                                         @endforeach

@@ -43,7 +43,7 @@ class ArticleController extends Controller
             'title'=>'required|string|min:3|max:255',
             'body'=>'required|string|min:3',
             'thumbnail'=>'required|image|mimes:jpeg,png,jpg|max:2048',
-            'category_id'=>'required|string|exists:article_categories,id',
+            'category_id'=>'nullable|string|exists:article_categories,id',
         ]);
 
         if ($validator->fails()) {
@@ -116,7 +116,7 @@ class ArticleController extends Controller
             'title'=>'required|string|min:3|max:255',
             'body'=>'required|string|min:3',
             'thumbnail'=>'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'category_id'=>'required|string|exists:article_categories,id',
+            'category_id'=>'nullable|string|exists:article_categories,id',
         ]);
 
         if ($validator->fails()) {

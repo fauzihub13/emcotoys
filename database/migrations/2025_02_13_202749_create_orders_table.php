@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id');
+            $table->foreignUuid('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->string('order_number')->unique();
             $table->enum('status', ['pending', 'paid', 'shipped', 'arrived'])->default('pending');
             $table->integer('shipping_cost')->nullable();

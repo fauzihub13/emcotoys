@@ -83,7 +83,8 @@
 
                                 <div class="form-group">
                                     <label for="category_id" class="form-label">Category</label>
-                                    <select class="choices form-select @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
+                                    <select class="choices form-select is-invalid @error('category_id') is-invalid @enderror " name="category_id" id="category_id">
+                                        <option value="" >Select option</option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}" >{{ ucfirst($category->name) }}</option>
                                         @endforeach
@@ -94,6 +95,11 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
+                                    <div class="invalid-feedback">
+                                            <i class="bx bx-radio-circle"></i>
+                                       pesan error
+                                    </div>
+
                                 </div>
 
                                 <div class="form-group">
