@@ -111,7 +111,7 @@
                             </div>
                             <div class="ms-3 name">
                                 <h5 class="font-bold">{{ auth()->user()->name }}</h5>
-                                <h6 class="text-muted mb-0">{{ auth()->user()->email }}</h6>
+                                {{-- <h6 class="text-muted mb-0">{{ auth()->user()->email }}</h6> --}}
                             </div>
                         </div>
                     </div>
@@ -134,24 +134,6 @@
                             <p class="text-center">No transaction</p>
 
                         @endif
-                        {{-- <div class="recent-message d-flex px-4 py-3">
-                            <div class="name">
-                                <h5 class="mb-1">Hank Schrader</h5>
-                                <h6 class="text-muted mb-0">@johnducky</h6>
-                            </div>
-                        </div>
-                        <div class="recent-message d-flex px-4 py-3">
-                            <div class="name">
-                                <h5 class="mb-1">Dean Winchester</h5>
-                                <h6 class="text-muted mb-0">@imdean</h6>
-                            </div>
-                        </div>
-                        <div class="recent-message d-flex px-4 py-3">
-                            <div class="name">
-                                <h5 class="mb-1">John Dodol</h5>
-                                <h6 class="text-muted mb-0">@dodoljohn</h6>
-                            </div>
-                        </div> --}}
                         <div class="px-4">
                             <button class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>All Transactions</button>
                         </div>
