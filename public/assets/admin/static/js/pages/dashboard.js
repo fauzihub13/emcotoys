@@ -142,6 +142,7 @@ var chartVisitorsProfile = new ApexCharts(
   document.getElementById("chart-visitors-profile"),
   optionsVisitorsProfile
 )
+
 var chartEurope = new ApexCharts(
   document.querySelector("#chart-europe"),
   optionsEurope
@@ -159,9 +160,9 @@ var chartIndonesia = new ApexCharts(
   optionsIndonesia
 )
 
-chartIndonesia.render()
-chartAmerica.render()
-chartIndia.render()
-chartEurope.render()
+// chartIndonesia.render()
+// chartAmerica.render()
+// chartIndia.render()
+// chartEurope.render()
 chartProfileVisit.render()
-chartVisitorsProfile.render()
+// chartVisitorsProfile.render()
