@@ -14,7 +14,6 @@
 
     <div class="page-content">
         <section class="row">
-
             <div class="col-12 col-lg-9">
                 <div class="row">
                     <div class="col-6 col-lg-3 col-md-6">
@@ -80,7 +79,7 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Transactions</h6>
-                                        <h6 class="font-extrabold mb-0">112</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $transactions->count() }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +121,20 @@
                         <h4>Recent Transactions</h4>
                     </div>
                     <div class="card-content pb-4">
-                        <div class="recent-message d-flex px-4 py-3">
+                        @if (isset($transactions) && count($transactions) > 0)
+                            @foreach ($transactions as $transaction)
+                                <div class="recent-message d-flex px-4 py-3">
+                                    <div class="name">
+                                        <h5 class="mb-1">{{ $transaction->order->user->name }}</h5>
+                                        <h6 class="text-muted mb-0">{{ $transaction->created_at->format('d F, Y') }}</h6>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <p class="text-center">No transaction</p>
+
+                        @endif
+                        {{-- <div class="recent-message d-flex px-4 py-3">
                             <div class="name">
                                 <h5 class="mb-1">Hank Schrader</h5>
                                 <h6 class="text-muted mb-0">@johnducky</h6>
@@ -139,7 +151,7 @@
                                 <h5 class="mb-1">John Dodol</h5>
                                 <h6 class="text-muted mb-0">@dodoljohn</h6>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="px-4">
                             <button class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>All Transactions</button>
                         </div>

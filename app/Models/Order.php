@@ -30,4 +30,8 @@ class Order extends Model
     public function transaction() {
         return $this->hasOne(Transaction::class);
     }
+    
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
