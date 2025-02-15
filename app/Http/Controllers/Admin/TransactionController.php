@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class TransactionController extends Controller
 {
@@ -48,7 +50,15 @@ class TransactionController extends Controller
      */
     public function edit(Transaction $transaction)
     {
-        //
+        try {
+            $data = Transaction::find($transaction->id);
+            return view('admin.pages.transaction.edit', [
+                'type_menu' => 'transaction',
+                'transaction' => $data
+            ]);
+        } catch (\Throwable $th) {
+            return back();
+        }
     }
 
     /**
@@ -56,7 +66,26 @@ class TransactionController extends Controller
      */
     public function update(Request $request, Transaction $transaction)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            // TODO: VALIDATE REQUEST
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        try {
+            $data = Transaction::find($transaction->id);
+
+            // TODO: UPDATE DATA
+
+            $data->save();
+
+            return redirect()->route('transaction.index')->with('status', 'Transaction updated successfully.');
+
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Failed to update transaction. Please try again. ' . $th->getMessage());
+        }
     }
 
     /**
