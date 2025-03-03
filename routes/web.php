@@ -2,11 +2,12 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/', function () {
-        return 'USER';
+        return view('user.index');
     });
 });
 
@@ -29,6 +30,12 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
 
 
 });
+Route::get('/about', [UserController::class, 'about'])->name('about');
+Route::get('/', [UserController::class, 'index'])->name('home');
+Route::get('/shop', [UserController::class, 'shop'])->name('shop');
+Route::get('/article', [UserController::class, 'article'])->name('article');
+
+
 
 
 

@@ -1,0 +1,91 @@
+.category-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+}
+.category {
+    position: relative;
+    text-align: center;
+}
+.category img.cloud {
+    width: 150px; /* Sesuaikan ukuran awan */
+}
+.category img.icon {
+    position: absolute;
+    top: 35%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 50px; /* Sesuaikan ukuran ikon */
+}
+.category img.icon.brix {
+    fill: #4482C8;
+}
+.category p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.product-background {
+    background-color: #4482C8;
+    width: auto;
+    border-radius: 28px 28px 0px 0px;
+}
+
+.products {
+    display: flex;
+    flex-direction: column;
+    width: 259px;
+    height: 273px;
+    background-color: #8FC3FF;
+    border-radius: 20px;
+    justify-content: center;
+    gap: 40px;
+}
+.product-image {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.details {
+    display: flex;
+    width: 100px !important;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #303030;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 1px;
+    gap: 12px;
+    margin-right: 10px;
+    padding-right: 10px;
+    align-self: flex-end;
+}
+.judul {
+    font-weight: 800;
+    text-align: center;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+.options a {
+    display: flex;
+    border-radius: 25px;
+    color: black;
+    font-weight: 600;
+    padding: 8px 45px 8px 45px;
+}
+.options a.active {
+    background-color: #FFC6D3;
+}
+.options a:hover {
+    background-color: #FFC6D3;
+}
