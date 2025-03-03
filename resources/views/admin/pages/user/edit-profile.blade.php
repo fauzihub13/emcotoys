@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Profile')
 
 @push('style')
 
@@ -18,7 +18,7 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Profile</li>
                         </ol>
                     </nav>
@@ -27,21 +27,7 @@
         </div>
         <section class="section">
             <div class="row">
-                <div class="col-12 col-lg-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-center align-items-center flex-column">
-                                <div class="avatar avatar-2xl">
-                                    <img src="{{ asset('assets/admin/compiled/jpg/2.jpg') }}" alt="Avatar">
-                                </div>
-
-                                <h3 class="mt-3">{{ auth()->user()->name }}</h3>
-                                <p class="text-small">{{ auth()->user()->email  }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-8">
+                <div class="col-12">
                     @if (session('status') == 'profile-information-updated')
                         <div class="alert alert-success alert-dismissible show fade">
                             Profile updated successfully.
@@ -68,6 +54,7 @@
                                         name="name" id="name"
                                         class="form-control @error('name', 'updateProfileInformation') is-invalid @enderror"
                                         placeholder="Your Name"
+                                        autocomplete="name"
                                         value="{{ auth()->user()->name }}">
                                     @error('name', 'updateProfileInformation')
                                         <div class="invalid-feedback">
@@ -83,6 +70,7 @@
                                         id="email"
                                         class="form-control @error('email', 'updateProfileInformation') is-invalid @enderror"
                                         placeholder="Your Email"
+                                        autocomplete="email"
                                         value="{{ auth()->user()->email }}">
                                     @error('email', 'updateProfileInformation')
                                         <div class="invalid-feedback">
@@ -92,11 +80,11 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <label for="phone_number" class="form-label">Phone Number</label>
                                     <input type="text"
                                         name="phone_number"
-                                        id="phone"
-                                        class="form-control  @error('phone_number', 'updateProfileInformation') is-invalid @enderror"
+                                        id="phone_number"
+                                        class="form-control @error('phone_number', 'updateProfileInformation') is-invalid @enderror"
                                         placeholder="Your Phone"
                                         value="{{ auth()->user()->phone_number }}">
                                     @error('phone_number', 'updateProfileInformation')
@@ -184,7 +172,7 @@
                                     <label for="password_confirmation" class="form-label">Confirm Password</label>
                                     <input type="password"
                                         name="password_confirmation"
-                                        id="confirm_password"
+                                        id="password_confirmation"
                                         class="form-control  @error('password_confirmation', 'updatePassword') is-invalid @enderror"
                                         placeholder="Enter confirm password"
                                         value="">

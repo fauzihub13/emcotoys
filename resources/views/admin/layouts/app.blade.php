@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('assets/admin/compiled/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/compiled/css/iconly.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/custom/css/custom.css') }}">
 
 </head>
 
@@ -26,7 +27,7 @@
         @include('admin.components.sidebar')
 
         <div id="main">
-            
+
             {{-- Header --}}
             @include('admin.components.header')
 
@@ -45,6 +46,7 @@
     <script src="{{ asset('assets/admin/extensions/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 
     <script src="{{ asset('assets/admin/compiled/js/app.js') }}"></script>
+
 
     @stack('script')
 

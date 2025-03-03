@@ -16,7 +16,7 @@
 
                 @elseif (session('error'))
                     <div class="alert alert-danger alert-dismissible show fade">
-                        {{ session('status') }}
+                        {{ session('error') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
 
@@ -30,6 +30,7 @@
                         <input type="text"
                             class="form-control form-control-xl @error('email') is-invalid @enderror"
                             name='email'
+                            autocomplete="email"
                             placeholder="Email">
                         <div class="form-control-icon">
                             <i class="bi bi-envelope"></i>

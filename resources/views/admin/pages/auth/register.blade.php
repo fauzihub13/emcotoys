@@ -16,7 +16,7 @@
 
                 @elseif (session('error'))
                     <div class="alert alert-danger alert-dismissible show fade">
-                        {{ session('status') }}
+                        {{ session('error') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
 
@@ -30,8 +30,9 @@
                         <input type="text"
                             class="form-control form-control-xl @error('name') is-invalid @enderror"
                             placeholder="Name"
-                            value="{{ old('name') }}"
-                            name="name">
+                            name="name"
+                            autocomplete="name"
+                            value="{{ old('name') }}">
                         <div class="form-control-icon">
                             <i class="bi bi-person"></i>
                         </div>
@@ -47,8 +48,9 @@
                         <input type="text"
                             class="form-control form-control-xl @error('email') is-invalid @enderror"
                             placeholder="Email"
-                            value="{{ old('email') }}"
-                            name="email">
+                            name="email"
+                            autocomplete="email"
+                            value="{{ old('email') }}">
                         <div class="form-control-icon">
                             <i class="bi bi-envelope"></i>
                         </div>
