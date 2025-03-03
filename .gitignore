@@ -21,4 +21,4 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
-/public/assets/admin/extensions
+# /public/assets/admin/extensions
