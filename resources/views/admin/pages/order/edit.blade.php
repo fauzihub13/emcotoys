@@ -12,14 +12,14 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Edit Transaction</h3>
-                    <p class="text-subtitle text-muted">A page where users can edit transaction</p>
+                    <h3>Edit Order</h3>
+                    <p class="text-subtitle text-muted">A page where users can edit order</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Transaction</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Order</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit</li>
                         </ol>
                     </nav>
