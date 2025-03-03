@@ -93,7 +93,7 @@
                                     <select class="choices form-select @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
                                         <option value="" >Select option</option>
                                         @foreach($categories as $category)
-                                            <option value="{{ $category->id }}" >{{ ucfirst($category->name) }}</option>
+                                            <option value="{{ $category->id }}" {{ $category->id == $product->category->id ? 'selected' : '' }} >{{ ucfirst($category->name) }}</option>
                                         @endforeach
                                     </select>
                                     @error('category_id')

@@ -12,6 +12,7 @@
 .icon-sidebar {
     width: 120px;
 }
+
 .upload-box {
     position: relative;
     width: 100%;
@@ -55,7 +56,8 @@
     overflow: hidden;
 }
 
-.remove-btn, .remove-btn-image {
+.remove-btn,
+.remove-btn-image {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -75,6 +77,16 @@
 .remove-btn:hover {
     background: rgba(255, 0, 0, 0.7);
 }
+
+.mini-product-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 20%;
+}
+
+
+
+
 
 @media only screen and (min-width: 768px) {
     .article-thumbnail {

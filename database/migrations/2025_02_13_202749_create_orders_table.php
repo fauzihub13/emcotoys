@@ -19,6 +19,11 @@ return new class extends Migration
             $table->integer('shipping_cost')->nullable();
             $table->string('courier')->nullable();
             $table->string('tracking_number')->nullable();
+            $table->string('transaction_status');
+            $table->string('payment_method');
+            $table->integer('gross_amount');
+            $table->timestamp('transaction_time');
+            $table->longText('midtrans_response');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

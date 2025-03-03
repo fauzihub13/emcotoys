@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MarketPlaceController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\StoreController;
@@ -59,11 +60,16 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
     // Article
     Route::resources([
         'article' => ArticleController::class,
-        'marketplace' => MarketPlaceController::class,
         'store' => StoreController::class,
         'product' => ProductController::class,
-        'transaction' => TransactionController::class,
+        // 'order' => OrderController::class,
     ]);
+
+    Route::controller(OrderController::class)->group(function(){
+        Route::get('/order', 'index')->name('order.index');
+        Route::get('/order/edit', 'edit')->name('order.edit');
+    });
+
 
 
 

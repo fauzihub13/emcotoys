@@ -21,6 +21,7 @@ class Cart extends Model
     ];
 
     public function items() {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(CartItem::class);
     }
+
 }

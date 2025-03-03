@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\User;
@@ -17,7 +18,7 @@ class DashboardController extends Controller
             'users' => User::count(),
             'articles' => Article::count(),
             'products' => Product::count(),
-            'transactions' => Transaction::orderBy('created_at', 'asc')->get(),
+            'transactions' => Order::orderBy('created_at', 'asc')->get(),
         ]);
     }
 }

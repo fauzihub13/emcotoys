@@ -18,6 +18,11 @@ class Order extends Model
         'shipping_cost',
         'courier',
         'tracking_number',
+        'transaction_status',
+        'payment_method',
+        'gross_amount',
+        'transaction_time',
+        'midtrans_response',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -27,10 +32,10 @@ class Order extends Model
         return $this->hasMany(OrderItem::class);
     }
 
-    public function transaction() {
-        return $this->hasOne(Transaction::class);
-    }
-    
+    // public function transaction() {
+    //     return $this->hasOne(Transaction::class);
+    // }
+
     public function user() {
         return $this->belongsTo(User::class);
     }

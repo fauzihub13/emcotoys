@@ -18,7 +18,7 @@ class ArticleCategory extends Model
         'updated_at',
     ];
 
-    public function article(){
+    public function articles(){
         return $this->hasMany(Article::class);
     }
 }

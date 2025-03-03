@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Super Admin',
             'email' => 'superadmin@gmail.com',
             'phone_number' => '6289898761234',
-            'password' => 'qwerty',
+            'password' => 'superadmin@gmail.com',
             'role' => 'super_admin',
             'email_verified_at' => now()
         ]);

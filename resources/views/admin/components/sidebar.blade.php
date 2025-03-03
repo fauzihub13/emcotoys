@@ -111,19 +111,19 @@
                     </ul>
                 </li>
                 <li
-                    class="sidebar-item {{ isset($type_menu) && ($type_menu == 'transaction') ? 'active' : '' }}">
-                    <a href="{{ route('transaction.index') }}" class='sidebar-link'>
+                    class="sidebar-item {{ isset($type_menu) && ($type_menu == 'order') ? 'active' : '' }}">
+                    <a href="{{ route('order.index') }}" class='sidebar-link'>
                         <i class="bi bi-receipt"></i>
-                        <span>Transaction</span>
+                        <span>Order</span>
                     </a>
                 </li>
-                <li
+                {{-- <li
                     class="sidebar-item {{ isset($type_menu) && ($type_menu == 'marketplace') ? 'active' : '' }}">
                     <a href="{{ route('marketplace.index') }}" class='sidebar-link'>
                         <i class="bi bi-shop-window"></i>
                         <span>Marketplace</span>
                     </a>
-                </li>
+                </li> --}}
                 <li
                     class="sidebar-item {{ isset($type_menu) && ($type_menu == 'store') ? 'active' : '' }}">
                     <a href="{{ route('store.index') }}" class='sidebar-link'>
