@@ -71,14 +71,11 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
         Route::get('/order', 'index')->name('order.index');
         Route::get('/order/edit', 'edit')->name('order.edit');
     });
-//     Route::controller(OrderController::class)->group(function(){
-//         Route::get('/order', 'index')->name('order.index');
-//         Route::get('/order/edit', 'edit')->name('order.edit');
-//     });
+
+
+
+
 });
-
-
-
 
 
 
