@@ -56,7 +56,7 @@
 
 
     <!--********************************
-   		Code Start From Here 
+   		Code Start From Here
 	******************************** -->
 
 
@@ -65,12 +65,12 @@
     <!--==============================
      Preloader
     ==============================-->
-    <div class="preloader  ">
+    {{-- <div class="preloader  ">
         <button class="vs-btn preloaderCls">Cancel Preloader </button>
         <div class="preloader-inner">
             <div class="loader"></div>
         </div>
-    </div>
+    </div> --}}
     <!--==============================
     Mobile Menu
     ============================== -->
@@ -269,7 +269,7 @@
                     <div class="col-6 col-sm-auto d-none d-lg-block">
                         <div class="header-links style3 style-white">
                             <ul>
-                                <li class="d-none d-xl-inline-block"><a href="{{ route('home') }}">HOME</a></li>
+                                <li class="d-none d-xl-inline-block"><a href="{{ route('index') }}">HOME</a></li>
                                 <li><a class="active" href="{{ route('about') }}">ABOUT US</a></li>
                                 <li><a href="{{ route('shop') }}">PRODUCT</a></li>
                             </ul>
@@ -379,7 +379,7 @@
     <!--==============================
       Hero Area
     ==============================-->
-    
+
     <section class="vs-hero-wrapper atas">
         <div class="about-us">
             <h1>About Us</h1>
@@ -394,14 +394,14 @@
         <!-- <div class="vs-hero-carousel" data-height="550" data-container="1900" data-slidertype="responsive"
             data-globalbgcolor="#FFC6D3">
 
- 
+
             <div class="ls-slide">
                 <img width="1920" height="295" src="{{ asset('template/assets/img/hero/h-s-2-2.png') }}" class="ls-l ls-img-layer" alt="bg"
                     decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:105px; left:-10px; -webkit-background-clip:border-box;"
                     >
-                
-               
+
+
                 <h1 style="font-size:50px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:black; font-family:'Fredoka', sans-serif; line-height:70px; font-weight:600; left:310px; top:305px; -webkit-background-clip:border-box;"
                     class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
                     >
@@ -420,9 +420,9 @@
                 <p style="font-size:24px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:black; left:315px; top:515px; -webkit-background-clip:border-box;"
                     class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
                     >Give Your Child the Gift of Play and Growth</p>
-                
-                
-                
+
+
+
             </div>
 
         </div> -->
@@ -455,7 +455,7 @@
         </div>
     </section> -->
     <!--==============================
-    About Area  
+    About Area
     ==============================-->
     <section class=" space-top space-extra-bottom" style="padding-top: 50px !important;">
         <div class="container">
@@ -484,7 +484,7 @@
                 </div>
                 <div class="col-xl-6 col-xxl-6 text-center text-xl-start">
                     <p class="fs-sm pe-xxl-4 me-xxl-4 mb-4 pb-1 mt-n2">Since its founding in 2015, EMCO Toys has been dedicated to spreading joy through toys. Starting as a small family-owned store, we’ve grown into a trusted destination for parents seeking high-quality, safe, and fun toys for their children.</p>
-                    
+
                     <div class="row items">
                         <div class="col-md-6">
                             <div class="feature-style1">
@@ -598,7 +598,7 @@
                 d="M1920 295V202.758C1906.48 131.342 1843.63 77.168 1768.34 77.168C1739.37 77.168 1711.54 85.1814 1687.4 100.128C1650.68 38.4074 1584.56 0 1511.11 0C1412.1 0 1329.2 70.2842 1309.68 163.577C1294.03 136.928 1265.08 119 1232 119C1215.11 119 1198.88 123.673 1184.8 132.389C1163.39 96.397 1124.83 74 1082 74C1022.17 74 972.422 118.018 963.444 175.369C947.459 160.855 926.246 152 903 152C886.11 152 869.88 156.673 855.803 165.389C834.387 129.397 795.832 107 753 107C710.158 107 672.487 129.569 651.251 163.442C635.542 150.075 615.199 142 593 142C576.11 142 559.88 146.673 545.803 155.389C524.387 119.397 485.832 97 443 97C400.012 97 362.23 119.723 341.034 153.789C324.552 132.631 298.841 119 270 119C253.11 119 236.88 123.673 222.803 132.389C201.387 96.397 162.832 74 120 74C53.8333 74 0.000244141 127.833 0.000244141 194C0.000244141 194.41 0.000244141 194.835 0.0152435 195.245L0.000244141 195.248V295H1920Z" />
         </svg>
     </div>
-    
+
     <!--==============================
     Why Choose Us
     ==============================-->
@@ -727,7 +727,7 @@
         </svg>
     </div> -->
     <!--==============================
-    Feature Area  
+    Feature Area
     ==============================-->
     <!-- <section class=" space-extra-bottom">
         <div class="container">
@@ -828,13 +828,13 @@
                     <div class="bubble"></div>
                 </div>
                 <h2 class="sec-title" style="color: #C8272C;">Milestone & Achivement</h2>
-                
+
             </div>
             <div class="row gx-40 vs-carousel slick-initialized slick-slider" data-slide-show="3" data-md-slide-show="2" data-sm-slide-show="2" data-xs-slide-show="2" data-dots="true">
-                
-                
-                
-                
+
+
+
+
             <div class="slick-list draggable">
                     <div class="slick-track" style="opacity: 1; width: 4180px; transform: translate3d(-1140px, 0px, 0px);"><div class="col-xl-4 slick-slide slick-cloned" style="width: 380px;" data-slick-index="-3" id="" aria-hidden="true" tabindex="-1">
                     <div class="category-style2">
@@ -939,7 +939,7 @@
             </div></div></div>
         </div>
         <div class="container text-center my-5" style="margin-top: 50px; margin-bottom: 50px;">
-            
+
         </div>
     </section>
     <!--==============================
@@ -1305,7 +1305,7 @@
     <a href="#" class="scrollToTop scroll-btn"><i class="far fa-arrow-up"></i></a>
 
     <!--********************************
-			Code End  Here 
+			Code End  Here
 	******************************** -->
 
     <!--==============================

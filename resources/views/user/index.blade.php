@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -43,38 +43,20 @@
     <link rel="stylesheet" href="{{ asset('template/assets/css/slick.min.css') }}">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="{{ asset('template/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/assets/css/custom.css') }}">
 
 </head>
 
 <body>
 
-
-    <!--[if lte IE 9]>
-    	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
-
-
-
     <!--********************************
-   		Code Start From Here 
+   		Code Start From Here
 	******************************** -->
 
-
-
-
-    <!--==============================
-     Preloader
-    ==============================-->
-    <div class="preloader  ">
-        <button class="vs-btn preloaderCls">Cancel Preloader </button>
-        <div class="preloader-inner">
-            <div class="loader"></div>
-        </div>
-    </div>
     <!--==============================
     Mobile Menu
     ============================== -->
-    <!-- <div class="vs-menu-wrapper">
+    <div class="vs-menu-wrapper">
         <div class="vs-menu-area text-center">
             <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
@@ -82,312 +64,63 @@
             </div>
             <div class="vs-mobile-menu">
                 <ul>
-                    <li class="menu-item-has-children">
-                        <a href="index.html">Demo</a>
-                        <ul class="sub-menu">
-                            <li><a href="index.html">Demo Style 1</a></li>
-                            <li><a href="index-2.html">Demo Style 2</a></li>
-                            <li><a href="index-3.html">Demo Style 3</a></li>
-                            <li><a href="index-4.html">Demo Style 4</a></li>
-                            <li><a href="index-5.html">Demo Style 5</a></li>
-                            <li><a href="index-6.html">Demo Style 6</a></li>
-                            <li><a href="index-7.html">Demo Style 7</a></li>
-                            <li><a href="index-8.html">Demo Style 8</a></li>
-                        </ul>
+                    <li>
+                        <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About Us</a>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="class.html">Classes</a>
-                        <ul class="sub-menu">
-                            <li><a href="class.html">Class Style 1</a></li>
-                            <li><a href="class-2.html">Class Style 2</a></li>
-                            <li><a href="class-details.html">Class Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="blog.html">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children mega-menu-wrap">
-                        <a href="#">Pages</a>
-                        <ul class="mega-menu">
-                            <li><a href="shop.html">Pagelist 1</a>
-                                <ul>
-                                    <li><a href="index.html">Demo Style 1</a></li>
-                                    <li><a href="index-2.html">Demo Style 2</a></li>
-                                    <li><a href="index-3.html">Demo Style 3</a></li>
-                                    <li><a href="index-4.html">Demo Style 4</a></li>
-                                    <li><a href="index-5.html">Demo Style 5</a></li>
-                                    <li><a href="class.html">Class Style 1</a></li>
-                                    <li><a href="class-2.html">Class Style 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Pagelist 2</a>
-                                <ul>
-                                    <li><a href="class-details.html">Class Details</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="service.html">Service</a></li>
-                                    <li><a href="service-details.html">Service Details</a></li>
-                                    <li><a href="team.html">Team</a></li>
-                                    <li><a href="team-details.html">Team Details</a></li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Pagelist 3</a>
-                                <ul>
-                                    <li><a href="event-details.html">Event Details</a></li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="price-plan.html">Price Plan</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Pagelist 4</a>
-                                <ul>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                    <li><a href="registration.html">Registration</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="error.html">Error Page</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="{{ route('about') }}">About Us</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact Us</a>
+                        <a href="{{ route(name: 'shop') }}">Product</a>
                     </li>
+                    <li>
+                        <a href="">Profile</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('login') }}">Login/ Register</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
-    </div> -->
-    <!--==============================
-    Sidemenu
-    ============================== -->
-    <!-- <div class="sidemenu-wrapper d-none d-lg-block">
-        <div class="sidemenu-content">
-            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
-            <div class="widget">
-                <div class="widget-about">
-                    <div class="footer-logo">
-                        <img src="{{ asset('template/assets/img/logo.svg') }}" alt="Kiddino">
-                    </div>
-                    <p class="mb-0">We are constantly expanding the range of services offered, taking care of children of all ages.</p>
-                </div>
-            </div>
-            <div class="widget">
-                <h3 class="widget_title">Get In Touch</h3>
-                <div>
-                    <p class="footer-text">Monday to Friday: <span class="time">8.30am – 02.00pm</span></p>
-                    <p class="footer-text">Saturday, Sunday: <span class="time">Close</span></p>
-                    <p class="footer-info"><i class="fal fa-envelope"></i>Email: <a href="mailto:user@domainname.com">user@domainname.com</a></p>
-                    <p class="footer-info"><i class="fas fa-mobile-alt"></i>Phone: <a href="tel:+4402076897888">+44 (0) 207 689 7888</a></p>
-                </div>
-            </div>
-            <div class="widget">
-                <h3 class="widget_title">Latest News</h3>
-                <div class="recent-post-wrap">
-                    <div class="recent-post">
-                        <div class="media-img">
-                            <a href="blog-details.html">
-                                <img src="{{ asset('template/assets/img/blog/recent-post-1-1.jpg') }}" alt="Blog Image">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <div class="recent-post-meta">
-                                <a href="blog.html"><i class="far fa-calendar-alt"></i>December 3, 2022</a>
-                            </div>
-                            <h4 class="post-title">
-                                <a class="text-inherit" href="blog-details.html">A very warm welcome to our new Treasurer</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="recent-post">
-                        <div class="media-img">
-                            <a href="blog-details.html">
-                                <img src="{{ asset('template/assets/img/blog/recent-post-1-2.jpg') }}" alt="Blog Image">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <div class="recent-post-meta">
-                                <a href="blog.html"><i class="far fa-calendar-alt"></i>February 15, 2022</a>
-                            </div>
-                            <h4 class="post-title">
-                                <a class="text-inherit" href="blog-details.html">German kinder and garten mean child</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="recent-post">
-                        <div class="media-img">
-                            <a href="blog-details.html">
-                                <img src="{{ asset('template/assets/img/blog/recent-post-1-3.jpg') }}" alt="Blog Image">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <div class="recent-post-meta">
-                                <a href="blog.html"><i class="far fa-calendar-alt"></i>August 20, 2022</a>
-                            </div>
-                            <h4 class="post-title">
-                                <a class="text-inherit" href="blog-details.html">English uses term to refer to the earliest</a>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                </div>
-        </div>
-    </div>   -->
-<!--==============================
-    Popup Search Box
-    ============================== -->
-    <!-- <div class="popup-search-box d-none d-lg-block  ">
-        <button class="searchClose"><i class="fal fa-times"></i></button>
-        <form action="#">
-            <input type="text" class="border-theme" placeholder="What are you looking for">
-            <button type="submit"><i class="fal fa-search"></i></button>
-        </form>
-    </div> -->
-    <!--==============================
-        Header Area
-    ==============================-->
+    </div>
     <header class="vs-header header-layout2">
         <div class="header-top">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col col-sm-auto">
+                    <div class="col-auto">
                         <div class="header-logo">
-                            <a href="index.html">
-                                <img src="{{ asset('template/assets/img/emco.png') }}" alt="logo">
+                            <a href="/">
+                                <img src="{{ asset('template/assets/img/emco.png') }}" style="height: 50px" alt="logo">
                             </a>
                         </div>
                     </div>
                     <div class="col-6 col-sm-auto d-none d-lg-block">
                         <div class="header-links style3 style-white">
                             <ul>
-                                <li class="d-none d-xl-inline-block"><a href="{{ route('home') }}" class="active">HOME</a></li>
+                                <li class=""><a href="{{ route('index') }}" class="active">HOME</a></li>
                                 <li><a href="{{ route('about') }}">ABOUT US</a></li>
-                                <li><a href="tel:+4402076897888">PRODUCT</a></li>
+                                <li><a href="{{ route('shop') }}">PRODUCT</a></li>
                             </ul>
                         </div>
                     </div>
-                    <!-- <div class="col">
+                    <div class="col">
                         <div class="row align-items-center justify-content-end gx-3">
-                            <div class="col-auto d-none d-lg-block">
-                                <div class="header-icons">
-                                    <button class="simple-icon style2 sideMenuToggler"><i
-                                            class="far fa-bars"></i></button>
-                                </div>
+                            <div class="col-auto">
+                                <button class="circle-icon d-inline-block"><i class="far fa-shopping-cart"></i></button>
                             </div>
-                            <div class="col-auto ">
-                                <a href="contact.html" class="vs-btn sideMenuToggler">Apply Today</a>
+                            <div class="col-auto d-block d-md-none">
+                                <button class="vs-menu-toggle d-inline-block"><i class="fal fa-bars"></i></button>
+                            </div>
+                            <div class="col-auto d-none d-lg-block d-md-none">
+                                <a href="{{ route('login') }}" class="vs-btn ">Login/ Register</a>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="container">
-            <div class="menu-area">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col">
-                        <nav class="main-menu menu-style2 d-none d-lg-block">
-                            <ul>
-                                <li class="menu-item-has-children">
-                                    <a href="index.html">Demo</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">Demo Style 1</a></li>
-                                        <li><a href="index-2.html">Demo Style 2</a></li>
-                                        <li><a href="index-3.html">Demo Style 3</a></li>
-                                        <li><a href="index-4.html">Demo Style 4</a></li>
-                                        <li><a href="index-5.html">Demo Style 5</a></li>
-                                        <li><a href="index-6.html">Demo Style 6</a></li>
-                                        <li><a href="index-7.html">Demo Style 7</a></li>
-                                        <li><a href="index-8.html">Demo Style 8</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="about.html">About Us</a>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="class.html">Classes</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="class.html">Class Style 1</a></li>
-                                        <li><a href="class-2.html">Class Style 2</a></li>
-                                        <li><a href="class-details.html">Class Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="blog.html">Blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children mega-menu-wrap">
-                                    <a href="#">Pages</a>
-                                    <ul class="mega-menu">
-                                        <li><a href="shop.html">Pagelist 1</a>
-                                            <ul>
-                                                <li><a href="index.html">Demo Style 1</a></li>
-                                                <li><a href="index-2.html">Demo Style 2</a></li>
-                                                <li><a href="index-3.html">Demo Style 3</a></li>
-                                                <li><a href="index-4.html">Demo Style 4</a></li>
-                                                <li><a href="index-5.html">Demo Style 5</a></li>
-                                                <li><a href="class.html">Class Style 1</a></li>
-                                                <li><a href="class-2.html">Class Style 2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Pagelist 2</a>
-                                            <ul>
-                                                <li><a href="class-details.html">Class Details</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="service.html">Service</a></li>
-                                                <li><a href="service-details.html">Service Details</a></li>
-                                                <li><a href="team.html">Team</a></li>
-                                                <li><a href="team-details.html">Team Details</a></li>
-                                                <li><a href="gallery.html">Gallery</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Pagelist 3</a>
-                                            <ul>
-                                                <li><a href="event-details.html">Event Details</a></li>
-                                                <li><a href="shop.html">Shop</a></li>
-                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                                <li><a href="cart.html">Shopping Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="price-plan.html">Price Plan</a></li>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Pagelist 4</a>
-                                            <ul>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                                <li><a href="registration.html">Registration</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="error.html">Error Page</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="contact.html">Contact</a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fal fa-bars"></i></button>
-                    </div>
-                    <div class="col-auto">
-                        <button class="simple-icon searchBoxTggler"><i class="far fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+
     </header>
     <!--==============================
       Hero Area
@@ -402,7 +135,7 @@
                     decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:775px; left:-10px; -webkit-background-clip:border-box;"
                     data-ls="static:forever;">
-                <img width="708" height="710" src="{{ asset('template/assets/img/hero/gambar.png') }}" class="ls-l ls-hide-phone ls-img-layer"
+                <img width="708" height="710" src="{{ asset('template/assets/img/hero/Slide-1.png') }}" class="ls-l ls-hide-phone ls-img-layer"
                     alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:123px; left:830px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
@@ -428,7 +161,7 @@
                 <p style="font-size:24px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:black; left:315px; top:515px; -webkit-background-clip:border-box;"
                     class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
                     data-ls="offsetxin:-100; delayin:800; easingin:easeOutQuint;">Give Your Child the Gift of Play and Growth</p>
-                
+
                 <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:315px; top:577px; font-family:'Fredoka', sans-serif; -webkit-background-clip:border-box;"
                     class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
                     data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
@@ -481,7 +214,7 @@
                     data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
                     <a href="contact.html" class="vs-btn">Start Learning Today</a>
                 </div>
-                <img width="708" height="710" src="{{ asset('template/assets/img/hero/hero-2-1.png') }}"
+                <img width="708" height="710" src="{{ asset('template/assets/img/hero/Slide-1.png') }}"
                     class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:47px; left:1003px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
@@ -498,7 +231,7 @@
                     alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:28px; left:1088px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
-                <img width="715" height="711" src="{{ asset ('template/assets/img/hero/hero-2-2.png') }}" class="ls-l ls-hide-phone ls-img-layer"
+                <img width="715" height="711" src="{{ asset ('template/assets/img/hero/Slide-2.png') }}" class="ls-l ls-hide-phone ls-img-layer"
                     alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:28px; left:800px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
@@ -580,7 +313,7 @@
                     class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:29px; left:1183px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
-                <img width="715" height="711" src="assets/img/hero/hero-2-2.png"
+                <img width="715" height="711" src="{{ asset ('template/assets/img/hero/Slide-2.png') }}"
                     class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:-19px; left:917px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
@@ -593,7 +326,7 @@
                     alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:305px; left:697px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
-                <img width="710" height="711" src="{{ asset ('template/assets/img/hero/hero-2-3.png') }}" class="ls-l ls-hide-phone ls-img-layer"
+                <img width="710" height="711" src="{{ asset ('template/assets/img/hero/Slide-3.png') }}" class="ls-l ls-hide-phone ls-img-layer"
                     alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:118px; left:782px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
@@ -697,14 +430,14 @@
                 <h2 class="sec-title" style="color: #C8272C;">OUR BRAND PARTNER</h2>
                 <p class="sec-text">We collaborate with trusted toy manufacturers to ensure quality</p>
             </div>
-            <div class="row d-flex gx-0 partner">
-                <div class="col-xl-4 brands">
+            <div class="row d-flex justify-content-between gy-4">
+                <div class="col-sm-4 brands">
                     <img src="{{ asset('template/assets/img/category/Logo_Indomaret 1.png') }}" alt="category">
                 </div>
-                <div class="col-xl-4 brands">
+                <div class="col-sm-4 brands">
                     <img src="{{ asset('template/assets/img/category/alfamidi.png') }}" alt="category">
                 </div>
-                <div class="col-xl-4 brands">
+                <div class="col-sm-4 brands">
                     <img src="{{ asset('template/assets/img/category/alfamart.png') }}" alt="category">
                 </div>
             </div>
@@ -732,7 +465,7 @@
         </div>
     </section>
     <!--==============================
-    About Area  
+    About Area
     ==============================-->
     <section class=" space-top space-extra-bottom">
         <div class="container">
@@ -761,7 +494,7 @@
                 </div>
                 <div class="col-xl-6 col-xxl-6 text-center text-xl-start">
                     <p class="fs-sm pe-xxl-4 me-xxl-4 mb-4 pb-1 mt-n2">Since its founding in 2015, EMCO Toys has been dedicated to spreading joy through toys. Starting as a small family-owned store, we’ve grown into a trusted destination for parents seeking high-quality, safe, and fun toys for their children.</p>
-                    
+
                     <div class="row items">
                         <div class="col-md-6">
                             <div class="feature-style1">
@@ -875,7 +608,7 @@
                 d="M1920 295V202.758C1906.48 131.342 1843.63 77.168 1768.34 77.168C1739.37 77.168 1711.54 85.1814 1687.4 100.128C1650.68 38.4074 1584.56 0 1511.11 0C1412.1 0 1329.2 70.2842 1309.68 163.577C1294.03 136.928 1265.08 119 1232 119C1215.11 119 1198.88 123.673 1184.8 132.389C1163.39 96.397 1124.83 74 1082 74C1022.17 74 972.422 118.018 963.444 175.369C947.459 160.855 926.246 152 903 152C886.11 152 869.88 156.673 855.803 165.389C834.387 129.397 795.832 107 753 107C710.158 107 672.487 129.569 651.251 163.442C635.542 150.075 615.199 142 593 142C576.11 142 559.88 146.673 545.803 155.389C524.387 119.397 485.832 97 443 97C400.012 97 362.23 119.723 341.034 153.789C324.552 132.631 298.841 119 270 119C253.11 119 236.88 123.673 222.803 132.389C201.387 96.397 162.832 74 120 74C53.8333 74 0.000244141 127.833 0.000244141 194C0.000244141 194.41 0.000244141 194.835 0.0152435 195.245L0.000244141 195.248V295H1920Z" />
         </svg>
     </div> -->
-    
+
     <!--==============================
     Why Choose Us
     ==============================-->
@@ -1014,7 +747,7 @@
         </svg>
     </div> -->
     <!--==============================
-    Feature Area  
+    Feature Area
     ==============================-->
     <!-- <section class=" space-extra-bottom">
         <div class="container">
@@ -1099,7 +832,7 @@
             </div>
         </div>
     </section> -->
-    
+
     <!-- Wave Shape -->
     <div class="vs-wave-shape style3">
         <svg viewBox="0 0 1920 295" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1110,13 +843,13 @@
     <!--==============================
     Contact Area
     ==============================-->
-    <section class=" bg-smoke " data-bg-src="assets/img/bg/bg-con-1-1.png">
+    <section class=" bg-smoke " data-bg-src="{{ asset ('template/assets/img/bg/bg-con-1-1.png') }}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-auto col-xxl-6">
                     <div class="img-box6">
-                        <div class="img-1 mega-hover"><img src="{{ asset ('template/assets/img/about/con-1-1.jpg') }}" alt="image"></div>
-                        <div class="img-2 mega-hover"><img src="{{ asset ('template/assets/img/about/con-1-2.jpg') }}" alt="image"></div>
+                        <div class="img-1 mega-hover"><img src="{{ asset ('template/assets/img/about/children-1.png') }}" alt="image"></div>
+                        <div class="img-2 mega-hover"><img src="{{ asset ('template/assets/img/about/children-2.png') }}" alt="image"></div>
                     </div>
                 </div>
                 <div class="col-xl col-xxl-6 align-self-center">
@@ -1174,33 +907,7 @@
             </div>
         </div>
     </section>
-    <!--==============================
-    Brand
-    ==============================-->
-    <!-- <section class=" space-extra bg-smoke">
-        <div class="container">
-            <div class="title-area">
-                <h2 class="text-center mt-n2">Key supporters</h2>
-            </div>
-            <div class="row vs-carousel gx-10" data-slide-show="5" data-ml-slide-show="4" data-lg-slide-show="3"
-                data-md-slide-show="2" data-sm-slide-show="2">
-                <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset ('template/assets/img/brand/b-1-1.png') }}" alt="brand"></div>
-                </div>
-                <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset ('template/assets/img/brand/b-1-2.png') }}" alt="brand"></div>
-                </div>
-                <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset ('template/assets/img/brand/b-1-3.png') }}" alt="brand"></div>
-                </div>
-                <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset ('template/assets/img/brand/b-1-4.png') }}" alt="brand"></div>
-                </div>
-                <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset ('template/assets/img/brand/b-1-5.png') }}" alt="brand"></div>
-                </div>
-            </div>
-        </div>
+
     </section> -->
     <!-- Wave Shape -->
     <div class="vs-wave-shape style2 bg-smoke">
@@ -1209,75 +916,6 @@
                 d="M1920 295V202.758C1906.48 131.342 1843.63 77.168 1768.34 77.168C1739.37 77.168 1711.54 85.1814 1687.4 100.128C1650.68 38.4074 1584.56 0 1511.11 0C1412.1 0 1329.2 70.2842 1309.68 163.577C1294.03 136.928 1265.08 119 1232 119C1215.11 119 1198.88 123.673 1184.8 132.389C1163.39 96.397 1124.83 74 1082 74C1022.17 74 972.422 118.018 963.444 175.369C947.459 160.855 926.246 152 903 152C886.11 152 869.88 156.673 855.803 165.389C834.387 129.397 795.832 107 753 107C710.158 107 672.487 129.569 651.251 163.442C635.542 150.075 615.199 142 593 142C576.11 142 559.88 146.673 545.803 155.389C524.387 119.397 485.832 97 443 97C400.012 97 362.23 119.723 341.034 153.789C324.552 132.631 298.841 119 270 119C253.11 119 236.88 123.673 222.803 132.389C201.387 96.397 162.832 74 120 74C53.8333 74 0.000244141 127.833 0.000244141 194C0.000244141 194.41 0.000244141 194.835 0.0152435 195.245L0.000244141 195.248V295H1920Z" />
         </svg>
     </div>
-    <!--==============================
-    Blog Area
-    ==============================-->
-    <!-- <section class=" space-extra-bottom">
-        <div class="container">
-            <div class="title-area text-center">
-                <div class="sec-bubble">
-                    <div class="bubble"></div>
-                    <div class="bubble"></div>
-                    <div class="bubble"></div>
-                </div>
-                <h2 class="sec-title">Recent News</h2>
-                <p class="sec-text">We are constantly expanding the range of services offered</p>
-            </div>
-            <div class="row vs-carousel" data-slide-show="3" data-md-slide-show="2">
-
-                <div class="col-xl-4">
-                    <div class="vs-blog blog-style1">
-                        <div class="blog-img">
-                            <img src="{{ asset ('template/assets/img/blog/blog-1-1.jpg') }}" alt="Blog Thumbnail" class="w-100">
-                        </div>
-                        <div class="blog-content">
-                            <a href="blog.html" class="blog-date"><i class="fal fa-calendar-alt"></i>Augest 4, 2023</a>
-                            <h3 class="blog-title h5"><a href="blog-details.html">A very warm welcome to our new
-                                    Treasurer</a></h3>
-                            <p class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisc ing elit, sed do
-                                eiusmod tempor incididunt ut la bore et dolore magna aliqua</p>
-                        </div>
-                        <a href="blog-details.html" class="blog-btn">Read More<i class="far fa-angle-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-xl-4">
-                    <div class="vs-blog blog-style1">
-                        <div class="blog-img">
-                            <img src="{{ asset ('template/assets/img/blog/blog-1-2.jpg') }}" alt="Blog Thumbnail" class="w-100">
-                        </div>
-                        <div class="blog-content">
-                            <a href="blog.html" class="blog-date"><i class="fal fa-calendar-alt"></i>January 15,
-                                2023</a>
-                            <h3 class="blog-title h5"><a href="blog-details.html">Richard McClintock, a Latin scholar
-                                    from</a></h3>
-                            <p class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisc ing elit, sed do
-                                eiusmod tempor incididunt ut la bore et dolore magna aliqua</p>
-                        </div>
-                        <a href="blog-details.html" class="blog-btn">Read More<i class="far fa-angle-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-xl-4">
-                    <div class="vs-blog blog-style1">
-                        <div class="blog-img">
-                            <img src="{{ asset ('template/assets/img/blog/blog-1-3.jpg') }}" alt="Blog Thumbnail" class="w-100">
-                        </div>
-                        <div class="blog-content">
-                            <a href="blog.html" class="blog-date"><i class="fal fa-calendar-alt"></i>December 3,
-                                2023</a>
-                            <h3 class="blog-title h5"><a href="blog-details.html">In particular, the garbled words of
-                                    lorem</a></h3>
-                            <p class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisc ing elit, sed do
-                                eiusmod tempor incididunt ut la bore et dolore magna aliqua</p>
-                        </div>
-                        <a href="blog-details.html" class="blog-btn">Read More<i class="far fa-angle-right"></i></a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section> -->
     <!--==============================
     Instagram Posts
     ==============================-->
@@ -1288,69 +926,21 @@
             </div>
             <div class="row vs-carousel" data-slide-show="6" data-lg-slide-show="5" data-md-slide-show="4"
                 data-sm-slide-show="3" data-xs-slide-show="2">
-                <div class="col-auto">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="{{ asset ('template/assets/img/gallery/gal-2-1.jpg') }}" alt="gallery">
-                            <a href="{{ asset ('template/assets/img/gallery/gal-2-1.jpg') }}" class="gallery-btn popup-image"><i
-                                    class="far fa-plus"></i></a>
+
+                @for ($i = 1; $i <= 6; $i++)
+                    <div class="col-auto">
+                        <div class="gallery-style1">
+                            <div class="gallery-img">
+                                <img src="{{ asset("template/assets/img/gallery/ig-$i.jpeg") }}" alt="gallery">
+                                <a href="{{ asset("template/assets/img/gallery/ig-$i.jpeg") }}" class="gallery-btn popup-image">
+                                    <i class="far fa-plus"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-auto">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="{{ asset ('template/assets/img/gallery/gal-2-2.jpg') }}" alt="gallery">
-                            <a href="{{ asset ('template/assets/img/gallery/gal-2-2.jpg') }}" class="gallery-btn popup-image"><i
-                                    class="far fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="{{ asset ('template/assets/img/gallery/gal-2-3.jpg') }}" alt="gallery">
-                            <a href="{{ asset ('template/assets/img/gallery/gal-2-3.jpg') }}" class="gallery-btn popup-image"><i
-                                    class="far fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="{{ asset ('template/assets/img/gallery/gal-2-4.jpg') }}" alt="gallery">
-                            <a href="{{ asset ('template/assets/img/gallery/gal-2-4.jpg') }}" class="gallery-btn popup-image"><i
-                                    class="far fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="{{ asset ('template/assets/img/gallery/gal-2-5.jpg') }}" alt="gallery">
-                            <a href="{{ asset ('template/assets/img/gallery/gal-2-5.jpg') }}" class="gallery-btn popup-image"><i
-                                    class="far fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="{{ asset ('template/assets/img/gallery/gal-2-6.jpg') }}" alt="gallery">
-                            <a href="{{ asset ('template/assets/img/gallery/gal-2-6.jpg') }}" class="gallery-btn popup-image"><i
-                                    class="far fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="gallery-style1">
-                        <div class="gallery-img">
-                            <img src="{{ asset ('template/assets/img/gallery/gal-2-7.jpg') }}" alt="gallery">
-                            <a href="{{ asset ('template/assets/img/gallery/gal-2-7.jpg') }}" class="gallery-btn popup-image"><i
-                                    class="far fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endfor
+
+
             </div>
         </div>
     </section>
@@ -1470,7 +1060,7 @@
     <a href="#" class="scrollToTop scroll-btn"><i class="far fa-arrow-up"></i></a>
 
     <!--********************************
-			Code End  Here 
+			Code End  Here
 	******************************** -->
 
     <!--==============================

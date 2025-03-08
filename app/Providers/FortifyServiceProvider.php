@@ -20,7 +20,42 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Fortify::ignoreRoutes();
+        Fortify::loginView(function (Request $request) {
+            if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
+                return view('admin.pages.auth.login');
+            }
+            return view('user.auth.login');
+        });
+
+        Fortify::registerView(function (Request $request) {
+            if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
+                return abort(403, 'Registration is not allowed for admins');
+            }
+            return view('user.auth.register');
+        });
+
+        Fortify::requestPasswordResetLinkView(function (Request $request) {
+            if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
+                return view('admin.pages.auth.forgot-password');
+            }
+            return view('user.auth.forgot-password');
+        });
+
+        Fortify::resetPasswordView(function (Request $request) {
+            if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
+                return view('admin.pages.auth.reset-password', ['request' => $request]);
+            }
+            return view('user.auth.reset-password', ['request' => $request]);
+        });
+
+        Fortify::verifyEmailView(function (Request $request) {
+            if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
+                return view('admin.pages.auth.verify-email');
+            }
+            return view('user.auth.verify-email');
+        });
+
     }
 
     /**
@@ -44,25 +79,25 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         // Custom Auth View
-        Fortify::loginView(function () {
-            return view('admin.pages.auth.login');
-        });
+        // Fortify::loginView(function () {
+        //     return view('admin.pages.auth.login');
+        // });
 
-        Fortify::registerView(function () {
-            return view('admin.pages.auth.register');
-        });
+        // Fortify::registerView(function () {
+        //     return view('admin.pages.auth.register');
+        // });
 
-        Fortify::requestPasswordResetLinkView(function () {
-            return view('admin.pages.auth.forgot-password');
-        });
+        // Fortify::requestPasswordResetLinkView(function () {
+        //     return view('admin.pages.auth.forgot-password');
+        // });
 
-        Fortify::resetPasswordView(function (Request $request) {
-            return view('admin.pages.auth.reset-password', ['request' => $request]);
-        });
+        // Fortify::resetPasswordView(function (Request $request) {
+        //     return view('admin.pages.auth.reset-password', ['request' => $request]);
+        // });
 
-        Fortify::verifyEmailView(function () {
-            return view('admin.pages.auth.verify-email');
-        });
+        // Fortify::verifyEmailView(function () {
+        //     return view('admin.pages.auth.verify-email');
+        // });
 
 
     }

@@ -19,6 +19,7 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/', [ControllersUserController::class, 'index'])->name('index');
     Route::get('/shop', [ControllersUserController::class, 'shop'])->name('shop');
     Route::get('/article', [ControllersUserController::class, 'article'])->name('article');
+
 });
 
 
@@ -71,7 +72,6 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
         Route::get('/order', 'index')->name('order.index');
         Route::get('/order/edit', 'edit')->name('order.edit');
     });
-
 
 
 
