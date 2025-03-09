@@ -8,9 +8,9 @@
 @section('main')
 
     <section class="vs-hero-wrapper atas">
-        <div class="about-us">
-            <h1>About Us</h1>
-            <p>Building a Brighter Future Through Play</p>
+        <div class="text-center py-3">
+            <h1 class="mb-0">About Us</h1>
+            <p class="mb-0">Building a Brighter Future Through Play</p>
         </div>
         <div class="vs-wave-shape style3" style="background-color: #FFC6D3;">
             <svg viewBox="0 0 1920 295" fill="none" xmlns="http://www.w3.org/2000/svg">

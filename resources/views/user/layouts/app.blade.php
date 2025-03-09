@@ -49,7 +49,7 @@
 </head>
 <body>
 
-    
+
     {{-- HEADER --}}
     @include('user.components.header')
     {{-- HEADER --}}

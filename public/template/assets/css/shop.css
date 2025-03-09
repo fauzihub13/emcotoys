@@ -10,14 +10,14 @@
     text-align: center;
 }
 .category img.cloud {
-    width: 150px; /* Sesuaikan ukuran awan */
+    width: 150px;
 }
 .category img.icon {
     position: absolute;
     top: 35%;
     left: 55%;
     transform: translate(-50%, -50%);
-    width: 50px; /* Sesuaikan ukuran ikon */
+    width: 50px;
 }
 .category img.icon.brix {
     fill: #4482C8;
@@ -88,4 +88,20 @@
 }
 .options a:hover {
     background-color: #FFC6D3;
+}
+
+
+
+@media (max-width: 767px) {
+    .category img.cloud {
+            width: 100px;
+    }
+
+    .category img.icon {
+        position: absolute;
+        top: 35%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+    }
 }

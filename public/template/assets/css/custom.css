@@ -22,6 +22,10 @@
     width: auto;
 }
 
+.color-custom-pink{
+    background-color: var(--vs-secondary-color);
+}
+
 @media (max-width: 767px) {
     .brands {
             width: 120px;
