@@ -25,35 +25,35 @@ class FortifyServiceProvider extends ServiceProvider
             if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
                 return view('admin.pages.auth.login');
             }
-            return view('user.auth.login');
+            return view('user.pages.auth.login');
         });
 
         Fortify::registerView(function (Request $request) {
             if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
                 return abort(403, 'Registration is not allowed for admins');
             }
-            return view('user.auth.register');
+            return view('user.pages.auth.register');
         });
 
         Fortify::requestPasswordResetLinkView(function (Request $request) {
             if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
                 return view('admin.pages.auth.forgot-password');
             }
-            return view('user.auth.forgot-password');
+            return view('user.pages.auth.forgot-password');
         });
 
         Fortify::resetPasswordView(function (Request $request) {
             if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
                 return view('admin.pages.auth.reset-password', ['request' => $request]);
             }
-            return view('user.auth.reset-password', ['request' => $request]);
+            return view('user.pages.auth.reset-password', ['request' => $request]);
         });
 
         Fortify::verifyEmailView(function (Request $request) {
             if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
                 return view('admin.pages.auth.verify-email');
             }
-            return view('user.auth.verify-email');
+            return view('user.pages.auth.verify-email');
         });
 
     }

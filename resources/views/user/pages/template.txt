@@ -1,0 +1,14 @@
+@extends('user.layouts.app')
+
+@section('title', 'Home')
+
+@push('style')
+@endpush
+
+@section('main')
+
+
+@endsection
+
+@push('script')
+@endpush

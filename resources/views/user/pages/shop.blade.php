@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -43,20 +44,38 @@
     <link rel="stylesheet" href="{{ asset('template/assets/css/slick.min.css') }}">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="{{ asset('template/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('template/assets/css/custom.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('template/assets/css/shop.css') }}">
 </head>
 
 <body>
+
+
+    <!--[if lte IE 9]>
+    	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+
 
     <!--********************************
    		Code Start From Here
 	******************************** -->
 
+
+
+
+    <!--==============================
+     Preloader
+    ==============================-->
+    {{-- <div class="preloader  ">
+        <button class="vs-btn preloaderCls">Cancel Preloader </button>
+        <div class="preloader-inner">
+            <div class="loader"></div>
+        </div>
+    </div> --}}
     <!--==============================
     Mobile Menu
     ============================== -->
-    <div class="vs-menu-wrapper">
+    <!-- <div class="vs-menu-wrapper">
         <div class="vs-menu-area text-center">
             <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
@@ -64,63 +83,312 @@
             </div>
             <div class="vs-mobile-menu">
                 <ul>
-                    <li>
-                        <a href="/">Home</a>
+                    <li class="menu-item-has-children">
+                        <a href="index.html">Demo</a>
+                        <ul class="sub-menu">
+                            <li><a href="index.html">Demo Style 1</a></li>
+                            <li><a href="index-2.html">Demo Style 2</a></li>
+                            <li><a href="index-3.html">Demo Style 3</a></li>
+                            <li><a href="index-4.html">Demo Style 4</a></li>
+                            <li><a href="index-5.html">Demo Style 5</a></li>
+                            <li><a href="index-6.html">Demo Style 6</a></li>
+                            <li><a href="index-7.html">Demo Style 7</a></li>
+                            <li><a href="index-8.html">Demo Style 8</a></li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="{{ route('about') }}">About Us</a>
+                        <a href="about.html">About Us</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="class.html">Classes</a>
+                        <ul class="sub-menu">
+                            <li><a href="class.html">Class Style 1</a></li>
+                            <li><a href="class-2.html">Class Style 2</a></li>
+                            <li><a href="class-details.html">Class Details</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="blog.html">Blog</a>
+                        <ul class="sub-menu">
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="blog-details.html">Blog Details</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children mega-menu-wrap">
+                        <a href="#">Pages</a>
+                        <ul class="mega-menu">
+                            <li><a href="shop.html">Pagelist 1</a>
+                                <ul>
+                                    <li><a href="index.html">Demo Style 1</a></li>
+                                    <li><a href="index-2.html">Demo Style 2</a></li>
+                                    <li><a href="index-3.html">Demo Style 3</a></li>
+                                    <li><a href="index-4.html">Demo Style 4</a></li>
+                                    <li><a href="index-5.html">Demo Style 5</a></li>
+                                    <li><a href="class.html">Class Style 1</a></li>
+                                    <li><a href="class-2.html">Class Style 2</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Pagelist 2</a>
+                                <ul>
+                                    <li><a href="class-details.html">Class Details</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="service.html">Service</a></li>
+                                    <li><a href="service-details.html">Service Details</a></li>
+                                    <li><a href="team.html">Team</a></li>
+                                    <li><a href="team-details.html">Team Details</a></li>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Pagelist 3</a>
+                                <ul>
+                                    <li><a href="event-details.html">Event Details</a></li>
+                                    <li><a href="shop.html">Shop</a></li>
+                                    <li><a href="shop-details.html">Shop Details</a></li>
+                                    <li><a href="cart.html">Shopping Cart</a></li>
+                                    <li><a href="checkout.html">Checkout</a></li>
+                                    <li><a href="price-plan.html">Price Plan</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Pagelist 4</a>
+                                <ul>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                    <li><a href="registration.html">Registration</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="error.html">Error Page</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="{{ route(name: 'shop') }}">Product</a>
+                        <a href="contact.html">Contact Us</a>
                     </li>
-                    <li>
-                        <a href="">Profile</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('login') }}">Login/ Register</a>
-                    </li>
-
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
+    <!--==============================
+    Sidemenu
+    ============================== -->
+    <!-- <div class="sidemenu-wrapper d-none d-lg-block">
+        <div class="sidemenu-content">
+            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
+            <div class="widget">
+                <div class="widget-about">
+                    <div class="footer-logo">
+                        <img src="{{ asset('template/assets/img/logo.svg') }}" alt="Kiddino">
+                    </div>
+                    <p class="mb-0">We are constantly expanding the range of services offered, taking care of children of all ages.</p>
+                </div>
+            </div>
+            <div class="widget">
+                <h3 class="widget_title">Get In Touch</h3>
+                <div>
+                    <p class="footer-text">Monday to Friday: <span class="time">8.30am – 02.00pm</span></p>
+                    <p class="footer-text">Saturday, Sunday: <span class="time">Close</span></p>
+                    <p class="footer-info"><i class="fal fa-envelope"></i>Email: <a href="mailto:user@domainname.com">user@domainname.com</a></p>
+                    <p class="footer-info"><i class="fas fa-mobile-alt"></i>Phone: <a href="tel:+4402076897888">+44 (0) 207 689 7888</a></p>
+                </div>
+            </div>
+            <div class="widget">
+                <h3 class="widget_title">Latest News</h3>
+                <div class="recent-post-wrap">
+                    <div class="recent-post">
+                        <div class="media-img">
+                            <a href="blog-details.html">
+                                <img src="{{ asset('template/assets/img/blog/recent-post-1-1.jpg') }}" alt="Blog Image">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <div class="recent-post-meta">
+                                <a href="blog.html"><i class="far fa-calendar-alt"></i>December 3, 2022</a>
+                            </div>
+                            <h4 class="post-title">
+                                <a class="text-inherit" href="blog-details.html">A very warm welcome to our new Treasurer</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="recent-post">
+                        <div class="media-img">
+                            <a href="blog-details.html">
+                                <img src="{{ asset('template/assets/img/blog/recent-post-1-2.jpg') }}" alt="Blog Image">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <div class="recent-post-meta">
+                                <a href="blog.html"><i class="far fa-calendar-alt"></i>February 15, 2022</a>
+                            </div>
+                            <h4 class="post-title">
+                                <a class="text-inherit" href="blog-details.html">German kinder and garten mean child</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="recent-post">
+                        <div class="media-img">
+                            <a href="blog-details.html">
+                                <img src="{{ asset('template/assets/img/blog/recent-post-1-3.jpg') }}" alt="Blog Image">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <div class="recent-post-meta">
+                                <a href="blog.html"><i class="far fa-calendar-alt"></i>August 20, 2022</a>
+                            </div>
+                            <h4 class="post-title">
+                                <a class="text-inherit" href="blog-details.html">English uses term to refer to the earliest</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>   -->
+<!--==============================
+    Popup Search Box
+    ============================== -->
+    <!-- <div class="popup-search-box d-none d-lg-block  ">
+        <button class="searchClose"><i class="fal fa-times"></i></button>
+        <form action="#">
+            <input type="text" class="border-theme" placeholder="What are you looking for">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div> -->
+    <!--==============================
+        Header Area
+    ==============================-->
     <header class="vs-header header-layout2">
         <div class="header-top">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-auto">
+                    <div class="col col-sm-auto">
                         <div class="header-logo">
-                            <a href="/">
-                                <img src="{{ asset('template/assets/img/emco.png') }}" style="height: 50px" alt="logo">
+                            <a href="index.html">
+                                <img src="{{ asset('template/assets/img/emco.png') }}" alt="logo">
                             </a>
                         </div>
                     </div>
                     <div class="col-6 col-sm-auto d-none d-lg-block">
                         <div class="header-links style3 style-white">
                             <ul>
-                                <li class=""><a href="{{ route('index') }}" class="active">HOME</a></li>
+                                <li class="d-none d-xl-inline-block"><a href="{{ route('index') }}">HOME</a></li>
                                 <li><a href="{{ route('about') }}">ABOUT US</a></li>
-                                <li><a href="{{ route('shop') }}">PRODUCT</a></li>
+                                <li><a href="tel:+4402076897888" class="active">PRODUCT</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="row align-items-center justify-content-end gx-3">
-                            <div class="col-auto">
-                                <button class="circle-icon d-inline-block"><i class="far fa-shopping-cart"></i></button>
+                            <div class="col-auto d-none d-lg-block">
+                                <div class="header-icons">
+                                    <button class="simple-icon style2 sideMenuToggler"><i
+                                            class="far fa-bars"></i></button>
+                                </div>
                             </div>
-                            <div class="col-auto d-block d-md-none">
-                                <button class="vs-menu-toggle d-inline-block"><i class="fal fa-bars"></i></button>
-                            </div>
-                            <div class="col-auto d-none d-lg-block d-md-none">
-                                <a href="{{ route('login') }}" class="vs-btn ">Login/ Register</a>
+                            <div class="col-auto ">
+                                <a href="contact.html" class="vs-btn sideMenuToggler">Apply Today</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
-
+        <!-- <div class="container">
+            <div class="menu-area">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col">
+                        <nav class="main-menu menu-style2 d-none d-lg-block">
+                            <ul>
+                                <li class="menu-item-has-children">
+                                    <a href="index.html">Demo</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.html">Demo Style 1</a></li>
+                                        <li><a href="index-2.html">Demo Style 2</a></li>
+                                        <li><a href="index-3.html">Demo Style 3</a></li>
+                                        <li><a href="index-4.html">Demo Style 4</a></li>
+                                        <li><a href="index-5.html">Demo Style 5</a></li>
+                                        <li><a href="index-6.html">Demo Style 6</a></li>
+                                        <li><a href="index-7.html">Demo Style 7</a></li>
+                                        <li><a href="index-8.html">Demo Style 8</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="about.html">About Us</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="class.html">Classes</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="class.html">Class Style 1</a></li>
+                                        <li><a href="class-2.html">Class Style 2</a></li>
+                                        <li><a href="class-details.html">Class Details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="blog.html">Blog</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="blog-details.html">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children mega-menu-wrap">
+                                    <a href="#">Pages</a>
+                                    <ul class="mega-menu">
+                                        <li><a href="shop.html">Pagelist 1</a>
+                                            <ul>
+                                                <li><a href="index.html">Demo Style 1</a></li>
+                                                <li><a href="index-2.html">Demo Style 2</a></li>
+                                                <li><a href="index-3.html">Demo Style 3</a></li>
+                                                <li><a href="index-4.html">Demo Style 4</a></li>
+                                                <li><a href="index-5.html">Demo Style 5</a></li>
+                                                <li><a href="class.html">Class Style 1</a></li>
+                                                <li><a href="class-2.html">Class Style 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Pagelist 2</a>
+                                            <ul>
+                                                <li><a href="class-details.html">Class Details</a></li>
+                                                <li><a href="about.html">About Us</a></li>
+                                                <li><a href="service.html">Service</a></li>
+                                                <li><a href="service-details.html">Service Details</a></li>
+                                                <li><a href="team.html">Team</a></li>
+                                                <li><a href="team-details.html">Team Details</a></li>
+                                                <li><a href="gallery.html">Gallery</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Pagelist 3</a>
+                                            <ul>
+                                                <li><a href="event-details.html">Event Details</a></li>
+                                                <li><a href="shop.html">Shop</a></li>
+                                                <li><a href="shop-details.html">Shop Details</a></li>
+                                                <li><a href="cart.html">Shopping Cart</a></li>
+                                                <li><a href="checkout.html">Checkout</a></li>
+                                                <li><a href="price-plan.html">Price Plan</a></li>
+                                                <li><a href="faq.html">FAQ</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Pagelist 4</a>
+                                            <ul>
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                                <li><a href="registration.html">Registration</a></li>
+                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="error.html">Error Page</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fal fa-bars"></i></button>
+                    </div>
+                    <div class="col-auto">
+                        <button class="simple-icon searchBoxTggler"><i class="far fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </header>
     <!--==============================
       Hero Area
@@ -135,7 +403,7 @@
                     decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:775px; left:-10px; -webkit-background-clip:border-box;"
                     data-ls="static:forever;">
-                <img width="708" height="710" src="{{ asset('template/assets/img/hero/Slide-1.png') }}" class="ls-l ls-hide-phone ls-img-layer"
+                <img width="708" height="710" src="{{ asset('template/assets/img/hero/gambar.png') }}" class="ls-l ls-hide-phone ls-img-layer"
                     alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:123px; left:830px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
@@ -214,7 +482,7 @@
                     data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
                     <a href="contact.html" class="vs-btn">Start Learning Today</a>
                 </div>
-                <img width="708" height="710" src="{{ asset('template/assets/img/hero/Slide-1.png') }}"
+                <img width="708" height="710" src="{{ asset('template/assets/img/hero/hero-2-1.png') }}"
                     class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:47px; left:1003px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
@@ -231,7 +499,7 @@
                     alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:28px; left:1088px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
-                <img width="715" height="711" src="{{ asset ('template/assets/img/hero/Slide-2.png') }}" class="ls-l ls-hide-phone ls-img-layer"
+                <img width="715" height="711" src="{{ asset ('template/assets/img/hero/hero-2-2.png') }}" class="ls-l ls-hide-phone ls-img-layer"
                     alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:28px; left:800px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
@@ -313,7 +581,7 @@
                     class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:29px; left:1183px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
-                <img width="715" height="711" src="{{ asset ('template/assets/img/hero/Slide-2.png') }}"
+                <img width="715" height="711" src="assets/img/hero/hero-2-2.png"
                     class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:-19px; left:917px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
@@ -326,7 +594,7 @@
                     alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:305px; left:697px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
-                <img width="710" height="711" src="{{ asset ('template/assets/img/hero/Slide-3.png') }}" class="ls-l ls-hide-phone ls-img-layer"
+                <img width="710" height="711" src="{{ asset ('template/assets/img/hero/hero-2-3.png') }}" class="ls-l ls-hide-phone ls-img-layer"
                     alt="bg" decoding="async"
                     style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:118px; left:782px; -webkit-background-clip:border-box;"
                     data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
@@ -427,18 +695,34 @@
                     <div class="bubble"></div>
                     <div class="bubble"></div>
                 </div>
-                <h2 class="sec-title" style="color: #C8272C;">OUR BRAND PARTNER</h2>
-                <p class="sec-text">We collaborate with trusted toy manufacturers to ensure quality</p>
+                <h1 class="sec-title" style="color: black;">Browse Our Toys</h1>
+                <p class="sec-text" style="font-weight: 600; color:black">Our Collection</p>
             </div>
-            <div class="row d-flex justify-content-between gy-4">
-                <div class="col-sm-4 brands">
-                    <img src="{{ asset('template/assets/img/category/Logo_Indomaret 1.png') }}" alt="category">
+            <div class="category-container">
+                <div class="category">
+                    <img src="{{ asset('template/assets/img/shop/Vector.svg') }}" alt="Cloud" class="cloud">
+                    <img src="{{ asset('template/assets/img/shop/lego.svg') }}" alt="Bricks" class="icon brix" style="fill: #4482C8;">
+                    <p>Bricks</p>
                 </div>
-                <div class="col-sm-4 brands">
-                    <img src="{{ asset('template/assets/img/category/alfamidi.png') }}" alt="category">
+                <div class="category">
+                    <img src="{{ asset('template/assets/img/shop/Vector (1).svg') }}" alt="Cloud" class="cloud">
+                    <img src="{{ asset('template/assets/img/shop/vehicle.svg') }}" alt="Toy Vehicle" class="icon">
+                    <p>Toy Vehicle</p>
                 </div>
-                <div class="col-sm-4 brands">
-                    <img src="{{ asset('template/assets/img/category/alfamart.png') }}" alt="category">
+                <div class="category">
+                    <img src="{{ asset('template/assets/img/shop/Vector (2).svg') }}" alt="Cloud" class="cloud">
+                    <img src="{{ asset('template/assets/img/shop/brick.png') }}" alt="Educational Toys" class="icon">
+                    <p>Educational Toys</p>
+                </div>
+                <div class="category">
+                    <img src="{{ asset('template/assets/img/shop/Vector (3).svg') }}" alt="Cloud" class="cloud">
+                    <img src="{{ asset('template/assets/img/shop/pot.png') }}" alt="Cooking Toys" class="icon">
+                    <p>Cooking Toys</p>
+                </div>
+                <div class="category">
+                    <img src="{{ asset('template/assets/img/shop/Vector (4).svg') }}" alt="Cloud" class="cloud">
+                    <img src="{{ asset('template/assets/img/shop/doll.png') }}" alt="Dolls" class="icon">
+                    <p>Dolls</p>
                 </div>
             </div>
             <!-- <div class="row d-flex gx-0 vs-carousel partner" data-slide-show="3" data-md-slide-show="2" data-sm-slide-show="2"
@@ -464,458 +748,216 @@
             </div> -->
         </div>
     </section>
-    <!--==============================
-    About Area
-    ==============================-->
-    <section class=" space-top space-extra-bottom">
+    <section class="vs-product-wrapper space-extra-bottom">
         <div class="container">
-            <div class="row gx-70 justify-content-center justify-content-xl-start">
-                <div class="text-center text-xl-start col-lg-9 col-xl-8 col-xxl-9">
-                    <div class="title-area">
-                        <span class="sec-subtitle">part of the family since 2011,</span>
-                        <h2 class="sec-title">Provide a diverse range of safe and high-quality toys.</h2>
-                    </div>
+            <div class="title-area text-center" style="margin-top: 80px;">
+                <h1 class="sec-title" style="color: black;">Our Products</h1>
+                <div class="options">
+                    <a href="" class="active">Best Seller</a>
+                    <a href="">New Arrival</a>
                 </div>
-                <div class="col-lg-8 col-xl-6 col-xxl-auto mb-md-3 mb-xl-0">
-                    <div class="img-box5">
-                        <svg class="svg-hidden">
-                            <clipPath id="ab-shape1" clipPathUnits="objectBoundingBox">
-                                <path
-                                    d="M0.464,0.006 C0.488,0,0.513,0,0.536,0.006 L0.7,0.046 C0.723,0.052,0.745,0.063,0.764,0.08 L0.89,0.192 C0.908,0.208,0.922,0.229,0.931,0.252 L0.99,0.41 C0.999,0.433,1,0.458,0.999,0.482 L0.979,0.65 C0.976,0.674,0.967,0.698,0.953,0.718 L0.858,0.857 C0.844,0.877,0.825,0.894,0.803,0.905 L0.655,0.984 C0.633,0.995,0.609,1,0.584,1 H0.416 C0.392,1,0.368,0.995,0.346,0.984 L0.197,0.905 C0.175,0.894,0.157,0.877,0.143,0.857 L0.047,0.718 C0.033,0.698,0.025,0.674,0.022,0.65 L0.001,0.482 C-0.002,0.458,0.001,0.433,0.01,0.41 L0.07,0.252 C0.078,0.229,0.092,0.208,0.111,0.192 L0.237,0.08 C0.255,0.063,0.277,0.052,0.301,0.046 L0.464,0.006">
-                                </path>
-                            </clipPath>
-                        </svg>
-                        <div class="img-1 mega-hover"><img src="{{ asset('template/assets/img/about/about.png') }}" alt="about"></div>
-                        <div class="exp-pill">
-                            <p class="exp-number">100%</p>
-                            <p class="exp-text">A+ Results</p>
+            </div>
+            <div class="row justify-content-center shopping">
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="products">
+                        <div class="product-image">
+                            <a href="">
+                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="mt-4">
+                            </a>
                         </div>
+                        <a href="" class="details">Details<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="m5.157 13.069l4.611-4.685a.546.546 0 0 0 0-.768L5.158 2.93a.55.55 0 0 1 0-.771a.53.53 0 0 1 .759 0l4.61 4.684a1.65 1.65 0 0 1 0 2.312l-4.61 4.684a.53.53 0 0 1-.76 0a.55.55 0 0 1 0-.771"/></svg></a>
                     </div>
+                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
                 </div>
-                <div class="col-xl-6 col-xxl-6 text-center text-xl-start">
-                    <p class="fs-sm pe-xxl-4 me-xxl-4 mb-4 pb-1 mt-n2">Since its founding in 2015, EMCO Toys has been dedicated to spreading joy through toys. Starting as a small family-owned store, we’ve grown into a trusted destination for parents seeking high-quality, safe, and fun toys for their children.</p>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="products">
+                        <div class="product-image">
+                            <a href="">
+                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="mt-4">
+                            </a>
+                        </div>
+                        <a href="" class="details">Details<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="m5.157 13.069l4.611-4.685a.546.546 0 0 0 0-.768L5.158 2.93a.55.55 0 0 1 0-.771a.53.53 0 0 1 .759 0l4.61 4.684a1.65 1.65 0 0 1 0 2.312l-4.61 4.684a.53.53 0 0 1-.76 0a.55.55 0 0 1 0-.771"/></svg></a>
+                    </div>
+                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="products">
+                        <div class="product-image">
+                            <a href="">
+                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="mt-4">
+                            </a>
+                        </div>
+                        <a href="" class="details">Details<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="m5.157 13.069l4.611-4.685a.546.546 0 0 0 0-.768L5.158 2.93a.55.55 0 0 1 0-.771a.53.53 0 0 1 .759 0l4.61 4.684a1.65 1.65 0 0 1 0 2.312l-4.61 4.684a.53.53 0 0 1-.76 0a.55.55 0 0 1 0-.771"/></svg></a>
+                    </div>
+                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="products">
+                        <div class="product-image">
+                            <a href="">
+                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="mt-4">
+                            </a>
+                        </div>
+                        <a href="" class="details">Details<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="m5.157 13.069l4.611-4.685a.546.546 0 0 0 0-.768L5.158 2.93a.55.55 0 0 1 0-.771a.53.53 0 0 1 .759 0l4.61 4.684a1.65 1.65 0 0 1 0 2.312l-4.61 4.684a.53.53 0 0 1-.76 0a.55.55 0 0 1 0-.771"/></svg></a>
+                    </div>
+                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="products">
+                        <div class="product-image">
+                            <a href="">
+                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="mt-4">
+                            </a>
+                        </div>
+                        <a href="" class="details">Details<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="m5.157 13.069l4.611-4.685a.546.546 0 0 0 0-.768L5.158 2.93a.55.55 0 0 1 0-.771a.53.53 0 0 1 .759 0l4.61 4.684a1.65 1.65 0 0 1 0 2.312l-4.61 4.684a.53.53 0 0 1-.76 0a.55.55 0 0 1 0-.771"/></svg></a>
+                    </div>
+                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="products">
+                        <div class="product-image">
+                            <a href="">
+                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="mt-4">
+                            </a>
+                        </div>
+                        <a href="" class="details">Details<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="m5.157 13.069l4.611-4.685a.546.546 0 0 0 0-.768L5.158 2.93a.55.55 0 0 1 0-.771a.53.53 0 0 1 .759 0l4.61 4.684a1.65 1.65 0 0 1 0 2.312l-4.61 4.684a.53.53 0 0 1-.76 0a.55.55 0 0 1 0-.771"/></svg></a>
+                    </div>
+                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="products">
+                        <div class="product-image">
+                            <a href="">
+                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="mt-4">
+                            </a>
+                        </div>
+                        <a href="" class="details">Details<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="m5.157 13.069l4.611-4.685a.546.546 0 0 0 0-.768L5.158 2.93a.55.55 0 0 1 0-.771a.53.53 0 0 1 .759 0l4.61 4.684a1.65 1.65 0 0 1 0 2.312l-4.61 4.684a.53.53 0 0 1-.76 0a.55.55 0 0 1 0-.771"/></svg></a>
+                    </div>
+                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
+                </div>
 
-                    <div class="row items">
-                        <div class="col-md-6">
-                            <div class="feature-style1">
-                                <div class="feature-icon"><img src="{{ asset('template/assets/img/icon/service1.svg') }}" alt="icon"></div>
-                                <h3 class="feature-title h5">Premium Quality</h3>
-                                <p class="feature-text">All toys are crafted with attention to detail and meet safety standards.</p>
-                            </div>
+                <!-- <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="vs-product product-style1">
+                        <div class="product-img">
+                            <a href="shop-details.html"><img src="assets/img/product/product1-2.png" alt="Image" class="w-100"></a>
                         </div>
-                        <div class="col-md-6">
-                            <div class="feature-style1">
-                                <div class="feature-icon"><img src="{{ asset ('template/assets/img/icon/service2.svg') }}" alt="icon"></div>
-                                <h3 class="feature-title h5">Wide Variety</h3>
-                                <p class="feature-text">We offer toys for all ages, from toddlers to teens.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row items">
-                        <div class="col-md-6">
-                            <div class="feature-style1">
-                                <div class="feature-icon"><img src="{{ asset('template/assets/img/icon/service4.svg') }}" alt="icon"></div>
-                                <h3 class="feature-title h5">Affordable Prices</h3>
-                                <p class="feature-text">Fun doesn’t have to be expensive—great toys at great prices.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="feature-style1">
-                                <div class="feature-icon" style="color: #C8272C;"><img src="{{ asset ('template/assets/img/icon/service5.svg') }}" alt="icon"></div>
-                                <h3 class="feature-title h5">Customer Satisfaction</h3>
-                                <p class="feature-text">Our friendly team is always ready to help you find the perfect toy.</p>
+                        <div class="product-content">
+                            <span class="product-price">$18.00</span>
+                            <h3 class="product-title"><a class="text-inherit" href="shop-details.html">Table harmoni
+                                    play</a></h3>
+                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
+                            <div class="actions">
+                                <a href="cart.html" class="vs-btn"><i class="far fa-shopping-cart"></i>Add to Cart</a>
+                                <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="vs-product product-style1">
+                        <div class="product-img">
+                            <a href="shop-details.html"><img src="assets/img/product/product1-3.png" alt="Image" class="w-100"></a>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-price">$89.00 <del>$99.00</del></span>
+                            <h3 class="product-title"><a class="text-inherit" href="shop-details.html">Tommy Speak
+                                    Head</a></h3>
+                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
+                            <div class="actions">
+                                <a href="cart.html" class="vs-btn"><i class="far fa-shopping-cart"></i>Add to Cart</a>
+                                <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="vs-product product-style1">
+                        <div class="product-img">
+                            <a href="shop-details.html"><img src="assets/img/product/product1-4.png" alt="Image" class="w-100"></a>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-price">$30.00</span>
+                            <h3 class="product-title"><a class="text-inherit" href="shop-details.html">Queen Radio
+                                    Home</a></h3>
+                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
+                            <div class="actions">
+                                <a href="cart.html" class="vs-btn"><i class="far fa-shopping-cart"></i>Add to Cart</a>
+                                <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="vs-product product-style1">
+                        <div class="product-img">
+                            <a href="shop-details.html"><img src="assets/img/product/product1-5.png" alt="Image" class="w-100"></a>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-price">$65.00 <del>$56.00</del></span>
+                            <h3 class="product-title"><a class="text-inherit" href="shop-details.html">The Bubblegum
+                                    Toy</a></h3>
+                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
+                            <div class="actions">
+                                <a href="cart.html" class="vs-btn"><i class="far fa-shopping-cart"></i>Add to Cart</a>
+                                <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="vs-product product-style1">
+                        <div class="product-img">
+                            <a href="shop-details.html"><img src="assets/img/product/product1-6.png" alt="Image" class="w-100"></a>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-price">$99.00 <del>$36.00</del></span>
+                            <h3 class="product-title"><a class="text-inherit" href="shop-details.html">Wood while
+                                    chair</a></h3>
+                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
+                            <div class="actions">
+                                <a href="cart.html" class="vs-btn"><i class="far fa-shopping-cart"></i>Add to Cart</a>
+                                <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="vs-product product-style1">
+                        <div class="product-img">
+                            <a href="shop-details.html"><img src="assets/img/product/product1-7.png" alt="Image" class="w-100"></a>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-price">$45.00</span>
+                            <h3 class="product-title"><a class="text-inherit" href="shop-details.html">Chips Wall
+                                    sticker</a></h3>
+                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
+                            <div class="actions">
+                                <a href="cart.html" class="vs-btn"><i class="far fa-shopping-cart"></i>Add to Cart</a>
+                                <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="vs-product product-style1">
+                        <div class="product-img">
+                            <a href="shop-details.html"><img src="assets/img/product/product1-8.png" alt="Image" class="w-100"></a>
+                        </div>
+                        <div class="product-content">
+                            <span class="product-price">$24.00 <del>$63.00</del></span>
+                            <h3 class="product-title"><a class="text-inherit" href="shop-details.html">Watter Flow
+                                    Game</a></h3>
+                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div>
+                            <div class="actions">
+                                <a href="cart.html" class="vs-btn"><i class="far fa-shopping-cart"></i>Add to Cart</a>
+                                <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
     </section>
-    <!--==============================
-    Testimonial Area
-    ==============================-->
-    <section class=" space-extra-bottom">
-        <div class="container">
-            <div class="row justify-content-between text-center text-md-start">
-                <div class="col-md-auto">
-                    <div class="title-area">
-                        <span class="sec-subtitle">Service Reviews</span>
-                        <h2 class="sec-title">What Parents Say</h2>
-                    </div>
-                </div>
-                <div class="col-md-auto align-self-end">
-                    <div class="sec-btns">
-                        <button class="icon-btn" data-slick-prev=".testislide3"><i
-                                class="far fa-arrow-left"></i></button>
-                        <button class="icon-btn" data-slick-next=".testislide3"><i
-                                class="far fa-arrow-right"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="row vs-carousel testislide3" data-slide-show="2" data-md-slide-show="2">
-                <div class="col-lg-6">
-                    <div class="testi-style2">
-                        <p class="testi-text">From its medieval origins to the digital era, learn everything there is to
-                            know about the ubiquitous lorem ipsum passage sometimes known, is dummy.</p>
-                        <div class="testi-body">
-                            <div class="testi-icon"><i class="fas fa-quote-left"></i></div>
-                            <div class="media-body">
-                                <h3 class="testi-name h4">Mari Jain</h3>
-                                <div class="testi-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                        class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="testi-style2">
-                        <p class="testi-text">Until recently, the prevailing view assumed lorem ipsum was born as a
-                            nonsense text. It's not Latin, though it looks like it, and it actually says nor is</p>
-                        <div class="testi-body">
-                            <div class="testi-icon"><i class="fas fa-quote-left"></i></div>
-                            <div class="media-body">
-                                <h3 class="testi-name h4">Marko Polo</h3>
-                                <div class="testi-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                        class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="testi-style2">
-                        <p class="testi-text">Mercedes loves her school. she is leaving Monday. She is going to miss all
-                            her teachers. It's very good play school. she loved every minute there thank you.</p>
-                        <div class="testi-body">
-                            <div class="testi-icon"><i class="fas fa-quote-left"></i></div>
-                            <div class="media-body">
-                                <h3 class="testi-name h4">Jannie Marko</h3>
-                                <div class="testi-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                        class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Wave Shape -->
-    <!-- <div class="vs-wave-shape  ">
-        <svg viewBox="0 0 1920 295" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="wave-path" fill-rule="evenodd" clip-rule="evenodd"
-                d="M1920 295V202.758C1906.48 131.342 1843.63 77.168 1768.34 77.168C1739.37 77.168 1711.54 85.1814 1687.4 100.128C1650.68 38.4074 1584.56 0 1511.11 0C1412.1 0 1329.2 70.2842 1309.68 163.577C1294.03 136.928 1265.08 119 1232 119C1215.11 119 1198.88 123.673 1184.8 132.389C1163.39 96.397 1124.83 74 1082 74C1022.17 74 972.422 118.018 963.444 175.369C947.459 160.855 926.246 152 903 152C886.11 152 869.88 156.673 855.803 165.389C834.387 129.397 795.832 107 753 107C710.158 107 672.487 129.569 651.251 163.442C635.542 150.075 615.199 142 593 142C576.11 142 559.88 146.673 545.803 155.389C524.387 119.397 485.832 97 443 97C400.012 97 362.23 119.723 341.034 153.789C324.552 132.631 298.841 119 270 119C253.11 119 236.88 123.673 222.803 132.389C201.387 96.397 162.832 74 120 74C53.8333 74 0.000244141 127.833 0.000244141 194C0.000244141 194.41 0.000244141 194.835 0.0152435 195.245L0.000244141 195.248V295H1920Z" />
-        </svg>
-    </div> -->
-
-    <!--==============================
-    Why Choose Us
-    ==============================-->
-    <!-- <section class="bg-vs-secondary space-extra-bottom">
-        <div class="container">
-            <div class="row text-center text-lg-start">
-                <div class="col-lg-5 col-xl-6 mb-n4 mb-lg-0">
-                    <div class="title-area">
-                        <span class="sec-subtitle text-white">Why Choose Us</span>
-                        <h2 class="sec-title text-white">Our Core Values</h2>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-xl-6">
-                    <div class="title-area">
-                        <p class="sec-text text-white">We are constantly expanding the range of services offered, taking
-                            care of children of all ages. Our goal is to carefully educate and develop children in a fun
-                            way. We strive to turn the learning process into a bright.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row gx-0 mt-4 pt-2">
-                <div class="col-md-6 col-xl-3">
-                    <div class="feature-style2">
-                        <div class="feature-img">
-                            <div class="vs-circle"></div>
-                            <img src="{{ asset ('template/assets/img/choose/choose-1-1.png') }}" alt="image">
-                        </div>
-                        <h3 class="feature-title h5"><a href="service-details.html" class="text-inherit">Learn And
-                                Play</a></h3>
-                        <p class="feature-text">Our goal is to carefully educate and develop children in a fun way.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="feature-style2">
-                        <div class="feature-img">
-                            <div class="vs-circle"></div>
-                            <img src="{{ asset ('template/assets/img/choose/choose-1-2.png') }}" alt="image">
-                        </div>
-                        <h3 class="feature-title h5"><a href="service-details.html" class="text-inherit">Great
-                                Teachers</a></h3>
-                        <p class="feature-text">Our goal is to carefully educate and develop children in a fun way.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="feature-style2">
-                        <div class="feature-img">
-                            <div class="vs-circle"></div>
-                            <img src="{{ asset ('template/assets/img/choose/choose-1-3.png') }}" alt="image">
-                        </div>
-                        <h3 class="feature-title h5"><a href="service-details.html" class="text-inherit">Family
-                                Environment</a></h3>
-                        <p class="feature-text">Our goal is to carefully educate and develop children in a fun way.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="feature-style2">
-                        <div class="feature-img">
-                            <div class="vs-circle"></div>
-                            <img src="{{ asset('template/assets/img/choose/choose-1-4.png') }}" alt="image">
-                        </div>
-                        <h3 class="feature-title h5"><a href="service-details.html" class="text-inherit">Excellent
-                                Programmes</a></h3>
-                        <p class="feature-text">Our goal is to carefully educate and develop children in a fun way.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!--==============================
-    Team Area
-    ==============================-->
-    <!-- <section class=" space-top bg-smoke">
-        <div class="container">
-            <div class="title-area text-center">
-                <div class="sec-bubble">
-                    <div class="bubble"></div>
-                    <div class="bubble"></div>
-                    <div class="bubble"></div>
-                </div>
-                <h2 class="sec-title">Qualified Teachers</h2>
-                <p class="sec-text">We are constantly expanding the range of services offered</p>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="team-style1">
-                        <div class="team-img">
-                            <a href="team-details.html"><img src="{{ asset ('template/assets/img/team/t-1-1.jpg') }}" alt="team"></a>
-                        </div>
-                        <div class="team-content">
-                            <h3 class="team-name h2"><a href="team-details.html" class="text-inherit">Katie Willmore</a>
-                            </h3>
-                            <p class="team-degi">Principal and Manager</p>
-                            <a href="tel:+4402076897888" class="team-number">+44 (0) 207 689 7888</a>
-                            <div class="vs-social">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="team-style2">
-                        <div class="team-img"><a href="team-details.html"><img src="{{ asset ('template/assets/img/team/t-1-2.jpg') }}"
-                                    alt="team"></a></div>
-                        <h3 class="team-name"><a class="text-inherit" href="team-details.html">Jessica Levis</a></h3>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="team-style2">
-                        <div class="team-img"><a href="team-details.html"><img src="{{ asset ('template/assets/img/team/t-1-3.jpg') }}"
-                                    alt="team"></a></div>
-                        <h3 class="team-name"><a class="text-inherit" href="team-details.html">Nomina Leione</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row text-center text-lg-start mt-lg-5 pt-4 align-items-center justify-content-between">
-                <div class="col-lg-8 col-xl-9">
-                    <div class="title-area">
-                        <span class="sec-subtitle">learning by connecting practice</span>
-                        <h2 class="sec-title">Promoting high quality learning of Young Children</h2>
-                    </div>
-                </div>
-                <div class="col-lg-auto">
-                    <div class="sec-btns">
-                        <a href="contact.html" class="vs-btn">Start Registration</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Wave Shape -->
-    <!-- <div class="vs-wave-shape style2 bg-smoke">
-        <svg viewBox="0 0 1920 295" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="wave-path" fill-rule="evenodd" clip-rule="evenodd"
-                d="M1920 295V202.758C1906.48 131.342 1843.63 77.168 1768.34 77.168C1739.37 77.168 1711.54 85.1814 1687.4 100.128C1650.68 38.4074 1584.56 0 1511.11 0C1412.1 0 1329.2 70.2842 1309.68 163.577C1294.03 136.928 1265.08 119 1232 119C1215.11 119 1198.88 123.673 1184.8 132.389C1163.39 96.397 1124.83 74 1082 74C1022.17 74 972.422 118.018 963.444 175.369C947.459 160.855 926.246 152 903 152C886.11 152 869.88 156.673 855.803 165.389C834.387 129.397 795.832 107 753 107C710.158 107 672.487 129.569 651.251 163.442C635.542 150.075 615.199 142 593 142C576.11 142 559.88 146.673 545.803 155.389C524.387 119.397 485.832 97 443 97C400.012 97 362.23 119.723 341.034 153.789C324.552 132.631 298.841 119 270 119C253.11 119 236.88 123.673 222.803 132.389C201.387 96.397 162.832 74 120 74C53.8333 74 0.000244141 127.833 0.000244141 194C0.000244141 194.41 0.000244141 194.835 0.0152435 195.245L0.000244141 195.248V295H1920Z" />
-        </svg>
-    </div> -->
-    <!--==============================
-    Feature Area
-    ==============================-->
-    <!-- <section class=" space-extra-bottom">
-        <div class="container">
-            <div class="title-area text-center">
-                <div class="sec-bubble">
-                    <div class="bubble"></div>
-                    <div class="bubble"></div>
-                    <div class="bubble"></div>
-                </div>
-                <h2 class="sec-title">Available Clubs</h2>
-                <p class="sec-text">We are constantly expanding the range of services offered</p>
-            </div>
-            <div class="row justify-content-between align-items-center">
-                <div class="col-md-6 col-xl-auto order-2 order-xl-1">
-                    <div class="feature-style3">
-                        <div class="feature-img">
-                            <div class="img"><img src="{{ asset ('template/assets/img/feature/fe-1-1.jpg') }}" alt="feature"></div>
-                        </div>
-                        <div class="feature-body">
-                            <h3 class="feature-title h4">Early Club</h3>
-                            <div class="list-style2">
-                                <ul class="list-unstyled">
-                                    <li>Help parents get to work on time</li>
-                                    <li>Near the station</li>
-                                    <li>Children settled and ready to work</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feature-style3">
-                        <div class="feature-img">
-                            <div class="img"><img src="{{ asset ('template/assets/img/feature/fe-1-2.jpg') }}" alt="feature"></div>
-                        </div>
-                        <div class="feature-body">
-                            <h3 class="feature-title h4">Lunch Club</h3>
-                            <div class="list-style2">
-                                <ul class="list-unstyled">
-                                    <li>Help parents get to work on time</li>
-                                    <li>Near the station</li>
-                                    <li>Children settled and ready to work</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-xl-auto order-1 order-xl-2">
-                    <img src="assets/img/about/fe-1-1.png" alt="feature" class="w-100">
-                </div>
-                <div class="col-md-6 col-xl-auto  order-3 order-xl-3">
-                    <div class="feature-style3">
-                        <div class="feature-img">
-                            <div class="img"><img src="{{ asset ('template/assets/img/feature/fe-1-3.jpg') }}" alt="feature"></div>
-                        </div>
-                        <div class="feature-body">
-                            <h3 class="feature-title h4">Afternoon Club</h3>
-                            <div class="list-style2">
-                                <ul class="list-unstyled">
-                                    <li>Help parents get to work on time</li>
-                                    <li>Near the station</li>
-                                    <li>Children settled and ready to work</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feature-style3">
-                        <div class="feature-img">
-                            <div class="img"><img src="{{ asset ('template/assets/img/feature/fe-1-4.jpg') }}" alt="feature"></div>
-                        </div>
-                        <div class="feature-body">
-                            <h3 class="feature-title h4">Music Club</h3>
-                            <div class="list-style2">
-                                <ul class="list-unstyled">
-                                    <li>Help parents get to work on time</li>
-                                    <li>Near the station</li>
-                                    <li>Children settled and ready to work</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Wave Shape -->
-    <div class="vs-wave-shape style3">
-        <svg viewBox="0 0 1920 295" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="wave-path" fill-rule="evenodd" clip-rule="evenodd"
-                d="M1920 295V202.758C1906.48 131.342 1843.63 77.168 1768.34 77.168C1739.37 77.168 1711.54 85.1814 1687.4 100.128C1650.68 38.4074 1584.56 0 1511.11 0C1412.1 0 1329.2 70.2842 1309.68 163.577C1294.03 136.928 1265.08 119 1232 119C1215.11 119 1198.88 123.673 1184.8 132.389C1163.39 96.397 1124.83 74 1082 74C1022.17 74 972.422 118.018 963.444 175.369C947.459 160.855 926.246 152 903 152C886.11 152 869.88 156.673 855.803 165.389C834.387 129.397 795.832 107 753 107C710.158 107 672.487 129.569 651.251 163.442C635.542 150.075 615.199 142 593 142C576.11 142 559.88 146.673 545.803 155.389C524.387 119.397 485.832 97 443 97C400.012 97 362.23 119.723 341.034 153.789C324.552 132.631 298.841 119 270 119C253.11 119 236.88 123.673 222.803 132.389C201.387 96.397 162.832 74 120 74C53.8333 74 0.000244141 127.833 0.000244141 194C0.000244141 194.41 0.000244141 194.835 0.0152435 195.245L0.000244141 195.248V295H1920Z" />
-        </svg>
-    </div>
-    <!--==============================
-    Contact Area
-    ==============================-->
-    <section class=" bg-smoke " data-bg-src="{{ asset ('template/assets/img/bg/bg-con-1-1.png') }}">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-auto col-xxl-6">
-                    <div class="img-box6">
-                        <div class="img-1 mega-hover"><img src="{{ asset ('template/assets/img/about/children-1.png') }}" alt="image"></div>
-                        <div class="img-2 mega-hover"><img src="{{ asset ('template/assets/img/about/children-2.png') }}" alt="image"></div>
-                    </div>
-                </div>
-                <div class="col-xl col-xxl-6 align-self-center">
-                    <h2 class="sec-title mb-3">We’d Love to Hear From You!</h2>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="list-style1">
-                                <ul class="list-unstyled mb-0">
-                                    <li>Have questions about our products?</li>
-                                    <li>Interested in partnering with us?</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="list-style1">
-                                <ul class="list-unstyled">
-                                    <li>Need assistance with your orders?</li>
-                                    <li>Let us know how we can help!</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <form action="#" class="form-style3">
-                        <div class="row justify-content-between">
-                            <div class="col-md-6 form-group">
-                                <label>Subject <span class="required">(Required)</span></label>
-                                <input type="text">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Your Name <span class="required">(Required)</span></label>
-                                <input type="text">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Email Address <span class="required">(Required)</span></label>
-                                <input type="email">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Phone No</label>
-                                <input type="number">
-                            </div>
-                            <div class="col-l-6 form-group">
-                                <label>Messege</label>
-                                <input type="text">
-                            </div>
-                            <div class="col-auto align-self-center form-group">
-                                <input type="checkbox" id="notice" name="notice">
-                                <label for="notice">Notify Your child weekly progress</label>
-                            </div>
-                            <div class="col-auto form-group">
-                                <button class="vs-btn" type="submit">Send Messege</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    </section> -->
-    <!-- Wave Shape -->
-    <div class="vs-wave-shape style2 bg-smoke">
-        <svg viewBox="0 0 1920 295" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="wave-path" fill-rule="evenodd" clip-rule="evenodd"
-                d="M1920 295V202.758C1906.48 131.342 1843.63 77.168 1768.34 77.168C1739.37 77.168 1711.54 85.1814 1687.4 100.128C1650.68 38.4074 1584.56 0 1511.11 0C1412.1 0 1329.2 70.2842 1309.68 163.577C1294.03 136.928 1265.08 119 1232 119C1215.11 119 1198.88 123.673 1184.8 132.389C1163.39 96.397 1124.83 74 1082 74C1022.17 74 972.422 118.018 963.444 175.369C947.459 160.855 926.246 152 903 152C886.11 152 869.88 156.673 855.803 165.389C834.387 129.397 795.832 107 753 107C710.158 107 672.487 129.569 651.251 163.442C635.542 150.075 615.199 142 593 142C576.11 142 559.88 146.673 545.803 155.389C524.387 119.397 485.832 97 443 97C400.012 97 362.23 119.723 341.034 153.789C324.552 132.631 298.841 119 270 119C253.11 119 236.88 123.673 222.803 132.389C201.387 96.397 162.832 74 120 74C53.8333 74 0.000244141 127.833 0.000244141 194C0.000244141 194.41 0.000244141 194.835 0.0152435 195.245L0.000244141 195.248V295H1920Z" />
-        </svg>
-    </div>
     <!--==============================
     Instagram Posts
     ==============================-->
@@ -926,21 +968,69 @@
             </div>
             <div class="row vs-carousel" data-slide-show="6" data-lg-slide-show="5" data-md-slide-show="4"
                 data-sm-slide-show="3" data-xs-slide-show="2">
-
-                @for ($i = 1; $i <= 6; $i++)
-                    <div class="col-auto">
-                        <div class="gallery-style1">
-                            <div class="gallery-img">
-                                <img src="{{ asset("template/assets/img/gallery/ig-$i.jpeg") }}" alt="gallery">
-                                <a href="{{ asset("template/assets/img/gallery/ig-$i.jpeg") }}" class="gallery-btn popup-image">
-                                    <i class="far fa-plus"></i>
-                                </a>
-                            </div>
+                <div class="col-auto">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="{{ asset ('template/assets/img/gallery/gal-2-1.jpg') }}" alt="gallery">
+                            <a href="{{ asset ('template/assets/img/gallery/gal-2-1.jpg') }}" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
                         </div>
                     </div>
-                @endfor
-
-
+                </div>
+                <div class="col-auto">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="{{ asset ('template/assets/img/gallery/gal-2-2.jpg') }}" alt="gallery">
+                            <a href="{{ asset ('template/assets/img/gallery/gal-2-2.jpg') }}" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="{{ asset ('template/assets/img/gallery/gal-2-3.jpg') }}" alt="gallery">
+                            <a href="{{ asset ('template/assets/img/gallery/gal-2-3.jpg') }}" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="{{ asset ('template/assets/img/gallery/gal-2-4.jpg') }}" alt="gallery">
+                            <a href="{{ asset ('template/assets/img/gallery/gal-2-4.jpg') }}" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="{{ asset ('template/assets/img/gallery/gal-2-5.jpg') }}" alt="gallery">
+                            <a href="{{ asset ('template/assets/img/gallery/gal-2-5.jpg') }}" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="{{ asset ('template/assets/img/gallery/gal-2-6.jpg') }}" alt="gallery">
+                            <a href="{{ asset ('template/assets/img/gallery/gal-2-6.jpg') }}" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="gallery-style1">
+                        <div class="gallery-img">
+                            <img src="{{ asset ('template/assets/img/gallery/gal-2-7.jpg') }}" alt="gallery">
+                            <a href="{{ asset ('template/assets/img/gallery/gal-2-7.jpg') }}" class="gallery-btn popup-image"><i
+                                    class="far fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
