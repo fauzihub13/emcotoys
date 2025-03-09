@@ -54,4 +54,11 @@ class UserController extends Controller
             'type_menu'=> 'contact'
         ]);
     }
+
+    public function profile()
+    {
+        return view('user.pages.profile.account', [
+            'type_menu'=> 'account'
+        ]);
+    }
 }

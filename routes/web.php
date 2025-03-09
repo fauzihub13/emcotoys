@@ -23,6 +23,7 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/article-detail', [ControllersUserController::class, 'adetail'])->name('adetail');
     Route::get('/location', [ControllersUserController::class, 'location'])->name('location');
     Route::get('/contact', [ControllersUserController::class, 'contact'])->name('contact');
+    Route::get('/profile', [ControllersUserController::class, 'profile'])->name('profile');
 });
 
 

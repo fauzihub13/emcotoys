@@ -2,7 +2,7 @@
     <div class="vs-menu-area text-center">
         <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="{{ url('/') }}"><img src="{{ asset('template/assets/img/logo.svg') }}" alt="Kiddino"></a>
+            <a href="{{ url('/') }}"><img src="{{ asset('template/assets/img/logo.svg') }}" alt="EmcoToys"></a>
         </div>
         <div class="vs-mobile-menu">
             <ul>
@@ -41,10 +41,10 @@
                     <div class="col-auto text-end text-lg-center">
                         <nav class="main-menu menu-style1 d-none d-lg-block">
                             <ul>
-                                <li class=""><a href="{{ route('index') }}" class="{{ $type_menu == 'home' ? 'active' : '' }}">HOME</a></li>
-                                <li><a href="{{ route('about') }}" class="{{ $type_menu == 'about-us' ? 'active' : '' }}">ABOUT US</a></li>
-                                <li><a href="{{ route('shop') }}" class="{{ $type_menu == 'shop' ? 'active' : '' }}">PRODUCT</a></li>
-                                <li><a href="{{ route('article') }}" class="{{ $type_menu == 'article' ? 'active' : '' }}">ARTICLE</a></li>
+                                <li><a href="{{ route('index') }}" class="py-0 {{ $type_menu == 'home' ? 'active' : '' }}">HOME</a></li>
+                                <li><a href="{{ route('about') }}" class="py-0 {{ $type_menu == 'about-us' ? 'active' : '' }}">ABOUT US</a></li>
+                                <li><a href="{{ route('shop') }}" class="py-0 {{ $type_menu == 'shop' ? 'active' : '' }}">PRODUCT</a></li>
+                                <li><a href="{{ route('article') }}" class="py-0 {{ $type_menu == 'article' ? 'active' : '' }}">ARTICLE</a></li>
                             </ul>
                         </nav>
                     </div>

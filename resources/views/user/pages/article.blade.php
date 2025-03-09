@@ -16,8 +16,8 @@
                 <p class="breadcumb-text">Montessori Is A Nurturing And Holistic Approach To Learning</p>
                 <div class="breadcumb-menu-wrap">
                     <ul class="breadcumb-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li>Our Articles</li>
+                        <li class="color-text-red"><a href="/" class="color-text-red">Home</a></li>
+                        <li class="">Our Articles</li>
                     </ul>
                 </div>
             </div>
