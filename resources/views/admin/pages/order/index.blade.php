@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Transaction')
+@section('title', 'Order')
 
 @push('style')
     <link rel="stylesheet" href="{{ asset ("assets/admin/extensions/sweetalert2/sweetalert2.min.css") }}">

@@ -1,0 +1,13 @@
+.maps {
+    margin-top: 130px;
+    padding: 0px 100px;
+    margin-bottom: 100px;
+}
+.maps iframe {
+    border-radius: 25px;
+}
+
+.product-getway .platform img {
+    width: auto;
+    height: 30px;
+}

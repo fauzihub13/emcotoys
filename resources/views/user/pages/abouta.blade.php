@@ -56,7 +56,7 @@
 
 
     <!--********************************
-   		Code Start From Here 
+   		Code Start From Here
 	******************************** -->
 
 
@@ -65,12 +65,12 @@
     <!--==============================
      Preloader
     ==============================-->
-    <div class="preloader  ">
+    {{-- <div class="preloader  ">
         <button class="vs-btn preloaderCls">Cancel Preloader </button>
         <div class="preloader-inner">
             <div class="loader"></div>
         </div>
-    </div>
+    </div> --}}
     <!--==============================
     Mobile Menu
     ============================== -->
@@ -269,25 +269,12 @@
                     <div class="col-6 col-sm-auto d-none d-lg-block">
                         <div class="header-links style3 style-white">
                             <ul>
-                                <li class="d-none d-xl-inline-block"><a href="{{ route('home') }}" class="active">HOME</a></li>
-                                <li><a href="{{ route('about') }}">ABOUT US</a></li>
-                                <li><a href="tel:+4402076897888">PRODUCT</a></li>
+                                <li class="d-none d-xl-inline-block"><a href="{{ route('index') }}">HOME</a></li>
+                                <li><a class="active" href="{{ route('about') }}">ABOUT US</a></li>
+                                <li><a href="{{ route('shop') }}">PRODUCT</a></li>
                             </ul>
                         </div>
                     </div>
-                    <!-- <div class="col">
-                        <div class="row align-items-center justify-content-end gx-3">
-                            <div class="col-auto d-none d-lg-block">
-                                <div class="header-icons">
-                                    <button class="simple-icon style2 sideMenuToggler"><i
-                                            class="far fa-bars"></i></button>
-                                </div>
-                            </div>
-                            <div class="col-auto ">
-                                <a href="contact.html" class="vs-btn sideMenuToggler">Apply Today</a>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -392,301 +379,58 @@
     <!--==============================
       Hero Area
     ==============================-->
-    <section class="vs-hero-wrapper  ">
-        <div class="vs-hero-carousel" data-height="1050" data-container="1900" data-slidertype="responsive"
+
+    <section class="vs-hero-wrapper atas">
+        <div class="about-us">
+            <h1>About Us</h1>
+            <p>Building a Brighter Future Through Play</p>
+        </div>
+        <div class="vs-wave-shape style3" style="background-color: #FFC6D3;">
+            <svg viewBox="0 0 1920 295" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="wave-path atas" fill-rule="evenodd" clip-rule="evenodd"
+                    d="M1920 295V202.758C1906.48 131.342 1843.63 77.168 1768.34 77.168C1739.37 77.168 1711.54 85.1814 1687.4 100.128C1650.68 38.4074 1584.56 0 1511.11 0C1412.1 0 1329.2 70.2842 1309.68 163.577C1294.03 136.928 1265.08 119 1232 119C1215.11 119 1198.88 123.673 1184.8 132.389C1163.39 96.397 1124.83 74 1082 74C1022.17 74 972.422 118.018 963.444 175.369C947.459 160.855 926.246 152 903 152C886.11 152 869.88 156.673 855.803 165.389C834.387 129.397 795.832 107 753 107C710.158 107 672.487 129.569 651.251 163.442C635.542 150.075 615.199 142 593 142C576.11 142 559.88 146.673 545.803 155.389C524.387 119.397 485.832 97 443 97C400.012 97 362.23 119.723 341.034 153.789C324.552 132.631 298.841 119 270 119C253.11 119 236.88 123.673 222.803 132.389C201.387 96.397 162.832 74 120 74C53.8333 74 0.000244141 127.833 0.000244141 194C0.000244141 194.41 0.000244141 194.835 0.0152435 195.245L0.000244141 195.248V295H1920Z" />
+            </svg>
+        </div>
+        <!-- <div class="vs-hero-carousel" data-height="550" data-container="1900" data-slidertype="responsive"
             data-globalbgcolor="#FFC6D3">
 
-            <!-- Slide 1-->
-            <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnsscale:1.2;">
+
+            <div class="ls-slide">
                 <img width="1920" height="295" src="{{ asset('template/assets/img/hero/h-s-2-2.png') }}" class="ls-l ls-img-layer" alt="bg"
                     decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:775px; left:-10px; -webkit-background-clip:border-box;"
-                    data-ls="static:forever;">
-                <img width="708" height="710" src="{{ asset('template/assets/img/hero/gambar.png') }}" class="ls-l ls-hide-phone ls-img-layer"
-                    alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:123px; left:830px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
-                <img width="552" height="616" src="{{ asset ('template/assets/img/hero/h-s-2-1.png') }}" class="ls-l ls-hide-phone ls-img-layer"
-                    alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:170px; left:1171px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
+                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:105px; left:-10px; -webkit-background-clip:border-box;"
+                    >
+
+
                 <h1 style="font-size:50px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:black; font-family:'Fredoka', sans-serif; line-height:70px; font-weight:600; left:310px; top:305px; -webkit-background-clip:border-box;"
                     class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; easingin:easeOutQuint;">
+                    >
                     Safe, Fun, and
                 </h1>
                 <h1 style="font-size:50px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:black; font-family:'Fredoka', sans-serif; line-height:50px; font-weight:600; left:310px; top:374px; -webkit-background-clip:border-box;"
                     class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:300; easingin:easeOutQuint;">
+                    >
                     Educational Toys for
                 </h1>
                 <h1 style="font-size:50px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:black; font-family:'Fredoka', sans-serif; line-height:30px; font-weight:600; left:310px; top:445px; -webkit-background-clip:border-box;"
                     class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:600; easingin:easeOutQuint;">
+                    >
                     Every Child
                 </h1>
                 <p style="font-size:24px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:black; left:315px; top:515px; -webkit-background-clip:border-box;"
                     class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:800; easingin:easeOutQuint;">Give Your Child the Gift of Play and Growth</p>
-                
-                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:315px; top:577px; font-family:'Fredoka', sans-serif; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
-                    data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
-                    <a href="contact.html" class="vs-btn">CONTACT US</a>
-                </div>
-                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:90px; font-weight:600; left:150px; top:149px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; easingin:easeOutQuint;">
-                    World Best
-                </h1>
-                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:90px; font-weight:600; left:150px; top:245px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:300; easingin:easeOutQuint;">
-                    Children Care
-                </h1>
-                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:90px; font-weight:600; left:150px; top:351px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:600; easingin:easeOutQuint;">
-                    Program
-                </h1>
-                <p style="font-size:34px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:#ffffff; left:150px; top:477px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:800; easingin:easeOutQuint;">Montessori classrooms and materials
-                    encourage</p>
-                <p style="stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:#ffffff; left:150px; top:538px; font-size:34px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:900; easingin:easeOutQuint;">curiosity and discovery.</p>
-                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:150px; top:630px; font-family:'Fredoka', sans-serif; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer"
-                    data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
-                    <a href="contact.html" class="vs-btn">Start Learning Today</a>
-                </div>
-                <h1 style="stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:110px; font-weight:600; left:100px; top:90px; font-size:110px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
-                    data-ls="offsetxin:-100; easingin:easeOutQuint;">
-                    World Best
-                </h1>
-                <h1 style="stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:110px; font-weight:600; left:100px; top:236px; font-size:110px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:300; easingin:easeOutQuint;">
-                    Children Care
-                </h1>
-                <h1 style="font-size:110px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:110px; font-weight:600; left:100px; top:380px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:600; easingin:easeOutQuint;">
-                    Program
-                </h1>
-                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:100px; top:578px; font-family:'Fredoka', sans-serif; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer"
-                    data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
-                    <a href="contact.html" class="vs-btn">Start Learning Today</a>
-                </div>
-                <img width="708" height="710" src="{{ asset('template/assets/img/hero/hero-2-1.png') }}"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:47px; left:1003px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
-                <img width="552" height="616" src="{{ asset('template/assets/img/hero/h-s-2-1.png') }}"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:76px; left:1340px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
+                    >Give Your Child the Gift of Play and Growth</p>
+
+
+
             </div>
 
-
-            <!-- Slide 2-->
-            <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnsscale:1.2;">
-                <img width="552" height="616" src="{{ asset ('template/assets/img/hero/h-s-2-1.png') }}" class="ls-l ls-hide-phone ls-img-layer"
-                    alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:28px; left:1088px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
-                <img width="715" height="711" src="{{ asset ('template/assets/img/hero/hero-2-2.png') }}" class="ls-l ls-hide-phone ls-img-layer"
-                    alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:28px; left:800px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
-                <h1 style="font-size:70px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:70px; font-weight:600; left:310px; top:305px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; easingin:easeOutQuint;">
-                    Dive Into The
-                </h1>
-                <h1 style="font-size:70px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:70px; font-weight:600; left:310px; top:374px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:300; easingin:easeOutQuint;">
-                    Greatness of Kid
-                </h1>
-                <h1 style="font-size:70px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:70px; font-weight:600; left:310px; top:445px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:600; easingin:easeOutQuint;">
-                    Learning
-                </h1>
-                <p style="font-size:24px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:#ffffff; left:315px; top:535px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:800; easingin:easeOutQuint;">Montessori classrooms and materials
-                    encourage</p>
-                <p style="font-size:24px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:#ffffff; left:315px; top:573px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:900; easingin:easeOutQuint;">curiosity and discovery.</p>
-                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:315px; top:642px; font-family:'Fredoka', sans-serif; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
-                    data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
-                    <a href="contact.html" class="vs-btn">Start Learning Today</a>
-                </div>
-                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:90px; font-weight:600; left:150px; top:149px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; easingin:easeOutQuint;">
-                    Dive Into The
-                </h1>
-                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:90px; font-weight:600; left:150px; top:245px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:300; easingin:easeOutQuint;">
-                    Greatness of Kid
-                </h1>
-                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:90px; font-weight:600; left:150px; top:351px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:600; easingin:easeOutQuint;">
-                    Learning
-                </h1>
-                <p style="font-size:34px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:#ffffff; left:150px; top:477px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:800; easingin:easeOutQuint;">Montessori classrooms and materials
-                    encourage</p>
-                <p style="stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:#ffffff; left:150px; top:538px; font-size:34px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:900; easingin:easeOutQuint;">curiosity and discovery.</p>
-                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:150px; top:630px; font-family:'Fredoka', sans-serif; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer"
-                    data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
-                    <a href="contact.html" class="vs-btn">Start Learning Today</a>
-                </div>
-                <h1 style="stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:110px; font-weight:600; left:100px; top:90px; font-size:110px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
-                    data-ls="offsetxin:-100; easingin:easeOutQuint;">
-                    Dive Into The
-                </h1>
-                <h1 style="stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:110px; font-weight:600; left:100px; top:236px; font-size:110px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:300; easingin:easeOutQuint;">
-                    Greatness of Kid
-                </h1>
-                <h1 style="font-size:110px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:110px; font-weight:600; left:100px; top:380px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:600; easingin:easeOutQuint;">
-                    Learning
-                </h1>
-                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:100px; top:578px; font-family:'Fredoka', sans-serif; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer"
-                    data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
-                    <a href="contact.html" class="vs-btn">Start Learning Today</a>
-                </div>
-                <img width="552" height="616" src="{{ asset ('template/assets/img/hero/h-s-2-1.png') }}"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:29px; left:1183px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
-                <img width="715" height="711" src="assets/img/hero/hero-2-2.png"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:-19px; left:917px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
-            </div>
-
-
-            <!-- Slide 3-->
-            <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnsscale:1.2;">
-                <img width="552" height="616" src="{{ asset ('template/assets/img/hero/h-s-2-1.png') }}" class="ls-l ls-hide-phone ls-img-layer"
-                    alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:305px; left:697px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
-                <img width="710" height="711" src="{{ asset ('template/assets/img/hero/hero-2-3.png') }}" class="ls-l ls-hide-phone ls-img-layer"
-                    alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:118px; left:782px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
-                <h1 style="font-size:70px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:70px; font-weight:600; left:310px; top:305px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; easingin:easeOutQuint;">
-                    Modern Kid's
-                </h1>
-                <h1 style="font-size:70px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:70px; font-weight:600; left:310px; top:374px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:300; easingin:easeOutQuint;">
-                    Equipment For
-                </h1>
-                <h1 style="font-size:70px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:70px; font-weight:600; left:310px; top:445px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:600; easingin:easeOutQuint;">
-                    Better Study
-                </h1>
-                <p style="font-size:24px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:#ffffff; left:315px; top:535px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:800; easingin:easeOutQuint;">Montessori classrooms and materials
-                    encourage</p>
-                <p style="font-size:24px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:#ffffff; left:315px; top:573px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:900; easingin:easeOutQuint;">curiosity and discovery.</p>
-                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:315px; top:642px; font-family:'Fredoka', sans-serif; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
-                    data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
-                    <a href="contact.html" class="vs-btn">Start Learning Today</a>
-                </div>
-                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:90px; font-weight:600; left:150px; top:149px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; easingin:easeOutQuint;">
-                    Modern Kid's
-                </h1>
-                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:90px; font-weight:600; left:150px; top:245px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:300; easingin:easeOutQuint;">
-                    Equibment For
-                </h1>
-                <h1 style="font-size:90px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:90px; font-weight:600; left:150px; top:351px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:600; easingin:easeOutQuint;">
-                    Better Study
-                </h1>
-                <p style="font-size:34px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:#ffffff; left:150px; top:477px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:800; easingin:easeOutQuint;">Montessori classrooms and materials
-                    encourage</p>
-                <p style="stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:#ffffff; left:150px; top:538px; font-size:34px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:900; easingin:easeOutQuint;">curiosity and discovery.</p>
-                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:150px; top:630px; font-family:'Fredoka', sans-serif; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer"
-                    data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
-                    <a href="contact.html" class="vs-btn">Start Learning Today</a>
-                </div>
-                <h1 style="stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:110px; font-weight:600; left:100px; top:90px; font-size:110px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
-                    data-ls="offsetxin:-100; easingin:easeOutQuint;">
-                    Modern Kid's
-                </h1>
-                <h1 style="stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:110px; font-weight:600; left:100px; top:236px; font-size:110px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:300; easingin:easeOutQuint;">
-                    Equibment For
-                </h1>
-                <h1 style="font-size:110px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:110px; font-weight:600; left:100px; top:380px; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
-                    data-ls="offsetxin:-100; delayin:600; easingin:easeOutQuint;">
-                    Better Study
-                </h1>
-                <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:100px; top:578px; font-family:'Fredoka', sans-serif; -webkit-background-clip:border-box;"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer"
-                    data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
-                    <a href="contact.html" class="vs-btn">Start Learning Today</a>
-                </div>
-                <img width="710" height="711" src="{{ asset ('template/assets/img/hero/hero-2-3.png') }}"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:29px; left:848px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
-                <img width="552" height="616" src="{{ asset ('template/assets/img/hero/h-s-2-1.png') }}"
-                    class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async"
-                    style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:200px; left:695px; -webkit-background-clip:border-box;"
-                    data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
-            </div>
-
-        </div>
+        </div> -->
     </section>
     <!--==============================
     Category Area
     ==============================-->
-    <section class="  ">
+    <!-- <section class="  ">
         <div class="container">
             <div class="title-area text-center">
                 <div class="sec-bubble">
@@ -708,33 +452,12 @@
                     <img src="{{ asset('template/assets/img/category/alfamart.png') }}" alt="category">
                 </div>
             </div>
-            <!-- <div class="row d-flex gx-0 vs-carousel partner" data-slide-show="3" data-md-slide-show="2" data-sm-slide-show="2"
-                data-xs-slide-show="2" data-dots="true">
-                <div class="col-xl-4 brands">
-                    <div class="category-style2">
-                        <div class="category-img"><a href="class-details.html"><img
-                                    src="{{ asset('template/assets/img/category/cat-1-1.jpg') }}" alt="category"></a></div>
-                    </div>
-                </div>
-                <div class="col-xl-4 brands">
-                    <div class="category-style2">
-                        <div class="category-img"><a href="class-details.html"><img
-                                    src="{{ asset('template/assets/img/category/cat-1-2.jpg') }}" alt="category"></a></div>
-                    </div>
-                </div>
-                <div class="col-xl-4 brands">
-                    <div class="category-style2">
-                        <div class="category-img"><a href="class-details.html"><img
-                                    src="{{ asset ('template/assets/img/category/cat-1-3.jpg') }}" alt="category"></a></div>
-                    </div>
-                </div>
-            </div> -->
         </div>
-    </section>
+    </section> -->
     <!--==============================
-    About Area  
+    About Area
     ==============================-->
-    <section class=" space-top space-extra-bottom">
+    <section class=" space-top space-extra-bottom" style="padding-top: 50px !important;">
         <div class="container">
             <div class="row gx-70 justify-content-center justify-content-xl-start">
                 <div class="text-center text-xl-start col-lg-9 col-xl-8 col-xxl-9">
@@ -761,7 +484,7 @@
                 </div>
                 <div class="col-xl-6 col-xxl-6 text-center text-xl-start">
                     <p class="fs-sm pe-xxl-4 me-xxl-4 mb-4 pb-1 mt-n2">Since its founding in 2015, EMCO Toys has been dedicated to spreading joy through toys. Starting as a small family-owned store, we’ve grown into a trusted destination for parents seeking high-quality, safe, and fun toys for their children.</p>
-                    
+
                     <div class="row items">
                         <div class="col-md-6">
                             <div class="feature-style1">
@@ -801,7 +524,7 @@
     <!--==============================
     Testimonial Area
     ==============================-->
-    <section class=" space-extra-bottom">
+    <!-- <section class=" space-extra-bottom">
         <div class="container">
             <div class="row justify-content-between text-center text-md-start">
                 <div class="col-md-auto">
@@ -867,32 +590,25 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Wave Shape -->
-    <!-- <div class="vs-wave-shape  ">
+    <div class="vs-wave-shape style3">
         <svg viewBox="0 0 1920 295" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="wave-path" fill-rule="evenodd" clip-rule="evenodd"
                 d="M1920 295V202.758C1906.48 131.342 1843.63 77.168 1768.34 77.168C1739.37 77.168 1711.54 85.1814 1687.4 100.128C1650.68 38.4074 1584.56 0 1511.11 0C1412.1 0 1329.2 70.2842 1309.68 163.577C1294.03 136.928 1265.08 119 1232 119C1215.11 119 1198.88 123.673 1184.8 132.389C1163.39 96.397 1124.83 74 1082 74C1022.17 74 972.422 118.018 963.444 175.369C947.459 160.855 926.246 152 903 152C886.11 152 869.88 156.673 855.803 165.389C834.387 129.397 795.832 107 753 107C710.158 107 672.487 129.569 651.251 163.442C635.542 150.075 615.199 142 593 142C576.11 142 559.88 146.673 545.803 155.389C524.387 119.397 485.832 97 443 97C400.012 97 362.23 119.723 341.034 153.789C324.552 132.631 298.841 119 270 119C253.11 119 236.88 123.673 222.803 132.389C201.387 96.397 162.832 74 120 74C53.8333 74 0.000244141 127.833 0.000244141 194C0.000244141 194.41 0.000244141 194.835 0.0152435 195.245L0.000244141 195.248V295H1920Z" />
         </svg>
-    </div> -->
-    
+    </div>
+
     <!--==============================
     Why Choose Us
     ==============================-->
-    <!-- <section class="bg-vs-secondary space-extra-bottom">
+    <section class="bg-smoke space-extra-bottom">
         <div class="container">
             <div class="row text-center text-lg-start">
                 <div class="col-lg-5 col-xl-6 mb-n4 mb-lg-0">
                     <div class="title-area">
-                        <span class="sec-subtitle text-white">Why Choose Us</span>
-                        <h2 class="sec-title text-white">Our Core Values</h2>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-xl-6">
-                    <div class="title-area">
-                        <p class="sec-text text-white">We are constantly expanding the range of services offered, taking
-                            care of children of all ages. Our goal is to carefully educate and develop children in a fun
-                            way. We strive to turn the learning process into a bright.</p>
+                        <span class="sec-subtitle text-black">Why Choose Us</span>
+                        <h2 class="sec-title text-red">Our Core Values</h2>
                     </div>
                 </div>
             </div>
@@ -903,9 +619,8 @@
                             <div class="vs-circle"></div>
                             <img src="{{ asset ('template/assets/img/choose/choose-1-1.png') }}" alt="image">
                         </div>
-                        <h3 class="feature-title h5"><a href="service-details.html" class="text-inherit">Learn And
-                                Play</a></h3>
-                        <p class="feature-text">Our goal is to carefully educate and develop children in a fun way.</p>
+                        <h3 class="feature-title h5"><a href="service-details.html" class="text-black">Inspiring Creativity</a></h3>
+                        <p class="feature-text">Sparking imagination and creativity in every child.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-3">
@@ -914,9 +629,8 @@
                             <div class="vs-circle"></div>
                             <img src="{{ asset ('template/assets/img/choose/choose-1-2.png') }}" alt="image">
                         </div>
-                        <h3 class="feature-title h5"><a href="service-details.html" class="text-inherit">Great
-                                Teachers</a></h3>
-                        <p class="feature-text">Our goal is to carefully educate and develop children in a fun way.</p>
+                        <h3 class="feature-title h5"><a href="service-details.html" class="text-black">Quality Products</a></h3>
+                        <p class="feature-text">Providing safe, high-quality, and educational toys.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-3">
@@ -925,9 +639,9 @@
                             <div class="vs-circle"></div>
                             <img src="{{ asset ('template/assets/img/choose/choose-1-3.png') }}" alt="image">
                         </div>
-                        <h3 class="feature-title h5"><a href="service-details.html" class="text-inherit">Family
-                                Environment</a></h3>
-                        <p class="feature-text">Our goal is to carefully educate and develop children in a fun way.</p>
+                        <h3 class="feature-title h5"><a href="service-details.html" class="text-black">Family
+                                Bonding</a></h3>
+                        <p class="feature-text">Creating joyful moments to strengthen family connections.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-3">
@@ -936,14 +650,13 @@
                             <div class="vs-circle"></div>
                             <img src="{{ asset('template/assets/img/choose/choose-1-4.png') }}" alt="image">
                         </div>
-                        <h3 class="feature-title h5"><a href="service-details.html" class="text-inherit">Excellent
-                                Programmes</a></h3>
-                        <p class="feature-text">Our goal is to carefully educate and develop children in a fun way.</p>
+                        <h3 class="feature-title h5"><a href="service-details.html" class="text-black">Innovative Experiences</a></h3>
+                        <p class="feature-text">Supporting growth through innovative play solutions.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!--==============================
     Team Area
     ==============================-->
@@ -1014,7 +727,7 @@
         </svg>
     </div> -->
     <!--==============================
-    Feature Area  
+    Feature Area
     ==============================-->
     <!-- <section class=" space-extra-bottom">
         <div class="container">
@@ -1099,14 +812,136 @@
             </div>
         </div>
     </section> -->
-    
     <!-- Wave Shape -->
-    <div class="vs-wave-shape style3">
+    <div class="vs-wave-shape style3" style="transform: rotate(180deg);">
         <svg viewBox="0 0 1920 295" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="wave-path" fill-rule="evenodd" clip-rule="evenodd"
                 d="M1920 295V202.758C1906.48 131.342 1843.63 77.168 1768.34 77.168C1739.37 77.168 1711.54 85.1814 1687.4 100.128C1650.68 38.4074 1584.56 0 1511.11 0C1412.1 0 1329.2 70.2842 1309.68 163.577C1294.03 136.928 1265.08 119 1232 119C1215.11 119 1198.88 123.673 1184.8 132.389C1163.39 96.397 1124.83 74 1082 74C1022.17 74 972.422 118.018 963.444 175.369C947.459 160.855 926.246 152 903 152C886.11 152 869.88 156.673 855.803 165.389C834.387 129.397 795.832 107 753 107C710.158 107 672.487 129.569 651.251 163.442C635.542 150.075 615.199 142 593 142C576.11 142 559.88 146.673 545.803 155.389C524.387 119.397 485.832 97 443 97C400.012 97 362.23 119.723 341.034 153.789C324.552 132.631 298.841 119 270 119C253.11 119 236.88 123.673 222.803 132.389C201.387 96.397 162.832 74 120 74C53.8333 74 0.000244141 127.833 0.000244141 194C0.000244141 194.41 0.000244141 194.835 0.0152435 195.245L0.000244141 195.248V295H1920Z" />
         </svg>
     </div>
+    <section class="  ">
+        <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+            <div class="title-area text-center">
+                <div class="sec-bubble">
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                </div>
+                <h2 class="sec-title" style="color: #C8272C;">Milestone & Achivement</h2>
+
+            </div>
+            <div class="row gx-40 vs-carousel slick-initialized slick-slider" data-slide-show="3" data-md-slide-show="2" data-sm-slide-show="2" data-xs-slide-show="2" data-dots="true">
+
+
+
+
+            <div class="slick-list draggable">
+                    <div class="slick-track" style="opacity: 1; width: 4180px; transform: translate3d(-1140px, 0px, 0px);"><div class="col-xl-4 slick-slide slick-cloned" style="width: 380px;" data-slick-index="-3" id="" aria-hidden="true" tabindex="-1">
+                    <div class="category-style2">
+                        <div class="category-img"><a href="class-details.html" tabindex="-1"><img src="{{ asset('template/assets/img/category/cat-1-2.jpg') }}" alt="category"></a></div>
+                        <div class="category-content">
+                            <p class="category-text">Top 10 Innovative Toy Brand in Asia, 2019.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-xl-4 slick-slide slick-cloned" style="width: 380px;" data-slick-index="-2" id="" aria-hidden="true" tabindex="-1">
+                    <div class="category-style2">
+                        <div class="category-img"><a href="class-details.html" tabindex="-1"><img src="{{ asset('template/assets/img/category/cat-1-3.jpg') }}" alt="category"></a></div>
+                        <div class="category-content">
+                            <h3 class="category-title"><a href="class-details.html" class="text-inherit" tabindex="-1">Preschool</a>
+                            </h3>
+                            <p class="category-text">3 - 4+ Years</p>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-xl-4 slick-slide slick-cloned" style="width: 380px;" data-slick-index="-1" id="" aria-hidden="true" tabindex="-1">
+                    <div class="category-style2">
+                        <div class="category-img"><a href="class-details.html" tabindex="-1"><img src="{{ asset('template/assets/img/category/cat-1-4.jpg') }}" alt="category"></a></div>
+                        <div class="category-content">
+                            <h3 class="category-title"><a href="class-details.html" class="text-inherit" tabindex="-1">Younger</a>
+                            </h3>
+                            <p class="category-text">5 - 8+ Years</p>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-xl-4 slick-slide slick-current slick-active" style="width: 380px;" data-slick-index="0" aria-hidden="false" tabindex="0">
+                    <div class="category-style2">
+                        <div class="category-img"><a href="class-details.html" tabindex="0"><img src="{{ asset('template/assets/img/category/cat-1-1.jpg') }}" alt="category"></a></div>
+                        <div class="category-content">
+                            <h3 class="category-title"><a href="class-details.html" class="text-inherit" tabindex="0">Babbies</a>
+                            </h3>
+                            <p class="category-text">From 6 Months</p>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-xl-4 slick-slide slick-active" style="width: 380px;" data-slick-index="1" aria-hidden="false" tabindex="0">
+                    <div class="category-style2">
+                        <div class="category-img"><a href="class-details.html" tabindex="0"><img src="{{ asset('template/assets/img/category/cat-1-2.jpg') }}" alt="category"></a></div>
+                        <div class="category-content">
+                            <h3 class="category-title"><a href="class-details.html" class="text-inherit" tabindex="0">Toddlers</a>
+                            </h3>
+                            <p class="category-text">18 - 24 MONTHS</p>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-xl-4 slick-slide slick-active" style="width: 380px;" data-slick-index="1" aria-hidden="false" tabindex="0">
+                    <div class="category-style2">
+                        <div class="category-img"><a href="class-details.html" tabindex="0"><img src="{{ asset('template/assets/img/category/cat-1-3.jpg') }}" alt="category"></a></div>
+                        <div class="category-content">
+                            <h3 class="category-title"><a href="class-details.html" class="text-inherit" tabindex="0">Preschool</a>
+                            </h3>
+                            <p class="category-text">3 - 4+ Years</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 slick-slide" style="width: 380px;" data-slick-index="2" aria-hidden="true" tabindex="-1">
+                    <div class="category-style2">
+                        <div class="category-img"><a href="class-details.html" tabindex="-1"><img src="{{ asset('template/assets/img/category/cat-1-4.jpg') }}" alt="category"></a></div>
+                        <div class="category-content">
+                            <p class="category-text">Top 10 Innovative Toy Brand in Asia, 2019.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 slick-slide slick-cloned" style="width: 380px;" data-slick-index="3" id="" aria-hidden="true" tabindex="-1">
+                    <div class="category-style2">
+                        <div class="category-img"><a href="class-details.html" tabindex="-1"><img src="{{ asset('template/assets/img/category/cat-1-1.jpg') }}" alt="category"></a></div>
+                        <div class="category-content">
+                            <p class="category-text">Certified for child-safe products in 2015.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 slick-slide slick-cloned" style="width: 380px;" data-slick-index="4" id="" aria-hidden="true" tabindex="-1">
+                    <div class="category-style2">
+                        <div class="category-img"><a href="class-details.html" tabindex="-1"><img src="{{ asset('template/assets/img/category/cat-1-2.jpg') }}" alt="category"></a></div>
+                        <div class="category-content">
+                            <p class="category-text">Top 10 Innovative Toy Brand in Asia, 2019.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 slick-slide slick-cloned" style="width: 380px;" data-slick-index="5" id="" aria-hidden="true" tabindex="-1">
+                    <div class="category-style2">
+                        <div class="category-img"><a href="class-details.html" tabindex="-1"><img src="{{ asset('template/assets/img/category/cat-1-3.jpg') }}" alt="category"></a></div>
+                        <div class="category-content">
+                            <p class="category-text">Partnered with global retailers.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-xl-4 slick-slide slick-cloned" style="width: 380px;" data-slick-index="7" id="" aria-hidden="true" tabindex="-1">
+                    <div class="category-style2">
+                        <div class="category-img"><a href="class-details.html" tabindex="-1"><img src="assets/img/category/cat-1-4.jpg" alt="category"></a></div>
+                        <div class="category-content">
+                            <h3 class="category-title"><a href="class-details.html" class="text-inherit" tabindex="-1">Younger</a>
+                            </h3>
+                            <p class="category-text">5 - 8+ Years</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div></div></div>
+        </div>
+        <div class="container text-center my-5" style="margin-top: 50px; margin-bottom: 50px;">
+
+        </div>
+    </section>
     <!--==============================
     Contact Area
     ==============================-->
@@ -1177,7 +1012,7 @@
     <!--==============================
     Brand
     ==============================-->
-    <!-- <section class=" space-extra bg-smoke">
+    <section class=" space-extra bg-smoke">
         <div class="container">
             <div class="title-area">
                 <h2 class="text-center mt-n2">Key supporters</h2>
@@ -1201,7 +1036,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!-- Wave Shape -->
     <div class="vs-wave-shape style2 bg-smoke">
         <svg viewBox="0 0 1920 295" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1453,10 +1288,10 @@
                 <div class="row flex-row-reverse gy-3 justify-content-between align-items-center">
                     <div class="col-lg-auto">
                         <div class="vs-social">
-                            <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a> -->
+                            <a href="#"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-auto">
@@ -1470,7 +1305,7 @@
     <a href="#" class="scrollToTop scroll-btn"><i class="far fa-arrow-up"></i></a>
 
     <!--********************************
-			Code End  Here 
+			Code End  Here
 	******************************** -->
 
     <!--==============================

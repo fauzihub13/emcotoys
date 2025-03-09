@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -56,7 +57,7 @@
 
 
     <!--********************************
-   		Code Start From Here 
+   		Code Start From Here
 	******************************** -->
 
 
@@ -65,12 +66,12 @@
     <!--==============================
      Preloader
     ==============================-->
-    <div class="preloader  ">
+    {{-- <div class="preloader  ">
         <button class="vs-btn preloaderCls">Cancel Preloader </button>
         <div class="preloader-inner">
             <div class="loader"></div>
         </div>
-    </div>
+    </div> --}}
     <!--==============================
     Mobile Menu
     ============================== -->
@@ -269,7 +270,7 @@
                     <div class="col-6 col-sm-auto d-none d-lg-block">
                         <div class="header-links style3 style-white">
                             <ul>
-                                <li class="d-none d-xl-inline-block"><a href="{{ route('home') }}">HOME</a></li>
+                                <li class="d-none d-xl-inline-block"><a href="{{ route('index') }}">HOME</a></li>
                                 <li><a href="{{ route('about') }}">ABOUT US</a></li>
                                 <li><a href="tel:+4402076897888" class="active">PRODUCT</a></li>
                             </ul>
@@ -428,7 +429,7 @@
                 <p style="font-size:24px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; font-family:'Jost', sans-serif;; color:black; left:315px; top:515px; -webkit-background-clip:border-box;"
                     class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
                     data-ls="offsetxin:-100; delayin:800; easingin:easeOutQuint;">Give Your Child the Gift of Play and Growth</p>
-                
+
                 <div style="font-size:30px; color:#000; stroke:#000; stroke-width:0px; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; left:315px; top:577px; font-family:'Fredoka', sans-serif; -webkit-background-clip:border-box;"
                     class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
                     data-ls="offsetyin:100; delayin:1000; easingin:easeOutQuint; offsetyout:100; easingout:easeOutQuint;">
@@ -644,7 +645,7 @@
                     </div>
                     <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
                 </div>
-               
+
                 <!-- <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="vs-product product-style1">
                         <div class="product-img">
@@ -959,7 +960,7 @@
     <a href="#" class="scrollToTop scroll-btn"><i class="far fa-arrow-up"></i></a>
 
     <!--********************************
-			Code End  Here 
+			Code End  Here
 	******************************** -->
 
     <!--==============================

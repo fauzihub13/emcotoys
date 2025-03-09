@@ -1,0 +1,33 @@
+.box {
+    border: 1px solid #D4D4D4;
+    padding: 30px 130px !important;
+    border-radius: 15px;
+}
+.box svg {
+    color: #A90004;
+}
+.contact-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.form-control {
+    height: auto !important;
+    padding: 10px 45px 10px 13px !important;
+    border: 2px solid #D4D4D4;
+    font-size: 14px !important;
+}
+.form-control::placeholder {
+    font-weight: 600;
+    color: #7F7F7F;
+}
+form .btn {
+    background-color: #A90004;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
