@@ -8,7 +8,7 @@
 @section('main')
 
     <div class="row vh-100 ">
-        <div class="col-lg-6 col-sm-12 px-5 text-center d-flex align-items-center justify-content-center">
+        <div class="col-lg-6 col-sm-12 px-5 text-start d-flex align-items-center justify-content-center">
             <div class="auth-left container-fluid px-0">
                 <h3 class="mb-0">WELCOME TO <span class="color-text-red">EMCO</span></h3>
                 <p class="sec-text">Give Your Child the Gift of Play and Growth</p>
@@ -53,10 +53,7 @@
                         </div>
                         <p class="mb-0 text-end "><a class=" mb-0 text-reset" href="{{ route('password.request') }}">Forgot password</a></p>
 
-
-
                         <div class="d-grid gap-2 mt-5">
-                            {{-- <p class="mb-0 text-end "><a class=" mb-0 text-reset" href="">Forgot password</a></p> --}}
                             <button class="btn color-custom-red btn-block btn-lg shadow-lg  text-white">Sign In</button>
                         </div>
                 </form>
