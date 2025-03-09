@@ -20,7 +20,7 @@ class UserController extends Controller
     }
     public function shop()
     {
-        return view('user.pages.shop', [
+        return view('user.pages.product.shop', [
             'type_menu'=> 'shop'
         ]);
     }
@@ -30,10 +30,10 @@ class UserController extends Controller
             'type_menu'=> 'article'
         ]);
     }
-    public function product()
+    public function detailProduct()
     {
-        return view('user.pages.product', [
-            'type_menu'=> 'product'
+        return view('user.pages.product.detail-product', [
+            'type_menu'=> 'shop'
         ]);
     }
     public function adetail()

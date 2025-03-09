@@ -5,6 +5,7 @@
 @push('style')
     <link rel="stylesheet" href="{{ asset('template/assets/css/maps.css') }}">
     <link rel="stylesheet" href="{{ asset('template/assets/css/shop.css') }}">
+
     <style>
         .style4 {
             background-color: var(--smoke-color) !important;
@@ -95,7 +96,7 @@
                 </div>
             </div>
 
-            <!--==============================
+    <!--==============================
     Product Area
     ==============================-->
 
@@ -113,54 +114,26 @@
                 <h1 class="sec-title" style="color: black;">Related Products</h1>
             </div>
             <div class="row justify-content-center shopping">
+                @php
+                    $colors = ['red', 'green', 'yellow', 'purple', 'blue', 'pink'];
+                @endphp
 
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="">
-                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="mt-4">
+                @for ($i=0; $i<4; $i++)
+                    @php
+                        $bgColor = $colors[$i % count($colors)];
+                    @endphp
+                    <div class="col-md-6 col-lg-3 ">
+                        <div class="products product-background-{{ $bgColor }}">
+                            <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="">
+                            <a href="{{ route('detail-product') }}" class='details'>
+                                <span>Detail</span>
+                                <i class="fas fa-chevron-right"></i>
                             </a>
                         </div>
-                        <a href="" class="details">Details<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="m5.157 13.069l4.611-4.685a.546.546 0 0 0 0-.768L5.158 2.93a.55.55 0 0 1 0-.771a.53.53 0 0 1 .759 0l4.61 4.684a1.65 1.65 0 0 1 0 2.312l-4.61 4.684a.53.53 0 0 1-.76 0a.55.55 0 0 1 0-.771"/></svg></a>
+                        <p class="judul">Mainan EMCO Hot Shot Marvel Viper Mainan</p>
                     </div>
-                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
-                </div>
-
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="">
-                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="mt-4">
-                            </a>
-                        </div>
-                        <a href="" class="details">Details<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="m5.157 13.069l4.611-4.685a.546.546 0 0 0 0-.768L5.158 2.93a.55.55 0 0 1 0-.771a.53.53 0 0 1 .759 0l4.61 4.684a1.65 1.65 0 0 1 0 2.312l-4.61 4.684a.53.53 0 0 1-.76 0a.55.55 0 0 1 0-.771"/></svg></a>
-                    </div>
-                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="">
-                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="mt-4">
-                            </a>
-                        </div>
-                        <a href="" class="details">Details<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="m5.157 13.069l4.611-4.685a.546.546 0 0 0 0-.768L5.158 2.93a.55.55 0 0 1 0-.771a.53.53 0 0 1 .759 0l4.61 4.684a1.65 1.65 0 0 1 0 2.312l-4.61 4.684a.53.53 0 0 1-.76 0a.55.55 0 0 1 0-.771"/></svg></a>
-                    </div>
-                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="products">
-                        <div class="product-image">
-                            <a href="">
-                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="mt-4">
-                            </a>
-                        </div>
-                        <a href="" class="details">Details<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="m5.157 13.069l4.611-4.685a.546.546 0 0 0 0-.768L5.158 2.93a.55.55 0 0 1 0-.771a.53.53 0 0 1 .759 0l4.61 4.684a1.65 1.65 0 0 1 0 2.312l-4.61 4.684a.53.53 0 0 1-.76 0a.55.55 0 0 1 0-.771"/></svg></a>
-                    </div>
-                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper</p>
-                </div>
-
-
+                @endfor
+                
             </div>
         </div>
     </section>

@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/about', [ControllersUserController::class, 'about'])->name('about');
     Route::get('/', [ControllersUserController::class, 'index'])->name('index');
-    Route::get('/shop', [ControllersUserController::class, 'shop'])->name('shop');
+    Route::get('/product', [ControllersUserController::class, 'shop'])->name('shop');
+    Route::get('/product/detail', [ControllersUserController::class, 'detailProduct'])->name('detail-product');
     Route::get('/article', [ControllersUserController::class, 'article'])->name('article');
-    Route::get('/shop/product', [ControllersUserController::class, 'product'])->name('product');
     Route::get('/article-detail', [ControllersUserController::class, 'adetail'])->name('adetail');
     Route::get('/location', [ControllersUserController::class, 'location'])->name('location');
     Route::get('/contact', [ControllersUserController::class, 'contact'])->name('contact');

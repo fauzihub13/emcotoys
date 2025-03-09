@@ -105,7 +105,7 @@
                     <div class="col-md-6 col-lg-3 ">
                         <div class="products product-background-{{ $bgColor }}">
                             <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="">
-                            <a href="{{ route('product') }}" class='details'>
+                            <a href="{{ route('detail-product') }}" class='details'>
                                 <span>Detail</span>
                                 <i class="fas fa-chevron-right"></i>
                             </a>
@@ -113,21 +113,9 @@
                         <p class="judul">Mainan EMCO Hot Shot Marvel Viper Mainan</p>
                     </div>
                 @endfor
-
-                {{-- <div class="col-md-6 col-lg-3 bg-primary">
-                    <div class="products ">
-                        <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="">
-                         <a href="" class='details'>
-                            <span>Detail</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                    <p class="judul">Mainan EMCO Hot Shot Marvel Viper Mainan</p>
-                </div> --}}
-
-
-
-
+            </div>
+            <div class="row mt-4">
+                <a href="{{ route('shop') }}" class="text-center fs-5">See all product <span class="ms-2"><i class="fas fa-chevron-right"></i></span></a>
             </div>
         </div>
     </section>
