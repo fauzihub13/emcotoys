@@ -16,13 +16,17 @@
 <!--==============================
     Product Details
     ==============================-->
-    <section class="vs-product-wrapper product-details space-top space-extra-bottom">
+    <section class="vs-product-wrapper product-details mt-5 space-extra-bottom">
         <div class="container">
-            <div class="row gx-60">
+            <div class="row gx-40">
                 <div class="col-lg-6">
                     <div class="product-big-img vs-carousel" data-slide-show="1" data-fade="true"
                         data-asnavfor=".product-thumb-slide">
                         <div class="img"><img src="{{ asset ('template/assets/img/product/1 (1).webp') }}" alt="Product Image"></div>
+                        <div class="img"><img src="{{ asset ('template/assets/img/product/1 (2).webp') }}" alt="Product Image"></div>
+                        <div class="img"><img src="{{ asset ('template/assets/img/product/1 (3).webp') }}" alt="Product Image"></div>
+                        <div class="img"><img src="{{ asset ('template/assets/img/product/1 (5).webp') }}" alt="Product Image"></div>
+                        <div class="img"><img src="{{ asset ('template/assets/img/product/1 (3).webp') }}" alt="Product Image"></div>
                     </div>
                     <div class="product-thumb-slide row vs-carousel" data-slide-show="3" data-md-slide-show="3"
                         data-sm-slide-show="3" data-xs-slide-show="3" data-asnavfor=".product-big-img">
@@ -35,9 +39,15 @@
                         <div class="col-3">
                             <div class="thumb"><img src="{{ asset ('template/assets/img/product/1 (5).webp') }}" alt="Product Image"></div>
                         </div>
+                        <div class="col-3">
+                            <div class="thumb"><img src="{{ asset ('template/assets/img/product/1 (3).webp') }}" alt="Product Image"></div>
+                        </div>
+                        <div class="col-3">
+                            <div class="thumb"><img src="{{ asset ('template/assets/img/product/1 (5).webp') }}" alt="Product Image"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 align-self-center">
+                <div class="col-lg-6 align-self-start">
                     <div class="product-about">
                         <h2 class="product-title">Mainan EMCO Brix - Night Hawk - 3 in 1</h2>
                         <p class="product-text">Mainan EMCO Brix - Night Hawk - 3 in 1 merupakan mainan katagory Brix yang bisa di rubah  bentuk menjadi 3 bentukan secara bergantian  ( 3 in 1 ) dalam setiap serinya. Mainan ini terbuat dari bahan yang berkualitas serta aman untuk dimainkan si kecil. Tidak hanya menyenangkan, bermain Emco Brix Night Hawk dapat melatih motorik dan kreatifitas si kecil. Mainan ini dapat dijadikan hadiah yang mengedukasi dan digemari si kecil atas prestasi dan pencapaiannya. Koleksi dan mainkan semua seri Emco Brix dan mainkan keseruannya.</p>
