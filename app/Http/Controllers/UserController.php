@@ -24,6 +24,12 @@ class UserController extends Controller
             'type_menu'=> 'shop'
         ]);
     }
+    public function allProduct()
+    {
+        return view('user.pages.product.all-product', [
+            'type_menu'=> 'shop'
+        ]);
+    }
     public function article()
     {
         return view('user.pages.article', [

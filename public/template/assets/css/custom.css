@@ -29,6 +29,10 @@
     background-color: var(--theme-color);
 }
 
+.color-custom-tosca {
+    background-color: #0F83B2;
+}
+
 .color-text-red {
     color: var(--theme-color) !important;
 }
@@ -65,6 +69,74 @@
     color: #868E8C;
     background: white;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 4px 0px;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.filter-wrapper {
+    padding: 1.5em 1rem;
+    border-radius: .5rem;
+    transition: all .5s;
+    text-decoration: none;
+    color: #868E8C;
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 4px 0px;
+}
+
+.filter-wrapper p{
+    font-weight: 500;
+}
+
+.filter-wrapper ul li {
+    list-style: none;
+}
+
+.filter-wrapper ul li a{
+    color: #3e3e3e;
+}
+
+.filter-wrapper ul li i {
+    font-weight: 200;
+}
+
+.filter-wrapper .category-link {
+    display: block;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.filter-wrapper ul li .active {
+    color: var(--theme-color);
+}
+
+.filter-age .age-slider {
+    color: #555;
+    margin: 0;
+    padding: 0;
+}
+
+#age-slider{
+    height: 8px !important;
+}
+
+.slider{
+    height: 8px;
+    border-radius: 8px;
+    background: #e2e2e2;
+    position: relative;
+}
+
+.slider .progress {
+    height: 8px;
+    left: 25%;
+    right: 25%;
+    border-radius: 8px;
+    position: absolute;
+    background-color: #0F83B2;
+
 }
 
 

@@ -16,6 +16,7 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/about', [ControllersUserController::class, 'about'])->name('about');
     Route::get('/', [ControllersUserController::class, 'index'])->name('index');
     Route::get('/product', [ControllersUserController::class, 'shop'])->name('shop');
+    Route::get('/product/all', [ControllersUserController::class, 'allProduct'])->name('all-product');
     Route::get('/product/detail', [ControllersUserController::class, 'detailProduct'])->name('detail-product');
     Route::get('/article', [ControllersUserController::class, 'article'])->name('article');
     Route::get('/article-detail', [ControllersUserController::class, 'adetail'])->name('adetail');

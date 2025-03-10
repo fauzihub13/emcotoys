@@ -115,7 +115,7 @@
                 @endfor
             </div>
             <div class="row mt-4">
-                <a href="{{ route('shop') }}" class="text-center fs-5">See all product <span class="ms-2"><i class="fas fa-chevron-right"></i></span></a>
+                <a href="{{ route('all-product') }}" class="text-center fs-5">See all product <span class="ms-2"><i class="fas fa-chevron-right"></i></span></a>
             </div>
         </div>
     </section>
