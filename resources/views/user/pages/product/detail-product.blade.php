@@ -1,6 +1,6 @@
 @extends('user.layouts.app')
 
-@section('title', 'Detail')
+@section('title', 'Detail Product')
 
 @push('style')
     <link rel="stylesheet" href="{{ asset('template/assets/css/maps.css') }}">
@@ -51,7 +51,7 @@
                 <div class="col-lg-6 align-self-start">
                     <div class="product-about">
                         <h2 class="product-title">Mainan EMCO Brix - Night Hawk - 3 in 1</h2>
-                        <p class="product-text">Mainan EMCO Brix - Night Hawk - 3 in 1 merupakan mainan katagory Brix yang bisa di rubah  bentuk menjadi 3 bentukan secara bergantian  ( 3 in 1 ) dalam setiap serinya. Mainan ini terbuat dari bahan yang berkualitas serta aman untuk dimainkan si kecil. Tidak hanya menyenangkan, bermain Emco Brix Night Hawk dapat melatih motorik dan kreatifitas si kecil. Mainan ini dapat dijadikan hadiah yang mengedukasi dan digemari si kecil atas prestasi dan pencapaiannya. Koleksi dan mainkan semua seri Emco Brix dan mainkan keseruannya.</p>
+                        <p class="product-text text-justify">Mainan EMCO Brix - Night Hawk - 3 in 1 merupakan mainan katagory Brix yang bisa di rubah  bentuk menjadi 3 bentukan secara bergantian  ( 3 in 1 ) dalam setiap serinya. Mainan ini terbuat dari bahan yang berkualitas serta aman untuk dimainkan si kecil. Tidak hanya menyenangkan, bermain Emco Brix Night Hawk dapat melatih motorik dan kreatifitas si kecil. Mainan ini dapat dijadikan hadiah yang mengedukasi dan digemari si kecil atas prestasi dan pencapaiannya. Koleksi dan mainkan semua seri Emco Brix dan mainkan keseruannya.</p>
 
                         <div class="product-getway">
                             <div class="platform d-flex gap-3 align-item-center">
@@ -133,7 +133,7 @@
                         <p class="judul">Mainan EMCO Hot Shot Marvel Viper Mainan</p>
                     </div>
                 @endfor
-                
+
             </div>
         </div>
     </section>
