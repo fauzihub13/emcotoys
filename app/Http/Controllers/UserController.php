@@ -61,4 +61,22 @@ class UserController extends Controller
             'type_menu'=> 'account'
         ]);
     }
+    public function cart()
+    {
+        return view('user.pages.profile.cart', [
+            'type_menu'=> 'cart'
+        ]);
+    }
+    public function history()
+    {
+        return view('user.pages.profile.history', [
+            'type_menu'=> 'history'
+        ]);
+    }
+    public function order()
+    {
+        return view('user.pages.profile.order', [
+            'type_menu'=> 'order'
+        ]);
+    }
 }
