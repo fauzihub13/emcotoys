@@ -131,12 +131,50 @@
 
 .slider .progress {
     height: 8px;
-    left: 25%;
-    right: 25%;
     border-radius: 8px;
     position: absolute;
     background-color: #0F83B2;
 
+}
+
+/* .range-min, .range-max {
+    height: 20px !important;
+} */
+
+.range-input{
+    position: relative;
+}
+
+.range-input input{
+    position: absolute;
+    padding: 0;
+    border: 0px ;
+    top: -8px;
+    height: 8px;
+    width: 100%;
+    pointer-events: none;
+    background: none;
+    appearance: none;
+}
+
+/* Gaya untuk slider thumb */
+.range-input input::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #0F83B2;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.range-input input:focus {
+    outline: none;
+}
+
+.range-input input::-webkit-slider-thumb:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 

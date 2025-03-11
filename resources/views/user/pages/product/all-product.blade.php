@@ -42,33 +42,25 @@
                         </ul>
                     </div>
                     <div class="filter-wrapper filter-age mb-4">
-                        <p class="fs-5 mb-1">Filter By Age</p>
-                        <input
-
-                            id="age-slider"
-                            class="age-slider"
-                            type="range"
-                            min="0"
-                            max="10000"
-                            value="2500"
-                            step="1">
-                        <div class="d-flex justify-content-between">
-                            <span>5</span>
-                            <span>15</span>
-                        </div>
+                        <p class="fs-5 mb-3">Filter By Age</p>
 
                         <div class="slider">
                             <div class="progress">
-                                
+
                             </div>
                         </div>
-
-                        <div class="d-flex justify-content-end mt-2">
-                            <a href="" class="btn color-custom-red text-white align-items-end">Apply</a>
+                        <div class="range-input d-flex mb-1">
+                            <input type="range" class="range-min" min="0" max="30" value="1">
+                            <input type="range" class="range-max" min="0" max="30" value="4">
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="start-age">0</span>
+                            <span class="finish-age">30</span>
                         </div>
 
-
-
+                        <div class="d-flex justify-content-end mt-4">
+                            <a href="" class="age-input btn color-custom-red text-white align-items-end">Apply</a>
+                        </div>
 
                     </div>
                 </div>
@@ -99,6 +91,18 @@
                         </div>
                     @endfor
                 </div>
+
+                <div class="vs-pagination d-flex justify-content-center mt-4">
+                    <a href="#" class="pagi-btn">Prev</a>
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">...</a></li>
+                        <li><a href="#">12</a></li>
+                    </ul>
+                    <a href="#" class="pagi-btn">next</a>
+                </div>
             </div>
             {{-- RIGHT SIDE --}}
 
@@ -108,6 +112,6 @@
 @endsection
 
 @push('script')
-    {{-- <script src="{{ asset('template/assets/js/range-slider.js') }}"></script> --}}
+    <script src="{{ asset('template/assets/js/range-slider.js') }}"></script>
 
 @endpush

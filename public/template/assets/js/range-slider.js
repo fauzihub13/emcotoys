@@ -1,35 +1,44 @@
-const minRange = document.querySelector(".min-range");
-const maxRange = document.querySelector(".max-range");
-const minValue = document.getElementById("min-value");
-const maxValue = document.getElementById("max-value");
-const sliderHighlight = document.getElementById("slider-highlight");
+const rangeInput = document.querySelectorAll(".range-input input"),
+    progress = document.querySelector(".slider .progress"),
+    startAge = document.querySelector(".start-age"),
+    finishAge = document.querySelector(".finish-age"),
+    applyButton = document.querySelector(".age-input");
 
-minRange.addEventListener("input", updateValues);
-maxRange.addEventListener("input", updateValues);
+let ageGap = 1;
 
-function updateValues() {
-    let minVal = parseInt(minRange.value);
-    let maxVal = parseInt(maxRange.value);
+rangeInput[0].value = 1;
+rangeInput[1].value = 4;
 
-    if (minVal >= maxVal - 500) {
-        minRange.value = maxVal - 500;
-        minVal = maxVal - 500;
-    }
+updateLabelsAndHref();
 
-    if (maxVal <= minVal + 500) {
-        maxRange.value = minVal + 500;
-        maxVal = minVal + 500;
-    }
+progress.style.left = (rangeInput[0].value / rangeInput[0].max) * 100 + "%";
+progress.style.right =
+    100 - (rangeInput[1].value / rangeInput[1].max) * 100 + "%";
 
-    minValue.textContent = minVal;
-    maxValue.textContent = maxVal;
 
-    // Update warna hijau di slider
-    let minPercent = (minVal / 10000) * 100;
-    let maxPercent = (maxVal / 10000) * 100;
-    sliderHighlight.style.left = minPercent + "%";
-    sliderHighlight.style.width = maxPercent - minPercent + "%";
+rangeInput.forEach((input) => {
+    input.addEventListener("input", (e) => {
+        let minVal = parseInt(rangeInput[0].value),
+            maxVal = parseInt(rangeInput[1].value);
+
+        if (maxVal - minVal < ageGap) {
+            if (e.target.className === "range-min") {
+                rangeInput[0].value = maxVal - ageGap;
+            } else {
+                rangeInput[1].value = minVal + ageGap;
+            }
+        } else {
+            progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+            progress.style.right =
+                100 - (maxVal / rangeInput[1].max) * 100 + "%";
+
+            updateLabelsAndHref();
+        }
+    });
+});
+
+function updateLabelsAndHref() {
+    startAge.textContent = rangeInput[0].value;
+    finishAge.textContent = rangeInput[1].value;
+    applyButton.href = `?start=${rangeInput[0].value}&finish=${rangeInput[1].value}`;
 }
-
-// Set warna hijau awal
-updateValues();
