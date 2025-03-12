@@ -73,23 +73,28 @@
 
                     @php
                         $colors = ['red', 'green', 'yellow', 'purple', 'blue', 'pink'];
+                        $colorIndex = 0; // Untuk memilih warna latar belakang secara bergantian
                     @endphp
 
-                    @for ($i=0; $i<8; $i++)
+                    @foreach ($products as $product)
                         @php
-                            $bgColor = $colors[$i % count($colors)];
+                            // Memisahkan gambar jika ada lebih dari satu
+                            $images = explode(',', $product->image);
+                            $firstImage = $product->images->first() ? $product->images->first()->path : 'default.jpg';
+                            $bgColor = $colors[$colorIndex % count($colors)]; 
+                            $colorIndex++;
                         @endphp
                         <div class="col-md-6 col-lg-4 ">
                             <div class="products product-background-{{ $bgColor }}">
-                                <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="">
-                                <a href="{{ route('detail-product') }}" class='details'>
+                                <img src="{{ asset('storage/' . $firstImage) }}" alt="{{ $product->name }}" class="">
+                                <a href="{{ route('detail-product', ['id' => $product->id]) }}" class='details'>
                                     <span>Detail</span>
                                     <i class="fas fa-chevron-right"></i>
                                 </a>
                             </div>
-                            <p class="judul">Mainan EMCO Hot Shot Marvel Viper Mainan</p>
+                            <p class="judul">{{ $product->name }}</p>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
 
                 {{-- PAGINATION --}}

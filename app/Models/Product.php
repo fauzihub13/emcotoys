@@ -6,9 +6,14 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Product extends Model
 {
     use HasFactory, HasUuids;
+
+    protected $primaryKey = 'id';
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     protected $table = 'products';
     protected $fillable=[
@@ -29,8 +34,13 @@ class Product extends Model
         'deleted_at',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'id'; // Pastikan Laravel menggunakan UUID sebagai kunci
+    }
+
     public function category() {
-        return $this->belongsTo(ProductCategory::class);
+        return $this->belongsTo(ProductCategory::class, 'category_id', 'id');
     }
 
     public function images() {

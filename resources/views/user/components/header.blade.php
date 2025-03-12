@@ -2,7 +2,7 @@
     <div class="vs-menu-area text-center">
         <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="{{ url('/') }}"><img src="{{ asset('template/assets/img/logo.svg') }}" alt="EmcoToys"></a>
+            <a href="{{ url('/') }}"><img src="{{ asset('template/assets/img/emco.png') }}" alt="EmcoToys"></a>
         </div>
         <div class="vs-mobile-menu">
             <ul>

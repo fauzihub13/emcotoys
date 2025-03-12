@@ -105,10 +105,6 @@
                     <div class="col-md-6 col-lg-3 ">
                         <div class="products product-background-{{ $bgColor }}">
                             <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="">
-                            <a href="{{ route('detail-product') }}" class='details'>
-                                <span>Detail</span>
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
                         </div>
                         <p class="judul">Mainan EMCO Hot Shot Marvel Viper Mainan</p>
                     </div>

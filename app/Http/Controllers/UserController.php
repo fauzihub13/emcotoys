@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class UserController extends Controller
 {
@@ -24,22 +25,10 @@ class UserController extends Controller
             'type_menu'=> 'shop'
         ]);
     }
-    public function allProduct()
-    {
-        return view('user.pages.product.all-product', [
-            'type_menu'=> 'shop'
-        ]);
-    }
     public function article()
     {
         return view('user.pages.article', [
             'type_menu'=> 'article'
-        ]);
-    }
-    public function detailProduct()
-    {
-        return view('user.pages.product.detail-product', [
-            'type_menu'=> 'shop'
         ]);
     }
     public function adetail()
@@ -99,4 +88,30 @@ class UserController extends Controller
             'type_menu'=> 'order'
         ]);
     }
+
+    // Products
+    public function allProduct()
+    {
+        $products = Product::with(['images' => function ($query) {
+            $query->orderBy('id')->limit(1); // Ambil hanya satu gambar pertama
+        }])->paginate(12);
+        return view('user.pages.product.all-product', [
+            'type_menu'=> 'shop'
+        ], compact('products'));
+    }
+
+    
+    public function detailProduct($id)
+    {
+        $relatedProducts = Product::with(['images' => function ($query) {
+            $query->orderBy('id')->limit(1); // Ambil hanya satu gambar pertama
+        }]);
+
+        $product = Product::with('category')->where('id', $id)->first();
+
+        return view('user.pages.product.detail-product', [
+            'type_menu' => 'shop'
+        ], compact('product'));
+    }
+
 }

@@ -23,35 +23,23 @@
                 <div class="col-lg-6">
                     <div class="product-big-img vs-carousel" data-slide-show="1" data-fade="true"
                         data-asnavfor=".product-thumb-slide">
-                        <div class="img"><img src="{{ asset ('template/assets/img/product/1 (1).webp') }}" alt="Product Image"></div>
-                        <div class="img"><img src="{{ asset ('template/assets/img/product/1 (2).webp') }}" alt="Product Image"></div>
-                        <div class="img"><img src="{{ asset ('template/assets/img/product/1 (3).webp') }}" alt="Product Image"></div>
-                        <div class="img"><img src="{{ asset ('template/assets/img/product/1 (5).webp') }}" alt="Product Image"></div>
-                        <div class="img"><img src="{{ asset ('template/assets/img/product/1 (3).webp') }}" alt="Product Image"></div>
+                        @foreach ($product->images as $image)
+                            <div class="img"><img src="{{ asset('storage/' . $image->path) }}" alt="Product Image"></div>
+                        @endforeach
                     </div>
                     <div class="product-thumb-slide row vs-carousel" data-slide-show="3" data-md-slide-show="3"
                         data-sm-slide-show="3" data-xs-slide-show="3" data-asnavfor=".product-big-img">
-                        <div class="col-3">
-                            <div class="thumb"><img src="{{ asset ('template/assets/img/product/1 (2).webp') }}" alt="Product Image"></div>
-                        </div>
-                        <div class="col-3">
-                            <div class="thumb"><img src="{{ asset ('template/assets/img/product/1 (3).webp') }}" alt="Product Image"></div>
-                        </div>
-                        <div class="col-3">
-                            <div class="thumb"><img src="{{ asset ('template/assets/img/product/1 (5).webp') }}" alt="Product Image"></div>
-                        </div>
-                        <div class="col-3">
-                            <div class="thumb"><img src="{{ asset ('template/assets/img/product/1 (3).webp') }}" alt="Product Image"></div>
-                        </div>
-                        <div class="col-3">
-                            <div class="thumb"><img src="{{ asset ('template/assets/img/product/1 (5).webp') }}" alt="Product Image"></div>
-                        </div>
+                        @foreach ($product->images as $image)
+                            <div class="col-3">
+                                <div class="thumb"><img src="{{ asset('storage/' . $image->path) }}" alt="Product Thumbnail"></div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-lg-6 align-self-start">
                     <div class="product-about">
-                        <h2 class="product-title">Mainan EMCO Brix - Night Hawk - 3 in 1</h2>
-                        <p class="product-text text-justify">Mainan EMCO Brix - Night Hawk - 3 in 1 merupakan mainan katagory Brix yang bisa di rubah  bentuk menjadi 3 bentukan secara bergantian  ( 3 in 1 ) dalam setiap serinya. Mainan ini terbuat dari bahan yang berkualitas serta aman untuk dimainkan si kecil. Tidak hanya menyenangkan, bermain Emco Brix Night Hawk dapat melatih motorik dan kreatifitas si kecil. Mainan ini dapat dijadikan hadiah yang mengedukasi dan digemari si kecil atas prestasi dan pencapaiannya. Koleksi dan mainkan semua seri Emco Brix dan mainkan keseruannya.</p>
+                        <h2 class="product-title">{{ $product->name }}</h2>
+                        <p class="product-text text-justify">{{ $product->description }}</p>
 
                         <div class="product-getway">
                             <div class="platform d-flex gap-3 align-item-center">
@@ -66,9 +54,9 @@
                         <div class="product_meta mb-3">
                             <span class="getway-title m-0 text-dark">Short description</span>
                             <div class="d-flex justify-content-between pe-5">
-                                <span class="getway-title m-0 text-dark">SKU: <span class="sku fw-light">#WE443</span></span>
+                                <span class="getway-title m-0 text-dark">SKU: <span class="sku fw-light">#{{ $product->sku }}</span></span>
                                 <span class="getway-title m-0 text-dark text-capitalize">Category:<a class="fw-light" href="#"
-                                        rel="tag">Brix</a></span>
+                                        rel="tag">{{ $product->category->name }}</a></span>
                             </div>
                             <span class="getway-title m-0 text-dark">Tags: <a href="#" rel="tag">Kids</a><a href="#" rel="tag">Popular</a><a href="#"
                                     rel="tag">Baby</a></span>
@@ -77,7 +65,7 @@
                             <div class="quantity d-flex justify-content-between">
                                 <div class="d-flex flex-column">
                                     <label for="quantity" class="screen-reader-text">Total Harga</label>
-                                    <p class="product-price text-sm">Rp.150.000,-</p>
+                                    <p class="product-price text-sm">Rp. {{ number_format($product->price, 0, ',', '.') }},-</p>
                                 </div>
                                 <div class="d-flex flex-column">
                                     <label for="quantity" class="screen-reader-text text-center">Jumlah</label>
@@ -125,10 +113,6 @@
                     <div class="col-md-6 col-lg-3 ">
                         <div class="products product-background-{{ $bgColor }}">
                             <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="">
-                            <a href="{{ route('detail-product') }}" class='details'>
-                                <span>Detail</span>
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
                         </div>
                         <p class="judul">Mainan EMCO Hot Shot Marvel Viper Mainan</p>
                     </div>

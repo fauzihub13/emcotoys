@@ -10,6 +10,10 @@ class ProductCategory extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $keyType = 'string';
+    public $incrementing = false;
+
+
     protected $table = 'product_categories';
     protected $fillable=[
         'slug',
