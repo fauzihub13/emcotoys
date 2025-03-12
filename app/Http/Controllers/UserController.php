@@ -73,9 +73,23 @@ class UserController extends Controller
             'type_menu'=> 'cart'
         ]);
     }
+
+    public function checkoutPage()
+    {
+        return view('user.pages.product.checkout', [
+            'type_menu'=> 'shop'
+        ]);
+    }
+
     public function history()
     {
         return view('user.pages.profile.history', [
+            'type_menu'=> 'history'
+        ]);
+    }
+    public function detailHistory()
+    {
+        return view('user.pages.profile.detail-history', [
             'type_menu'=> 'history'
         ]);
     }

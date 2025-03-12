@@ -24,7 +24,9 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/contact', [ControllersUserController::class, 'contact'])->name('contact');
     Route::get('/profile', [ControllersUserController::class, 'profile'])->name('profile');
     Route::get('/cart', [ControllersUserController::class, 'cart'])->name('cart');
+    Route::get('/cart/checkout', [ControllersUserController::class, 'checkoutPage'])->name('checkout-page');
     Route::get('/history', [ControllersUserController::class, 'history'])->name('history');
+    Route::get('/history/detail', [ControllersUserController::class, 'detailHistory'])->name('detail-history');
     Route::get('/order', [ControllersUserController::class, 'order'])->name('order');
 });
 

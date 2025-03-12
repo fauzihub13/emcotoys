@@ -43,6 +43,10 @@
                     @endfor
                     {{-- CART ITEM --}}
 
+
+                    <button class="btn btn-lg color-custom-red text-white w-100 mt-5" onclick="window.location.href='/cart/checkout';">Checkout</button>
+
+
                     {{-- <div class="cart-item pb-3 border-bottom d-flex w-100 mt-4">
                         <img src="{{asset ('template/assets/img/shop/1.png')}}" width="100px" height="auto" alt="">
                         <div class="col">
@@ -65,6 +69,7 @@
                     </div> --}}
 
                 </div>
+
 
             </div>
         </div>

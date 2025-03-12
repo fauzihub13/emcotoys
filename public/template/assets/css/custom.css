@@ -178,6 +178,29 @@
 }
 
 
+/* Checkout */
+
+.checkout-form input, .choices, textarea {
+    background-color: white !important;
+    border: 1.6px solid rgb(225, 225, 225) !important;
+    height: 50px;
+}
+
+.checkout-form input:focus,
+.choices:focus,
+textarea:focus {
+    border-color: var(--theme-color) !important;
+}
+
+.checkout-form label{
+    font-weight: 400;
+    font-size: 16px !important;
+}
+
+.btn-outline-red{
+    border: 2px solid var(--theme-color);
+}
+
 
 @media (max-width: 767px) {
     .brands {
