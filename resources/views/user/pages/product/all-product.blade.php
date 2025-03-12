@@ -92,6 +92,7 @@
                     @endfor
                 </div>
 
+                {{-- PAGINATION --}}
                 <div class="vs-pagination d-flex justify-content-center mt-4">
                     <a href="#" class="pagi-btn">Prev</a>
                     <ul>
@@ -103,6 +104,7 @@
                     </ul>
                     <a href="#" class="pagi-btn">next</a>
                 </div>
+                
             </div>
             {{-- RIGHT SIDE --}}
 
@@ -113,5 +115,6 @@
 
 @push('script')
     <script src="{{ asset('template/assets/js/range-slider.js') }}"></script>
+    <script src="{{ asset('template/assets/js/filter-product.js') }}"></script>
 
 @endpush
