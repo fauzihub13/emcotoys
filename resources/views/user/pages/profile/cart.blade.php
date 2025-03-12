@@ -41,33 +41,9 @@
                             </div>
                         </div>
                     @endfor
-
                     {{-- CART ITEM --}}
 
-
-
                     {{-- <div class="cart-item pb-3 border-bottom d-flex w-100 mt-4">
-                        <img src="{{asset ('template/assets/img/shop/1.png')}}" width="100px" height="auto" alt="">
-                        <div class="col">
-                            <p class="red fs-5 m-0 fw-information-bold">EMCO Super Dough</p>
-                            <div class="row">
-                                <div class="col-auto desc">
-                                    <p class="m-0 lh-sm fs-6">Category: <span class="red">Green</span></p>
-                                    <p class="m-0 lh-sm fs-6">Amount: <span class="red">2 pcs</span></p>
-                                </div>
-                                <div class="col-auto ms-3">
-                                    <p class="m-0 lh-sm fs-6 text-center">Total Price</p>
-                                    <p class="m-0 lh-sm fs-6 text-center red">RP.150.000,-</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="manipulate d-flex justify-content-center align-item-center gap-1">
-                            <a href="" class="btn change align-self-center red rounded-pill align-items-center d-flex"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1zm6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5z"/></svg> <span class="ms-1">Change your order</span></a>
-                            <a href="" class="btn change align-self-center red rounded-pill align-items-center d-flex delete-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg><span class="ms-1">Delete from cart</span></a>
-                        </div>
-                    </div>
-
-                    <div class="cart-item pb-3 border-bottom d-flex w-100 mt-4">
                         <img src="{{asset ('template/assets/img/shop/1.png')}}" width="100px" height="auto" alt="">
                         <div class="col">
                             <p class="red fs-5 m-0 fw-information-bold">EMCO Super Dough</p>

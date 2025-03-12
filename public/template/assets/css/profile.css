@@ -127,7 +127,8 @@ input::placeholder {
 }
 
 
-.delete-btn-2 {
+.delete-btn-2,
+.detail-btn {
     border: 1px solid #A90004;
     border-radius: 20px;
     padding: 2px 12px;
@@ -152,9 +153,13 @@ input::placeholder {
     justify-content: end;
 }
 
+.mobile-detail-order {
+    display: none;
+}
+
 @media (max-width: 767px) {
     .right-side {
-        padding: 1em 1em ;
+        padding: 1em 1em;
     }
 
     .cart-image {
@@ -194,5 +199,13 @@ input::placeholder {
 
     .cart-quantity i {
         font-size: 10px;
+    }
+
+    .mobile-detail-order {
+        display: inline-flex;
+    }
+
+    .detail-order {
+        display: none;
     }
 }
