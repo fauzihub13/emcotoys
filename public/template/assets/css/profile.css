@@ -1,24 +1,30 @@
 .form-text {
     font-size: 15px;
 }
+
 .title {
     font-weight: 600 !important;
     color: #A90004 !important;
 }
+
 form {
     font-size: 15px !important;
 }
+
 label {
     font-size: 15px !important;
 }
+
 input {
     background-color: #F5F5F5 !important;
     border: none !important;
     font-size: 15px !important;
 }
+
 input::placeholder {
     padding-left: -10px;
 }
+
 .save {
     background-color: #A90004 !important;
     color: white;
@@ -31,6 +37,7 @@ input::placeholder {
     color: #A90004;
     font-weight: 600;
 }
+
 .description {
     font-size: 13px;
     width: auto;
@@ -40,23 +47,28 @@ input::placeholder {
     color: #A90004;
     font-weight: 500;
 }
+
 .bg-custom {
     background-color: #A90004 !important;
 }
+
 .change {
     border: 1px solid #A90004;
     font-size: 15px;
 }
+
 .option {
     font-size: 20px !important;
     border-bottom: 1px solid #F5F5F5;
     font-weight: 500;
     color: #3a3a3a58;
 }
+
 .actived {
     border-bottom: 2px solid #A90004;
     color: #A90004;
 }
+
 .btn:hover {
     color: #A90004;
 }
@@ -67,4 +79,19 @@ input::placeholder {
 
 .input::placeholder {
     color: grey !important;
+}
+
+/* Profile */
+.right-side {
+    padding: 2.5em;
+    border-radius: .5rem;
+    color: #868E8C;
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 4px 0px;
+}
+
+@media (max-width: 767px) {
+    .right-side {
+        padding: 1.5em;
+    }
 }
