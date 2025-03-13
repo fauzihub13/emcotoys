@@ -21,4 +21,12 @@ class ArticleCategory extends Model
     public function articles(){
         return $this->hasMany(Article::class);
     }
+
+    public function scopeNotInTrash($query) {
+        return $query->whereNull('deleted_at');
+    }
+
+    public function scopeDescending($query) {
+        return $query->orderBy('created_at', 'desc');
+    }
 }

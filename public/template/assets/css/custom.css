@@ -26,7 +26,7 @@
 }
 
 .color-custom-red {
-    background-color: var(--theme-color);
+    background-color: var(--theme-color) !important;
 }
 
 .color-custom-tosca {
@@ -137,10 +137,6 @@
 
 }
 
-/* .range-min, .range-max {
-    height: 20px !important;
-} */
-
 .range-input{
     position: relative;
 }
@@ -201,6 +197,11 @@ textarea:focus {
     border: 2px solid var(--theme-color);
 }
 
+
+/* Article */
+.article-image{
+    height: 440px;
+}
 
 @media (max-width: 767px) {
     .brands {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\ArticleCategory;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -27,14 +29,23 @@ class UserController extends Controller
     }
     public function article()
     {
+        $search = request('search');
+
+        $articles = Article::filter(request(['search']))->notInTrash()->descending()->paginate(2)->appends(['search' => $search]);
         return view('user.pages.article', [
-            'type_menu'=> 'article'
+            'type_menu'=> 'article',
+            'articles' => $articles,
+            'latest_articles' => Article::descending()->limit(3)->get(),
+            'article_categories' => ArticleCategory::notInTrash()->descending()->get()
         ]);
     }
-    public function adetail()
+    public function adetail($slug)
     {
+        $article = Article::where('slug', $slug)->first();
         return view('user.pages.article-detail', [
-            'type_menu'=> 'adetail'
+            'type_menu'=> 'article',
+            'article'=> $article,
+            'latest_articles' => Article::where('slug', '!=', $slug)->orderBy('created_at', 'desc')->limit(2)->get()
         ]);
     }
     public function location()
@@ -100,11 +111,11 @@ class UserController extends Controller
         ], compact('products'));
     }
 
-    
+
     public function detailProduct($id)
     {
         $relatedProducts = Product::with(['images' => function ($query) {
-            $query->orderBy('id')->limit(1); // Ambil hanya satu gambar pertama
+            $query->orderBy('id')->limit(1); 
         }]);
 
         $product = Product::with('category')->where('id', $id)->first();

@@ -25,4 +25,25 @@ class Article extends Model
     public function category(){
         return $this->belongsTo(ArticleCategory::class);
     }
+
+    public function scopeNotInTrash($query) {
+        return $query->whereNull('deleted_at');
+    }
+
+    public function scopeDescending($query) {
+        return $query->orderBy('created_at', 'desc');
+    }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->where('title', 'LIKE', '%' . $search . '%');
+        });
+
+        $query->when($filters['category'] ?? false, function ($query, $categorySlug) {
+            return $query->whereHas('category', function ($query) use ($categorySlug) {
+                $query->where('slug', $categorySlug);
+            });
+        });
+    }
 }
