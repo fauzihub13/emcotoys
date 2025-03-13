@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\ArticleCategory;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductCategory;
 
 class UserController extends Controller
 {
@@ -23,8 +24,16 @@ class UserController extends Controller
     }
     public function shop()
     {
+        $products = Product::with(['images' => function ($query) {
+            $query->orderBy('id')->limit(1);
+        }])
+        ->notInTrash()
+        ->descending()
+        ->paginate(12);
+
         return view('user.pages.product.shop', [
-            'type_menu'=> 'shop'
+            'type_menu'=> 'shop',
+            'products' => $products
         ]);
     }
     public function article()
@@ -103,19 +112,34 @@ class UserController extends Controller
     // Products
     public function allProduct()
     {
-        $products = Product::with(['images' => function ($query) {
-            $query->orderBy('id')->limit(1); // Ambil hanya satu gambar pertama
-        }])->paginate(12);
-        return view('user.pages.product.all-product', [
-            'type_menu'=> 'shop'
-        ], compact('products'));
-    }
+        $filters = [
+            'category' => request('category'),
+            'minAge' => request('minAge'),
+            'maxAge' => request('maxAge'),
+        ];
 
+        // dd( $filters);
+
+        $products = Product::with(['images' => function ($query) {
+            $query->orderBy('id')->limit(1);
+        }])
+        ->filter($filters)
+        ->notInTrash()
+        ->descending()
+        ->paginate(12)
+        ->appends($filters);
+
+        return view('user.pages.product.all-product', [
+            'type_menu'=> 'shop',
+            'products'=> $products,
+            'products_categories' => ProductCategory::notInTrash()->get()
+        ]);
+    }
 
     public function detailProduct($id)
     {
         $relatedProducts = Product::with(['images' => function ($query) {
-            $query->orderBy('id')->limit(1); 
+            $query->orderBy('id')->limit(1);
         }]);
 
         $product = Product::with('category')->where('id', $id)->first();

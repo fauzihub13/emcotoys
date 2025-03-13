@@ -24,14 +24,18 @@
                     <div class="product-big-img vs-carousel" data-slide-show="1" data-fade="true"
                         data-asnavfor=".product-thumb-slide">
                         @foreach ($product->images as $image)
-                            <div class="img"><img src="{{ asset('storage/' . $image->path) }}" alt="Product Image"></div>
+                            <div class="main-product-image">
+                                <img src="{{ asset('storage/' . $image->path) }}" alt="Product Image">
+                            </div>
                         @endforeach
                     </div>
                     <div class="product-thumb-slide row vs-carousel" data-slide-show="3" data-md-slide-show="3"
                         data-sm-slide-show="3" data-xs-slide-show="3" data-asnavfor=".product-big-img">
                         @foreach ($product->images as $image)
                             <div class="col-3">
-                                <div class="thumb"><img src="{{ asset('storage/' . $image->path) }}" alt="Product Thumbnail"></div>
+                                <div class="thumb product-image-slider">
+                                    <img src="{{ asset('storage/' . $image->path) }}" alt="Product Thumbnail">
+                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -41,7 +45,7 @@
                         <h2 class="product-title">{{ $product->name }}</h2>
                         <p class="product-text text-justify">{{ $product->description }}</p>
 
-                        <div class="product-getway">
+                        {{-- <div class="product-getway">
                             <div class="platform d-flex gap-3 align-item-center">
                                 <span class="getway-title m-0">Available on:</span>
                                 <a href=""><img src="{{ asset ('template/assets/img/widget/shopee.svg')}}" alt="cards"></a>
@@ -50,7 +54,8 @@
                                 <a href=""><img src="{{ asset ('template/assets/img/widget/zalora.svg')}}" alt="cards"></a>
                                 <a href=""><img src="{{ asset ('template/assets/img/widget/lazada.svg')}}" alt="cards"></a>
                             </div>
-                        </div>
+                        </div> --}}
+
                         <div class="product_meta mb-3">
                             <span class="getway-title m-0 text-dark">Short description</span>
                             <div class="d-flex justify-content-between pe-5">

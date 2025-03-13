@@ -96,19 +96,36 @@
 
                 @php
                     $colors = ['red', 'green', 'yellow', 'purple', 'blue', 'pink'];
+                    $colorIndex = 0;
+
                 @endphp
 
-                @for ($i=0; $i<8; $i++)
-                    @php
-                        $bgColor = $colors[$i % count($colors)];
-                    @endphp
-                    <div class="col-md-6 col-lg-3 ">
-                        <div class="products product-background-{{ $bgColor }}">
-                            <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="">
+                @if (isset($products) && !empty($products) && count($products) >0)
+                    @foreach ($products as $product)
+                        @php
+                            // Memisahkan gambar jika ada lebih dari satu
+                            $images = explode(',', $product->image);
+                            $firstImage = $product->images->first() ? $product->images->first()->path : 'default.jpg';
+                            $bgColor = $colors[$colorIndex % count($colors)];
+                            $colorIndex++;
+                        @endphp
+                        <div class="col-md-6 col-lg-3 ">
+                            <div class="products product-background-{{ $bgColor }}">
+                                <div class="product-image">
+                                    <img src="{{ asset('storage/' . $firstImage) }}" alt="{{ $product->name }}" class="">
+                                    {{-- <img class="" src="https://cdn.firstcry.com/education/2022/11/06094158/Toy-Names-For-Kids.jpg" height="auto" alt=""> --}}
+                                </div>
+                                <a href="{{ route('detail-product', ['id' => $product->id]) }}" class='details'>
+                                    <span>Detail</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <p class="judul">{{ $product->name }}</p>
                         </div>
-                        <p class="judul">Mainan EMCO Hot Shot Marvel Viper Mainan</p>
-                    </div>
-                @endfor
+                    @endforeach
+                @else
+                    <div class=" text-custom-grey text-center ">No product found.</div>
+                @endif
             </div>
             <div class="row mt-4">
                 <a href="{{ route('all-product') }}" class="text-center fs-5">See all product <span class="ms-2"><i class="fas fa-chevron-right"></i></span></a>

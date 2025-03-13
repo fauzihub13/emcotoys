@@ -27,4 +27,9 @@ class ProductCategory extends Model
         return $this->hasMany(Product::class);
     }
 
+    public function scopeNotInTrash($query) {
+        return $query->whereNull('deleted_at');
+    }
+
+
 }

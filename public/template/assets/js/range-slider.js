@@ -1,13 +1,18 @@
 const rangeInput = document.querySelectorAll(".range-input input"),
     progress = document.querySelector(".slider .progress"),
     startAge = document.querySelector(".start-age"),
-    finishAge = document.querySelector(".finish-age"),
-    applyButton = document.querySelector(".age-input");
+    finishAge = document.querySelector(".finish-age")
+    ;
 
 let ageGap = 1;
 
-rangeInput[0].value = 1;
-rangeInput[1].value = 4;
+// Ambil nilai dari URL atau set default
+const urlParams = new URLSearchParams(window.location.search);
+const minAgeValue = urlParams.get("minAge") ? parseInt(urlParams.get("minAge")) : 1;
+const maxAgeValue = urlParams.get("maxAge") ? parseInt(urlParams.get("maxAge")) : 4;
+
+rangeInput[0].value = minAgeValue;
+rangeInput[1].value = maxAgeValue;
 
 updateLabelsAndHref();
 
@@ -40,5 +45,4 @@ rangeInput.forEach((input) => {
 function updateLabelsAndHref() {
     startAge.textContent = rangeInput[0].value;
     finishAge.textContent = rangeInput[1].value;
-    applyButton.href = `?start=${rangeInput[0].value}&finish=${rangeInput[1].value}`;
 }
