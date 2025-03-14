@@ -62,7 +62,7 @@
                                 </div>
                             @else
                                 <div class="col-auto d-none d-lg-block d-md-none">
-                                    <a href="{{ route('login') }}" class="vs-btn ">Login/ Register</a>
+                                    <a href="{{ route('profile') }}" class="vs-btn ">Login/ Register</a>
                                 </div>
                             @endif
                         </div>

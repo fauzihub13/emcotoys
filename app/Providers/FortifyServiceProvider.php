@@ -78,27 +78,5 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-        // Custom Auth View
-        // Fortify::loginView(function () {
-        //     return view('admin.pages.auth.login');
-        // });
-
-        // Fortify::registerView(function () {
-        //     return view('admin.pages.auth.register');
-        // });
-
-        // Fortify::requestPasswordResetLinkView(function () {
-        //     return view('admin.pages.auth.forgot-password');
-        // });
-
-        // Fortify::resetPasswordView(function (Request $request) {
-        //     return view('admin.pages.auth.reset-password', ['request' => $request]);
-        // });
-
-        // Fortify::verifyEmailView(function () {
-        //     return view('admin.pages.auth.verify-email');
-        // });
-
-
     }
 }
