@@ -29,16 +29,19 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             ],
 
             'phone_number' => ['required', 'string', 'min:12', 'max:15'],
+            'detail_address' => ['nullable', 'string', 'min:5', 'max:255'],
         ])->validateWithBag('updateProfileInformation');
 
         if ($input['email'] !== $user->email &&
             $user instanceof MustVerifyEmail) {
             $this->updateVerifiedUser($user, $input);
         } else {
+            // dd($user);
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'phone_number' => $input['phone_number'],
+                'detail_address' => $input['detail_address'],
             ])->save();
         }
     }

@@ -13,6 +13,20 @@
                 <h3 class="mb-0">WELCOME TO <span class="color-text-red">EMCO</span></h3>
                 <p class="sec-text">Give Your Child the Gift of Play and Growth</p>
 
+                @if (session('status'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        {{ session('status') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                @elseif (session('error'))
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                @endif
+
                 <div class="row mt-5"></div>
 
                 <form method="POST" action="">

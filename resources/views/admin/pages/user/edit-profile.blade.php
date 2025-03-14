@@ -117,19 +117,19 @@
             <div class="row">
                 <div class="col-12">
                     @if (session('status') == 'password-updated')
-                            <div class="alert alert-success alert-dismissible show fade">
-                                Password updated successfully.
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-success alert-dismissible show fade">
+                            Password updated successfully.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
 
-                        @elseif (session('error'))
-                            <div class="alert alert-danger alert-dismissible show fade">
-                                Failed to change password. Please try again.
-                                {{ session('error') }}
+                    @elseif (session('error'))
+                        <div class="alert alert-danger alert-dismissible show fade">
+                            Failed to change password. Please try again.
+                            {{ session('error') }}
 
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        @endif
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Change Password</h5>

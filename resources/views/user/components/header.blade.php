@@ -51,14 +51,20 @@
                     <div class="col">
                         <div class="row align-items-center justify-content-end gx-3">
                             <div class="col-auto">
-                                <button class="circle-icon d-inline-block"><i class="far fa-shopping-cart"></i></button>
+                                <button class="circle-icon d-inline-block" onclick="window.location.href='/cart'"><i class="far fa-shopping-cart"></i></button>
                             </div>
                             <div class="col-auto d-block d-lg-none">
                                 <button class="vs-menu-toggle d-inline-block"><i class="fal fa-bars"></i></button>
                             </div>
-                            <div class="col-auto d-none d-lg-block d-md-none">
-                                <a href="{{ route('login') }}" class="vs-btn ">Login/ Register</a>
-                            </div>
+                            @if (auth()->check())
+                                <div class="col-auto d-none d-lg-block d-md-none">
+                                    <a href="{{ route('profile') }}" class="vs-btn ">Profile</a>
+                                </div>
+                            @else
+                                <div class="col-auto d-none d-lg-block d-md-none">
+                                    <a href="{{ route('login') }}" class="vs-btn ">Login/ Register</a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
