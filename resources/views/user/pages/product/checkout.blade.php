@@ -60,6 +60,7 @@
                                     <input
                                         type="text"
                                         name="name"
+                                        id="name"
                                         class="form-control form-control-xl @error('name') is-invalid @enderror"
                                         placeholder="John Dae"
                                         value="{{ auth()->user()->name ?? '' }}"
@@ -82,6 +83,7 @@
                                         type="number"
                                         step="1"
                                         name="phone_number"
+                                        id="phone_number"
                                         class="form-control form-control-xl @error('phone_number') is-invalid @enderror"
                                         placeholder="628965235125"
                                         value="{{ auth()->user()->phone_number ?? '' }}"
@@ -103,9 +105,17 @@
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
                                     <label>Province <span class="red">*</span></label>
-                                    <select class="choices form-select @error('province') is-invalid @enderror" name="province">
-                                        <option value="">Select one</option>
-                                        <option value="">Select two</option>
+                                    <select
+                                        class="choices form-select @error('province') is-invalid @enderror"
+                                        name="province"
+                                        id="province">
+                                        <option value="">-- Select one --</option>
+                                        @if (isset($provinces))
+                                            @foreach ($provinces as $province)
+                                                <option value="{{ $province->name }}" {{ Str::upper(Auth::user()->province) === $province->name ? 'selected' : '' }}>{{ $province->name }}</option>
+
+                                            @endforeach
+                                        @endif
                                     </select>
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
@@ -121,9 +131,11 @@
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
                                     <label>City <span class="red">*</span></label>
-                                    <select class="choices form-select @error('') is-invalid @enderror" name="city">
-                                        <option value="">Select one</option>
-                                        <option value="">Select two</option>
+                                    <select
+                                        class="choices form-select @error('') is-invalid @enderror"
+                                        name="city"
+                                        id="city">
+
                                     </select>
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
@@ -139,9 +151,11 @@
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
                                     <label>District <span class="red">*</span></label>
-                                    <select class="choices form-select @error('district') is-invalid @enderror" name="district">
-                                        <option value="">Select one</option>
-                                        <option value="">Select two</option>
+                                    <select
+                                        class="choices form-select @error('district') is-invalid @enderror"
+                                        name="district"
+                                        id="district">
+
                                     </select>
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
@@ -157,9 +171,11 @@
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
                                     <label>Village <span class="red">*</span></label>
-                                    <select class="choices form-select @error('village') is-invalid @enderror" name="village">
-                                        <option value="">Select one</option>
-                                        <option value="">Select two</option>
+                                    <select
+                                        class="choices form-select @error('village') is-invalid @enderror"
+                                        name="village"
+                                        id="village">
+
                                     </select>
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
@@ -184,7 +200,7 @@
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
                                     </div>
-                                    @error('')
+                                    @error('detail_address')
                                         <div class="invalid-feedback">
                                             <i class="bx bx-radio-circle"></i>
                                             {{ $message }}
@@ -195,17 +211,19 @@
                         </div>
 
                         <div class="row mt-0">
-                            <div class="col-6 col-md-10">
+                            <div class="col-6 col-md-9">
                                  <p class="text-end cart-price mb-0">Subtotal:</p>
-                                <p class="text-end cart-price mb-0">Ship Rate:</p>
+                                <p class="text-end cart-price mb-0">Shipping Rate:</p>
                                 <p class="text-end cart-price mb-0">Total Price:</p>
 
                             </div>
-                            <div class="col-6 col-md-2 ">
-                                <p class="text-end cart-price mb-0"><span class="red" id="total_price">Rp{{ number_format($total_price, 0, ',', '.') }}</span></p>
-                                <p class="text-end cart-price mb-0"><span class="red" id="total_price">Rp{{ number_format($total_price, 0, ',', '.') }}</span></p>
-                                <p class="text-end cart-price mb-0"><span class="red" id="total_price">Rp{{ number_format($total_price, 0, ',', '.') }}</span></p>
+                            <div class="col-6 col-md-3 ">
+                                <p class="text-end cart-price mb-0"><span class="red" id="">Rp{{ number_format($total_price, 0, ',', '.') }}</span></p>
+                                <p class="text-end cart-price mb-0"><span class="red" id="shipping_rate">Rp0</span></p>
+                                <p class="text-end cart-price mb-0"><span class="red" id="total_price">Rp0</span></p>
                             </div>
+                            <input type="hidden" id="raw_price" value="{{ $total_price }}" />
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         </div>
 
                         <div class="row mt-5">
@@ -213,7 +231,7 @@
                                 <button class="btn btn-lg btn-outline-red red w-100">Cancel</button>
                             </div>
                             <div class="col-6">
-                                <button class="btn btn-lg color-custom-red text-white w-100">Checkout</button>
+                                <button id="btn-checkout" type="button" class="btn btn-lg color-custom-red text-white w-100" disabled>Please wait...</button>
                             </div>
                         </div>
                     </form>
@@ -229,4 +247,6 @@
 @endsection
 
 @push('script')
+    @include('user.components.script-laravolt')
+
 @endpush

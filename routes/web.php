@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\LaravoltController;
 use App\Http\Controllers\UserController as ControllersUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/profile', [ControllersUserController::class, 'profile'])->name('profile');
         Route::get('/cart', [UserOrderController::class, 'cart'])->name('cart');
+        Route::post('/cart/shipping-rate', [UserOrderController::class, 'getShippingRate'])->name('cart-shipping-rate');
         Route::delete('/cart/{id}', [UserOrderController::class, 'deleteCart'])->name('delete-cart');
         Route::post('/cart/{id}/increment', [UserOrderController::class, 'incrementCart'])->name('increment-cart');
         Route::post('/cart/{id}/decrement', [UserOrderController::class, 'decrementCart'])->name('decrement-cart');
@@ -35,7 +37,13 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
         Route::get('/history', [ControllersUserController::class, 'history'])->name('history');
         Route::get('/history/detail', [ControllersUserController::class, 'detailHistory'])->name('detail-history');
         Route::get('/order', [ControllersUserController::class, 'order'])->name('order');
+    });
 
+    Route::controller(LaravoltController::class)->group(function() {
+        Route::get('/provinces', 'provinces')->name('provinces');
+        Route::get('/cities', 'cities')->name('cities');
+        Route::get('/districts', 'districts')->name('districts');
+        Route::get('/villages', 'villages')->name('villages');
     });
 });
 

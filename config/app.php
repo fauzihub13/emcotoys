@@ -123,4 +123,10 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // Additional
+    'api_key_biteship' => env('API_KEY_BITESHIP', ''),
+    'midtrans_server_key' => env('MIDTRANS_SERVER_KEY', ''),
+    'midtrans_client_key' => env('MIDTRANS_CLIENT_KEY', ''),
+    'mail_to' => env('MAIL_TO', ''),
+
 ];
