@@ -65,13 +65,13 @@
                             <div class="quantity d-flex justify-content-between">
                                 <div class="d-flex flex-column">
                                     <label for="quantity" class="screen-reader-text">Price</label>
-                                    <p class="product-price text-sm">Rp. {{ number_format($product->price, 0, ',', '.') }},-</p>
+                                    <p class="product-price text-sm">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
                                 </div>
                                 <div class="d-flex flex-column">
                                     <label for="quantity" class="screen-reader-text text-center">Quantity</label>
                                     <div class="d-flex">
                                         <button class="quantity-minus qty-btn" id="minus-counter"><i class="fal fa-minus"></i></button>
-                                        <form action="" method="POST" id="productForm">
+                                        <form action="{{ route('add-to-cart', $product) }}" method="POST" id="productForm">
                                             @csrf
                                             <input type="number" id="quantity" class="qty-input" step="1" min="1" max="100"
                                                 name="quantity" value="1" title="Qty">
@@ -80,9 +80,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="vs-btn check-out">Checkout</a>
+                            {{-- <a href="#" class="vs-btn check-out">Checkout</a> --}}
                             <button type="submit" class="vs-btn addcart" form="productForm">Add to Cart</button>
+
                         </div>
+
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible show fade">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+
+                        @elseif (session('error'))
+                            <div class="alert alert-danger alert-dismissible show fade">
+                                {{ session('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

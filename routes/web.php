@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\OrderController as UserOrderController;
 use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\StoreController;
@@ -17,15 +18,19 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/', [ControllersUserController::class, 'index'])->name('index');
     Route::get('/product', [ControllersUserController::class, 'shop'])->name('shop');
     Route::get('/product/all', [ControllersUserController::class, 'allProduct'])->name('all-product');
-    Route::get('/product/detail/{id}', [ControllersUserController::class, 'detailProduct'])->where('id', '[0-9a-fA-F\-]+')->name('detail-product');
+    Route::get('/product/detail/{product:slug}', [ControllersUserController::class, 'detailProduct'])->where('id', '[0-9a-fA-F\-]+')->name('detail-product');
     Route::get('/article', [ControllersUserController::class, 'article'])->name('article');
     Route::get('/article-detail/{slug}', [ControllersUserController::class, 'adetail'])->name('adetail');
     Route::get('/location', [ControllersUserController::class, 'location'])->name('location');
     Route::get('/contact', [ControllersUserController::class, 'contact'])->name('contact');
-    
+
     Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/profile', [ControllersUserController::class, 'profile'])->name('profile');
-        Route::get('/cart', [ControllersUserController::class, 'cart'])->name('cart');
+        Route::get('/cart', [UserOrderController::class, 'cart'])->name('cart');
+        Route::delete('/cart/{id}', [UserOrderController::class, 'deleteCart'])->name('delete-cart');
+        Route::post('/cart/{id}/increment', [UserOrderController::class, 'incrementCart'])->name('increment-cart');
+        Route::post('/cart/{id}/decrement', [UserOrderController::class, 'decrementCart'])->name('decrement-cart');
+        Route::post('/product/detail/{product:slug}', [UserOrderController::class, 'addToCart'])->name('add-to-cart');
         Route::get('/cart/checkout', [ControllersUserController::class, 'checkoutPage'])->name('checkout-page');
         Route::get('/history', [ControllersUserController::class, 'history'])->name('history');
         Route::get('/history/detail', [ControllersUserController::class, 'detailHistory'])->name('detail-history');

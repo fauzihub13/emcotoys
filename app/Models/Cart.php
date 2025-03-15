@@ -14,6 +14,8 @@ class Cart extends Model
     protected $table = 'carts';
     protected $fillable=[
         'user_id',
+        'product_id',
+        'quantity',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -21,6 +23,10 @@ class Cart extends Model
 
     public function product() {
         return $this->belongsTo(Product::class);
+    }
+
+    public function scopeDescending($query) {
+        return $query->orderBy('created_at', 'desc');
     }
 
 }

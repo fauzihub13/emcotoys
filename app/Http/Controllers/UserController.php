@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\ArticleCategory;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -76,12 +77,6 @@ class UserController extends Controller
             'type_menu'=> 'account'
         ]);
     }
-    public function cart()
-    {
-        return view('user.pages.profile.cart', [
-            'type_menu'=> 'cart'
-        ]);
-    }
 
     public function checkoutPage()
     {
@@ -109,7 +104,6 @@ class UserController extends Controller
         ]);
     }
 
-    // Products
     public function allProduct()
     {
         $filters = [
@@ -136,17 +130,18 @@ class UserController extends Controller
         ]);
     }
 
-    public function detailProduct($id)
+    public function detailProduct(Product $product)
     {
-        $relatedProducts = Product::with(['images' => function ($query) {
-            $query->orderBy('id')->limit(1);
-        }]);
+        // $relatedProducts = Product::with(['images' => function ($query) {
+        //     $query->orderBy('id')->limit(1);
+        // }]);
 
-        $product = Product::with('category')->where('id', $id)->first();
+        $product = Product::with('category')->where('id', $product->id)->first();
 
         return view('user.pages.product.detail-product', [
-            'type_menu' => 'shop'
-        ], compact('product'));
+            'type_menu' => 'shop',
+            'product'=> $product
+        ]);
     }
 
 }

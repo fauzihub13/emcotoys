@@ -79,7 +79,7 @@
                                         <img src="{{ asset('storage/' . $firstImage) }}" alt="{{ $product->name }}" class="">
                                         {{-- <img class="" src="https://cdn.firstcry.com/education/2022/11/06094158/Toy-Names-For-Kids.jpg" height="auto" alt=""> --}}
                                     </div>
-                                    <a href="{{ route('detail-product', ['id' => $product->id]) }}" class='details'>
+                                    <a href="{{ route('detail-product', $product) }}" class='details'>
                                         <span>Detail</span>
                                         <i class="fas fa-chevron-right"></i>
                                     </a>
