@@ -32,7 +32,7 @@
                 <div class="col-lg-8">
 
                     {{-- php code get articles looping --}}
-                    @if (isset($articles))
+                    @if (isset($articles) && !empty($articles) && count($articles) > 0)
 
                         @foreach ($articles as $article)
                             <div class="vs-blog blog-single has-post-thumbnail">
@@ -58,6 +58,8 @@
                                 </div>
                             </div>
                         @endforeach
+                    @else
+                        <div class=" text-custom-grey text-center ">No article found.</div>
                     @endif
 
                     <div class="vs-pagination  d-flex justify-content-center ">

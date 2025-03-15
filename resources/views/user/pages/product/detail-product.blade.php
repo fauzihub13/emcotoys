@@ -14,7 +14,7 @@
 @endpush
 
 @section('main')
-<!--==============================
+    <!--==============================
     Product Details
     ==============================-->
     <section class="vs-product-wrapper product-details mt-5 space-extra-bottom">
@@ -57,33 +57,31 @@
                         </div> --}}
 
                         <div class="product_meta mb-3">
-                            <span class="getway-title m-0 text-dark">Short description</span>
-                            <div class="d-flex justify-content-between pe-5">
-                                <span class="getway-title m-0 text-dark">SKU: <span class="sku fw-light">#{{ $product->sku }}</span></span>
-                                <span class="getway-title m-0 text-dark text-capitalize">Category:<a class="fw-light" href="#"
-                                        rel="tag">{{ $product->category->name }}</a></span>
-                            </div>
-                            <span class="getway-title m-0 text-dark">Tags: <a href="#" rel="tag">Kids</a><a href="#" rel="tag">Popular</a><a href="#"
-                                    rel="tag">Baby</a></span>
+                            <span class="getway-title m-0 text-dark">SKU: <span class="sku fw-light">#{{ $product->sku }}</span></span>
+                            <span class="getway-title m-0 text-dark">Category: <a href="#" rel="tag">{{ $product->category->name }}</a></span>
+                            <span class="getway-title m-0 text-dark">Stock: <span class="sku fw-light">{{ $product->stock }} pcs</span></span>
                         </div>
                         <div class="actions">
                             <div class="quantity d-flex justify-content-between">
                                 <div class="d-flex flex-column">
-                                    <label for="quantity" class="screen-reader-text">Total Harga</label>
+                                    <label for="quantity" class="screen-reader-text">Price</label>
                                     <p class="product-price text-sm">Rp. {{ number_format($product->price, 0, ',', '.') }},-</p>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <label for="quantity" class="screen-reader-text text-center">Jumlah</label>
+                                    <label for="quantity" class="screen-reader-text text-center">Quantity</label>
                                     <div class="d-flex">
-                                        <button class="quantity-minus qty-btn"><i class="fal fa-minus"></i></button>
-                                        <input type="number" id="quantity" class="qty-input" step="1" min="1" max="100"
-                                            name="quantity" value="1" title="Qty">
-                                        <button class="quantity-plus qty-btn"><i class="fal fa-plus"></i></button>
+                                        <button class="quantity-minus qty-btn" id="minus-counter"><i class="fal fa-minus"></i></button>
+                                        <form action="" method="POST" id="productForm">
+                                            @csrf
+                                            <input type="number" id="quantity" class="qty-input" step="1" min="1" max="100"
+                                                name="quantity" value="1" title="Qty">
+                                        </form>
+                                        <button class="quantity-plus qty-btn" id="plus-counter"><i class="fal fa-plus"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <a href="cart.html" class="vs-btn addcart">Add to Cart</a>
                             <a href="#" class="vs-btn check-out">Checkout</a>
+                            <button type="submit" class="vs-btn addcart" form="productForm">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -129,4 +127,5 @@
     @endsection
 
 @push('script')
+    <script src="{{ asset('template/assets/js/product.js') }}"></script>
 @endpush

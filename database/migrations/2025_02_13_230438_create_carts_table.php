@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->foreignUuid('product_id')->nullable()->constrained('products')->onDelete('set null');
+            $table->integer('quantity')->default(1);
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
