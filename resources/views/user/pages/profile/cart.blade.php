@@ -34,7 +34,7 @@
                             <div class="row py-3 border-bottom  ">
                                 <div class=" col-10 col-md-9 d-flex flex-row ">
                                     <div class="cart-image me-3 ">
-                                        <img class="" src="https://cdn.firstcry.com/education/2022/11/06094158/Toy-Names-For-Kids.jpg" height="auto" alt="">
+                                        <img class="" src="/storage/{{$cart->product->images[0]->path ?? ''}}" height="auto" alt="">
                                     </div>
                                     <div class="cart-detail ">
                                         <p class="red m-0 fw-information-bold cart-title">{{ $cart->product->name }}</p>
@@ -72,7 +72,6 @@
                         @endforeach
 
                         <p class="text-end cart-price mt-2">Total: <span class="red" id="total_price">Rp{{ number_format($total_price, 0, ',', '.') }}</span></p>
-
 
                         <button class="btn btn-lg color-custom-red text-white w-100 mt-3" onclick="window.location.href='/cart/checkout';">Checkout</button>
 

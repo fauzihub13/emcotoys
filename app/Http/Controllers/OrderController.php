@@ -152,4 +152,21 @@ class OrderController extends Controller
         return $totalPrice;
     }
 
+    public function checkoutPage()
+    {
+        $cart = Cart::where('user_id', auth()->user()->id)
+                ->with(['product', 'product.images'])
+                ->descending()->get();
+        return view('user.pages.product.checkout', [
+            'type_menu'=> 'shop',
+            'carts'=> $cart,
+            'total_price' => $this->getTotalPrice()
+        ]);
+    }
+
+
+    public function getShipRate(){
+
+    }
+
 }

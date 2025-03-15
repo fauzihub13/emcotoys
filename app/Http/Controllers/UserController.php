@@ -78,13 +78,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function checkoutPage()
-    {
-        return view('user.pages.product.checkout', [
-            'type_menu'=> 'shop'
-        ]);
-    }
-
     public function history()
     {
         return view('user.pages.profile.history', [

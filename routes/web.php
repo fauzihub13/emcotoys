@@ -31,7 +31,7 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
         Route::post('/cart/{id}/increment', [UserOrderController::class, 'incrementCart'])->name('increment-cart');
         Route::post('/cart/{id}/decrement', [UserOrderController::class, 'decrementCart'])->name('decrement-cart');
         Route::post('/product/detail/{product:slug}', [UserOrderController::class, 'addToCart'])->name('add-to-cart');
-        Route::get('/cart/checkout', [ControllersUserController::class, 'checkoutPage'])->name('checkout-page');
+        Route::get('/cart/checkout', [UserOrderController::class, 'checkoutPage'])->name('checkout-page');
         Route::get('/history', [ControllersUserController::class, 'history'])->name('history');
         Route::get('/history/detail', [ControllersUserController::class, 'detailHistory'])->name('detail-history');
         Route::get('/order', [ControllersUserController::class, 'order'])->name('order');
