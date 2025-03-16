@@ -26,6 +26,7 @@ return new class extends Migration
             $table->integer('age')->default(0);
             $table->string('sku');
             $table->boolean('status');
+            $table->integer('count_view')->default(0);
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

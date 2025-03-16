@@ -15,6 +15,18 @@
             </div>
             <div class="col-lg-9">
                 <h2>History</h2>
+                @if (session('status'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        {{ session('status') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                @elseif (session('error'))
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <div class="w-100 d-flex justify-content-center">
                     <a href="" class="btn actived option w-50">On process</a>
                     <a href="" class="btn option w-50">Finished</a>

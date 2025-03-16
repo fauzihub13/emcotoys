@@ -143,7 +143,10 @@
 
                         $("#btn-checkout")
                             .text("Checkout")
-                            .attr("type", "submit")
+                            .attr({
+                                "type": "submit",
+                                "form": "checkoutForm"
+                            })
                             .prop("disabled", false);
 
                     } else {

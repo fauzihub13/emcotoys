@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('thumbnail');
             $table->string('title');
             $table->text('body');
+            $table->integer('count_view')->default(0);
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

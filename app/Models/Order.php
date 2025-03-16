@@ -14,6 +14,13 @@ class Order extends Model
     protected $fillable=[
         'user_id',
         'order_number',
+        'name',
+        'phone_number',
+        'village',
+        'district',
+        'city',
+        'province',
+        'detail_address',
         'status',
         'shipping_cost',
         'courier',

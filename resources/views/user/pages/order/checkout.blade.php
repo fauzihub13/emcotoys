@@ -13,45 +13,43 @@
         <div class="row">
             <div class="col-lg-12">
                 <h2 class="fs-1 fw-bolder text-center">Checkout</h2>
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                @elseif (session('error'))
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
 
                 @if (isset($carts) && count($carts))
-                        @foreach ($carts as $cart)
-                            <div class="row py-3 border-bottom  ">
-                                <div class=" col-12 d-flex flex-row ">
-                                    <div class="cart-image me-3 ">
-                                        <img class="" src="/storage/{{$cart->product->images[0]->path ?? ''}}" height="auto" alt="">
-                                    </div>
-                                    <div class="cart-detail ">
-                                        <p class="red m-0 fw-information-bold cart-title">{{ $cart->product->name }}</p>
-                                        <p class="m-0 lh-sm cart-price">Amount: <span class="red">{{ $cart->quantity }} pcs</span></p>
-                                        <p class="m-0 lh-sm cart-price">Total: <span class="red">Rp{{ number_format($cart->product->price, 0, ',', '.') }}</span></p>
-                                    </div>
+                    @foreach ($carts as $cart)
+                        <div class="row py-3 border-bottom  ">
+                            <div class=" col-12 d-flex flex-row ">
+                                <div class="cart-image me-3 ">
+                                    <img class="" src="/storage/{{$cart->product->images[0]->path ?? ''}}" height="auto" alt="">
+                                </div>
+                                <div class="cart-detail ">
+                                    <p class="red m-0 fw-information-bold cart-title">{{ $cart->product->name }}</p>
+                                    <p class="m-0 lh-sm cart-price">Amount: <span class="red">{{ $cart->quantity }} pcs</span></p>
+                                    <p class="m-0 lh-sm cart-price">Total: <span class="red">Rp{{ number_format($cart->product->price, 0, ',', '.') }}</span></p>
                                 </div>
                             </div>
-                        @endforeach
-
-                    @else
-                        <div class=" text-custom-grey text-center ">No product found.</div>
-                    @endif
-
-                {{-- @for ($i=0; $i<5; $i++)
-                    <div class="row py-3 border-bottom  ">
-                        <div class=" col-12 d-flex flex-row ">
-                            <div class="cart-image me-3 ">
-                                <img class="" src="https://cdn.firstcry.com/education/2022/11/06094158/Toy-Names-For-Kids.jpg" height="auto" alt="">
-                            </div>
-                            <div class="cart-detail ">
-                                <p class="red m-0 fw-information-bold cart-title">EMCO Super Dough EMCO Super Dough EMCO Super Dough EMCO Super Dough EMCO Super Dough EMCO Super Dough EMCO Super Dough EMCO Super Dough</p>
-                                <p class="m-0 lh-sm cart-price">Amount: <span class="red">12 pcs</span></p>
-                                <p class="m-0 lh-sm cart-price">Total: <span class="red">Rp150.000</span></p>
-                            </div>
                         </div>
-                    </div>
-                @endfor --}}
+                    @endforeach
+                @else
+                    <div class=" text-custom-grey text-center ">No product found.</div>
+                @endif
+
+
 
                 <div class="checkout-form mt-4">
                     <h2 class="fs-4 fw-bolder red text-start">Recipient Details</h2>
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('checkout') }}" id="checkoutForm">
                         @csrf
                         <div class="row">
                             <div class="col-12 col-md-6">
@@ -212,7 +210,7 @@
 
                         <div class="row mt-0">
                             <div class="col-6 col-md-9">
-                                 <p class="text-end cart-price mb-0">Subtotal:</p>
+                                <p class="text-end cart-price mb-0">Subtotal:</p>
                                 <p class="text-end cart-price mb-0">Shipping Rate:</p>
                                 <p class="text-end cart-price mb-0">Total Price:</p>
 
@@ -225,7 +223,6 @@
                             <input type="hidden" id="raw_price" value="{{ $total_price }}" />
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         </div>
-
                         <div class="row mt-5">
                             <div class="col-6 ">
                                 <button class="btn btn-lg btn-outline-red red w-100">Cancel</button>
