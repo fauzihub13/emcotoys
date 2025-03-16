@@ -115,29 +115,34 @@
     </div>
     <section class="bg-smoke vs-product-wrapper space-extra-bottom">
     <div class="container">
-            <div class="title-area text-center">
-                <h1 class="sec-title" style="color: black;">Related Products</h1>
-            </div>
-            <div class="row justify-content-center shopping">
-                @php
-                    $colors = ['red', 'green', 'yellow', 'purple', 'blue', 'pink'];
-                @endphp
-
-                @for ($i=0; $i<4; $i++)
-                    @php
-                        $bgColor = $colors[$i % count($colors)];
-                    @endphp
-                    <div class="col-md-6 col-lg-3 ">
-                        <div class="products product-background-{{ $bgColor }}">
-                            <img src="{{ asset('template/assets/img/shop/1.png') }}" alt="" class="">
-                        </div>
-                        <p class="judul">Mainan EMCO Hot Shot Marvel Viper Mainan</p>
-                    </div>
-                @endfor
-
-            </div>
+        <div class="title-area text-center">
+            <h1 class="sec-title" style="color: black;">Related Products</h1>
         </div>
-    </section>
+        <div class="row justify-content-center shopping">
+            @php
+                $colors = ['red', 'green', 'yellow', 'purple', 'blue', 'pink'];
+                $firstImage = $product->images->first() ? $product->images->first()->path : 'default.jpg';
+            @endphp
+
+            @foreach ($relatedProducts as $index => $product)
+                @php
+                    $bgColor = $colors[$index % count($colors)];
+                @endphp
+                <div class="col-md-6 col-lg-3">
+                    <div class="products product-background-{{ $bgColor }}">
+                        <img src="{{ asset('storage/' . $firstImage) }}" alt="{{ $product->name }}">
+                        <a href="{{ route('detail-product', $product->id) }}" class='details'>
+                            <span>Detail</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <p class="judul">{{ $product->name }}</p>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
     @endsection
 
 @push('script')

@@ -4,6 +4,16 @@
 
 @push('style')
     <link rel="stylesheet" href="{{ asset('template/assets/css/maps.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+         #map {
+            height: 500px; /* Atur tinggi peta */
+        }
+        .style4 {
+            background-color: #f0f6fa !important;
+        }
+    </style>
 @endpush
 
 @section('main')
@@ -44,7 +54,8 @@
     </div>
 </section>
 <div class="maps">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16328186.410165899!2d107.18505469742318!3d-2.381042138954834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4c07d7496404b7%3A0xe37b4de71badf485!2sIndonesia!5e0!3m2!1sen!2sid!4v1741500085213!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div id="map"></div>
+    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16328186.410165899!2d107.18505469742318!3d-2.381042138954834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4c07d7496404b7%3A0xe37b4de71badf485!2sIndonesia!5e0!3m2!1sen!2sid!4v1741500085213!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
 </div>
 <section class=" space-extra bg-smoke">
     <div class="container">
@@ -77,4 +88,23 @@
 @endsection
 
 @push('script')
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([-6.2000, 106.8167], 5); // Koordinat awal (Indonesia)
+
+    // Tambahkan layer peta OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Data toko dari Laravel
+    var stores = @json($stores);
+
+    // Tambahkan marker berdasarkan data database
+    stores.forEach(store => {
+        L.marker([store.latitude, store.longitude])
+            .addTo(map)
+            .bindPopup(`<b>${store.name}</b><br>${store.url}`);
+    });
+</script>
 @endpush

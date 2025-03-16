@@ -251,27 +251,28 @@
                             </div>
                         </div>
                     </div>
-                    <form action="#" class="form-style3">
+                    <form action="{{ route('sendContact') }}" method="POST" class="form-style3">
+                        @csrf
                         <div class="row justify-content-between">
                             <div class="col-md-6 form-group">
                                 <label>Subject <span class="required">(Required)</span></label>
-                                <input type="text">
+                                <input type="text" name="subject" required>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Your Name <span class="required">(Required)</span></label>
-                                <input type="text">
+                                <input type="text" name="name" required>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Email Address <span class="required">(Required)</span></label>
-                                <input type="email">
+                                <input type="email" name="email" required>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Phone No</label>
-                                <input type="number">
+                                <input type="number" name="phone">
                             </div>
                             <div class="col-l-6 form-group">
                                 <label>Messege</label>
-                                <input type="text">
+                                <textarea type="text" name="message" required></textarea>
                             </div>
                             <div class="col-auto align-self-center form-group">
                                 <input type="checkbox" id="notice" name="notice">

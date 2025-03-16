@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Mail;
 
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\Cart;
+use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Mail\ContactMail;
+use App\Mail\ConfirmationMail;
 
 class UserController extends Controller
 {
@@ -60,8 +64,10 @@ class UserController extends Controller
     }
     public function location()
     {
+        $stores = Store::all();
         return view('user.pages.location', [
-            'type_menu'=> 'location'
+            'type_menu'=> 'location',
+            'stores' => $stores
         ]);
     }
     public function contact()
@@ -125,16 +131,67 @@ class UserController extends Controller
 
     public function detailProduct(Product $product)
     {
-        // $relatedProducts = Product::with(['images' => function ($query) {
-        //     $query->orderBy('id')->limit(1);
-        // }]);
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id) // Hindari produk yang sedang dilihat
+            ->inRandomOrder()
+            ->limit(4)
+            ->get();
 
         $product = Product::with('category')->where('id', $product->id)->first();
 
         return view('user.pages.product.detail-product', [
             'type_menu' => 'shop',
-            'product'=> $product
+            'product'=> $product,
+            'relatedProducts' => $relatedProducts
+        ]);
+    }
+    public function liat()
+    {
+        return view('user.pages.email.confirmationtest', [
+            'type_menu' => 'shop'
         ]);
     }
 
+    // public function contactEmail(Request $request)
+    // {
+    //     $request->validate([
+    //         'subject' => 'required|string|max:255',
+    //         'name' => 'required|string|max:255',
+    //         'email' => 'required|email',
+    //         'phone' => 'nullable|numeric',
+    //         'message' => 'nullable|string',
+    //     ]);
+
+    //     // Simpan data ke variabel
+    //     $contactData = $request->all();
+
+    //     // Kirim email
+    //     Mail::to('jedarjederbp2@gmail.com')->send(new ContactMail($contactData));
+
+    //     return redirect()->back()->with('success', 'Your message has been sent successfully.');
+    // }
+
+    public function sendContact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        $data = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone') ?? 'N/A',
+            'subject' => $request->input('subject'),
+            'message' => $request->input('message'),
+        ];
+
+        Mail::to('jedarjederbp2@gmail.com')->send(new ContactMail($data));
+
+        Mail::to($data['email'])->send(new ConfirmationMail($data));
+
+        return back()->with('success', 'Your message has been sent successfully!');
+    }
 }
