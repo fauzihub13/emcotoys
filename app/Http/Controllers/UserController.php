@@ -12,6 +12,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Mail\ContactMail;
 use App\Mail\ConfirmationMail;
+use App\Models\Order;
 
 class UserController extends Controller
 {
@@ -86,15 +87,26 @@ class UserController extends Controller
 
     public function history()
     {
+        $orders = Order::with(['orderItems'])->descending()->get();
+
         return view('user.pages.profile.history', [
-            'type_menu'=> 'history'
+            'type_menu' => 'history',
+            'ordersFinish' => $orders->where('status', 'arrived'),
+            'ordersOnProcess' => $orders->where('status', '!=', 'arrived'),
         ]);
     }
-    public function detailHistory()
+    public function detailHistory($orderId)
     {
-        return view('user.pages.profile.detail-history', [
-            'type_menu'=> 'history'
-        ]);
+        $order = Order::with(['orderItems'])->where('order_number', $orderId)->first();
+        if ($order) {
+            return view('user.pages.profile.detail-history', [
+                'type_menu'=> 'history',
+                'order'=> $order
+            ]);
+        } else {
+            return redirect()->route('history')->with('error', 'Transaction history not found');
+        }
+
     }
     public function order()
     {

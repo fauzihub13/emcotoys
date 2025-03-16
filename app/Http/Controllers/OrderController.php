@@ -397,7 +397,7 @@ class OrderController extends Controller
         DB::beginTransaction();
         try {
             $user = auth()->user();
-            $cartItems = Cart::where('user_id', $user->id)->with('product')->get();
+            $cartItems = Cart::where('user_id', $user->id)->with('product', 'product.images')->get();
 
             if ($cartItems->isEmpty()) {
                 return back()->with('error', 'Your cart is empty.');
@@ -433,6 +433,8 @@ class OrderController extends Controller
                 OrderItem::create([
                     'order_id' => $order->id,
                     'product_id' => $cartItem->product->id,
+                    'path' => $cartItem->product->images[0]->path,
+                    'name' => $cartItem->product->name,
                     'quantity' => $cartItem->quantity,
                     'price' => $cartItem->product->price,
                 ]);
@@ -485,7 +487,7 @@ class OrderController extends Controller
 
 
             $response = json_decode($response->body());
-            
+
             // dd($response);
 
             $snapToken = $response->token;
