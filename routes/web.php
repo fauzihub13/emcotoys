@@ -102,7 +102,10 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
 
     Route::controller(OrderController::class)->group(function(){
         Route::get('/order', 'index')->name('order.index');
-        Route::get('/order/edit', 'edit')->name('order.edit');
+        Route::get('/order/{order:order_number}/edit', 'edit')->name('order.edit');
+        Route::put('/order/{order:order_number}/edit', 'update')->name('order.update');
+        Route::get('/track-order/{order}', [UserOrderController::class, 'trackOrder'])->name('admin.track-order');
+
     });
 
 

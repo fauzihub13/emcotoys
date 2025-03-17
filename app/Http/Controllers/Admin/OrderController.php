@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
@@ -48,8 +49,10 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
+        // dd(vars: Order::with(['orderItems'])->notInTrash()->find($order->id));
         return view('admin.pages.order.edit', [
-            'type_menu' => 'order'
+            'type_menu' => 'order',
+            'order'=> Order::with(['orderItems'])->notInTrash()->find($order->id)
         ]);
     }
 
@@ -58,7 +61,25 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'tracking_number'=>'required|string|min:8|max:24',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        try {
+            $order = Order::find($order->id);
+
+            $order->tracking_number = $request->tracking_number;
+            $order->save();
+
+            return redirect()->back()->with('success', 'Tracking number updated successfully.');
+
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Failed to update tracking number. Please try again. ' . $th->getMessage());
+        }
     }
 
     /**

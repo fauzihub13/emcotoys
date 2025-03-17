@@ -171,18 +171,6 @@ input::placeholder {
     border-bottom: 1px solid rgb(223, 223, 223);
 }
 
-.track-icon{
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #A90004;
-    color: white;
-
-}
-
 .dot-order {
     width: 20px;
     height: 20px;

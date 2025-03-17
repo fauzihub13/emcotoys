@@ -160,7 +160,6 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset('template/assets/js/track-order.js') }}"></script>
 
     <script>
         function timestampToDatetime(time) {
