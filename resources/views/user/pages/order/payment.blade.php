@@ -5,7 +5,7 @@
 @push('style')
     <link rel="stylesheet" href="{{ asset ('template/assets/css/profile.css')}}">
     <script type="text/javascript"
-      src="https://app.sandbox.midtrans.com/snap/snap.js"
+      src="{{ Config::get('app.is_production') ? Config::get('app.midtrans_snap_js_production') : Config::get('app.midtrans_snap_js_sandbox') }}"
       data-client-key="{{ Config::get('app.midtrans_client_key') }}"></script>
 @endpush
 

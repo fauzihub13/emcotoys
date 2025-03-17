@@ -194,101 +194,6 @@ class OrderController extends Controller
         return $summary;
     }
 
-    // public function getShippingRate(Request $request){
-
-    //     $validator = Validator::make($request->all(), [
-    //         'name'=> 'required|string',
-    //         'phone_number'=> 'required|integer|digits_between:11,14',
-    //         'province'=> 'required|string',
-    //         'city'=> 'required|string',
-    //         'district'=> 'required|string',
-    //         'village'=> 'required|string',
-    //         'address_detail'=> 'nullable|string',
-    //     ]);
-
-    //     if ($validator->fails()) {
-    //         // return back()->withErrors($validator)->withInput();
-    //         return response()->json([
-    //             'status' => false,
-    //             'message' => 'Gagal mengecek ongkos kirim.',
-    //             'errors' => $validator->errors()
-    //         ], 422);
-    //     }
-
-    //     $apiKeyBiteship = Config::get('app.api_key_biteship');
-
-
-
-    //     try {
-    //         $customerInfo = User::findOrFail(Auth::user()->id);
-    //         $customerAddress = "$request->district, $request->city, $request->province";
-
-    //         $response = Http::withHeaders([
-    //             'content-type' => 'application/json',
-    //             'authorization' => $apiKeyBiteship,
-    //         ]);
-
-    //         // Origin Adress
-    //         $getOrigin = $response->get('https://api.biteship.com/v1/maps/areas', [
-    //             'countries' => 'ID',
-    //             'input' => 'Babakan, Bogor Tengah, Kota Bogor. 16128',
-    //             'type' => 'single'
-    //         ]);
-
-    //         $origin = json_decode($getOrigin->body());
-
-    //         $originId =  $origin->areas[0]->id;
-
-    //         // Destination Address
-    //         $getDestination = $response->get('https://api.biteship.com/v1/maps/areas', [
-    //             'countries' => 'ID',
-    //             'input' => $customerAddress,
-    //             'type' => 'single'
-    //         ]);
-
-    //         $destination = json_decode($getDestination->body());
-
-    //         $destinationId =  $destination->areas[0]->id;
-    //         $cartSummary = $this->getCartSummary();
-    //         $cartData = [
-    //             'name' => $customerInfo->name,
-    //             'value' => $cartSummary['total_price'],
-    //             'quantity' => $cartSummary['total_items'],
-    //             'weight' => $cartSummary['total_weight'],
-    //         ];
-
-    //         $courierOptions = $response->post('https://api.biteship.com/v1/rates/couriers', [
-    //             'origin_area_id' => $destinationId,
-    //             'destination_area_id' => $originId,
-    //             'origin_postal_code' => 16128,
-    //             'destination_postal_code' => $customerInfo->zip_code,
-    //             'couriers' => 'jne',
-    //             'items' => [$cartData]
-    //         ]);
-
-    //         $courierOptions = json_decode($courierOptions);
-    //         $courier = $courierOptions->pricing[0]->price;
-    //         $courierCode = $courierOptions->pricing[0]->courier_code;
-
-    //         return response()->json([
-    //             'status' => true,
-    //             'message' => 'Berhasil mengecek ongkos kirim.',
-    //             'price' => ($courier),
-    //             'courier' => ($courierCode)
-    //         ], 200);
-
-
-    //     } catch (\Throwable $th) {
-
-    //         return response()->json([
-    //             'status' => false,
-    //             'message' => 'Gagal mengecek ongkos kirim.',
-    //             'data' => $th->getMessage()
-    //         ], 201);
-    //     }
-    // }
-
-
     public function getShippingRate(Request $request, $manualData = null)
     {
         $data = $manualData ?? $request->all(); // Gunakan manualData jika ada
@@ -477,14 +382,16 @@ class OrderController extends Controller
 
             // Request payment midtrans
             $auth = base64_encode(Config::get('app.midtrans_server_key').":");
+            $midtransUrl = 'https://app.sandbox.midtrans.com/snap/v1/transactions';
+
+            if(Config::get('app.is_production')) {
+                $midtransUrl = 'https://app.midtrans.com/snap/v1/transactions';
+            }
 
             $response = Http::withHeaders([
                 'content-type' => 'application/json',
                 'authorization' => 'Basic '.$auth,
-            ])->post("https://app.sandbox.midtrans.com/snap/v1/transactions", $params);
-            // https://app.sandbox.midtrans.com/snap/v1/transactions
-            // https://app.midtrans.com/snap/v1/transactions
-
+            ])->post($midtransUrl, $params);
 
             $response = json_decode($response->body());
 
@@ -512,14 +419,6 @@ class OrderController extends Controller
             return back()->with('error', 'Failed to process checkout. Please try again.'. $th->getMessage());
         }
     }
-
-
-
-    // public function paymentPage(){
-    //     return view('user.pages.order.payment', [
-    //         'type_menu'=> 'shop',
-    //     ]);
-    // }
 
     public function paymentPage($orderId) {
 
@@ -587,11 +486,7 @@ class OrderController extends Controller
 
     }
 
-    // TODO: save order items when user click checkout button [DONE]
-    // TODO: create midtrans transaction bills
-    // TODO: payment page support post and get method  [DONE]
     // TODO: set API webhook payment callback
-    // TODO: payment status page  [DONE]
 
     function generateOrderId() {
 
@@ -611,6 +506,48 @@ class OrderController extends Controller
 
         // Combine the letters and numbers
         return $result;
+    }
+
+    public function trackOrder(Order $order) {
+        $response = Http::withHeaders([
+            'content-type' => 'application/json',
+            'authorization' => Config::get('app.api_key_biteship'),
+        ]);
+
+        $getTracking = $response->get('https://api.biteship.com/v1/trackings/'. $order->tracking_number . '/couriers/' . $order->courier);
+
+        $tracking = json_decode($getTracking->body());
+
+        return response()->json([
+            'success' => $tracking->success,
+            'data' => $tracking
+        ]);
+    }
+
+    public function finishOrder(Order $order){
+        $response = Http::withHeaders([
+            'content-type' => 'application/json',
+            'authorization' => Config::get('app.api_key_biteship'),
+        ]);
+
+        $getTracking = $response->get('https://api.biteship.com/v1/trackings/'. $order->tracking_number . '/couriers/' . $order->courier);
+
+        $tracking = json_decode($getTracking->body());
+
+        if ($tracking->status == 'delivered') {
+            $order->status = 'arrived';
+            $order->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Order has been arrived'
+            ], 201);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Order has not been arrived'
+        ], 400);
     }
 
 }

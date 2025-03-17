@@ -92,9 +92,16 @@ class UserController extends Controller
         return view('user.pages.profile.history', [
             'type_menu' => 'history',
             'ordersFinish' => $orders->where('status', 'arrived'),
-            'ordersOnProcess' => $orders->where('status', '!=', 'arrived'),
+            'ordersOnProcess' => $orders->filter(function ($order) {
+                return $order->status !== 'arrived' &&
+                    $order->transaction_status !== 'cancel' && $order->transaction_status !== 'expire';
+            }),
+            'ordersCancel' => $orders->filter(function ($order) {
+                return $order->transaction_status === 'cancel' || $order->transaction_status === 'expire';
+            }),
         ]);
     }
+
     public function detailHistory($orderId)
     {
         $order = Order::with(['orderItems'])->where('order_number', $orderId)->first();
@@ -108,6 +115,7 @@ class UserController extends Controller
         }
 
     }
+
     public function order()
     {
         return view('user.pages.profile.order', [
@@ -163,25 +171,6 @@ class UserController extends Controller
             'type_menu' => 'shop'
         ]);
     }
-
-    // public function contactEmail(Request $request)
-    // {
-    //     $request->validate([
-    //         'subject' => 'required|string|max:255',
-    //         'name' => 'required|string|max:255',
-    //         'email' => 'required|email',
-    //         'phone' => 'nullable|numeric',
-    //         'message' => 'nullable|string',
-    //     ]);
-
-    //     // Simpan data ke variabel
-    //     $contactData = $request->all();
-
-    //     // Kirim email
-    //     Mail::to('jedarjederbp2@gmail.com')->send(new ContactMail($contactData));
-
-    //     return redirect()->back()->with('success', 'Your message has been sent successfully.');
-    // }
 
     public function sendContact(Request $request)
     {
