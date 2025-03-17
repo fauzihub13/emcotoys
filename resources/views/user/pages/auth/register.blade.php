@@ -104,12 +104,12 @@
                     </div>
 
                     <div class="d-grid gap-2 mt-5">
-                        <button class="btn color-custom-red btn-block btn-lg shadow-lg text-white">Sign Up</button>
+                        <button class="btn color-custom-red btn-block btn-lg shadow-lg text-white">Register</button>
                     </div>
                 </form>
 
                 <div class="text-center mt-4 fs-5">
-                    <p class="text-gray-600 mb-0">Already have an account? <a href="{{ route('login') }}" class="font-bold">Sign in now!</a></p>
+                    <p class="text-gray-600 mb-0">Already have an account? <a href="{{ route('login') }}" class="font-bold">Log in now!</a></p>
                 </div>
             </div>
         </div>

@@ -68,12 +68,12 @@
                         <p class="mb-0 text-end "><a class=" mb-0 text-reset" href="{{ route('password.request') }}">Forgot password</a></p>
 
                         <div class="d-grid gap-2 mt-5">
-                            <button class="btn color-custom-red btn-block btn-lg shadow-lg  text-white">Sign In</button>
+                            <button class="btn color-custom-red btn-block btn-lg shadow-lg  text-white">Log In</button>
                         </div>
                 </form>
 
                 <div class="text-center mt-4 fs-5">
-                    <p class="text-gray-600 mb-0">Don't have an account? <a href="{{ route('register') }}" class="font-bold">Sign up for free!</a></p>
+                    <p class="text-gray-600 mb-0">Don't have an account? <a href="{{ route('register') }}" class="font-bold">Register for free!</a></p>
                 </div>
             </div>
         </div>

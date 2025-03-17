@@ -1,4 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // $(".plus-counter, .minus-counter").click(function (e) {
+    //     e.preventDefault();
+
+    //     var id = $(this).data("id");
+    //     var csrfToken = $("input[name='_token']").val();
+    //     var quantityElement = $("#quantity-" + id);
+    //     var totalPrice = $("#total_price");
+    //     var currentValue = parseInt(quantityElement.text().trim(), 10);
+
+    //     // Tentukan apakah tombol plus atau minus ditekan
+    //     var isIncrement = $(this).hasClass("plus-counter");
+    //     var actionUrl = isIncrement ? "/cart/" + id + "/increment" : "/cart/" + id + "/decrement";
+
+    //     $.ajax({
+    //         url: actionUrl,
+    //         type: "POST",
+    //         data: {
+    //             _token: csrfToken,
+    //         },
+    //         success: function (response) {
+    //             if (response.success) {
+    //                 quantityElement.text(response.quantity);
+
+    //                 let formattedPrice = new Intl.NumberFormat("id-ID", {
+    //                     style: "currency",
+    //                     currency: "IDR",
+    //                     minimumFractionDigits: 0,
+    //                     maximumFractionDigits: 0,
+    //                 }).format(response.total_price).replace(/\s/g, "");
+
+    //                 totalPrice.text(formattedPrice);
+    //             } else {
+    //                 alert(response.message);
+    //             }
+    //         },
+    //         error: function (xhr) {
+    //             quantityElement.text(currentValue);
+    //         }
+    //     });
+    // });
     $(".plus-counter").click(function (e) {
         e.preventDefault();
 

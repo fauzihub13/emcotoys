@@ -54,7 +54,7 @@
                 </form>
 
                 <div class="text-center mt-4 fs-5">
-                    <p class="text-gray-600 mb-0">Remember your account? <a href="{{ route('login') }}" class="font-bold">Sign in now!</a></p>
+                    <p class="text-gray-600 mb-0">Remember your account? <a href="{{ route('login') }}" class="font-bold">Log in now!</a></p>
                 </div>
             </div>
         </div>

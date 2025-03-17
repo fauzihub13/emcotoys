@@ -152,25 +152,6 @@ class UserController extends Controller
         ]);
     }
 
-    // public function contactEmail(Request $request)
-    // {
-    //     $request->validate([
-    //         'subject' => 'required|string|max:255',
-    //         'name' => 'required|string|max:255',
-    //         'email' => 'required|email',
-    //         'phone' => 'nullable|numeric',
-    //         'message' => 'nullable|string',
-    //     ]);
-
-    //     // Simpan data ke variabel
-    //     $contactData = $request->all();
-
-    //     // Kirim email
-    //     Mail::to('jedarjederbp2@gmail.com')->send(new ContactMail($contactData));
-
-    //     return redirect()->back()->with('success', 'Your message has been sent successfully.');
-    // }
-
     public function sendContact(Request $request)
     {
         $request->validate([
