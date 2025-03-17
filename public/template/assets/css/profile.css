@@ -171,8 +171,8 @@ input::placeholder {
     }
 
     .cart-image {
-        height: 60px;
-        max-width: 60px;
+        height: 80px;
+        max-width: 80px;
     }
 
     .cart-title {

@@ -46,4 +46,19 @@ class Order extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeNotInTrash($query) {
+        return $query->whereNull('deleted_at');
+    }
+
+    public function scopeDescending($query) {
+        return $query->orderBy('created_at', 'desc');
+    }
+
+    public function scopeOnProcess($query) {
+        return $query->where('status', '!=', 'arrived');
+    }
+    public function scopeFinish($query) {
+        return $query->where('status', '=', 'arrived');
+    }
 }

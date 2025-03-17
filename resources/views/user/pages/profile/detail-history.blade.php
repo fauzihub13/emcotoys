@@ -12,22 +12,22 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="fs-1 fw-bolder text-center">Checkout</h2>
-
-                @for ($i=0; $i<5; $i++)
+                <h2 class="fs-1 fw-bolder text-center">Transaction History</h2>
+                @foreach ($order->orderItems as $orderItem)
                     <div class="row py-3 border-bottom  ">
                         <div class=" col-12 d-flex flex-row ">
                             <div class="cart-image me-3 ">
-                                <img class="" src="https://cdn.firstcry.com/education/2022/11/06094158/Toy-Names-For-Kids.jpg" height="auto" alt="">
+                                <img class="" src="/storage/{{$orderItem->path}}" height="auto" alt="Product Image">
                             </div>
                             <div class="cart-detail ">
-                                <p class="red m-0 fw-information-bold cart-title">EMCO Super Dough EMCO Super Dough EMCO Super Dough EMCO Super Dough EMCO Super Dough EMCO Super Dough EMCO Super Dough EMCO Super Dough</p>
-                                <p class="m-0 lh-sm cart-price">Amount: <span class="red">12 pcs</span></p>
-                                <p class="m-0 lh-sm cart-price">Total: <span class="red">Rp150.000</span></p>
+                                <p class="red m-0 fw-information-bold cart-title">{{ $orderItem->name }}</p>
+                                <p class="m-0 lh-sm cart-price">Amount: <span class="red">{{ $orderItem->quantity }} pcs</span></p>
+                                <p class="m-0 lh-sm cart-price">Total: <span class="red">Rp{{ number_format($orderItem->price , 0, ',', '.') }}</span></p>
                             </div>
                         </div>
                     </div>
-                @endfor
+
+                @endforeach
 
                 <div class="checkout-form mt-4">
                     <h2 class="fs-4 fw-bolder red text-start">Recipient Details</h2>
@@ -36,42 +36,13 @@
                             <div class="col-12 col-md-6">
                                 <div class="form-group text-start mb-4">
                                     <label>Nama Lengkap <span class="red">*</span></label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        class="form-control form-control-xl @error('name') is-invalid @enderror"
-                                        placeholder="John Dae"
-                                        >
-                                    <div class="form-control-icon">
-                                        <i class="bi bi-person"></i>
-                                    </div>
-                                    @error('name')
-                                        <div class="invalid-feedback">
-                                            <i class="bx bx-radio-circle"></i>
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <span class="form-control d-flex align-items-center">{{ $order->name }}</span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group text-start mb-4">
                                     <label>Phone Number <span class="red">*</span></label>
-                                    <input
-                                        type="number"
-                                        step="1"
-                                        name="phone_number"
-                                        class="form-control form-control-xl @error('phone_number') is-invalid @enderror"
-                                        placeholder="628965235125"
-                                        >
-                                    <div class="form-control-icon">
-                                        <i class="bi bi-person"></i>
-                                    </div>
-                                    @error('phone_number')
-                                        <div class="invalid-feedback">
-                                            <i class="bx bx-radio-circle"></i>
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <span class="form-control d-flex align-items-center">{{ $order->phone_number }}</span>
                                 </div>
                             </div>
                         </div>
@@ -80,73 +51,25 @@
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
                                     <label>Province <span class="red">*</span></label>
-                                    <select class="choices form-select @error('province') is-invalid @enderror" name="province">
-                                        <option value="">Select one</option>
-                                        <option value="">Select two</option>
-                                    </select>
-                                    <div class="form-control-icon">
-                                        <i class="bi bi-person"></i>
-                                    </div>
-                                    @error('province')
-                                        <div class="invalid-feedback">
-                                            <i class="bx bx-radio-circle"></i>
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <span class="form-control d-flex align-items-center">{{ $order->province }}</span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
                                     <label>City <span class="red">*</span></label>
-                                    <select class="choices form-select @error('') is-invalid @enderror" name="city">
-                                        <option value="">Select one</option>
-                                        <option value="">Select two</option>
-                                    </select>
-                                    <div class="form-control-icon">
-                                        <i class="bi bi-person"></i>
-                                    </div>
-                                    @error('city')
-                                        <div class="invalid-feedback">
-                                            <i class="bx bx-radio-circle"></i>
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <span class="form-control d-flex align-items-center">{{ $order->city }}</span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
                                     <label>District <span class="red">*</span></label>
-                                    <select class="choices form-select @error('district') is-invalid @enderror" name="district">
-                                        <option value="">Select one</option>
-                                        <option value="">Select two</option>
-                                    </select>
-                                    <div class="form-control-icon">
-                                        <i class="bi bi-person"></i>
-                                    </div>
-                                    @error('district')
-                                        <div class="invalid-feedback">
-                                            <i class="bx bx-radio-circle"></i>
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <span class="form-control d-flex align-items-center">{{ $order->district }}</span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
                                     <label>Village <span class="red">*</span></label>
-                                    <select class="choices form-select @error('village') is-invalid @enderror" name="village">
-                                        <option value="">Select one</option>
-                                        <option value="">Select two</option>
-                                    </select>
-                                    <div class="form-control-icon">
-                                        <i class="bi bi-person"></i>
-                                    </div>
-                                    @error('village')
-                                        <div class="invalid-feedback">
-                                            <i class="bx bx-radio-circle"></i>
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <span class="form-control d-flex align-items-center">{{ $order->village }}</span>
                                 </div>
                             </div>
 
@@ -155,18 +78,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group text-start mb-4">
-                                    <label>Detail Address <span class="text-secondary">(optional)</span></label>
-                                    <textarea name="detail_address"></textarea>
-
-                                    <div class="form-control-icon">
-                                        <i class="bi bi-person"></i>
-                                    </div>
-                                    @error('')
-                                        <div class="invalid-feedback">
-                                            <i class="bx bx-radio-circle"></i>
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <label>Detail Address </label>
+                                    <textarea readonly>{{ $order->detail_address }}</textarea>
                                 </div>
                             </div>
                         </div>
