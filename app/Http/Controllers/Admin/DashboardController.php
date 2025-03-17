@@ -21,4 +21,22 @@ class DashboardController extends Controller
             'transactions' => Order::orderBy('created_at', 'asc')->get(),
         ]);
     }
+
+    public function getTransactionChartData() {
+        $monthlySales = Order::selectRaw('MONTH(created_at) as month, SUM(gross_amount) as total')
+            ->whereYear('created_at', now()->year)
+            ->groupBy('month')
+            ->orderBy('month')
+            ->pluck('total', 'month')
+            ->toArray();
+
+        // Ensure all months are present, even if there's no data
+        $chartData = array_fill(1, 12, 0);
+        foreach ($monthlySales as $month => $total) {
+            $chartData[$month] = $total;
+        }
+
+        return response()->json(array_values($chartData)); // Convert to JSON for JavaScript
+    }
+
 }

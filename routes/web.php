@@ -63,6 +63,7 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
     // Dashboard
     Route::controller(DashboardController::class)->group(function(){
         Route::get('/', 'dashboardPage')->name('home');
+        Route::get('/chart-data', 'getTransactionChartData')->name('chart');
     });
 
     // Auth

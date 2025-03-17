@@ -9,7 +9,7 @@
 @section('main')
 
     <div class="page-heading">
-        <h3>Profile Statistics</h3>
+        <h3>Dashboard Statistics</h3>
     </div>
 
     <div class="page-content">
@@ -92,10 +92,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Profile Visit</h4>
+                                <h4>Transactions </h4>
                             </div>
                             <div class="card-body">
-                                <div id="chart-profile-visit"></div>
+                                <div id="chart-transactions"></div>
                             </div>
                         </div>
                     </div>
@@ -123,12 +123,14 @@
                     <div class="card-content pb-4">
                         @if (isset($transactions) && count($transactions) > 0)
                             @foreach ($transactions as $transaction)
-                                <div class="recent-message d-flex px-4 py-3">
-                                    <div class="name">
-                                        <h5 class="mb-1">{{ $transaction->name }}</h5>
-                                        <h6 class="text-muted mb-0">{{ $transaction->created_at->format('d F, Y') }}</h6>
+                                @if ($loop->index <4)
+                                    <div class="recent-message d-flex px-4 py-3">
+                                        <div class="name">
+                                            <h5 class="mb-1">{{ $transaction->name }}</h5>
+                                            <h6 class="text-muted mb-0">{{ $transaction->created_at->format('d F, Y') }}</h6>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             @endforeach
                         @else
                             <p class="text-center">No transaction</p>
