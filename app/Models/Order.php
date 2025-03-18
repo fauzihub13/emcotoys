@@ -55,10 +55,4 @@ class Order extends Model
         return $query->orderBy('created_at', 'desc');
     }
 
-    public function scopeOnProcess($query) {
-        return $query->where('status', '!=', 'arrived');
-    }
-    public function scopeFinish($query) {
-        return $query->where('status', '=', 'arrived');
-    }
 }

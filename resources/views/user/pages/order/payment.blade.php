@@ -5,7 +5,7 @@
 @push('style')
     <link rel="stylesheet" href="{{ asset ('template/assets/css/profile.css')}}">
     <script type="text/javascript"
-      src="https://app.sandbox.midtrans.com/snap/snap.js"
+      src="{{ Config::get('app.is_production') ? Config::get('app.midtrans_snap_js_production') : Config::get('app.midtrans_snap_js_sandbox') }}"
       data-client-key="{{ Config::get('app.midtrans_client_key') }}"></script>
 @endpush
 
@@ -31,7 +31,7 @@
                 <div class="container right-side border-top form-text mb-4 mt-4">
                     <p class="title text-danger fs-5 fw-normal mb-0">Total Amount to Pay</p>
                     <p class="title text-danger fs-5 fw-normal mb-5">Rp{{ number_format($totalPayment, 0, ',', '.') }}</p>
-                    @if ($isPaid === false )
+                    @if ($isPaid === false && !($transactionStatus == 'expire' || $transactionStatus == 'cancel'))
                         <button id="pay-button" type="button" class="btn btn-lg color-custom-red text-white w-100 mb-4" >Pay Now</button>
                         <p class="text-secondary mb-0">By proceeding with this payment, you acknowledge and agree to the applicable terms and conditions.</p>
                     @else
@@ -50,15 +50,6 @@
 @endsection
 
 @push('script')
-    {{-- <script type="text/javascript">
-      // For example trigger on button clicked, or any time you need
-        var payButton = document.getElementById('pay-button');
-        payButton.addEventListener('click', function () {
-            // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-            window.snap.pay('{{ $snapToken }}');
-            // customer will be redirected after completing payment pop-up
-        });
-    </script> --}}
     <script type="text/javascript">
       // For example trigger on button clicked, or any time you need
       var payButton = document.getElementById('pay-button');

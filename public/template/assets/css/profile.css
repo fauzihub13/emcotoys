@@ -165,6 +165,21 @@ input::placeholder {
     display: none;
 }
 
+.tracking-activity {
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgb(223, 223, 223);
+}
+
+.dot-order {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: white;
+    border: 6px solid #A90004;
+    color: white;
+}
+
 @media (max-width: 767px) {
     .right-side {
         padding: 1em 1em;

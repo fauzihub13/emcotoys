@@ -197,6 +197,10 @@ textarea:focus {
     border: 2px solid var(--theme-color);
 }
 
+.vs-mobile-menu ul li a.active {
+    color: #C8272C !important;
+}
+
 
 /* Article */
 .article-image{

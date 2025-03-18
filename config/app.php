@@ -128,5 +128,12 @@ return [
     'midtrans_server_key' => env('MIDTRANS_SERVER_KEY', ''),
     'midtrans_client_key' => env('MIDTRANS_CLIENT_KEY', ''),
     'mail_to' => env('MAIL_TO', ''),
+    'midtrans_endpoint_sandbox' => env('MIDTRANS_ENDPOINT_SANDBOX', ''),
+    'midtrans_endpoint_production' => env('MIDTRANS_ENDPOINT_PRODUCTION', ''),
+    'midtrans_snap_js_sandbox' => env('MIDTRANS_SNAP_JS_SANDBOX', ''),
+    'midtrans_snap_js_production' => env('MIDTRANS_SNAP_JS_PRODUCTION', ''),
+    'is_production' => env('APP_PRODUCTION', ''),
+    'force_https' => env('APP_FORCE_HTTPS', ''),
+
 
 ];

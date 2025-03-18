@@ -5,6 +5,9 @@
 @push('style')
     <link rel="stylesheet" href="{{ asset('template/assets/css/shop.css') }}">
     <link rel="stylesheet" href="{{ asset('template/assets/css/profile.css') }}">
+    <script type="text/javascript"
+      src="{{ Config::get('app.is_production') ? Config::get('app.midtrans_snap_js_production') : Config::get('app.midtrans_snap_js_sandbox') }}"
+      data-client-key="{{ Config::get('app.midtrans_client_key') }}"></script>
 @endpush
 
 @section('main')
@@ -30,18 +33,39 @@
                 @endforeach
 
                 <div class="checkout-form mt-4">
-                    <h2 class="fs-4 fw-bolder red text-start">Recipient Details</h2>
+                    <h2 class="fs-4 fw-bolder red text-start">Transaction Details</h2>
                     <div class="">
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <div class="form-group text-start mb-4">
+                                    <label>Order Number</label>
+                                    <span class="form-control d-flex align-items-center">{{ $order->order_number }}</span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="form-group text-start mb-4">
+                                    <label>Status</label>
+                                    <span class="form-control d-flex align-items-center">{{ strtoupper($order->status) }}</span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="form-group text-start mb-4">
+                                    <label>Transaction Status</label>
+                                    <span class="form-control d-flex align-items-center">{{ strtoupper( $order->transaction_status )}}</span>
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group text-start mb-4">
-                                    <label>Nama Lengkap <span class="red">*</span></label>
+                                    <label>Nama Lengkap</label>
                                     <span class="form-control d-flex align-items-center">{{ $order->name }}</span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group text-start mb-4">
-                                    <label>Phone Number <span class="red">*</span></label>
+                                    <label>Phone Number</label>
                                     <span class="form-control d-flex align-items-center">{{ $order->phone_number }}</span>
                                 </div>
                             </div>
@@ -50,29 +74,28 @@
                         <div class="row">
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
-                                    <label>Province <span class="red">*</span></label>
+                                    <label>Province</label>
                                     <span class="form-control d-flex align-items-center">{{ $order->province }}</span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
-                                    <label>City <span class="red">*</span></label>
+                                    <label>City</label>
                                     <span class="form-control d-flex align-items-center">{{ $order->city }}</span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
-                                    <label>District <span class="red">*</span></label>
+                                    <label>District</label>
                                     <span class="form-control d-flex align-items-center">{{ $order->district }}</span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="form-group text-start mb-4">
-                                    <label>Village <span class="red">*</span></label>
+                                    <label>Village</label>
                                     <span class="form-control d-flex align-items-center">{{ $order->village }}</span>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="row">
@@ -83,6 +106,39 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group text-start mb-4">
+                                    <label>Tracking Number ({{ strtoupper($order->courier ?? '')}})</label>
+                                    <span class="form-control d-flex align-items-center">{{ $order->tracking_number ?? '-'}}</span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <div class="form-group text-start mb-4">
+                                    <label class="text-white">Track Order</label>
+                                    @if ($order->status != 'arrived' && $order->transaction_status != 'cancel'  && $order->transaction_status != 'expire')
+                                        <div class="d-flex">
+                                            @if (!empty($order->tracking_number))
+                                                <button type="button" class="btn btn-lg color-custom-red text-white w-100 tracking-button me-2" data-id="{{ $order->id }}" data-bs-toggle="modal" data-bs-target="#tracking-modal">
+                                                    Track
+                                                </button>
+                                            @endif
+
+                                            @if ($isPaid === false && !($transactionStatus == 'expire' || $transactionStatus == 'cancel'))
+                                                <button type="button" class="btn btn-lg color-custom-red text-white w-100 " id="pay-button">
+                                                    Pay Now
+                                                </button>
+                                            @endif
+                                        </div>
+
+                                    @endif
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
@@ -93,7 +149,113 @@
         </div>
     </div>
 
+    <div class="modal fade" id="tracking-modal" tabindex="-1" aria-labelledby="tracking-modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Track Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="activities">
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @push('script')
+
+    <script>
+        // For example trigger on button clicked, or any time you need
+        var payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', function () {
+            // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+            window.snap.pay('{{ $snapToken }}');
+            // customer will be redirected after completing payment pop-up
+        });
+
+        function timestampToDatetime(time) {
+            return new Date(time).toLocaleString('id-ID', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).replace(',', '');
+        }
+
+        $(document).ready(function() {
+            $('.tracking-button').on('click', function(){
+                $('#tracking-modal').modal('show');
+
+                var id = $(this).data('id');
+                var activities = "";
+
+                $(".activities").html(activities);
+
+                $.ajax({
+                    url: '/track-order/' + id,
+                    type: 'GET',
+                    data: {
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        // console.log(response.data.history);
+
+                        if(response.success) {
+                            response.data.history.forEach(activity => {
+                                $(".activities").append(`
+
+                                    <div class="tracking-activity d-flex justify-content-start align-items-center">
+                                        <div class="dot-order me-2">
+
+                                        </div>
+                                        <div class="activity-detail">
+                                            <div class="mb-0">
+                                                <span class="text-job">${timestampToDatetime(activity.updated_at)}</span>
+
+                                            </div>
+                                            <p class="m-0">${activity.note}</p>
+                                            ${activity.status == 'delivered' ? '<button class="btn color-custom-red text-white mt-2 finish-order" data-id="' + id + '">Finish Order</button>' : '' }
+                                        </div>
+                                    </div>
+
+                                `);
+                            });
+                        } else {
+                           $(".activities").append(`
+                                <p>Not valid tracking number</p>
+                            `);
+                        }
+
+
+                    }
+                });
+
+            })
+
+            $('#tracking-modal').on('click', '.finish-order', function(){
+                var id = $(this).data('id');
+
+                console.log('click');
+
+
+                $.ajax({
+                    url: '/track-order/finish/' + id,
+                    type: 'PUT',
+                    data: {
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        window.location.reload();
+                    }
+                });
+            })
+        });
+    </script>
+
 @endpush

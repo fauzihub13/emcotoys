@@ -1,42 +1,83 @@
+// var optionsProfileVisit = {
+//   annotations: {
+//     position: "back",
+//   },
+//   dataLabels: {
+//     enabled: false,
+//   },
+//   chart: {
+//     type: "bar",
+//     height: 300,
+//   },
+//   fill: {
+//     opacity: 1,
+//   },
+//   plotOptions: {},
+//   series: [
+//     {
+//       name: "sales",
+//       data: [9, 20, 30, 20, 10, 20, 30, 20, 10, 20, 30, 20],
+//     },
+//   ],
+//   colors: "#435ebe",
+//   xaxis: {
+//     categories: [
+//       "Jan",
+//       "Feb",
+//       "Mar",
+//       "Apr",
+//       "May",
+//       "Jun",
+//       "Jul",
+//       "Aug",
+//       "Sep",
+//       "Oct",
+//       "Nov",
+//       "Dec",
+//     ],
+//   },
+// }
+
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("/chart-data") // Adjust route if necessary
+        .then((response) => response.json())
+        .then((data) => {
+            optionsProfileVisit.series[0].data = data; // Assign fetched data to chart
+            var chart = new ApexCharts(
+                document.querySelector("#chart-transactions"),
+                optionsProfileVisit
+            );
+            chart.render(); // Re-render chart with new data
+        })
+        .catch((error) => console.error("Error fetching chart data:", error));
+});
+
 var optionsProfileVisit = {
-  annotations: {
-    position: "back",
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  chart: {
-    type: "bar",
-    height: 300,
-  },
-  fill: {
-    opacity: 1,
-  },
-  plotOptions: {},
-  series: [
-    {
-      name: "sales",
-      data: [9, 20, 30, 20, 10, 20, 30, 20, 10, 20, 30, 20],
+    annotations: { position: "back" },
+    dataLabels: { enabled: false },
+    chart: { type: "bar", height: 300 },
+    fill: { opacity: 1 },
+    plotOptions: {},
+    series: [{ name: "Sales", data: [] }], // Empty array, will be filled dynamically
+    colors: "#435ebe",
+    xaxis: {
+        categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+        ],
     },
-  ],
-  colors: "#435ebe",
-  xaxis: {
-    categories: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
-  },
-}
+};
+
 let optionsVisitorsProfile = {
   series: [70, 30],
   labels: ["Male", "Female"],

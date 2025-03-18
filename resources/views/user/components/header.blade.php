@@ -7,21 +7,33 @@
         <div class="vs-mobile-menu">
             <ul>
                 <li>
-                    <a href="/">Home</a>
+                    <a class="{{ $type_menu == 'home' ? 'active' : '' }}" href="/">Home</a>
                 </li>
                 <li>
-                    <a href="{{ route('about') }}">About Us</a>
+                    <a class="{{ $type_menu == 'about-us' ? 'active' : '' }}" href="{{ route('about') }}">About Us</a>
                 </li>
                 <li>
-                    <a href="{{ route(name: 'shop') }}">Product</a>
+                    <a class="{{ $type_menu == 'shop' ? 'active' : '' }}" href="{{ route(name: 'shop') }}">Product</a>
                 </li>
                 <li>
-                    <a href="">Profile</a>
+                    <a class="{{ $type_menu == 'account' ? 'active' : '' }}" href="{{ route(name: 'profile') }}">Profile</a>
                 </li>
-                <li>
-                    <a href="{{ route('login') }}">Login/ Register</a>
-                </li>
+                @if (auth()->check())
+                    <li>
+                        <a class="" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
+                        <form id="logout-form"
+                            action="{{ route('logout') }}"
+                            method="POST"
+                            style="display: none">
+                            @csrf
+                        </form>
+                    </li>
+                @else
+                    <li>
+                        <a class="" href="{{ route('profile') }}">Login/ Register</a>
+                    </li>
 
+                @endif
             </ul>
         </div>
     </div>

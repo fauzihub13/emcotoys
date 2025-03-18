@@ -92,22 +92,39 @@ class UserController extends Controller
         return view('user.pages.profile.history', [
             'type_menu' => 'history',
             'ordersFinish' => $orders->where('status', 'arrived'),
-            'ordersOnProcess' => $orders->where('status', '!=', 'arrived'),
+            'ordersOnProcess' => $orders->filter(function ($order) {
+                return $order->status !== 'arrived' &&
+                    $order->transaction_status !== 'cancel' && $order->transaction_status !== 'expire';
+            }),
+            'ordersCancel' => $orders->filter(function ($order) {
+                return $order->transaction_status === 'cancel' || $order->transaction_status === 'expire';
+            }),
         ]);
     }
+
     public function detailHistory($orderId)
     {
         $order = Order::with(['orderItems'])->where('order_number', $orderId)->first();
         if ($order) {
+            $isPaid = false;
+            $transactionStatus = $order->transaction_status;
+
+            if(in_array($transactionStatus, ['capture','settlement'])){
+                $isPaid = true;
+            }
             return view('user.pages.profile.detail-history', [
                 'type_menu'=> 'history',
-                'order'=> $order
+                'order'=> $order,
+                'snapToken' => $order->midtrans_response,
+                'isPaid' => $isPaid,
+                'transactionStatus'=> $transactionStatus
             ]);
         } else {
             return redirect()->route('history')->with('error', 'Transaction history not found');
         }
 
     }
+
     public function order()
     {
         return view('user.pages.profile.order', [

@@ -59,54 +59,23 @@
                             </thead>
                             <tbody>
 
-                                <tr>
-                                    <td>1</td>
-                                    <td>QBZ-123123123</td>
-                                    <td>Pending</td>
-                                    <td>
-                                        <div class="d-flex gap-2 justify-content-center">
-                                            <a href="{{ route('order.edit') }}" class="btn icon btn-primary">
-                                                <i class="bi bi-pencil"></i>
-                                            </a>
-                                            <button class="btn icon btn-danger confirm-delete"
-                                                data-id="" >
-                                                    <i class="bi bi-trash"></i>
-                                            </button>
-                                            <form id="delete-product-category-form" action="" method="POST" style="display: none;">
-                                                <input type="hidden" name="_method" value="DELETE" />
-                                                <input type="hidden" name="_token"
-                                                    value="{{ csrf_token() }}" />
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                {{-- @if (isset($transactions) && $transactions != [])
-                                    @foreach ($transactions as $transaction)
+                                @if (isset($orders) && $orders != [])
+                                    @foreach ($orders as $order)
                                         <tr>
-                                            <td>{{ $loop->index + 1 }}</td>
-                                            <td>{{ $transaction->order->order_number }}</td>
-                                            <td>{{ $transaction->transaction_status }}</td>
+                                            <td>{{ $loop->index +1 }}</td>
+                                            <td>{{ $order->order_number }}</td>
+                                            <td>{{ ucwords($order->status) }}</td>
                                             <td>
                                                 <div class="d-flex gap-2 justify-content-center">
-                                                    <a href="{{ route('product.transaction.edit', $transaction) }}" class="btn icon btn-primary">
+                                                    <a href="{{ route('order.edit', $order->order_number) }}" class="btn icon btn-primary">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
-                                                    <button class="btn icon btn-danger confirm-delete"
-                                                        data-id="{{ $transaction->id }}" >
-                                                            <i class="bi bi-trash"></i>
-                                                    </button>
-                                                    <form id="delete-product-category-form" action="" method="POST" style="display: none;">
-                                                        <input type="hidden" name="_method" value="DELETE" />
-                                                        <input type="hidden" name="_token"
-                                                            value="{{ csrf_token() }}" />
-                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
                                     @endforeach
 
-                                @endif --}}
+                                @endif
 
                             </tbody>
                         </table>
@@ -125,4 +94,5 @@
     <script src="{{ asset ('assets/admin/extensions/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset ('assets/admin/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset ('assets/admin/static/js/pages/datatables.js') }}"></script>
+
 @endpush
