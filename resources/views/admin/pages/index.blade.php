@@ -137,7 +137,7 @@
 
                         @endif
                         <div class="px-4">
-                            <button class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>All Transactions</button>
+                            <a class='btn btn-block btn-xl btn-outline-primary font-bold mt-3' href="{{ route('order.index') }}">All Transactions</a>
                         </div>
                     </div>
                 </div>

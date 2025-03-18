@@ -424,15 +424,14 @@ class OrderController extends Controller
 
         // Check if order number is missing, then redirect with an error message
         if (!$orderId) {
-            return redirect()->route('history')->with('error', 'Pesanan tidak ditemukan.');
+            return redirect()->route('history')->with('error', 'Transaction not found.');
         }
 
-        $user = Auth::user();
         $transaction = Order::where('order_number', $orderId)
                 ->first();
 
         if(!$transaction) {
-            return redirect()->route('history')->with('error', 'Pesanan tidak ditemukan.');
+            return redirect()->route('history')->with('error', 'Transaction not found.');
         }
 
         $isPaid = false;
@@ -446,7 +445,8 @@ class OrderController extends Controller
             'type_menu'=> 'shop',
             'totalPayment' => $transaction->gross_amount,
             'snapToken' => $transaction->midtrans_response,
-            'isPaid' => $isPaid
+            'isPaid' => $isPaid,
+            'transactionStatus'=> $transactionStatus
         ]);
 
 
@@ -461,7 +461,7 @@ class OrderController extends Controller
         $transactionStatus = request('transaction_status');
 
         // Valid payment status
-        $urlStatus = ['success', 'fail', 'error'];
+        $urlStatus = ['success', 'fail', 'unfinish'];
 
         // Validate statusParameter
         if (!in_array($statusParameter, $urlStatus)) {
@@ -474,11 +474,17 @@ class OrderController extends Controller
             return redirect()->route('history')->with('error', 'Transaction not found.');
         }
 
-        if($transactionStatus == 'settlement' || $transactionStatus == 'capture') {
+        if($statusParameter == 'success' && ($transactionStatus == 'settlement' || $transactionStatus == 'capture')) {
             return view('user.pages.order.success', [
                 'type_menu'=> 'shop',
             ]);
-        } else {
+        } elseif($statusParameter == 'unfinish' || ($statusParameter == 'success' && ($transactionStatus == 'pending' ))){
+            return view('user.pages.order.unfinish', [
+                'type_menu'=> 'shop',
+            ]);
+        }
+
+        else {
             return view('user.pages.order.fail', [
                 'type_menu'=> 'shop',
             ]);
@@ -487,6 +493,49 @@ class OrderController extends Controller
     }
 
     // TODO: set API webhook payment callback
+    public function webhookPayment(Request $request) {
+
+        // Request payment midtrans
+        $transactionStatuses = ['capture', 'settlement', 'pending', 'cancel', 'expire'];
+
+        $transactionId = $request->order_id;
+        $transactionStatus = $request->transaction_status;
+
+        try {
+            $orderInfo = Order::where('order_number', $transactionId)->firstOrFail();
+
+            if(in_array($transactionStatus, $transactionStatuses)){
+                $orderInfo->transaction_status = $transactionStatus;
+                $orderInfo->save();
+            }
+
+            if($transactionStatus === 'settlement' || $transactionStatus === 'capture') {
+                $orderInfo->status = 'paid';
+                $orderInfo->payment_method = $request->acquirer;
+                $orderInfo->save();
+
+                return response()->json([
+                    'message' => 'Payment successful',
+                    'status' => $transactionStatus
+                ],200);
+
+            } else {
+                return response()->json([
+                    'message' => 'Payment was not successful',
+                    'status' => $transactionStatus
+                ],400);
+
+            }
+
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => 'Payment was not successful -> '.$th->getMessage(),
+                'status' => $transactionStatus
+            ],400);
+        }
+
+    }
+
 
     function generateOrderId() {
 

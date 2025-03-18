@@ -38,12 +38,11 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
         Route::get('/cart/checkout', [UserOrderController::class, 'checkoutPage'])->name('checkout-page');
         Route::post('/cart/checkout', [UserOrderController::class, 'checkout'])->name('checkout');
         Route::get('/cart/checkout/payment/{orderId}', [UserOrderController::class, 'paymentPage'])->name('payment-page');
-        Route::get('/cart/checkout/payment/status/{statusParameter}', [UserOrderController::class, 'paymentStatus'])->name('payment-status');
+        Route::get('/payment/status/{statusParameter}', [UserOrderController::class, 'paymentStatus'])->name('payment-status');
         Route::get('/history', [ControllersUserController::class, 'history'])->name('history');
         Route::get('/history/{orderId}', [ControllersUserController::class, 'detailHistory'])->name('detail-history');
         Route::get('/track-order/{order}', [UserOrderController::class, 'trackOrder'])->name('track-order');
         Route::put('/track-order/finish/{order}', [UserOrderController::class, 'finishOrder'])->name('finish-order');
-        // Route::get('/order', [ControllersUserController::class, 'order'])->name('order');
     });
 
     Route::controller(LaravoltController::class)->group(function() {

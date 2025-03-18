@@ -31,8 +31,8 @@
                 <div class="container right-side border-top form-text mb-4 mt-4">
                     <p class="title text-danger fs-5 fw-normal mb-0">Total Amount to Pay</p>
                     <p class="title text-danger fs-5 fw-normal mb-5">Rp{{ number_format($totalPayment, 0, ',', '.') }}</p>
-                    @if ($isPaid === false )
-                        <button id="pay-button" type="button" class="btn btn-lg color-custom-red text-white w-100 mb-4" >Pay Now</button>
+                    @if ($isPaid === false && !($transactionStatus == 'expire' || $transactionStatus == 'cancel'))
+                        <button id="pay-button" type="button" class="btn btn-lg color-custom-red text-white w-100 mb-4" >Pay Now {{ $transactionStatus }}</button>
                         <p class="text-secondary mb-0">By proceeding with this payment, you acknowledge and agree to the applicable terms and conditions.</p>
                     @else
                         <a class="btn btn-lg color-custom-red text-white w-100 mb-4" href="{{ route('history') }}" >Back</a>
