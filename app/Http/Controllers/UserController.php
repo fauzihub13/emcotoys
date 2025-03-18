@@ -160,8 +160,8 @@ class UserController extends Controller
 
     public function detailProduct(Product $product)
     {
-        $relatedProducts = Product::where('category_id', $product->category_id)
-            ->where('id', '!=', $product->id) // Hindari produk yang sedang dilihat
+        $relatedProducts = Product::notInTrash()->where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
             ->inRandomOrder()
             ->limit(4)
             ->get();

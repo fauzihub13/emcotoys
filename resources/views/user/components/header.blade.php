@@ -18,6 +18,9 @@
                 <li>
                     <a class="{{ $type_menu == 'account' ? 'active' : '' }}" href="{{ route(name: 'profile') }}">Profile</a>
                 </li>
+                <li>
+                    <a class="{{ $type_menu == 'contact' ? 'active' : '' }}" href="{{ route(name: 'contact') }}">Contact Us</a>
+                </li>
                 @if (auth()->check())
                     <li>
                         <a class="" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
