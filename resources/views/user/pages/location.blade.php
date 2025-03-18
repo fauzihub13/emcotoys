@@ -65,22 +65,22 @@
         <div class="row vs-carousel gx-10" data-slide-show="5" data-ml-slide-show="4" data-lg-slide-show="3"
             data-md-slide-show="2" data-sm-slide-show="2">
             <div class="col-auto">
-                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png.png") }}" alt="brand"></div>
             </div>
             <div class="col-auto">
-                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-2.png.png") }}" alt="brand"></div>
             </div>
             <div class="col-auto">
-                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-3.png.png") }}" alt="brand"></div>
             </div>
             <div class="col-auto">
-                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-4.png.png") }}" alt="brand"></div>
             </div>
             <div class="col-auto">
-                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-5.png.png") }}" alt="brand"></div>
             </div>
             <div class="col-auto">
-                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-6.png.png") }}" alt="brand"></div>
             </div>
         </div>
     </div>

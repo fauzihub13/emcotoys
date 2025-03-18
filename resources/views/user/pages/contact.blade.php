@@ -4,6 +4,36 @@
 
 @push('style')
     <link rel="stylesheet" href="{{ asset('template/assets/css/contact.css') }}">
+    <style>
+        .map-container {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+                
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.map-container:hover .map-overlay {
+    opacity: 1;
+}
+    </style>
 @endpush
 
 @section('main')

@@ -57,6 +57,7 @@
                                 <li><a href="{{ route('about') }}" class="py-0 {{ $type_menu == 'about-us' ? 'active' : '' }}">ABOUT US</a></li>
                                 <li><a href="{{ route('shop') }}" class="py-0 {{ $type_menu == 'shop' ? 'active' : '' }}">PRODUCT</a></li>
                                 <li><a href="{{ route('article') }}" class="py-0 {{ $type_menu == 'article' ? 'active' : '' }}">ARTICLE</a></li>
+                                <li><a href="{{ route('contact') }}" class="py-0 {{ $type_menu == 'contact' ? 'active' : '' }}">CONTACT US</a></li>
                             </ul>
                         </nav>
                     </div>

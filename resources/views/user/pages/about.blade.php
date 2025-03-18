@@ -114,7 +114,7 @@
                     <div class="feature-style2">
                         <div class="feature-img">
                             <div class="vs-circle"></div>
-                            <img src="{{ asset ('template/assets/img/choose/choose-1-1.png') }}" alt="image">
+                            <img src="{{ asset ('template/assets/img/choose/choose-1-1.png.png') }}" alt="image">
                         </div>
                         <h3 class="feature-title h5"><a href="service-details.html" class="text-black">Inspiring Creativity</a></h3>
                         <p class="feature-text">Sparking imagination and creativity in every child.</p>
@@ -124,7 +124,7 @@
                     <div class="feature-style2">
                         <div class="feature-img">
                             <div class="vs-circle"></div>
-                            <img src="{{ asset ('template/assets/img/choose/choose-1-2.png') }}" alt="image">
+                            <img src="{{ asset ('template/assets/img/choose/choose-1-2.png.png') }}" alt="image">
                         </div>
                         <h3 class="feature-title h5"><a href="service-details.html" class="text-black">Quality Products</a></h3>
                         <p class="feature-text">Providing safe, high-quality, and educational toys.</p>
@@ -134,7 +134,7 @@
                     <div class="feature-style2">
                         <div class="feature-img">
                             <div class="vs-circle"></div>
-                            <img src="{{ asset ('template/assets/img/choose/choose-1-3.png') }}" alt="image">
+                            <img src="{{ asset ('template/assets/img/choose/choose-1-3.png.png') }}" alt="image">
                         </div>
                         <h3 class="feature-title h5"><a href="service-details.html" class="text-black">Family
                                 Bonding</a></h3>
@@ -145,7 +145,7 @@
                     <div class="feature-style2">
                         <div class="feature-img">
                             <div class="vs-circle"></div>
-                            <img src="{{ asset('template/assets/img/choose/choose-1-4.png') }}" alt="image">
+                            <img src="{{ asset('template/assets/img/choose/choose-1-4.png.png') }}" alt="image">
                         </div>
                         <h3 class="feature-title h5"><a href="service-details.html" class="text-black">Innovative Experiences</a></h3>
                         <p class="feature-text">Supporting growth through innovative play solutions.</p>
@@ -179,7 +179,7 @@
                 <div class="col-xl-4">
                     <div class="category-style2">
                         <div class="category-img"><a href="class-details.html"><img
-                                    src="{{ asset('template/assets/img/category/cat-1-2.jpg') }}" alt="category"></a></div>
+                                    src="{{ asset('template/assets/img/category/cat-1-1.jpg.png') }}" alt="category"></a></div>
                         <div class="category-content">
 
                             <p class="category-text">Certified for child-safe products in 2015.</p>
@@ -189,7 +189,7 @@
                 <div class="col-xl-4">
                     <div class="category-style2">
                         <div class="category-img"><a href="class-details.html"><img
-                                    src="{{ asset('template/assets/img/category/cat-1-2.jpg') }}" alt="category"></a></div>
+                                    src="{{ asset('template/assets/img/category/cat-1-2.jpg.png') }}" alt="category"></a></div>
                         <div class="category-content">
 
                             <p class="category-text">Top 10 Innovative Toy Brand in Asia, 2019.</p>
@@ -199,7 +199,7 @@
                 <div class="col-xl-4">
                     <div class="category-style2">
                         <div class="category-img"><a href="class-details.html"><img
-                                    src="{{ asset('template/assets/img/category/cat-1-2.jpg') }}" alt="category"></a></div>
+                                    src="{{ asset('template/assets/img/category/cat-1-3.jpg.png') }}" alt="category"></a></div>
                         <div class="category-content">
                             <p class="category-text">Partnered with global retailers.</p>
                         </div>
@@ -298,22 +298,22 @@
             <div class="row vs-carousel gx-10" data-slide-show="5" data-ml-slide-show="4" data-lg-slide-show="3"
                 data-md-slide-show="2" data-sm-slide-show="2">
                 <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png.png") }}" alt="brand"></div>
                 </div>
                 <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-2.png.png") }}" alt="brand"></div>
                 </div>
                 <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-3.png.png") }}" alt="brand"></div>
                 </div>
                 <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-4.png.png") }}" alt="brand"></div>
                 </div>
                 <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-5.png.png") }}" alt="brand"></div>
                 </div>
                 <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-1.png") }}" alt="brand"></div>
+                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-6.png.png") }}" alt="brand"></div>
                 </div>
             </div>
         </div>
