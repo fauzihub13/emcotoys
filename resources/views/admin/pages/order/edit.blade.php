@@ -252,7 +252,6 @@
                         } else {
                            $(".activities").append(`
                                 <p>Not valid tracking number</p>
-
                             `);
                         }
 

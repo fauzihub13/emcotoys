@@ -73,6 +73,7 @@ class OrderController extends Controller
             $order = Order::find($order->id);
 
             $order->tracking_number = $request->tracking_number;
+            $order->status = 'shipped';
             $order->save();
 
             return redirect()->back()->with('success', 'Tracking number updated successfully.');

@@ -5,6 +5,9 @@
 @push('style')
     <link rel="stylesheet" href="{{ asset('template/assets/css/shop.css') }}">
     <link rel="stylesheet" href="{{ asset('template/assets/css/profile.css') }}">
+    <script type="text/javascript"
+      src="{{ Config::get('app.is_production') ? Config::get('app.midtrans_snap_js_production') : Config::get('app.midtrans_snap_js_sandbox') }}"
+      data-client-key="{{ Config::get('app.midtrans_client_key') }}"></script>
 @endpush
 
 @section('main')
@@ -42,13 +45,13 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group text-start mb-4">
                                     <label>Status</label>
-                                    <span class="form-control d-flex align-items-center">{{ ucwords($order->status) }}</span>
+                                    <span class="form-control d-flex align-items-center">{{ strtoupper($order->status) }}</span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-4">
                                 <div class="form-group text-start mb-4">
                                     <label>Transaction Status</label>
-                                    <span class="form-control d-flex align-items-center">{{ ucwords( $order->transaction_status )}}</span>
+                                    <span class="form-control d-flex align-items-center">{{ strtoupper( $order->transaction_status )}}</span>
                                 </div>
                             </div>
 
@@ -107,7 +110,7 @@
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group text-start mb-4">
-                                    <label>Tracking Number</label>
+                                    <label>Tracking Number ({{ strtoupper($order->courier ?? '')}})</label>
                                     <span class="form-control d-flex align-items-center">{{ $order->tracking_number ?? '-'}}</span>
                                 </div>
                             </div>
@@ -116,9 +119,20 @@
                                 <div class="form-group text-start mb-4">
                                     <label class="text-white">Track Order</label>
                                     @if ($order->status != 'arrived' && $order->transaction_status != 'cancel'  && $order->transaction_status != 'expire')
-                                        <button type="button" class="btn btn-lg color-custom-red text-white w-100 tracking-button " data-id="{{ $order->id }}" data-bs-toggle="modal" data-bs-target="#tracking-modal">
-                                            Track
-                                        </button>
+                                        <div class="d-flex">
+                                            @if (!empty($order->tracking_number))
+                                                <button type="button" class="btn btn-lg color-custom-red text-white w-100 tracking-button me-2" data-id="{{ $order->id }}" data-bs-toggle="modal" data-bs-target="#tracking-modal">
+                                                    Track
+                                                </button>
+                                            @endif
+
+                                            @if ($isPaid === false && !($transactionStatus == 'expire' || $transactionStatus == 'cancel'))
+                                                <button type="button" class="btn btn-lg color-custom-red text-white w-100 " id="pay-button">
+                                                    Pay Now
+                                                </button>
+                                            @endif
+                                        </div>
+
                                     @endif
 
                                 </div>
@@ -162,6 +176,14 @@
 @push('script')
 
     <script>
+        // For example trigger on button clicked, or any time you need
+        var payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', function () {
+            // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+            window.snap.pay('{{ $snapToken }}');
+            // customer will be redirected after completing payment pop-up
+        });
+
         function timestampToDatetime(time) {
             return new Date(time).toLocaleString('id-ID', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).replace(',', '');
         }
@@ -184,25 +206,33 @@
                     success: function(response) {
                         // console.log(response.data.history);
 
-                        response.data.history.forEach(activity => {
-                            $(".activities").append(`
+                        if(response.success) {
+                            response.data.history.forEach(activity => {
+                                $(".activities").append(`
 
-                            <div class="tracking-activity d-flex justify-content-start align-items-center">
-                                <div class="dot-order me-2">
+                                    <div class="tracking-activity d-flex justify-content-start align-items-center">
+                                        <div class="dot-order me-2">
 
-                                </div>
-                                <div class="activity-detail">
-                                    <div class="mb-0">
-                                        <span class="text-job">${timestampToDatetime(activity.updated_at)}</span>
+                                        </div>
+                                        <div class="activity-detail">
+                                            <div class="mb-0">
+                                                <span class="text-job">${timestampToDatetime(activity.updated_at)}</span>
 
+                                            </div>
+                                            <p class="m-0">${activity.note}</p>
+                                            ${activity.status == 'delivered' ? '<button class="btn color-custom-red text-white mt-2 finish-order" data-id="' + id + '">Finish Order</button>' : '' }
+                                        </div>
                                     </div>
-                                    <p class="m-0">${activity.note}</p>
-                                    ${activity.status == 'delivered' ? '<button class="btn color-custom-red text-white mt-2 finish-order" data-id="' + id + '">Finish Order</button>' : '' }
-                                </div>
-                            </div>
 
-                        `);
-                        });
+                                `);
+                            });
+                        } else {
+                           $(".activities").append(`
+                                <p>Not valid tracking number</p>
+                            `);
+                        }
+
+
                     }
                 });
 

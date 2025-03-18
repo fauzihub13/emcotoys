@@ -475,6 +475,7 @@ class OrderController extends Controller
         }
 
         if($statusParameter == 'success' && ($transactionStatus == 'settlement' || $transactionStatus == 'capture')) {
+
             return view('user.pages.order.success', [
                 'type_menu'=> 'shop',
             ]);
@@ -492,11 +493,10 @@ class OrderController extends Controller
 
     }
 
-    // TODO: set API webhook payment callback
     public function webhookPayment(Request $request) {
 
         // Request payment midtrans
-        $transactionStatuses = ['capture', 'settlement', 'pending', 'cancel', 'expire'];
+        $transactionStatuses = ['capture', 'settlement', 'cancel', 'expire'];
 
         $transactionId = $request->order_id;
         $transactionStatus = $request->transaction_status;
@@ -535,7 +535,6 @@ class OrderController extends Controller
         }
 
     }
-
 
     function generateOrderId() {
 
