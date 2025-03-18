@@ -528,6 +528,7 @@
                         </div>
                     </div>
                     <form action="{{ route('sendContact') }}" method="POST" class="form-style3">
+                        @csrf
                         <div class="row justify-content-between">
                             <div class="col-md-6 form-group">
                                 <label>Subject <span class="required">(Required)</span></label>

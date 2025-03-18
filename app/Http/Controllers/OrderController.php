@@ -39,37 +39,7 @@ class OrderController extends Controller
             'total_price'=> $totalPrice
         ]);
     }
-    // public function cart()
-    // {
-    //     // Ambil cart user
-    //     $cart = Cart::where('user_id', auth()->id())->first();
-
-    //     if (!$cart) {
-    //         return view('user.pages.profile.cart', [
-    //             'type_menu'  => 'cart',
-    //             'carts'      => [],
-    //             'total_price'=> 0
-    //         ]);
-    //     }
-
-    //     // Ambil semua cart items dengan informasi produk
-    //     $cartItems = CartItem::where('cart_id', $cart->id)
-    //                 ->with('product')
-    //                 ->get();
-
-    //     // Hitung total harga
-    //     $totalPrice = $cartItems->sum(function ($item) {
-    //         return $item->quantity * ($item->product->price ?? 0);
-    //     });
-
-    //     return view('user.pages.profile.cart', [
-    //         'type_menu'  => 'cart',
-    //         'carts'      => $cartItems,
-    //         'total_price'=> $totalPrice
-    //     ]);
-    // }   
-
-
+    
     public function addToCart(Request $request, Product $product){
 
         $validator = Validator::make($request->all(), [
@@ -114,54 +84,6 @@ class OrderController extends Controller
 
     }
 
-    // public function addToCart(Request $request, Product $product)
-    // {
-    //     $validator = Validator::make($request->all(), [
-    //         'quantity' => 'required|integer|min:1'
-    //     ]);
-
-    //     if ($validator->fails()) {
-    //         return back()->with('error', 'Invalid product quantity');
-    //     }
-
-    //     $quantity = $request->quantity;
-
-    //     if ($quantity > $product->stock) {
-    //         return back()->with('error', 'Product out of stock.');
-    //     }
-
-    //     // Cari atau buat cart untuk user
-    //     $cart = Cart::firstOrCreate([
-    //         'user_id' => auth()->id(),
-    //     ]);
-
-    //     // Cari produk di dalam cart_items
-    //     $cartItem = CartItem::where('cart_id', $cart->id)
-    //                         ->where('product_id', $product->id)
-    //                         ->first();
-
-    //     if ($cartItem) {
-    //         // Update quantity
-    //         $newQuantity = $cartItem->quantity + $quantity;
-
-    //         if ($newQuantity > $product->stock) {
-    //             return back()->with('error', 'Not enough stock available.');
-    //         }
-
-    //         $cartItem->update(['quantity' => $newQuantity]);
-    //     } else {
-    //         // Tambahkan produk ke cart_items
-    //         CartItem::create([
-    //             'cart_id' => $cart->id,
-    //             'product_id' => $product->id,
-    //             'quantity' => $quantity,
-    //         ]);
-    //     }
-
-    //     return back()->with('success', 'Product added to cart successfully.');
-    // }
-
-
     public function deleteCart($id)
     {
         try {
@@ -175,32 +97,6 @@ class OrderController extends Controller
 
         }
     }
-    // public function deleteCart($id)
-    // {
-    //     try {
-    //         // Cari item yang ingin dihapus
-    //         $cartItem = CartItem::findOrFail($id);
-
-    //         // Simpan cart_id sebelum menghapus item
-    //         $cartId = $cartItem->cart_id;
-
-    //         // Hapus item dari cart
-    //         $cartItem->delete();
-
-    //         // Cek apakah cart sudah kosong
-    //         $remainingItems = CartItem::where('cart_id', $cartId)->count();
-
-    //         if ($remainingItems == 0) {
-    //             // Jika cart kosong, hapus cart juga
-    //             Cart::where('id', $cartId)->delete();
-    //         }
-
-    //         return back()->with('success', 'Item removed from cart.');
-    //     } catch (\Throwable $th) {
-    //         return back()->with('error', 'Failed to delete cart item. ' . $th->getMessage());
-    //     }
-    // }
-
 
     public function incrementCart($id)
     {
@@ -503,7 +399,7 @@ class OrderController extends Controller
         DB::beginTransaction();
         try {
             $user = auth()->user();
-            $cartItems = Cart::where('user_id', $user->id)->with('product', 'product.images')->get();
+            $cartItems = Cart::where('user_id', $user->id)->with('product')->get();
 
             if ($cartItems->isEmpty()) {
                 return back()->with('error', 'Your cart is empty.');
@@ -539,8 +435,6 @@ class OrderController extends Controller
                 OrderItem::create([
                     'order_id' => $order->id,
                     'product_id' => $cartItem->product->id,
-                    'path' => $cartItem->product->images[0]->path,
-                    'name' => $cartItem->product->name,
                     'quantity' => $cartItem->quantity,
                     'price' => $cartItem->product->price,
                 ]);
@@ -593,7 +487,7 @@ class OrderController extends Controller
 
 
             $response = json_decode($response->body());
-
+            
             // dd($response);
 
             $snapToken = $response->token;

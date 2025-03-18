@@ -129,35 +129,41 @@
             <div class="row">
                 <!-- Map Section -->
                 <div class="col-lg-6 col-md-12 mb-4">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16328186.410165899!2d107.18505469742318!3d-2.381042138954834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4c07d7496404b7%3A0xe37b4de71badf485!2sIndonesia!5e0!3m2!1sen!2sid!4v1741500085213!5m2!1sen!2sid" 
-                        width="100%" 
-                        height="500" 
-                        style="border:0; border-radius: 10px;"
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16328186.410165899!2d107.18505469742318!3d-2.381042138954834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4c07d7496404b7%3A0xe37b4de71badf485!2sIndonesia!5e0!3m2!1sen!2sid!4v1741500085213!5m2!1sen!2sid" 
+                            width="100%" 
+                            height="500" 
+                            style="border:0; border-radius: 10px;"
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                        <div class="map-overlay">
+                            <a href="{{ route ('location')}}" class="text-white">See Our Location</a>
+                        </div>
+                    </div>
                 </div>
                 <!-- Contact Form -->
                 <div class="col-lg-6 col-md-12">
                     <h2 class="fs-2">Contact Us</h2>
-                    <form>
+                    <form action="{{ route('sendContact') }}" method="POST">
+                        @csrf
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Your name">
+                            <input type="text" class="form-control" placeholder="Your name" name="name" required>
                         </div>
                         <div class="mb-3">
-                            <input type="tel" class="form-control" placeholder="Phone number">
+                            <input type="tel" class="form-control" placeholder="Phone number" name="phone" required>
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Email address">
+                            <input type="email" class="form-control" placeholder="Email address" name="email" required>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Inquiries">
+                            <input type="text" class="form-control" placeholder="Inquiries" name="subject" required>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" rows="4" placeholder="Write your comment here..."></textarea>
+                            <textarea class="form-control" rows="4" placeholder="Write your comment here..." name="message" required></textarea>
                         </div>
-                        <a href="" class="btn">Send</a>
+                        <button class="btn" type="submit">Send</button>
                     </form>
                 </div>
             </div>
