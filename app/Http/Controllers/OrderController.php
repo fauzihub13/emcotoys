@@ -28,7 +28,7 @@ class OrderController extends Controller
                 ->descending()->get();
 
         // Calculate total price
-        
+
         $totalPrice = $cart->sum(function ($item) {
             return $item->quantity * $item->product->price;
         });
@@ -39,7 +39,7 @@ class OrderController extends Controller
             'total_price'=> $totalPrice
         ]);
     }
-    
+
     public function addToCart(Request $request, Product $product){
 
         $validator = Validator::make($request->all(), [
@@ -340,6 +340,8 @@ class OrderController extends Controller
                 OrderItem::create([
                     'order_id' => $order->id,
                     'product_id' => $cartItem->product->id,
+                    'path' => $cartItem->product->images[0]->path,
+                    'name' => $cartItem->product->name,
                     'quantity' => $cartItem->quantity,
                     'price' => $cartItem->product->price,
                 ]);
@@ -394,7 +396,7 @@ class OrderController extends Controller
             ])->post($midtransUrl, $params);
 
             $response = json_decode($response->body());
-            
+
             // dd($response);
 
             $snapToken = $response->token;

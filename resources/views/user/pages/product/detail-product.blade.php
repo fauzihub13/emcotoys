@@ -3,7 +3,6 @@
 @section('title', 'Detail Product')
 
 @push('style')
-    <link rel="stylesheet" href="{{ asset('template/assets/css/maps.css') }}">
     <link rel="stylesheet" href="{{ asset('template/assets/css/shop.css') }}">
 
     <style>
@@ -114,34 +113,34 @@
         </svg>
     </div>
     <section class="bg-smoke vs-product-wrapper space-extra-bottom">
-    <div class="container">
-        <div class="title-area text-center">
-            <h1 class="sec-title" style="color: black;">Related Products</h1>
-        </div>
-        <div class="row justify-content-center shopping">
-            @php
-                $colors = ['red', 'green', 'yellow', 'purple', 'blue', 'pink'];
-                $firstImage = $product->images->first() ? $product->images->first()->path : 'default.jpg';
-            @endphp
+        <div class="container">
+            <div class="title-area text-center">
+                <h1 class="sec-title" style="color: black;">Related Products</h1>
+            </div>
+            <div class="row justify-content-center shopping">
 
-            @foreach ($relatedProducts as $index => $product)
-                @php
-                    $bgColor = $colors[$index % count($colors)];
-                @endphp
-                <div class="col-md-6 col-lg-3">
-                    <div class="products product-background-{{ $bgColor }}">
-                        <img src="{{ asset('storage/' . $firstImage) }}" alt="{{ $product->name }}">
-                        <a href="{{ route('detail-product', $product->id) }}" class='details'>
-                            <span>Detail</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </a>
+                @foreach ($relatedProducts as $index => $product)
+                    @php
+                        $colors = ['red', 'green', 'yellow', 'purple', 'blue', 'pink'];
+                        $firstImage = $product->images->first() ? $product->images->first()->path : 'default.jpg';
+                        $bgColor = $colors[$index % count($colors)];
+                    @endphp
+                    <div class="col-md-6 col-lg-3">
+                        <div class="products product-background-{{ $bgColor }}">
+                            <div class="product-image">
+                                <img src="{{ asset('storage/' . $firstImage) }}" alt="{{ $product->name }}">
+                            </div>
+                            <a href="{{ route('detail-product', $product->slug) }}" class='details'>
+                                <span>Detail</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <p class="judul">{{ $product->name }}</p>
                     </div>
-                    <p class="judul">{{ $product->name }}</p>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     @endsection
 

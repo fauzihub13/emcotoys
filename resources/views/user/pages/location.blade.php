@@ -8,7 +8,7 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <style>
          #map {
-            height: 500px; /* Atur tinggi peta */
+            height: 500px;
         }
         .style4 {
             background-color: #f0f6fa !important;
@@ -53,8 +53,8 @@
         </div>
     </div>
 </section>
-<div class="maps">
-    <div id="map"></div>
+<div class="container mt-5">
+    <div class="" id="map"></div>
     <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16328186.410165899!2d107.18505469742318!3d-2.381042138954834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4c07d7496404b7%3A0xe37b4de71badf485!2sIndonesia!5e0!3m2!1sen!2sid!4v1741500085213!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
 </div>
 <section class=" space-extra bg-smoke">
@@ -78,9 +78,6 @@
             </div>
             <div class="col-auto">
                 <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-5.png.png") }}" alt="brand"></div>
-            </div>
-            <div class="col-auto">
-                <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-6.png.png") }}" alt="brand"></div>
             </div>
         </div>
     </div>

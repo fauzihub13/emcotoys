@@ -1,6 +1,6 @@
 .box {
     border: 1px solid #D4D4D4;
-    padding: 30px 130px !important;
+    /* padding: 30px 0 !important; */
     border-radius: 15px;
 }
 .box svg {
