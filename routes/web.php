@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\LaravoltController;
 use App\Http\Controllers\UserController as ControllersUserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 
 Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/about', [ControllersUserController::class, 'about'])->name('about');
@@ -26,6 +27,7 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/contact', [ControllersUserController::class, 'contact'])->name('contact');
     Route::get('/contact/liat', [ControllersUserController::class, 'liat'])->name('liat');
     Route::post('/contact/send', [ControllersUserController::class, 'sendContact'])->name('sendContact');
+    Route::get('/send-email', [MailController::class, 'sendEmail']);
 
     Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/profile', [ControllersUserController::class, 'profile'])->name('profile');

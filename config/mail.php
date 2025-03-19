@@ -39,15 +39,25 @@ return [
 
         'smtp' => [
             'transport' => 'smtp',
-            'scheme' => env('MAIL_SCHEME'),
-            'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', 'sandbox.smtp.mailtrap.io'),
-            'port' => env('MAIL_PORT', 2525),
+            'host' => env('MAIL_HOST', 'smtp.mailersend.net'),
+            'port' => env('MAIL_PORT', 587),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+            'auth_mode' => null,
         ],
+        // 'smtp' => [
+        //     'transport' => 'smtp',
+        //     'scheme' => env('MAIL_SCHEME'),
+        //     'url' => env('MAIL_URL'),
+        //     'host' => env('MAIL_HOST', 'sandbox.smtp.mailtrap.io'),
+        //     'port' => env('MAIL_PORT', 2525),
+        //     'username' => env('MAIL_USERNAME'),
+        //     'password' => env('MAIL_PASSWORD'),
+        //     'timeout' => null,
+        //     'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+        // ],
 
         'ses' => [
             'transport' => 'ses',
@@ -109,8 +119,12 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'admin@jfgroup.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'jedarjederbp2@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'EmcoToys'),
     ],
+    // 'from' => [
+    //     'address' => env('MAIL_FROM_ADDRESS', 'admin@jfgroup.com'),
+    //     'name' => env('MAIL_FROM_NAME', 'EmcoToys'),
+    // ],
 
 ];

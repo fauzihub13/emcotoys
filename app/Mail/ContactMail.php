@@ -25,8 +25,8 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from(config('mail.from.address'), config('mail.from.name'))
-                    ->to('jedarjederbp2@gmail.com') // Ganti dengan email admin
+        return $this->from('no-reply@trial-vz9dlemeepn4kj50.mlsender.net', 'EmcoToys')
+                    // ->to('jedarjederbp2@gmail.com')
                     ->subject('New Contact Form Submission')
                     ->view('user.pages.email.contact')
                     ->with('data', $this->data);

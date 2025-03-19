@@ -22,7 +22,7 @@ class ConfirmationMail extends Mailable
 
     public function build()
     {
-        return $this->from(config('mail.from.address'), config('mail.from.name'))
+        return $this->from('no-reply@trial-vz9dlemeepn4kj50.mlsender.net', 'EmcoToys')
                     ->subject('Confirmation: Your Message Has Been Received')
                     ->view('user.pages.email.sendconfirmation')
                     ->with('data', $this->data);
