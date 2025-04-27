@@ -13,6 +13,7 @@ use App\Models\ProductCategory;
 use App\Mail\ContactMail;
 use App\Mail\ConfirmationMail;
 use App\Models\Order;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -198,9 +199,17 @@ class UserController extends Controller
             'message' => $request->input('message'),
         ];
 
-        Mail::to('jedarjederbp2@gmail.com')->send(new ContactMail($data));
+        try {
+            Mail::to('jedarjederbp2@gmail.com')->send(new ContactMail($data));
+        } catch (\Throwable $th) {
+            Log::error('Failed to send mail to ' . $data['email'] . ': ' . $th->getMessage());
+        }
 
-        Mail::to($data['email'])->send(new ConfirmationMail($data));
+        try {
+            Mail::to($data['email'])->send(new ConfirmationMail($data));
+        } catch (\Throwable $th) {
+            Log::error('Failed to send mail to ' . $data['email'] . ': ' . $th->getMessage());
+        }
 
         return back()->with('success', 'Your message has been sent successfully!');
     }

@@ -58,10 +58,9 @@
                     <div class="widget footer-widget">
                         <h3 class="widget_title">Find Us</h3>
                         <div class="vs-widget-about">
-                            <p class="map-link mb-2 pb-1">First Floor, 10A Chandos Street London New Town W1G 9LE
+                            <p class="map-link mb-2 pb-1">Gandaria 8 Office Tower, Jl. Sultan Iskandar Muda No.10 25th Floor, RT.10/RW.6, Kby. Lama Utara, Kec. Kby. Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta
                             </p>
-                            <p class="footer-call"><a class="text-inherit" href="tel:+4402076897888">+44 (0) 207 689
-                                    7888</a></p>
+                            <p class="footer-call"><a class="text-inherit" href="tel:+4402076897888">(021) 29036666</a></p>
                         </div>
                     </div>
                 </div>
@@ -104,8 +103,7 @@
                     </div>
                 </div>
                 <div class="col-lg-auto">
-                    <p class="copyright-text text-white">Copyright &copy; 2023 <a href="index.html">Kiddino</a>. All
-                        Rights Reserved By <a href="https://themeforest.net/user/vecuro_themes">Vecuro</a></p>
+                    <p class="copyright-text text-white"><a href="/">EmcoToys</p>
                 </div>
             </div>
         </div>

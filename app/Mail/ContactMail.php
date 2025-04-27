@@ -25,8 +25,7 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from('no-reply@trial-vz9dlemeepn4kj50.mlsender.net', 'EmcoToys')
-                    // ->to('jedarjederbp2@gmail.com')
+        return $this->from('no-reply@emcotoys.my.id', 'EmcoToys')
                     ->subject('New Contact Form Submission')
                     ->view('user.pages.email.contact')
                     ->with('data', $this->data);

@@ -550,10 +550,10 @@
                                 <label>Messege</label>
                                 <textarea type="text" name="message" required></textarea>
                             </div>
-                            <div class="col-auto align-self-center form-group">
+                            {{-- <div class="col-auto align-self-center form-group">
                                 <input type="checkbox" id="notice" name="notice">
                                 <label for="notice">Notify Your child weekly progress</label>
-                            </div>
+                            </div> --}}
                             <div class="col-auto form-group">
                                 <button class="vs-btn" type="submit">Send Messege</button>
                             </div>

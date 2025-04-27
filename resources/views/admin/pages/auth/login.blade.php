@@ -61,7 +61,7 @@
                 </form>
 
                 <div class="text-center mt-4 fs-5">
-                    <p class="text-gray-600">Don't have an account? <a href="{{ route('register') }}" class="font-bold">Register</a></p>
+                    {{-- <p class="text-gray-600">Don't have an account? <a href="{{ route('register') }}" class="font-bold">Register</a></p> --}}
                     <p><a class="font-bold" href="{{ route('password.request') }}">Forgot password?</a></p>
                 </div>
             </div>
