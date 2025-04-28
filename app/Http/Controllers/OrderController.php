@@ -395,7 +395,11 @@ class OrderController extends Controller
                 'authorization' => 'Basic '.$auth,
             ])->post($midtransUrl, $params);
 
-            $response = json_decode($response->body());
+            try {
+                $response = json_decode($response->body());
+            } catch (\Throwable $th) {
+                return back()->with('error', 'Failed to process checkout. Please try again. '. $th->getMessage() . ' -> '. $response);
+            }
 
             // dd($response);
 
