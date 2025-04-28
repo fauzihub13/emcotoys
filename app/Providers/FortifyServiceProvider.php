@@ -22,6 +22,7 @@ class FortifyServiceProvider extends ServiceProvider
     {
         // Fortify::ignoreRoutes();
         Fortify::loginView(function (Request $request) {
+            return $request->getHost() . ' -> admin.' . env('APP_DOMAIN', 'emcotoys.test');
             if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
                 return view('admin.pages.auth.login');
             }
@@ -29,6 +30,7 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::registerView(function (Request $request) {
+            return $request->getHost() . ' -> admin.' . env('APP_DOMAIN', 'emcotoys.test');
             if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
                 return abort(403, 'Registration is not allowed for admins');
             }
@@ -36,6 +38,7 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::requestPasswordResetLinkView(function (Request $request) {
+            return $request->getHost() . ' -> admin.' . env('APP_DOMAIN', 'emcotoys.test');
             if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
                 return view('admin.pages.auth.forgot-password');
             }
@@ -43,6 +46,8 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::resetPasswordView(function (Request $request) {
+            return $request->getHost() . ' -> admin.' . env('APP_DOMAIN', 'emcotoys.test');
+
             if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
                 return view('admin.pages.auth.reset-password', ['request' => $request]);
             }
@@ -50,6 +55,8 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::verifyEmailView(function (Request $request) {
+            return $request->getHost() . ' -> admin.' . env('APP_DOMAIN', 'emcotoys.test');
+
             if ($request->getHost() === 'admin.' . env('APP_DOMAIN', 'emcotoys.test')) {
                 return view('admin.pages.auth.verify-email');
             }
