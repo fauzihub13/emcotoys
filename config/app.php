@@ -132,7 +132,7 @@ return [
     'midtrans_endpoint_production' => env('MIDTRANS_ENDPOINT_PRODUCTION', ''),
     'midtrans_snap_js_sandbox' => env('MIDTRANS_SNAP_JS_SANDBOX', ''),
     'midtrans_snap_js_production' => env('MIDTRANS_SNAP_JS_PRODUCTION', ''),
-    'is_production' => env('APP_PRODUCTION', ''),
+    'is_production' => env('APP_PRODUCTION', false),
     'force_https' => env('APP_FORCE_HTTPS', ''),
 
 

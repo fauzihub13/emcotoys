@@ -384,10 +384,10 @@ class OrderController extends Controller
 
             // Request payment midtrans
             $auth = base64_encode(Config::get('app.midtrans_server_key').":");
-            $midtransUrl = 'https://app.sandbox.midtrans.com/snap/v1/transactions';
+            $midtransUrl = Config::get('app.midtrans_endpoint_sandbox');
 
-            if(Config::get('app.is_production')) {
-                $midtransUrl = 'https://app.midtrans.com/snap/v1/transactions';
+            if(Config::get('app.is_production') == true) {
+                $midtransUrl =  Config::get('app.midtrans_endpoint_production');
             }
 
             $response = Http::withHeaders([
@@ -400,12 +400,9 @@ class OrderController extends Controller
                 $snapToken = $response->token;
 
             } catch (\Throwable $th) {
-                // return back()->with('error', 'Failed to process checkout. Please try again. '. $th->getMessage() . ' -> '. json_encode($response));
+                // dd($response);
+                return back()->with('error', 'Failed to process checkout. Please try again. '. $th->getMessage());
             }
-
-            dd($response);
-            return $response;
-
 
             // Update snaptoken
             $order->update([
