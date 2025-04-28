@@ -294,7 +294,7 @@ class OrderController extends Controller
             'address_detail' => 'Jl. Merdeka No. 1'
         ];
 
-        $shippingRateResponse = $this->getShippingRate($request, $manualData);
+        $shippingRateResponse = $this->getShippingRate($request);
         $shippingData = $shippingRateResponse->getData();
 
         if(!$shippingData->status) {
