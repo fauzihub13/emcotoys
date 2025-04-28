@@ -400,9 +400,12 @@ class OrderController extends Controller
                 $snapToken = $response->token;
 
             } catch (\Throwable $th) {
-                dd($response);
                 // return back()->with('error', 'Failed to process checkout. Please try again. '. $th->getMessage() . ' -> '. json_encode($response));
             }
+
+            dd($response);
+            return $response;
+
 
             // Update snaptoken
             $order->update([
