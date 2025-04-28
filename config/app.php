@@ -134,6 +134,7 @@ return [
     'midtrans_snap_js_production' => env('MIDTRANS_SNAP_JS_PRODUCTION', ''),
     'is_production' => env('APP_PRODUCTION', false),
     'force_https' => env('APP_FORCE_HTTPS', ''),
+    'app_domain' => env('APP_DOMAIN', 'emcotoys.test'),
 
 
 ];
