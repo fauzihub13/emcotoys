@@ -397,25 +397,19 @@ class OrderController extends Controller
 
             try {
                 $response = json_decode($response->body());
+                $snapToken = $response->token;
+                // dd($response);
+
             } catch (\Throwable $th) {
                 return back()->with('error', 'Failed to process checkout. Please try again. '. $th->getMessage() . ' -> '. $response);
             }
-
-            // dd($response);
-
-            $snapToken = $response->token;
-
 
             // Update snaptoken
             $order->update([
                 'midtrans_response' => $snapToken
             ]);
 
-
             DB::commit();
-
-            // dd($response);
-
 
             return redirect()->route('payment-page',  $orderId)
                 ->with('success', 'Order item saved.');
