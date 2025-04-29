@@ -28,6 +28,7 @@ Route::domain(env('APP_DOMAIN', 'emcotoys.test'))->group(function (){
     Route::get('/contact/liat', [ControllersUserController::class, 'liat'])->name('liat');
     Route::post('/contact/send', [ControllersUserController::class, 'sendContact'])->name('sendContact');
     Route::get('/send-email', [MailController::class, 'sendEmail']);
+    Route::post('/use-another-account', [ControllersUserController::class, 'useAnotherAccount'])->name('useAnotherAccount');
 
     Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/profile', [ControllersUserController::class, 'profile'])->name('profile');

@@ -23,12 +23,14 @@ class UserController extends Controller
             'type_menu'=> 'home'
         ]);
     }
+
     public function about()
     {
         return view('user.pages.about', [
             'type_menu'=> 'about-us'
         ]);
     }
+
     public function shop()
     {
         $products = Product::with(['images' => function ($query) {
@@ -43,6 +45,7 @@ class UserController extends Controller
             'products' => $products
         ]);
     }
+
     public function article()
     {
         $search = request('search');
@@ -55,6 +58,7 @@ class UserController extends Controller
             'article_categories' => ArticleCategory::notInTrash()->descending()->get()
         ]);
     }
+
     public function adetail($slug)
     {
         $article = Article::where('slug', $slug)->first();
@@ -64,6 +68,7 @@ class UserController extends Controller
             'latest_articles' => Article::where('slug', '!=', $slug)->orderBy('created_at', 'desc')->limit(2)->get()
         ]);
     }
+
     public function location()
     {
         $stores = Store::all();
@@ -72,6 +77,7 @@ class UserController extends Controller
             'stores' => $stores
         ]);
     }
+
     public function contact()
     {
         return view('user.pages.contact', [
@@ -212,5 +218,18 @@ class UserController extends Controller
         }
 
         return back()->with('success', 'Your message has been sent successfully!');
+    }
+
+    public function useAnotherAccount(Request $request)
+    {
+        // Logout user
+        auth()->logout();
+
+        // Hapus session
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        // Redirect ke halaman utama
+        return redirect('/login');
     }
 }

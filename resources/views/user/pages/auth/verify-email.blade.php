@@ -57,16 +57,17 @@
                 </form>
 
                 <form id="logout-form"
-                    action="{{ route('logout') }}"
+                    action="{{ route('useAnotherAccount') }}"
                     method="POST"
                     style="display: none"
                     >                >
                     @csrf
                 </form>
 
-                <div class="text-center mt-4 fs-5">
+                {{-- <div class="text-center mt-4 fs-5">
                     <p class="text-gray-600 mb-0">Remember your account? <a href="{{ route('login') }}" class="font-bold">Sign in now!</a></p>
-                </div>
+                </div> --}}
+
             </div>
         </div>
         <div class="col-lg-6 col-sm-12 px-0">
