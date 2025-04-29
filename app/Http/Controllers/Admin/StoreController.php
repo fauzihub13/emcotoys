@@ -70,7 +70,7 @@ class StoreController extends Controller
             $store->longitude = $request->longitude;
             $store->save();
 
-            return redirect()->route('store.index')->with('status', 'Store created successfully.');
+            return redirect()->route('store.index')->with('success', 'Store created successfully.');
 
         } catch (\Throwable $th) {
             return back()->with('error', 'Failed to create store . Please try again.' . $th->getMessage());
@@ -140,10 +140,12 @@ class StoreController extends Controller
 
             $store->name = $request->name;
             $store->url = $request->url;
+            $store->latitude = $request->latitude;
+            $store->longitude = $request->longitude;
             $store->updated_at = Carbon::now();
             $store->save();
 
-            return redirect()->route('store.index')->with('status', 'Store updated successfully.');
+            return redirect()->route('store.index')->with('success', 'Store updated successfully.');
 
         } catch (\Throwable $th) {
             return back()->with('error', 'Failed to update store. Please try again. ' . $th->getMessage());
