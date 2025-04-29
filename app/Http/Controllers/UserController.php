@@ -13,6 +13,7 @@ use App\Models\ProductCategory;
 use App\Mail\ContactMail;
 use App\Mail\ConfirmationMail;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
@@ -95,7 +96,8 @@ class UserController extends Controller
 
     public function history()
     {
-        $orders = Order::with(['orderItems'])->descending()->get();
+        $user = Auth::user();
+        $orders = Order::with(['orderItems'])->where('user_id', auth()->user()->id)->descending()->get();
 
         return view('user.pages.profile.history', [
             'type_menu' => 'history',
