@@ -153,6 +153,7 @@ class UserController extends Controller
             $query->orderBy('id')->limit(1);
         }])
         ->filter($filters)
+        ->where('status', 1)
         ->notInTrash()
         ->descending()
         ->paginate(12)
