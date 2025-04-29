@@ -32,17 +32,22 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'detail_address' => ['nullable', 'string', 'min:5', 'max:255'],
         ])->validateWithBag('updateProfileInformation');
 
+        $updateData = [
+            'name' => $input['name'],
+            'email' => $input['email'],
+            'phone_number' => $input['phone_number'],
+        ];
+
+        if (!empty($input['detail_address'])) {
+            $updateData['detail_address'] = $input['detail_address'];
+        }
+
         if ($input['email'] !== $user->email &&
             $user instanceof MustVerifyEmail) {
             $this->updateVerifiedUser($user, $input);
         } else {
             // dd($user);
-            $user->forceFill([
-                'name' => $input['name'],
-                'email' => $input['email'],
-                'phone_number' => $input['phone_number'],
-                'detail_address' => $input['detail_address'],
-            ])->save();
+            $user->forceFill($updateData)->save();
         }
     }
 
