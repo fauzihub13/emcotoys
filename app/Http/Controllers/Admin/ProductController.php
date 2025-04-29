@@ -21,7 +21,8 @@ class ProductController extends Controller
     {
         return view('admin.pages.product.index', [
             'type_menu' => 'product',
-            'products' => Product::where('deleted_at', '=', null)->get()
+            'products' => Product::where('deleted_at', '=', null)
+            ->get()
         ]);
     }
 

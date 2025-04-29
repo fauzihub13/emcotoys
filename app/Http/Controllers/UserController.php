@@ -36,6 +36,7 @@ class UserController extends Controller
         $products = Product::with(['images' => function ($query) {
             $query->orderBy('id')->limit(1);
         }])
+        ->where('status', 1)
         ->notInTrash()
         ->descending()
         ->paginate(12);
