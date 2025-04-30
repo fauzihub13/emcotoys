@@ -8742,7 +8742,7 @@ body.layout5 .slick-dots li.slick-active button {
     margin-right: 0;
 }
 
-.vs-social a::before {
+/* .vs-social a::before {
     content: "";
     position: absolute;
     left: 3px;
@@ -8767,7 +8767,7 @@ body.layout5 .slick-dots li.slick-active button {
     transform: scale(1);
     opacity: 1;
     visibility: visible;
-}
+} */
 
 .brand-style1 {
     background-color: var(--white-color);
@@ -12165,7 +12165,7 @@ body.layout4 {
     visibility: hidden;
 }
 
-.gallery-style1 .gallery-btn:before {
+/* .gallery-style1 .gallery-btn:before {
     content: "";
     position: absolute;
     left: 2px;
@@ -12189,9 +12189,9 @@ body.layout4 {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
-}
+} */
 
-.gallery-style1:hover .gallery-img:after,
+/* .gallery-style1:hover .gallery-img:after,
 .gallery-style1:hover .gallery-img:before {
     opacity: 1;
     visibility: visible;
@@ -12205,7 +12205,7 @@ body.layout4 {
 .gallery-style1:hover .gallery-btn {
     opacity: 1;
     visibility: visible;
-}
+} */
 
 .gallery-style1.radius-2 .gallery-img {
     border-radius: 150px 150px 30px 30px;

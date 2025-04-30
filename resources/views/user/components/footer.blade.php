@@ -68,21 +68,21 @@
                     <div class="widget footer-widget">
                         <div class="sosialmed col-lg-auto">
                             <div class="vs-social">
-                                <a href="#">
+                                <a href="https://web.facebook.com/emcotoys/?locale=id_ID&_rdc=1&_rdr#">
                                     <i class="fab fa-facebook-f"></i>
                                     <span>Emco Toys</span>
                                 </a>
-                                <a href="#">
+                                <a href="https://x.com/emcotoysid">
                                     <i class="fab fa-twitter"></i>
                                     <span>Emco Toys</span>
                                 </a>
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
+                                <a href="https://www.instagram.com/emcotoys/?hl=en">
+                                    <i class="fab fa-instagram"></i>
                                     <span>PT EMCO TOYS</span>
                                 </a>
-                                <a href="#">
+                                <a href="https://www.youtube.com/channel/UCtxJ4YvZmAFkf_qmNKDv7qQ">
                                     <i class="fab fa-youtube"></i>
-                                    <span>PT EMCO TOYS</span>
+                                    <span>Emco Indonesia</span>
                                 </a>
                             </div>
                         </div>

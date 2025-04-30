@@ -312,9 +312,6 @@
                 <div class="col-auto">
                     <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-5.png.png") }}" alt="brand"></div>
                 </div>
-                <div class="col-auto">
-                    <div class="brand-style1"><img src="{{ asset("template/assets/img/brand/b-1-6.png.png") }}" alt="brand"></div>
-                </div>
             </div>
         </div>
     </section>
@@ -334,7 +331,7 @@
     <section class=" space-bottom">
         <div class="container">
             <div class="title-area text-center">
-                <h2 class="sec-title below">Follow Our Instagram <span class="required">@emcotoys</span></h2>
+                <h2 class="sec-title below">Follow Our Instagram <a href="https://www.instagram.com/emcotoys/?hl=en" class="required">@emcotoys</a></h2>
             </div>
             <div class="row vs-carousel" data-slide-show="6" data-lg-slide-show="5" data-md-slide-show="4"
                 data-sm-slide-show="3" data-xs-slide-show="2">

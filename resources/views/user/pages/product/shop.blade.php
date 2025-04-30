@@ -32,31 +32,31 @@
                 <p class="sec-text" style="font-weight: 600; color:black">Our Collection</p>
             </div>
             <div class="category-container d-flex flex-wrap">
-                <div class="category">
+                <a href="{{ route('all-product', ['category' => 'brix']) }}" class="category">
                     <img src="{{ asset('template/assets/img/shop/Vector.svg') }}" alt="Cloud" class="cloud">
                     <img src="{{ asset('template/assets/img/shop/lego.svg') }}" alt="Bricks" class="icon brix" style="fill: #4482C8;">
-                    <p>Bricks</p>
-                </div>
-                <div class="category">
+                    <p>Brix</p>
+                </a>
+                <a href="{{ route('all-product', ['category' => 'toy-vehicle']) }}" class="category">
                     <img src="{{ asset('template/assets/img/shop/Vector (1).svg') }}" alt="Cloud" class="cloud">
                     <img src="{{ asset('template/assets/img/shop/vehicle.svg') }}" alt="Toy Vehicle" class="icon">
                     <p>Toy Vehicle</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="{{ route('all-product', ['category' => 'educational-toys']) }}" class="category">
                     <img src="{{ asset('template/assets/img/shop/Vector (2).svg') }}" alt="Cloud" class="cloud">
                     <img src="{{ asset('template/assets/img/shop/brick.png') }}" alt="Educational Toys" class="icon">
                     <p>Educational Toys</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="{{ route('all-product', ['category' => 'cooking-toys']) }}" class="category">
                     <img src="{{ asset('template/assets/img/shop/Vector (3).svg') }}" alt="Cloud" class="cloud">
                     <img src="{{ asset('template/assets/img/shop/pot.png') }}" alt="Cooking Toys" class="icon">
                     <p>Cooking Toys</p>
-                </div>
-                <div class="category">
+                </a>
+                <a href="{{ route('all-product', ['category' => 'dolls']) }}" class="category">
                     <img src="{{ asset('template/assets/img/shop/Vector (4).svg') }}" alt="Cloud" class="cloud">
                     <img src="{{ asset('template/assets/img/shop/doll.png') }}" alt="Dolls" class="icon">
                     <p>Dolls</p>
-                </div>
+                </a>
             </div>
             <!-- <div class="row d-flex gx-0 vs-carousel partner" data-slide-show="3" data-md-slide-show="2" data-sm-slide-show="2"
                 data-xs-slide-show="2" data-dots="true">
