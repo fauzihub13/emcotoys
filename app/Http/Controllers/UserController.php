@@ -50,9 +50,16 @@ class UserController extends Controller
 
     public function article()
     {
-        $search = request('search');
+        $filters = [
+            'category' => request('category'),
+            'search' => request('search')
+        ];
 
-        $articles = Article::filter(request(['search']))->notInTrash()->descending()->paginate(2)->appends(['search' => $search]);
+        $articles = Article::filter($filters)
+                    ->notInTrash()
+                    ->descending()
+                    ->paginate(2)
+                    ->appends($filters);
         return view('user.pages.article', [
             'type_menu'=> 'article',
             'articles' => $articles,
