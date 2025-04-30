@@ -34,7 +34,6 @@
                             {{ session('success') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-
                     @elseif (session('error'))
                         <div class="alert alert-danger alert-dismissible show fade">
                             {{ session('error') }}
@@ -44,7 +43,8 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('product.update', $product) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('product.update', $product) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
@@ -54,9 +54,13 @@
                                     <div class="row g-3" id="uploadContainer">
                                         @foreach ($product->images as $image)
                                             <div class="col-6 col-md-4 col-lg-3" data-image-id="{{ $image->id }}">
-                                                <div class="image-preview" style="background-image: url('/storage/{{ $image->path }}');">
-                                                    <button class="remove-btn-image" aria-label="Remove image" type="button">×</button>
-                                                    <input type="checkbox" class="delete-image-list" name="delete_images[]" value="{{ $image->id }}" style="position: absolute; top: 5px; left: 5px; z-index:-1" >
+                                                <div class="image-preview"
+                                                    style="background-image: url('/storage/{{ $image->path }}');">
+                                                    <button class="remove-btn-image" aria-label="Remove image"
+                                                        type="button">×</button>
+                                                    <input type="checkbox" class="delete-image-list" name="delete_images[]"
+                                                        value="{{ $image->id }}"
+                                                        style="position: absolute; top: 5px; left: 5px; z-index:-1">
                                                 </div>
                                             </div>
                                         @endforeach
@@ -75,10 +79,8 @@
 
                                 <div class="form-group">
                                     <label for="name" class="form-label">Name</label>
-                                    <input type="text"
-                                        name="name" id="name"
-                                        class="form-control @error('name') is-invalid @enderror"
-                                        placeholder="Product name"
+                                    <input type="text" name="name" id="name"
+                                        class="form-control @error('name') is-invalid @enderror" placeholder="Product name"
                                         value="{{ $product->name }}">
                                     @error('name')
                                         <div class="invalid-feedback">
@@ -90,10 +92,13 @@
 
                                 <div class="form-group">
                                     <label for="category_id" class="form-label">Category</label>
-                                    <select class="choices form-select @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
-                                        <option value="" >Select option</option>
-                                        @foreach($categories as $category)
-                                            <option value="{{ $category->id }}" {{ $category->id == $product->category->id ? 'selected' : '' }} >{{ ucfirst($category->name) }}</option>
+                                    <select class="choices form-select @error('category_id') is-invalid @enderror"
+                                        name="category_id" id="category_id">
+                                        <option value="">Select option</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}"
+                                                {{ isset($product->category) && $category->id == $product->category->id ? 'selected' : '' }}>
+                                                {{ ucfirst($category->name) }}</option>
                                         @endforeach
                                     </select>
                                     @error('category_id')
@@ -106,8 +111,7 @@
 
                                 <div class="form-group">
                                     <label for="description" class="form-label">Description</label>
-                                    <textarea class="form-control @error('description') is-invalid @enderror"
-                                        id="description" name="description"
+                                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
                                         rows="6">{{ $product->description }}</textarea>
                                     @error('description')
                                         <div class="invalid-feedback">
@@ -121,12 +125,9 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="price">Price</label>
-                                            <input type="number"
-                                                name="price"
-                                                id="price"
+                                            <input type="number" name="price" id="price"
                                                 class="form-control round @error('price') is-invalid @enderror"
-                                                value="{{ $product->price }}"
-                                                placeholder="Product price">
+                                                value="{{ $product->price }}" placeholder="Product price">
                                             @error('price')
                                                 <div class="invalid-feedback">
                                                     <i class="bx bx-radio-circle"></i>
@@ -138,12 +139,9 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="height">Length</label>
-                                            <input type="number"
-                                                name="length"
-                                                id="length"
+                                            <input type="number" name="length" id="length"
                                                 class="form-control square  @error('length') is-invalid @enderror"
-                                                value="{{ $product->length }}"
-                                                placeholder="Product length">
+                                                value="{{ $product->length }}" placeholder="Product length">
                                             @error('length')
                                                 <div class="invalid-feedback">
                                                     <i class="bx bx-radio-circle"></i>
@@ -159,12 +157,9 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="weight">Weight</label>
-                                            <input type="number"
-                                                name="weight"
-                                                id="weight"
+                                            <input type="number" name="weight" id="weight"
                                                 class="form-control round @error('weight') is-invalid @enderror"
-                                                value="{{ $product->weight }}"
-                                                placeholder="Product weight">
+                                                value="{{ $product->weight }}" placeholder="Product weight">
                                             @error('weight')
                                                 <div class="invalid-feedback">
                                                     <i class="bx bx-radio-circle"></i>
@@ -176,12 +171,9 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="height">Height</label>
-                                            <input type="number"
-                                                name="height"
-                                                id="height"
+                                            <input type="number" name="height" id="height"
                                                 class="form-control square  @error('height') is-invalid @enderror"
-                                                value="{{ $product->height }}"
-                                                placeholder="Product height">
+                                                value="{{ $product->height }}" placeholder="Product height">
                                             @error('height')
                                                 <div class="invalid-feedback">
                                                     <i class="bx bx-radio-circle"></i>
@@ -193,12 +185,9 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="width">Width</label>
-                                            <input type="number"
-                                                id="width"
-                                                name="width"
+                                            <input type="number" id="width" name="width"
                                                 class="form-control square @error('width') is-invalid @enderror"
-                                                value="{{ $product->width }}"
-                                                placeholder="Product width">
+                                                value="{{ $product->width }}" placeholder="Product width">
                                             @error('width')
                                                 <div class="invalid-feedback">
                                                     <i class="bx bx-radio-circle"></i>
@@ -213,12 +202,9 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="stock">Stock</label>
-                                            <input type="number"
-                                                id="stock"
-                                                name="stock"
+                                            <input type="number" id="stock" name="stock"
                                                 class="form-control round @error('stock') is-invalid @enderror"
-                                                value="{{ $product->stock }}"
-                                                placeholder="Product stock">
+                                                value="{{ $product->stock }}" placeholder="Product stock">
                                             @error('stock')
                                                 <div class="invalid-feedback">
                                                     <i class="bx bx-radio-circle"></i>
@@ -230,12 +216,9 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="age">Age</label>
-                                            <input type="number"
-                                                id="age"
-                                                name="age"
+                                            <input type="number" id="age" name="age"
                                                 class="form-control square @error('age') is-invalid @enderror"
-                                                value="{{ $product->age }}"
-                                                placeholder="Children age">
+                                                value="{{ $product->age }}" placeholder="Children age">
                                             @error('age')
                                                 <div class="invalid-feedback">
                                                     <i class="bx bx-radio-circle"></i>
@@ -247,12 +230,9 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="sku">SKU</label>
-                                            <input type="text"
-                                                id="sku"
-                                                name="sku"
+                                            <input type="text" id="sku" name="sku"
                                                 class="form-control square @error('sku') is-invalid @enderror"
-                                                value="{{ $product->sku }}"
-                                                placeholder="Product SKU">
+                                                value="{{ $product->sku }}" placeholder="Product SKU">
                                             @error('sku')
                                                 <div class="invalid-feedback">
                                                     <i class="bx bx-radio-circle"></i>
@@ -265,11 +245,10 @@
 
                                 <div class="form-group">
                                     <label for="status">Is Available</label>
-                                     <div class="form-check form-switch">
+                                    <div class="form-check form-switch">
                                         <input class="form-check-input @error('status') is-invalid @enderror"
-                                            name="status"
-                                            type="checkbox"
-                                            id="status" {{ $product->status == 1 ? 'checked' : '' }}>
+                                            name="status" type="checkbox" id="status"
+                                            {{ $product->status == 1 ? 'checked' : '' }}>
                                         @error('status')
                                             <div class="invalid-feedback">
                                                 <i class="bx bx-radio-circle"></i>
@@ -296,7 +275,7 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset ('assets/admin/extensions/choices.js/public/assets/scripts/choices.js') }}"></script>
-    <script src="{{ asset ('assets/admin/static/js/pages/form-element-select.js') }}"></script>
-    <script src="{{ asset ('assets/admin/custom/js/edit-product.js') }}"></script>
+    <script src="{{ asset('assets/admin/extensions/choices.js/public/assets/scripts/choices.js') }}"></script>
+    <script src="{{ asset('assets/admin/static/js/pages/form-element-select.js') }}"></script>
+    <script src="{{ asset('assets/admin/custom/js/edit-product.js') }}"></script>
 @endpush

@@ -34,7 +34,6 @@
                             {{ session('success') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-
                     @elseif (session('error'))
                         <div class="alert alert-danger alert-dismissible show fade">
                             {{ session('error') }}
@@ -44,16 +43,14 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('article.update', $article) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('article.update', $article) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
                                     <label for="imageInput" class="form-label">Thumbnail</label>
-                                    <input class="form-control @error('thumbnail') is-invalid @enderror"
-                                        type="file"
-                                        accept=".jpeg, .png, .jpg"
-                                        id="imageInput"
-                                        name='thumbnail'>
+                                    <input class="form-control @error('thumbnail') is-invalid @enderror" type="file"
+                                        accept=".jpeg, .png, .jpg" id="imageInput" name='thumbnail'>
                                     @error('thumbnail')
                                         <div class="invalid-feedback">
                                             <i class="bx bx-radio-circle"></i>
@@ -64,16 +61,14 @@
 
                                 <div class="form-group">
                                     <img id="thumbnail" class="article-thumbnail"
-                                        src="{{ asset('storage/'.$article->thumbnail) }}">
+                                        src="{{ asset('storage/' . $article->thumbnail) }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="title" class="form-label">Title</label>
-                                    <input type="text"
-                                        name="title" id="title"
+                                    <input type="text" name="title" id="title"
                                         class="form-control @error('title') is-invalid @enderror"
-                                        placeholder="Article title"
-                                        value="{{ $article->title }}">
+                                        placeholder="Article title" value="{{ $article->title }}">
                                     @error('title')
                                         <div class="invalid-feedback">
                                             <i class="bx bx-radio-circle"></i>
@@ -84,10 +79,13 @@
 
                                 <div class="form-group">
                                     <label for="category_id" class="form-label">Category</label>
-                                    <select class="choices form-select @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
-                                        <option value="" >Select option</option>
-                                        @foreach($categories as $category)
-                                            <option value="{{ $category->id }}" {{ $category->id == $article->category->id ? 'selected' : '' }} >{{ ucfirst($category->name) }}</option>
+                                    <select class="choices form-select @error('category_id') is-invalid @enderror"
+                                        name="category_id" id="category_id">
+                                        <option value="">Select option</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}"
+                                                {{ isset($article->category) && $category->id == $article->category->id ? 'selected' : '' }}>
+                                                {{ ucfirst($category->name) }}</option>
                                         @endforeach
                                     </select>
                                     @error('category_id')
@@ -100,9 +98,7 @@
 
                                 <div class="form-group">
                                     <label for="body" class="form-label">Body</label>
-                                    <textarea class="form-control @error('body') is-invalid @enderror"
-                                        id="body" name="body"
-                                        rows="6">{{ $article->body }}</textarea>
+                                    <textarea class="form-control @error('body') is-invalid @enderror" id="body" name="body" rows="6">{{ $article->body }}</textarea>
                                     @error('body')
                                         <div class="invalid-feedback">
                                             <i class="bx bx-radio-circle"></i>
@@ -126,7 +122,7 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset ('assets/admin/extensions/choices.js/public/assets/scripts/choices.js') }}"></script>
-    <script src="{{ asset ('assets/admin/static/js/pages/form-element-select.js') }}"></script>
-    <script src="{{ asset ('assets/admin/custom/js/image-picker.js') }}"></script>
+    <script src="{{ asset('assets/admin/extensions/choices.js/public/assets/scripts/choices.js') }}"></script>
+    <script src="{{ asset('assets/admin/static/js/pages/form-element-select.js') }}"></script>
+    <script src="{{ asset('assets/admin/custom/js/image-picker.js') }}"></script>
 @endpush
