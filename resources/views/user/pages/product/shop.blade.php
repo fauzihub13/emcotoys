@@ -44,7 +44,7 @@
                 </a>
                 <a href="{{ route('all-product', ['category' => 'educational-toys']) }}" class="category">
                     <img src="{{ asset('template/assets/img/shop/Vector (2).svg') }}" alt="Cloud" class="cloud">
-                    <img src="{{ asset('template/assets/img/shop/brick.png') }}" alt="Educational Toys" class="icon">
+                    <img src="{{ asset('template/assets/img/shop/brick_toys.png') }}" alt="Educational Toys" class="icon">
                     <p>Educational Toys</p>
                 </a>
                 <a href="{{ route('all-product', ['category' => 'cooking-toys']) }}" class="category">
