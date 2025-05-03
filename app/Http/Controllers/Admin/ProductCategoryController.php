@@ -38,7 +38,7 @@ class ProductCategoryController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name'=>'required|string|min:3|max:255',
+            'name' => 'required|string|min:3|max:255|unique:product_categories',
         ]);
 
         if ($validator->fails()) {
@@ -64,7 +64,6 @@ class ProductCategoryController extends Controller
             $productCategory->save();
 
             return redirect()->route('product.category.index')->with('success', 'Product category created successfully.');
-
         } catch (\Throwable $th) {
             return back()->with('error', 'Failed to create product category. Please try again.' . $th->getMessage());
         }
@@ -100,7 +99,7 @@ class ProductCategoryController extends Controller
     public function update(Request $request, ProductCategory $category)
     {
         $validator = Validator::make($request->all(), [
-            'name'=>'required|string|min:3|max:255',
+            'name' => 'required|string|min:3|max:255|unique:product_categories,name,' . $category->id,
         ]);
 
         if ($validator->fails()) {
@@ -126,7 +125,6 @@ class ProductCategoryController extends Controller
                     $counter++;
                 }
                 $articleCategory->slug = $slug;
-
             }
 
             $articleCategory->name = $request->name;
@@ -134,7 +132,6 @@ class ProductCategoryController extends Controller
             $articleCategory->save();
 
             return redirect()->route('product.category.index')->with('success', 'Product category updated successfully.');
-
         } catch (\Throwable $th) {
             return back()->with('error', 'Failed to update product category. Please try again. ' . $th->getMessage());
         }
@@ -147,13 +144,12 @@ class ProductCategoryController extends Controller
     {
         try {
             $category = ProductCategory::findOrFail($category->id);
-            if($category){
+            if ($category) {
                 $category->delete();
                 return redirect()->route('product.category.index')->with('success', 'Product category deleted successfully.');
             }
         } catch (\Throwable $th) {
-            return back()->with('error', 'Failed to delete product category. Please try again. '. $th->getMessage());
-
+            return back()->with('error', 'Failed to delete product category. Please try again. ' . $th->getMessage());
         }
     }
 }

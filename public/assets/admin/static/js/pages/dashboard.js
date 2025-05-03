@@ -205,5 +205,5 @@ var chartIndonesia = new ApexCharts(
 // chartAmerica.render()
 // chartIndia.render()
 // chartEurope.render()
-chartProfileVisit.render()
+// chartProfileVisit.render()
 // chartVisitorsProfile.render()

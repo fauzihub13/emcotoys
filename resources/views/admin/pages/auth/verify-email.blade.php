@@ -53,10 +53,10 @@
                     >                >
                     @csrf
                 </form>
-
+{{--
                 <div class="text-center mt-5 fs-5">
                     <p class='text-gray-600'>Remember your account? <a href="{{ route('login') }}" class="font-bold">Log in</a></p>
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="col-lg-7 d-none d-lg-block">
