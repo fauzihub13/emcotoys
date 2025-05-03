@@ -58,7 +58,7 @@ class UserController extends Controller
         $articles = Article::filter($filters)
                     ->notInTrash()
                     ->descending()
-                    ->paginate(2)
+                    ->paginate(6)
                     ->appends($filters);
         return view('user.pages.article', [
             'type_menu'=> 'article',
