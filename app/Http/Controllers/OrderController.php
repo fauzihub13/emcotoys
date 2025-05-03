@@ -80,6 +80,9 @@ class OrderController extends Controller
             ]);
         }
 
+        $product->stock -= $quantity;
+        $product->save();
+
         return back()->with('success', 'Product added to cart successfully.');
 
     }
