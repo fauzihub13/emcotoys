@@ -207,6 +207,54 @@ textarea:focus {
     height: 440px;
 }
 
+/* Footer */
+.custom-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-left: 30px;
+}
+
+.custom-footer a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+    margin-bottom: 8px;
+    --title-color: #000;
+}
+
+.custom-footer i {
+    width: var(--icon-size, 36px);
+    height: var(--icon-size, 36px);
+    line-height: var(--icon-size, 36px);
+    text-align: center;
+    font-size: 18px;
+    background-color: var(--theme-color2);
+    color: var(--title-color);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.custom-footer span {
+    color: white;
+    transition: color 0.3s;
+}
+
+.custom-footer a:hover i {
+    background-color: var(--theme-color);
+    color: var(--white-color);
+}
+
+.custom-footer a:hover span {
+    color: var(--theme-color);
+}
+
+
+.custom-footer a:last-child {
+    margin-right: 0;
+}
+
 @media (max-width: 767px) {
     .brands {
         width: 120px;

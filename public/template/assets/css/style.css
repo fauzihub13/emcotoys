@@ -8692,7 +8692,7 @@ body.layout5 .slick-dots li.slick-active button {
         border-radius: 20px;
     }
 }
-
+/* 
 .vs-social {
     display: flex;
     flex-direction: column;
@@ -8706,7 +8706,6 @@ body.layout5 .slick-dots li.slick-active button {
     text-decoration: none;
     gap: 10px;
     margin-bottom: 8px;
-    /* Spasi antar link */
 }
 
 .vs-social i {
@@ -8719,7 +8718,6 @@ body.layout5 .slick-dots li.slick-active button {
     color: var(--title-color);
     border-radius: 50%;
     margin-right: 10px;
-    /* Jarak antara ikon dan teks */
 }
 
 .vs-social span {
@@ -8734,13 +8732,12 @@ body.layout5 .slick-dots li.slick-active button {
 
 .vs-social a:hover span {
     color: var(--theme-color);
-    /* Warna teks berubah saat hover */
 }
 
 
 .vs-social a:last-child {
     margin-right: 0;
-}
+} */
 
 /* .vs-social a::before {
     content: "";
