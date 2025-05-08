@@ -71,6 +71,8 @@ class UserController extends Controller
     public function adetail($slug)
     {
         $article = Article::where('slug', $slug)->first();
+        $article->count_view +=1;
+        $article->save();
         return view('user.pages.article-detail', [
             'type_menu'=> 'article',
             'article'=> $article,
@@ -185,6 +187,8 @@ class UserController extends Controller
             ->get();
 
         $product = Product::with('category')->where('id', $product->id)->first();
+        $product->count_view += 1;
+        $product->save();
 
         return view('user.pages.product.detail-product', [
             'type_menu' => 'shop',
