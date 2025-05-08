@@ -57,8 +57,9 @@
 
                         <div class="product_meta mb-3">
                             <span class="getway-title m-0 text-dark">SKU: <span class="sku fw-light">#{{ $product->sku }}</span></span>
-                            <span class="getway-title m-0 text-dark">Category: <a href="#" rel="tag">{{ $product->category->name }}</a></span>
+                            <span class="getway-title m-0 text-dark">Category: <a href="#" rel="tag">{{ $product->category->name ?? '' }}</a></span>
                             <span class="getway-title m-0 text-dark">Stock: <span class="sku fw-light">{{ $product->stock }} pcs</span></span>
+                            <span class="getway-title m-0 text-dark">Age: <span class="sku fw-light">{{ $product->age }} years old</span></span>
                         </div>
                         <div class="actions">
                             <div class="quantity d-flex justify-content-between">
