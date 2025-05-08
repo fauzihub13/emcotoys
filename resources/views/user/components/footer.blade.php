@@ -67,7 +67,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="widget footer-widget">
                         <div class="sosialmed col-lg-auto">
-                            <div class="vs-social">
+                            <div class="custom-footer">
                                 <a href="https://web.facebook.com/emcotoys/?locale=id_ID&_rdc=1&_rdr#">
                                     <i class="fab fa-facebook-f"></i>
                                     <span>Emco Toys</span>
