@@ -24,10 +24,11 @@ class OrderItem extends Model
     ];
 
     public function order() {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(Order::class, 'order_id', 'id');
     }
 
     public function product() {
-        return $this->hasMany(Product::class);
+        // return $this->hasMany(Product::class);
+        return $this->belongsTo(Product::class, 'product_id', 'id');
     }
 }

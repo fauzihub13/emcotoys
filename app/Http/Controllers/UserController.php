@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Article;
 use App\Models\ArticleCategory;
@@ -178,20 +179,42 @@ class UserController extends Controller
 
     public function detailProduct(Product $product)
     {
-        $relatedProducts = Product::notInTrash()->where('category_id', $product->category_id)
-            ->where('id', '!=', $product->id)
-            ->inRandomOrder()
-            ->limit(4)
-            ->get();
+        $product = Product::with('category')->findOrFail($product->id);
 
-        $product = Product::with('category')->where('id', $product->id)->first();
+        $orderIds = DB::table('order_items')
+            ->where('product_id', $product->id)
+            ->pluck('order_id')
+            ->toArray();
+
+        if (empty($orderIds)) {
+            return view('user.pages.product.detail-product', [
+                'type_menu' => 'shop',
+                'product' => $product,
+                'relatedProducts' => collect(),
+            ]);
+        }
+
+        $relatedProductIds = DB::table('order_items')
+            ->whereIn('order_id', $orderIds)
+            ->where('product_id', '!=', $product->id)
+            ->select('product_id', DB::raw('COUNT(*) as freq'))
+            ->groupBy('product_id')
+            ->orderByDesc('freq')
+            ->limit(4)
+            ->pluck('product_id')
+            ->toArray();
+
+        $relatedProducts = Product::notInTrash()
+            ->whereIn('id', $relatedProductIds)
+            ->get();
 
         return view('user.pages.product.detail-product', [
             'type_menu' => 'shop',
-            'product'=> $product,
+            'product' => $product,
             'relatedProducts' => $relatedProducts
         ]);
     }
+    
     public function liat()
     {
         return view('user.pages.email.confirmationtest', [
