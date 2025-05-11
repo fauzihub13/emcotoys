@@ -3,7 +3,6 @@
 @section('title', 'Dashboard')
 
 @push('style')
-
 @endpush
 
 @section('main')
@@ -121,7 +120,7 @@
                         <div class="row  ">
                             <div class="d-flex justify-content-center  ">
                                 <div class="avatar avatar-xl ">
-                                    <img src="{{ asset ('assets/admin/compiled/jpg/1.jpg')}}" alt="Face 1">
+                                    <img src="{{ asset('assets/admin/compiled/jpg/1.jpg') }}" alt="Face 1">
                                 </div>
                             </div>
                             <div class="">
@@ -149,11 +148,12 @@
                     <div class="card-content pb-4">
                         @if (isset($transactions) && count($transactions) > 0)
                             @foreach ($transactions as $transaction)
-                                @if ($loop->index <4)
+                                @if ($loop->index < 4)
                                     <div class="recent-message d-flex px-4 py-3">
                                         <div class="name">
                                             <h5 class="mb-1">{{ $transaction->name }}</h5>
-                                            <h6 class="text-muted mb-0">{{ $transaction->created_at->format('d F, Y') }}</h6>
+                                            <h6 class="text-muted mb-0">{{ $transaction->created_at->format('d F, Y') }}
+                                            </h6>
                                         </div>
                                     </div>
                                 @endif
@@ -163,7 +163,8 @@
 
                         @endif
                         <div class="px-4">
-                            <a class='btn btn-block btn-xl btn-outline-primary font-bold mt-3' href="{{ route('order.index') }}">All Transactions</a>
+                            <a class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'
+                                href="{{ route('order.index') }}">All Transactions</a>
                         </div>
                     </div>
                 </div>
@@ -174,8 +175,11 @@
 
 @endsection
 
+
+
 @push('script')
     <!-- Need: Apexcharts -->
     <script src="{{ asset('assets/admin/extensions/apexcharts/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/admin/static/js/pages/dashboard.js') }}"></script>
+    {{-- <script src="{{ asset('assets/admin/static/js/pages/dashboard.js') }}"></script> --}}
+    @vite('resources/js/app.js')
 @endpush
