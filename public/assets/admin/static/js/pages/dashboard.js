@@ -1,64 +1,58 @@
-// var optionsProfileVisit = {
-//   annotations: {
-//     position: "back",
-//   },
-//   dataLabels: {
-//     enabled: false,
-//   },
-//   chart: {
-//     type: "bar",
-//     height: 300,
-//   },
-//   fill: {
-//     opacity: 1,
-//   },
-//   plotOptions: {},
-//   series: [
-//     {
-//       name: "sales",
-//       data: [9, 20, 30, 20, 10, 20, 30, 20, 10, 20, 30, 20],
-//     },
-//   ],
-//   colors: "#435ebe",
-//   xaxis: {
-//     categories: [
-//       "Jan",
-//       "Feb",
-//       "Mar",
-//       "Apr",
-//       "May",
-//       "Jun",
-//       "Jul",
-//       "Aug",
-//       "Sep",
-//       "Oct",
-//       "Nov",
-//       "Dec",
-//     ],
-//   },
-// }
-
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("/chart-data") // Adjust route if necessary
+    // ============== TRANSACTION BARPLOT ==============
+    fetch("/chart-data")
         .then((response) => response.json())
         .then((data) => {
-            optionsProfileVisit.series[0].data = data; // Assign fetched data to chart
-            var chart = new ApexCharts(
-                document.querySelector("#chart-transactions"),
-                optionsProfileVisit
-            );
-            chart.render(); // Re-render chart with new data
+            optionsTransaction.series[0].data = data;
+            chartTransaction.updateOptions(optionsTransaction);
+
         })
         .catch((error) => console.error("Error fetching chart data:", error));
+
+    // ============== USER CLUSTERING ==============
+    fetch("/transaction-recap")
+        .then((res) => res.json())
+        .then((data) => {
+            optionsUserClustering.series.forEach((s) => (s.data = []));
+
+            data.forEach((cluster, index) => {
+                Object.values(cluster).forEach((point) => {
+                    optionsUserClustering.series[index].data.push({
+                        x: point[1],
+                        y: point[0],
+                    });
+                });
+            });
+            chartUserClustering.updateOptions(optionsUserClustering);
+        })
+        .catch((err) => {
+            console.error("Failed to fetch segmentation data:", err);
+        });
+
+    // ============== TRANSACTION PERCENTAGE OPTIONS ==============
+    fetch("transaction-percentage")
+        .then((res) => res.json())
+        .then((data) => {
+            // Ambil angka persen, misal dari "27.97%" menjadi 27.97
+            let percentage = parseFloat(data.paid_sales_percentage);
+
+            chartTransactionPercentage.updateSeries([percentage]);
+        })
+        .catch((err) => {
+            console.error("Failed to fetch transaction percentage:", err);
+        });
 });
 
-var optionsProfileVisit = {
+
+
+// ============== TRANSACTION BARPLOT OPTIONS ==============
+var optionsTransaction = {
     annotations: { position: "back" },
     dataLabels: { enabled: false },
     chart: { type: "bar", height: 300 },
     fill: { opacity: 1 },
     plotOptions: {},
-    series: [{ name: "Sales", data: [] }], // Empty array, will be filled dynamically
+    series: [{ name: "Sales", data: [] }],
     colors: "#435ebe",
     xaxis: {
         categories: [
@@ -75,135 +69,158 @@ var optionsProfileVisit = {
             "Nov",
             "Dec",
         ],
+        title: {
+            text: "Month",
+        },
+    },
+    yaxis: {
+        title: {
+            text: "Transaction Amount (Rp)",
+        },
     },
 };
 
-let optionsVisitorsProfile = {
-  series: [70, 30],
-  labels: ["Male", "Female"],
-  colors: ["#435ebe", "#55c6e8"],
-  chart: {
-    type: "donut",
-    width: "100%",
-    height: "350px",
-  },
-  legend: {
-    position: "bottom",
-  },
-  plotOptions: {
-    pie: {
-      donut: {
-        size: "30%",
-      },
-    },
-  },
-}
-
-var optionsEurope = {
-  series: [
-    {
-      name: "series1",
-      data: [310, 800, 600, 430, 540, 340, 605, 805, 430, 540, 340, 605],
-    },
-  ],
-  chart: {
-    height: 80,
-    type: "area",
-    toolbar: {
-      show: false,
-    },
-  },
-  colors: ["#5350e9"],
-  stroke: {
-    width: 2,
-  },
-  grid: {
-    show: false,
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  xaxis: {
-    type: "datetime",
-    categories: [
-      "2018-09-19T00:00:00.000Z",
-      "2018-09-19T01:30:00.000Z",
-      "2018-09-19T02:30:00.000Z",
-      "2018-09-19T03:30:00.000Z",
-      "2018-09-19T04:30:00.000Z",
-      "2018-09-19T05:30:00.000Z",
-      "2018-09-19T06:30:00.000Z",
-      "2018-09-19T07:30:00.000Z",
-      "2018-09-19T08:30:00.000Z",
-      "2018-09-19T09:30:00.000Z",
-      "2018-09-19T10:30:00.000Z",
-      "2018-09-19T11:30:00.000Z",
+// ============== USER CLUSTERING OPTIONS ==============
+var optionsUserClustering = {
+    series: [
+        {
+            name: "Cluster 1",
+            data: [],
+        },
+        {
+            name: "Cluster 2",
+            data: [],
+        },
+        {
+            name: "Cluster 3",
+            data: [],
+        },
+        {
+            name: "Cluster 4",
+            data: [],
+        },
     ],
-    axisBorder: {
-      show: false,
+    chart: {
+        height: 400,
+        type: "scatter",
+        zoom: {
+            enabled: true,
+            type: "xy",
+        },
     },
-    axisTicks: {
-      show: false,
+    xaxis: {
+        tickAmount: 10,
+        title: {
+            text: "Transaction Frequency",
+        },
     },
-    labels: {
-      show: false,
+    yaxis: {
+        tickAmount: 7,
+        title: {
+            text: "Transaction Amount Average (Rp)",
+        },
     },
-  },
-  show: false,
-  yaxis: {
-    labels: {
-      show: false,
-    },
-  },
-  tooltip: {
-    x: {
-      format: "dd/MM/yy HH:mm",
-    },
-  },
-}
+};
 
-let optionsAmerica = {
-  ...optionsEurope,
-  colors: ["#008b75"],
-}
-let optionsIndia = {
-  ...optionsEurope,
-  colors: ["#ffc434"],
-}
-let optionsIndonesia = {
-  ...optionsEurope,
-  colors: ["#dc3545"],
-}
+// ============== TRANSACTION PERCENTAGE OPTIONS ==============
+var optionsTransactionPercentage = {
+    series: [0],
+    chart: {
+        height: 250,
+        type: "radialBar",
+        toolbar: {
+            show: true,
+        },
+    },
+    plotOptions: {
+        radialBar: {
+            startAngle: -135,
+            endAngle: 225,
+            hollow: {
+                margin: 0,
+                size: "70%",
+                background: "#fff",
+                image: undefined,
+                imageOffsetX: 0,
+                imageOffsetY: 0,
+                position: "front",
+                dropShadow: {
+                    enabled: true,
+                    top: 3,
+                    left: 0,
+                    blur: 4,
+                    opacity: 0.5,
+                },
+            },
+            track: {
+                background: "#fff",
+                strokeWidth: "67%",
+                margin: 0, // margin is in pixels
+                dropShadow: {
+                    enabled: true,
+                    top: -3,
+                    left: 0,
+                    blur: 4,
+                    opacity: 0.7,
+                },
+            },
 
-var chartProfileVisit = new ApexCharts(
-  document.querySelector("#chart-profile-visit"),
-  optionsProfileVisit
-)
-var chartVisitorsProfile = new ApexCharts(
-  document.getElementById("chart-visitors-profile"),
-  optionsVisitorsProfile
-)
+            dataLabels: {
+                show: true,
+                name: {
+                    offsetY: -10,
+                    show: true,
+                    color: "#888",
+                    fontSize: "17px",
+                },
+                value: {
+                    formatter: function (val) {
+                        return parseInt(val);
+                    },
+                    color: "#111",
+                    fontSize: "36px",
+                    show: true,
+                },
+            },
+        },
+    },
+    fill: {
+        type: "gradient",
+        gradient: {
+            shade: "dark",
+            type: "horizontal",
+            shadeIntensity: 0.5,
+            gradientToColors: ["#ABE5A1"],
+            inverseColors: true,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 100],
+        },
+    },
+    stroke: {
+        lineCap: "round",
+    },
+    labels: ["Percent"],
+};
 
-var chartEurope = new ApexCharts(
-  document.querySelector("#chart-europe"),
-  optionsEurope
-)
-var chartAmerica = new ApexCharts(
-  document.querySelector("#chart-america"),
-  optionsAmerica
-)
-var chartIndia = new ApexCharts(
-  document.querySelector("#chart-india"),
-  optionsIndia
-)
-var chartIndonesia = new ApexCharts(
-  document.querySelector("#chart-indonesia"),
-  optionsIndonesia
-)
+// ============== TRANSACTION BARPLOT RENDER ==============
+var chartTransaction = new ApexCharts(
+    document.querySelector("#chart-transactions"),
+    optionsTransaction
+);
+chartTransaction.render();
 
-// chartIndonesia.render()
-// chartAmerica.render()
-// chartIndia.render()
-// chartEurope.render()
-// chartProfileVisit.render()
-// chartVisitorsProfile.render()
+// ============== USER CLUSTERING RENDER ==============
+var chartUserClustering = new ApexCharts(
+    document.querySelector("#user-segmentation"),
+    optionsUserClustering
+);
+chartUserClustering.render();
+
+// ============== TRANSACTION PERCENTAGE RENDER ==============
+var chartTransactionPercentage = new ApexCharts(
+    document.querySelector("#transaction-percentage"),
+    optionsTransactionPercentage
+);
+chartTransactionPercentage.render();
+

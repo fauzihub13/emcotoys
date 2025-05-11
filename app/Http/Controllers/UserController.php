@@ -189,10 +189,17 @@ class UserController extends Controller
             ->toArray();
 
         if (empty($orderIds)) {
+
+            $relatedProducts = Product::notInTrash()
+                ->where('id', '!=', $product->id)
+                ->inRandomOrder()
+                ->limit(4)
+                ->get();
+
             return view('user.pages.product.detail-product', [
                 'type_menu' => 'shop',
                 'product' => $product,
-                'relatedProducts' => collect(),
+                'relatedProducts' => $relatedProducts,
             ]);
         }
 
@@ -218,7 +225,7 @@ class UserController extends Controller
             'relatedProducts' => $relatedProducts
         ]);
     }
-    
+
     public function liat()
     {
         return view('user.pages.email.confirmationtest', [

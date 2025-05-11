@@ -66,6 +66,8 @@ Route::domain('admin.'. env('APP_DOMAIN', 'emcotoys.test'))->middleware(['auth',
     Route::controller(DashboardController::class)->group(function(){
         Route::get('/', 'dashboardPage')->name('home');
         Route::get('/chart-data', 'getTransactionChartData')->name('chart');
+        Route::get('/transaction-recap', 'getUserTransactionRecap')->name('transaction.recap');
+        Route::get('/transaction-percentage', 'getTransactionPercentage')->name('transaction.percentage');
     });
 
     // Auth

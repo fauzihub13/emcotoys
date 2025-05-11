@@ -92,7 +92,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Transactions </h4>
+                                <h4>Transactions Recap</h4>
                             </div>
                             <div class="card-body">
                                 <div id="chart-transactions"></div>
@@ -100,23 +100,20 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            {{-- <div class="card">
-                <div class="card-body px-4 py-4-5">
-                    <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                            <div class="stats-icon red mb-2">
-                                <i class="iconly-boldBookmark"></i>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Customer Clustering</h4>
                             </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                            <h6 class="text-muted font-semibold">Transactions</h6>
-                            <h6 class="font-extrabold mb-0">{{ $transactions->count() }}</h6>
+                            <div class="card-body">
+                                <div id="user-segmentation"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
+
 
             <div class="col-12 col-lg-3">
                 <div class="card">
@@ -133,9 +130,21 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center">Paid Transactions Percentage</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="transaction-percentage"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-header">
-                        <h4>Recent Transactions</h4>
+                        <h4 class="text-center">Recent Transactions</h4>
                     </div>
                     <div class="card-content pb-4">
                         @if (isset($transactions) && count($transactions) > 0)
