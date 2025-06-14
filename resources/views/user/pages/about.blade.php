@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-xxl-6 text-center text-xl-start">
-                    <p class="fs-sm pe-xxl-4 me-xxl-4 mb-4 pb-1 mt-n2">Since its founding in 2015, EMCO Toys has been dedicated to spreading joy through toys. Starting as a small family-owned store, we’ve grown into a trusted destination for parents seeking high-quality, safe, and fun toys for their children.</p>
+                    <p class="fs-sm pe-xxl-4 me-xxl-4 mb-4 pb-1 mt-n2">Since its founding in 2015, MECO Toys has been dedicated to spreading joy through toys. Starting as a small family-owned store, we’ve grown into a trusted destination for parents seeking high-quality, safe, and fun toys for their children.</p>
 
                     <div class="row items">
                         <div class="col-md-6">
@@ -331,7 +331,7 @@
     <section class=" space-bottom">
         <div class="container">
             <div class="title-area text-center">
-                <h2 class="sec-title below">Follow Our Instagram <a href="https://www.instagram.com/emcotoys/?hl=en" class="required">@emcotoys</a></h2>
+                <h2 class="sec-title below">Follow Our Instagram <a href="https://www.instagram.com/mecotoys/?hl=en" class="required">@mecotoys</a></h2>
             </div>
             <div class="row vs-carousel" data-slide-show="6" data-lg-slide-show="5" data-md-slide-show="4"
                 data-sm-slide-show="3" data-xs-slide-show="2">

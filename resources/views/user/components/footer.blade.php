@@ -68,21 +68,21 @@
                     <div class="widget footer-widget">
                         <div class="sosialmed col-lg-auto">
                             <div class="custom-footer">
-                                <a href="https://web.facebook.com/emcotoys/?locale=id_ID&_rdc=1&_rdr#">
+                                <a href="https://web.facebook.com/mecotoys/?locale=id_ID&_rdc=1&_rdr#">
                                     <i class="fab fa-facebook-f"></i>
-                                    <span>Emco Toys</span>
+                                    <span>Meco Toys</span>
                                 </a>
-                                <a href="https://x.com/emcotoysid">
+                                <a href="https://x.com/mecotoys">
                                     <i class="fab fa-twitter"></i>
-                                    <span>Emco Toys</span>
+                                    <span>Meco Toys</span>
                                 </a>
-                                <a href="https://www.instagram.com/emcotoys/?hl=en">
+                                <a href="https://www.instagram.com/mecotoys/?hl=en">
                                     <i class="fab fa-instagram"></i>
-                                    <span>PT EMCO TOYS</span>
+                                    <span>PT Meco TOYS</span>
                                 </a>
                                 <a href="https://www.youtube.com/channel/UCtxJ4YvZmAFkf_qmNKDv7qQ">
                                     <i class="fab fa-youtube"></i>
-                                    <span>Emco Indonesia</span>
+                                    <span>Meco Indonesia</span>
                                 </a>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 <div class="col-lg-auto">
-                    <p class="copyright-text text-white"><a href="/">EmcoToys</p>
+                    <p class="copyright-text text-white"><a href="/">Mecotoys</p>
                 </div>
             </div>
         </div>

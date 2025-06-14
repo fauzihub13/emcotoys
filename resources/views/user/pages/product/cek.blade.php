@@ -15,7 +15,7 @@
                                 <i class="fas fa-chevron-right"></i>
                             </a>
                         </div>
-                        <p class="judul">Mainan EMCO Hot Shot Marvel Viper Mainan</p>
+                        <p class="judul">Mainan MECO Hot Shot Marvel Viper Mainan</p>
                     </div>
                 @endfor
 
