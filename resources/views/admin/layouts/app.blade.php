@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{{ asset('assets/admin/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/compiled/css/iconly.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/custom/css/custom.css') }}">
+    <link rel="shortcut icon" href="{{ asset('template/assets/img/meco.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('template/assets/img/meco.png') }}" type="image/x-icon">
 
 </head>
 

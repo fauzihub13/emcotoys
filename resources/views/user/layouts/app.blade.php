@@ -17,8 +17,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" href="{{ asset('template/assets/img/emco.png') }}" type="image/x-icon">
-    <link rel="icon" href="{{ asset('template/assets/img/emco.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('template/assets/img/meco.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('template/assets/img/meco.png') }}" type="image/x-icon">
 
     {{-- FONTS --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
