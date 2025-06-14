@@ -6,7 +6,7 @@
                 <div class="logo">
                     <a href="{{ route('home') }}">
                         <img
-                            src="{{ asset ('assets/admin/static/images/logo/icon-emcotoys.png') }}" class="icon-sidebar"
+                            src="{{ asset ('assets/admin/static/images/logo/meco.png') }}" class="icon-sidebar"
                             alt="Logo"
                             srcset="">
                     </a>

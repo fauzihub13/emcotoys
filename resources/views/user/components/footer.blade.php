@@ -46,7 +46,7 @@
                     <div class="widget footer-widget">
                         <div class="widget-about">
                             <div class="footer-logo">
-                                <img src="{{ asset ('template/assets/img/emco.png') }}" alt="Kiddino">
+                                <img src="{{ asset ('template/assets/img/meco.png') }}" alt="Mecotoys">
                                 <h3 class="widget_title">PT Emway <br> Global-Indo</h3>
                             </div>
                             <p class="mt-0">We are constantly expanding the range of services offered, taking care
